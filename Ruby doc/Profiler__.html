@@ -1,0 +1,567 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>
+  Module: Profiler__
+  
+    &mdash; Documentation by YARD 0.9.12
+  
+</title>
+
+  <link rel="stylesheet" href="css/style.css" type="text/css" charset="utf-8" />
+
+  <link rel="stylesheet" href="css/common.css" type="text/css" charset="utf-8" />
+
+<script type="text/javascript" charset="utf-8">
+  pathId = "Profiler__";
+  relpath = '';
+</script>
+
+
+  <script type="text/javascript" charset="utf-8" src="js/jquery.js"></script>
+
+  <script type="text/javascript" charset="utf-8" src="js/app.js"></script>
+
+
+  </head>
+  <body>
+    <div class="nav_wrap">
+      <iframe id="nav" src="class_list.html?1"></iframe>
+      <div id="resizer"></div>
+    </div>
+
+    <div id="main" tabindex="-1">
+      <div id="header">
+        <div id="menu">
+  
+    <a href="_index.html">Index (P)</a> &raquo;
+    
+    
+    <span class="title">Profiler__</span>
+  
+</div>
+
+        <div id="search">
+  
+    <a class="full_list_link" id="class_list_link"
+        href="class_list.html">
+
+        <svg width="24" height="24">
+          <rect x="0" y="4" width="24" height="4" rx="1" ry="1"></rect>
+          <rect x="0" y="12" width="24" height="4" rx="1" ry="1"></rect>
+          <rect x="0" y="20" width="24" height="4" rx="1" ry="1"></rect>
+        </svg>
+    </a>
+  
+</div>
+        <div class="clear"></div>
+      </div>
+
+      <div id="content"><h1>Module: Profiler__
+  
+  
+  
+</h1>
+<div class="box_info">
+  
+
+  
+  
+  
+  
+  
+
+  
+
+  
+  <dl>
+    <dt>Defined in:</dt>
+    <dd>lib/profiler.rb</dd>
+  </dl>
+  
+</div>
+
+<h2>Overview</h2><div class="docstring">
+  <div class="discussion">
+    
+<p>Profile provides a way to Profile your Ruby application.</p>
+
+<p>Profiling your program is a way of determining which methods are called and
+how long each method takes to complete.  This way you can detect which
+methods are possible bottlenecks.</p>
+
+<p>Profiling your program will slow down your execution time considerably, so
+activate it only when you need it.  Don&#39;t confuse benchmarking with
+profiling.</p>
+
+<p>There are two ways to activate Profiling:</p>
+
+<h2 id="label-Command+line">Command line</h2>
+
+<p>Run your Ruby script with <code>-rprofile</code>:</p>
+
+<pre class="code ruby"><code class="ruby">ruby -rprofile example.rb</code></pre>
+
+<p>If you&#39;re profiling an executable in your <code>$PATH</code> you can
+use <code>ruby -S</code>:</p>
+
+<pre class="code ruby"><code class="ruby">ruby -rprofile -S some_executable</code></pre>
+
+<h2 id="label-From+code">From code</h2>
+
+<p>Just require &#39;profile&#39;:</p>
+
+<pre class="code ruby"><code class="ruby"><span class='id identifier rubyid_require'>require</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>profile</span><span class='tstring_end'>&#39;</span></span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_slow_method'>slow_method</span>
+  <span class='int'>5000</span><span class='period'>.</span><span class='id identifier rubyid_times'>times</span> <span class='kw'>do</span>
+    <span class='int'>9999999999999999</span><span class='op'>*</span><span class='int'>999999999</span>
+  <span class='kw'>end</span>
+<span class='kw'>end</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_fast_method'>fast_method</span>
+  <span class='int'>5000</span><span class='period'>.</span><span class='id identifier rubyid_times'>times</span> <span class='kw'>do</span>
+    <span class='int'>9999999999999999</span><span class='op'>+</span><span class='int'>999999999</span>
+  <span class='kw'>end</span>
+<span class='kw'>end</span>
+
+<span class='id identifier rubyid_slow_method'>slow_method</span>
+<span class='id identifier rubyid_fast_method'>fast_method</span>
+</code></pre>
+
+<p>The output in both cases is a report when the execution is over:</p>
+
+<pre class="code ruby"><code class="ruby">ruby -rprofile example.rb
+
+  %   cumulative   self              self     total
+ time   seconds   seconds    calls  ms/call  ms/call  name
+ 68.42     0.13      0.13        2    65.00    95.00  Integer#times
+ 15.79     0.16      0.03     5000     0.01     0.01  Fixnum#*
+ 15.79     0.19      0.03     5000     0.01     0.01  Fixnum#+
+  0.00     0.19      0.00        2     0.00     0.00  IO#set_encoding
+  0.00     0.19      0.00        1     0.00   100.00  Object#slow_method
+  0.00     0.19      0.00        2     0.00     0.00  Module#method_added
+  0.00     0.19      0.00        1     0.00    90.00  Object#fast_method
+  0.00     0.19      0.00        1     0.00   190.00  #toplevel</code></pre>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><h2>Defined Under Namespace</h2>
+<p class="children">
+  
+    
+  
+    
+      <strong class="classes">Classes:</strong> <span class='object_link'><a href="Profiler__/Wrapper.html" title="Profiler__::Wrapper (class)">Wrapper</a></span>
+    
+  
+</p>
+
+  <h2>Constant Summary</h2>
+  <dl class="constants">
+    
+      <dt id="PROFILE_CALL_PROC-constant" class="">PROFILE_CALL_PROC =
+        <div class="docstring">
+  <div class="discussion">
+    
+<p>the map of call data keyed by thread, class and id. Call data contains the
+call count, total time,</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div>
+      </dt>
+      <dd><pre class="code"><span class='const'>TracePoint</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='op'>*</span><span class='qsymbols_beg'>%i[</span><span class='tstring_content'>call</span><span class='words_sep'> </span><span class='tstring_content'>c_call</span><span class='words_sep'> </span><span class='tstring_content'>b_call</span><span class='words_sep'>]</span><span class='rparen'>)</span> <span class='lbrace'>{</span><span class='op'>|</span><span class='id identifier rubyid_tp'>tp</span><span class='op'>|</span> <span class='comment'># :nodoc:
+</span>  <span class='id identifier rubyid_now'>now</span> <span class='op'>=</span> <span class='const'>Process</span><span class='period'>.</span><span class='id identifier rubyid_times'>times</span><span class='lbracket'>[</span><span class='int'>0</span><span class='rbracket'>]</span>
+  <span class='id identifier rubyid_stack'>stack</span> <span class='op'>=</span> <span class='lparen'>(</span><span class='cvar'>@@stacks</span><span class='lbracket'>[</span><span class='const'><span class='object_link'><a href="Thread.html" title="Thread (class)">Thread</a></span></span><span class='period'>.</span><span class='id identifier rubyid_current'>current</span><span class='rbracket'>]</span> <span class='op'>||=</span> <span class='lbracket'>[</span><span class='rbracket'>]</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_stack'>stack</span><span class='period'>.</span><span class='id identifier rubyid_push'>push</span> <span class='lbracket'>[</span><span class='id identifier rubyid_now'>now</span><span class='comma'>,</span> <span class='float'>0.0</span><span class='rbracket'>]</span>
+<span class='rbrace'>}</span></pre></dd>
+    
+      <dt id="PROFILE_RETURN_PROC-constant" class="">PROFILE_RETURN_PROC =
+        <div class="docstring">
+  <div class="discussion">
+    
+<p>:nodoc:</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div>
+      </dt>
+      <dd><pre class="code"><span class='const'>TracePoint</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='op'>*</span><span class='qsymbols_beg'>%i[</span><span class='tstring_content'>return</span><span class='words_sep'> </span><span class='tstring_content'>c_return</span><span class='words_sep'> </span><span class='tstring_content'>b_return</span><span class='words_sep'>]</span><span class='rparen'>)</span> <span class='lbrace'>{</span><span class='op'>|</span><span class='id identifier rubyid_tp'>tp</span><span class='op'>|</span> <span class='comment'># :nodoc:
+</span>  <span class='id identifier rubyid_now'>now</span> <span class='op'>=</span> <span class='const'>Process</span><span class='period'>.</span><span class='id identifier rubyid_times'>times</span><span class='lbracket'>[</span><span class='int'>0</span><span class='rbracket'>]</span>
+  <span class='id identifier rubyid_key'>key</span> <span class='op'>=</span> <span class='const'><span class='object_link'><a href="Profiler__/Wrapper.html" title="Profiler__::Wrapper (class)">Wrapper</a></span></span><span class='period'>.</span><span class='id identifier rubyid_new'><span class='object_link'><a href="Profiler__/Wrapper.html#initialize-instance_method" title="Profiler__::Wrapper#initialize (method)">new</a></span></span><span class='lparen'>(</span><span class='id identifier rubyid_tp'>tp</span><span class='period'>.</span><span class='id identifier rubyid_defined_class'>defined_class</span><span class='comma'>,</span> <span class='id identifier rubyid_tp'>tp</span><span class='period'>.</span><span class='id identifier rubyid_method_id'>method_id</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_stack'>stack</span> <span class='op'>=</span> <span class='lparen'>(</span><span class='cvar'>@@stacks</span><span class='lbracket'>[</span><span class='const'><span class='object_link'><a href="Thread.html" title="Thread (class)">Thread</a></span></span><span class='period'>.</span><span class='id identifier rubyid_current'>current</span><span class='rbracket'>]</span> <span class='op'>||=</span> <span class='lbracket'>[</span><span class='rbracket'>]</span><span class='rparen'>)</span>
+  <span class='kw'>if</span> <span class='id identifier rubyid_tick'>tick</span> <span class='op'>=</span> <span class='id identifier rubyid_stack'>stack</span><span class='period'>.</span><span class='id identifier rubyid_pop'>pop</span>
+    <span class='id identifier rubyid_threadmap'>threadmap</span> <span class='op'>=</span> <span class='lparen'>(</span><span class='cvar'>@@maps</span><span class='lbracket'>[</span><span class='const'><span class='object_link'><a href="Thread.html" title="Thread (class)">Thread</a></span></span><span class='period'>.</span><span class='id identifier rubyid_current'>current</span><span class='rbracket'>]</span> <span class='op'>||=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
+    <span class='id identifier rubyid_data'>data</span> <span class='op'>=</span> <span class='lparen'>(</span><span class='id identifier rubyid_threadmap'>threadmap</span><span class='lbracket'>[</span><span class='id identifier rubyid_key'>key</span><span class='rbracket'>]</span> <span class='op'>||=</span> <span class='lbracket'>[</span><span class='int'>0</span><span class='comma'>,</span> <span class='float'>0.0</span><span class='comma'>,</span> <span class='float'>0.0</span><span class='comma'>,</span> <span class='id identifier rubyid_key'>key</span><span class='rbracket'>]</span><span class='rparen'>)</span>
+    <span class='id identifier rubyid_data'>data</span><span class='lbracket'>[</span><span class='int'>0</span><span class='rbracket'>]</span> <span class='op'>+=</span> <span class='int'>1</span>
+    <span class='id identifier rubyid_cost'>cost</span> <span class='op'>=</span> <span class='id identifier rubyid_now'>now</span> <span class='op'>-</span> <span class='id identifier rubyid_tick'>tick</span><span class='lbracket'>[</span><span class='int'>0</span><span class='rbracket'>]</span>
+    <span class='id identifier rubyid_data'>data</span><span class='lbracket'>[</span><span class='int'>1</span><span class='rbracket'>]</span> <span class='op'>+=</span> <span class='id identifier rubyid_cost'>cost</span>
+    <span class='id identifier rubyid_data'>data</span><span class='lbracket'>[</span><span class='int'>2</span><span class='rbracket'>]</span> <span class='op'>+=</span> <span class='id identifier rubyid_cost'>cost</span> <span class='op'>-</span> <span class='id identifier rubyid_tick'>tick</span><span class='lbracket'>[</span><span class='int'>1</span><span class='rbracket'>]</span>
+    <span class='id identifier rubyid_stack'>stack</span><span class='lbracket'>[</span><span class='op'>-</span><span class='int'>1</span><span class='rbracket'>]</span><span class='lbracket'>[</span><span class='int'>1</span><span class='rbracket'>]</span> <span class='op'>+=</span> <span class='id identifier rubyid_cost'>cost</span> <span class='kw'>if</span> <span class='id identifier rubyid_stack'>stack</span><span class='lbracket'>[</span><span class='op'>-</span><span class='int'>1</span><span class='rbracket'>]</span>
+  <span class='kw'>end</span>
+<span class='rbrace'>}</span></pre></dd>
+    
+      <dt id="start-classvariable" class="">@@start =
+        <div class="docstring">
+  <div class="discussion">
+    
+<p>internal values</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div>
+      </dt>
+      <dd><pre class="code"><span class='kw'>nil</span></pre></dd>
+    
+      <dt id="stacks-classvariable" class="">@@stacks =
+        <div class="docstring">
+  <div class="discussion">
+    
+<p>the start time that profiling began</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div>
+      </dt>
+      <dd><pre class="code"><span class='kw'>nil</span></pre></dd>
+    
+      <dt id="maps-classvariable" class="">@@maps =
+        <div class="docstring">
+  <div class="discussion">
+    
+<p>the map of stacks keyed by thread</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div>
+      </dt>
+      <dd><pre class="code"><span class='kw'>nil</span></pre></dd>
+    
+  </dl>
+
+
+
+
+
+
+
+  
+    <h2>
+      Class Method Summary
+      <small><a href="#" class="summary_toggle">collapse</a></small>
+    </h2>
+
+    <ul class="summary">
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#print_profile-class_method" title="print_profile (class method)">.<strong>print_profile</strong>(f)  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Outputs the results from the profiler.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#start_profile-class_method" title="start_profile (class method)">.<strong>start_profile</strong>  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Starts the profiler.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#stop_profile-class_method" title="stop_profile (class method)">.<strong>stop_profile</strong>  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Stops the profiler.</p>
+</div></span>
+  
+</li>
+
+      
+    </ul>
+  
+
+
+
+  <div id="class_method_details" class="method_details_list">
+    <h2>Class Method Details</h2>
+
+    
+      <div class="method_details first">
+  <h3 class="signature first" id="print_profile-class_method">
+  
+    .<strong>print_profile</strong>(f)  &#x21d2; <tt><span class='object_link'><a href="Object.html" title="Object (class)">Object</a></span></tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Outputs the results from the profiler.</p>
+
+<p>See Profiler__ for more information.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+120
+121
+122
+123
+124
+125
+126
+127
+128
+129
+130
+131
+132
+133
+134
+135
+136
+137
+138
+139
+140
+141
+142
+143
+144
+145
+146
+147
+148</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/profiler.rb', line 120</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_print_profile'>print_profile</span><span class='lparen'>(</span><span class='id identifier rubyid_f'>f</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_stop_profile'>stop_profile</span>
+  <span class='id identifier rubyid_total'>total</span> <span class='op'>=</span> <span class='const'>Process</span><span class='period'>.</span><span class='id identifier rubyid_times'>times</span><span class='lbracket'>[</span><span class='int'>0</span><span class='rbracket'>]</span> <span class='op'>-</span> <span class='cvar'>@@start</span>
+  <span class='kw'>if</span> <span class='id identifier rubyid_total'>total</span> <span class='op'>==</span> <span class='int'>0</span> <span class='kw'>then</span> <span class='id identifier rubyid_total'>total</span> <span class='op'>=</span> <span class='float'>0.01</span> <span class='kw'>end</span>
+  <span class='id identifier rubyid_totals'>totals</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span>
+  <span class='cvar'>@@maps</span><span class='period'>.</span><span class='id identifier rubyid_values'>values</span><span class='period'>.</span><span class='id identifier rubyid_each'>each</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_threadmap'>threadmap</span><span class='op'>|</span>
+    <span class='id identifier rubyid_threadmap'>threadmap</span><span class='period'>.</span><span class='id identifier rubyid_each'>each</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_key'>key</span><span class='comma'>,</span> <span class='id identifier rubyid_data'>data</span><span class='op'>|</span>
+      <span class='id identifier rubyid_total_data'>total_data</span> <span class='op'>=</span> <span class='lparen'>(</span><span class='id identifier rubyid_totals'>totals</span><span class='lbracket'>[</span><span class='id identifier rubyid_key'>key</span><span class='rbracket'>]</span> <span class='op'>||=</span> <span class='lbracket'>[</span><span class='int'>0</span><span class='comma'>,</span> <span class='float'>0.0</span><span class='comma'>,</span> <span class='float'>0.0</span><span class='comma'>,</span> <span class='id identifier rubyid_key'>key</span><span class='rbracket'>]</span><span class='rparen'>)</span>
+      <span class='id identifier rubyid_total_data'>total_data</span><span class='lbracket'>[</span><span class='int'>0</span><span class='rbracket'>]</span> <span class='op'>+=</span> <span class='id identifier rubyid_data'>data</span><span class='lbracket'>[</span><span class='int'>0</span><span class='rbracket'>]</span>
+      <span class='id identifier rubyid_total_data'>total_data</span><span class='lbracket'>[</span><span class='int'>1</span><span class='rbracket'>]</span> <span class='op'>+=</span> <span class='id identifier rubyid_data'>data</span><span class='lbracket'>[</span><span class='int'>1</span><span class='rbracket'>]</span>
+      <span class='id identifier rubyid_total_data'>total_data</span><span class='lbracket'>[</span><span class='int'>2</span><span class='rbracket'>]</span> <span class='op'>+=</span> <span class='id identifier rubyid_data'>data</span><span class='lbracket'>[</span><span class='int'>2</span><span class='rbracket'>]</span>
+    <span class='kw'>end</span>
+  <span class='kw'>end</span>
+
+  <span class='comment'># Maybe we should show a per thread output and a totals view?
+</span>
+  <span class='id identifier rubyid_data'>data</span> <span class='op'>=</span> <span class='id identifier rubyid_totals'>totals</span><span class='period'>.</span><span class='id identifier rubyid_values'>values</span>
+  <span class='id identifier rubyid_data'>data</span> <span class='op'>=</span> <span class='id identifier rubyid_data'>data</span><span class='period'>.</span><span class='id identifier rubyid_sort_by'>sort_by</span><span class='lbrace'>{</span><span class='op'>|</span><span class='id identifier rubyid_x'>x</span><span class='op'>|</span> <span class='op'>-</span><span class='id identifier rubyid_x'>x</span><span class='lbracket'>[</span><span class='int'>2</span><span class='rbracket'>]</span><span class='rbrace'>}</span>
+  <span class='id identifier rubyid_sum'>sum</span> <span class='op'>=</span> <span class='int'>0</span>
+  <span class='id identifier rubyid_f'>f</span><span class='period'>.</span><span class='id identifier rubyid_printf'>printf</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>  %%   cumulative   self              self     total\n</span><span class='tstring_end'>&quot;</span></span>
+  <span class='id identifier rubyid_f'>f</span><span class='period'>.</span><span class='id identifier rubyid_printf'>printf</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'> time   seconds   seconds    calls  ms/call  ms/call  name\n</span><span class='tstring_end'>&quot;</span></span>
+  <span class='kw'>for</span> <span class='id identifier rubyid_d'>d</span> <span class='kw'>in</span> <span class='id identifier rubyid_data'>data</span>
+    <span class='id identifier rubyid_sum'>sum</span> <span class='op'>+=</span> <span class='id identifier rubyid_d'>d</span><span class='lbracket'>[</span><span class='int'>2</span><span class='rbracket'>]</span>
+    <span class='id identifier rubyid_f'>f</span><span class='period'>.</span><span class='id identifier rubyid_printf'>printf</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>%6.2f %8.2f  %8.2f %8d </span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='id identifier rubyid_d'>d</span><span class='lbracket'>[</span><span class='int'>2</span><span class='rbracket'>]</span><span class='op'>/</span><span class='id identifier rubyid_total'>total</span><span class='op'>*</span><span class='int'>100</span><span class='comma'>,</span> <span class='id identifier rubyid_sum'>sum</span><span class='comma'>,</span> <span class='id identifier rubyid_d'>d</span><span class='lbracket'>[</span><span class='int'>2</span><span class='rbracket'>]</span><span class='comma'>,</span> <span class='id identifier rubyid_d'>d</span><span class='lbracket'>[</span><span class='int'>0</span><span class='rbracket'>]</span>
+    <span class='id identifier rubyid_f'>f</span><span class='period'>.</span><span class='id identifier rubyid_printf'>printf</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>%8.2f %8.2f  %s\n</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='id identifier rubyid_d'>d</span><span class='lbracket'>[</span><span class='int'>2</span><span class='rbracket'>]</span><span class='op'>*</span><span class='int'>1000</span><span class='op'>/</span><span class='id identifier rubyid_d'>d</span><span class='lbracket'>[</span><span class='int'>0</span><span class='rbracket'>]</span><span class='comma'>,</span> <span class='id identifier rubyid_d'>d</span><span class='lbracket'>[</span><span class='int'>1</span><span class='rbracket'>]</span><span class='op'>*</span><span class='int'>1000</span><span class='op'>/</span><span class='id identifier rubyid_d'>d</span><span class='lbracket'>[</span><span class='int'>0</span><span class='rbracket'>]</span><span class='comma'>,</span> <span class='id identifier rubyid_d'>d</span><span class='lbracket'>[</span><span class='int'>3</span><span class='rbracket'>]</span>
+  <span class='kw'>end</span>
+  <span class='id identifier rubyid_f'>f</span><span class='period'>.</span><span class='id identifier rubyid_printf'>printf</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>%6.2f %8.2f  %8.2f %8d </span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='float'>0.0</span><span class='comma'>,</span> <span class='id identifier rubyid_total'>total</span><span class='comma'>,</span> <span class='float'>0.0</span><span class='comma'>,</span> <span class='int'>1</span>     <span class='comment'># ???
+</span>  <span class='id identifier rubyid_f'>f</span><span class='period'>.</span><span class='id identifier rubyid_printf'>printf</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>%8.2f %8.2f  %s\n</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='float'>0.0</span><span class='comma'>,</span> <span class='id identifier rubyid_total'>total</span><span class='op'>*</span><span class='int'>1000</span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>#toplevel</span><span class='tstring_end'>&quot;</span></span> <span class='comment'># ???
+</span><span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="start_profile-class_method">
+  
+    .<strong>start_profile</strong>  &#x21d2; <tt><span class='object_link'><a href="Object.html" title="Object (class)">Object</a></span></tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Starts the profiler.</p>
+
+<p>See Profiler__ for more information.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+103
+104
+105
+106
+107
+108
+109</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/profiler.rb', line 103</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_start_profile'>start_profile</span>
+  <span class='cvar'>@@start</span> <span class='op'>=</span> <span class='const'>Process</span><span class='period'>.</span><span class='id identifier rubyid_times'>times</span><span class='lbracket'>[</span><span class='int'>0</span><span class='rbracket'>]</span>
+  <span class='cvar'>@@stacks</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span>
+  <span class='cvar'>@@maps</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span>
+  <span class='const'><span class='object_link'><a href="#PROFILE_CALL_PROC-constant" title="Profiler__::PROFILE_CALL_PROC (constant)">PROFILE_CALL_PROC</a></span></span><span class='period'>.</span><span class='id identifier rubyid_enable'>enable</span>
+  <span class='const'><span class='object_link'><a href="#PROFILE_RETURN_PROC-constant" title="Profiler__::PROFILE_RETURN_PROC (constant)">PROFILE_RETURN_PROC</a></span></span><span class='period'>.</span><span class='id identifier rubyid_enable'>enable</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="stop_profile-class_method">
+  
+    .<strong>stop_profile</strong>  &#x21d2; <tt><span class='object_link'><a href="Object.html" title="Object (class)">Object</a></span></tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Stops the profiler.</p>
+
+<p>See Profiler__ for more information.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+113
+114
+115
+116</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/profiler.rb', line 113</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_stop_profile'>stop_profile</span>
+  <span class='const'><span class='object_link'><a href="#PROFILE_CALL_PROC-constant" title="Profiler__::PROFILE_CALL_PROC (constant)">PROFILE_CALL_PROC</a></span></span><span class='period'>.</span><span class='id identifier rubyid_disable'>disable</span>
+  <span class='const'><span class='object_link'><a href="#PROFILE_RETURN_PROC-constant" title="Profiler__::PROFILE_RETURN_PROC (constant)">PROFILE_RETURN_PROC</a></span></span><span class='period'>.</span><span class='id identifier rubyid_disable'>disable</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+  </div>
+
+</div>
+
+      <div id="footer">
+  Generated on Mon Feb 26 22:17:34 2018 by
+  <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
+  0.9.12 (ruby-2.4.2).
+</div>
+
+    </div>
+  </body>
+</html>

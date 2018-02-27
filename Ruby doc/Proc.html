@@ -1,0 +1,2127 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>
+  Class: Proc
+  
+    &mdash; Documentation by YARD 0.9.12
+  
+</title>
+
+  <link rel="stylesheet" href="css/style.css" type="text/css" charset="utf-8" />
+
+  <link rel="stylesheet" href="css/common.css" type="text/css" charset="utf-8" />
+
+<script type="text/javascript" charset="utf-8">
+  pathId = "Proc";
+  relpath = '';
+</script>
+
+
+  <script type="text/javascript" charset="utf-8" src="js/jquery.js"></script>
+
+  <script type="text/javascript" charset="utf-8" src="js/app.js"></script>
+
+
+  </head>
+  <body>
+    <div class="nav_wrap">
+      <iframe id="nav" src="class_list.html?1"></iframe>
+      <div id="resizer"></div>
+    </div>
+
+    <div id="main" tabindex="-1">
+      <div id="header">
+        <div id="menu">
+  
+    <a href="_index.html">Index (P)</a> &raquo;
+    
+    
+    <span class="title">Proc</span>
+  
+</div>
+
+        <div id="search">
+  
+    <a class="full_list_link" id="class_list_link"
+        href="class_list.html">
+
+        <svg width="24" height="24">
+          <rect x="0" y="4" width="24" height="4" rx="1" ry="1"></rect>
+          <rect x="0" y="12" width="24" height="4" rx="1" ry="1"></rect>
+          <rect x="0" y="20" width="24" height="4" rx="1" ry="1"></rect>
+        </svg>
+    </a>
+  
+</div>
+        <div class="clear"></div>
+      </div>
+
+      <div id="content"><h1>Class: Proc
+  
+  
+  
+</h1>
+<div class="box_info">
+  
+  <dl>
+    <dt>Inherits:</dt>
+    <dd>
+      <span class="inheritName"><span class='object_link'><a href="Object.html" title="Object (class)">Object</a></span></span>
+      
+        <ul class="fullTree">
+          <li><span class='object_link'><a href="Object.html" title="Object (class)">Object</a></span></li>
+          
+            <li class="next">Proc</li>
+          
+        </ul>
+        <a href="#" class="inheritanceTree">show all</a>
+      
+    </dd>
+  </dl>
+  
+
+  
+  
+  
+  
+  
+
+  
+
+  
+  <dl>
+    <dt>Defined in:</dt>
+    <dd>proc.c</dd>
+  </dl>
+  
+</div>
+
+<h2>Overview</h2><div class="docstring">
+  <div class="discussion">
+    
+<p><code>Proc</code> objects are blocks of code that have been bound to a set
+of local variables. Once bound, the code may be called in different
+contexts and still access those variables.</p>
+
+<pre class="code ruby"><code class="ruby"><span class='kw'>def</span> <span class='id identifier rubyid_gen_times'>gen_times</span><span class='lparen'>(</span><span class='id identifier rubyid_factor'>factor</span><span class='rparen'>)</span>
+  <span class='kw'>return</span> <span class='const'>Proc</span><span class='period'>.</span><span class='id identifier rubyid_new'><span class='object_link'><a href="#new-class_method" title="Proc.new (method)">new</a></span></span> <span class='lbrace'>{</span><span class='op'>|</span><span class='id identifier rubyid_n'>n</span><span class='op'>|</span> <span class='id identifier rubyid_n'>n</span><span class='op'>*</span><span class='id identifier rubyid_factor'>factor</span> <span class='rbrace'>}</span>
+<span class='kw'>end</span>
+
+<span class='id identifier rubyid_times3'>times3</span> <span class='op'>=</span> <span class='id identifier rubyid_gen_times'>gen_times</span><span class='lparen'>(</span><span class='int'>3</span><span class='rparen'>)</span>
+<span class='id identifier rubyid_times5'>times5</span> <span class='op'>=</span> <span class='id identifier rubyid_gen_times'>gen_times</span><span class='lparen'>(</span><span class='int'>5</span><span class='rparen'>)</span>
+
+<span class='id identifier rubyid_times3'>times3</span><span class='period'>.</span><span class='id identifier rubyid_call'>call</span><span class='lparen'>(</span><span class='int'>12</span><span class='rparen'>)</span>               <span class='comment'>#=&gt; 36
+</span><span class='id identifier rubyid_times5'>times5</span><span class='period'>.</span><span class='id identifier rubyid_call'>call</span><span class='lparen'>(</span><span class='int'>5</span><span class='rparen'>)</span>                <span class='comment'>#=&gt; 25
+</span><span class='id identifier rubyid_times3'>times3</span><span class='period'>.</span><span class='id identifier rubyid_call'>call</span><span class='lparen'>(</span><span class='id identifier rubyid_times5'>times5</span><span class='period'>.</span><span class='id identifier rubyid_call'>call</span><span class='lparen'>(</span><span class='int'>4</span><span class='rparen'>)</span><span class='rparen'>)</span>   <span class='comment'>#=&gt; 60
+</span></code></pre>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div>
+
+
+
+
+
+
+  
+    <h2>
+      Class Method Summary
+      <small><a href="#" class="summary_toggle">collapse</a></small>
+    </h2>
+
+    <ul class="summary">
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#new-class_method" title="new (class method)">.<strong>new</strong>(*args)  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Creates a new <code>Proc</code> object, bound to the current context.</p>
+</div></span>
+  
+</li>
+
+      
+    </ul>
+  
+    <h2>
+      Instance Method Summary
+      <small><a href="#" class="summary_toggle">collapse</a></small>
+    </h2>
+
+    <ul class="summary">
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#===-instance_method" title="#=== (instance method)">#<strong>===</strong>(*args)  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>call-seq:    proc === obj   -&gt; result_of_proc.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#[]-instance_method" title="#[] (instance method)">#<strong>[]</strong>(*args)  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>call-seq:    prc.call(params,…)   -&gt; obj    <a href="params,...">prc</a>
+-&gt; obj    prc.(params,…)       -&gt; obj    prc.yield(params,…)  -&gt;
+obj.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#arity-instance_method" title="#arity (instance method)">#<strong>arity</strong>  &#x21d2; Integer </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Returns the number of mandatory arguments.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#binding-instance_method" title="#binding (instance method)">#<strong>binding</strong>  &#x21d2; Binding </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Returns the binding associated with <em>prc</em>.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#call-instance_method" title="#call (instance method)">#<strong>call</strong>(*args)  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>call-seq:    prc.call(params,…)   -&gt; obj    <a href="params,...">prc</a>
+-&gt; obj    prc.(params,…)       -&gt; obj    prc.yield(params,…)  -&gt;
+obj.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#clone-instance_method" title="#clone (instance method)">#<strong>clone</strong>  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>:nodoc:.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#curry-instance_method" title="#curry (instance method)">#<strong>curry</strong>(*args)  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Returns a curried proc.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#dup-instance_method" title="#dup (instance method)">#<strong>dup</strong>  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#hash-instance_method" title="#hash (instance method)">#<strong>hash</strong>  &#x21d2; Integer </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Returns a hash value corresponding to proc body.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#lambda%3F-instance_method" title="#lambda? (instance method)">#<strong>lambda?</strong>  &#x21d2; Boolean </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Returns <code>true</code> for a Proc object for which argument handling is
+rigid.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#parameters-instance_method" title="#parameters (instance method)">#<strong>parameters</strong>  &#x21d2; Array </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Returns the parameter information of this proc.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#source_location-instance_method" title="#source_location (instance method)">#<strong>source_location</strong>  &#x21d2; Array, Integer </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Returns the Ruby source filename and line number containing this proc or
+<code>nil</code> if this proc was not defined in Ruby (i.e. native).</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#to_proc-instance_method" title="#to_proc (instance method)">#<strong>to_proc</strong>  &#x21d2; Proc </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Part of the protocol for converting objects to <code>Proc</code> objects.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#to_s-instance_method" title="#to_s (instance method)">#<strong>to_s</strong>  &#x21d2; String </a>
+    
+
+    
+      (also: #inspect)
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Returns the unique identifier for this proc, along with an indication of
+where the proc was defined.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#yield-instance_method" title="#yield (instance method)">#<strong>yield</strong>(*args)  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>call-seq:    prc.call(params,…)   -&gt; obj    <a href="params,...">prc</a>
+-&gt; obj    prc.(params,…)       -&gt; obj    prc.yield(params,…)  -&gt;
+obj.</p>
+</div></span>
+  
+</li>
+
+      
+    </ul>
+  
+
+
+
+  <div id="class_method_details" class="method_details_list">
+    <h2>Class Method Details</h2>
+
+    
+      <div class="method_details first">
+  <h3 class="signature first" id="new-class_method">
+  
+    
+      <span class="overload">.<strong>new</strong> {|...| ... } &#x21d2; <tt><span class='object_link'><a href="" title="Proc (class)">Proc</a></span></tt> </span>
+    
+      <span class="overload">.<strong>new</strong>  &#x21d2; <tt><span class='object_link'><a href="" title="Proc (class)">Proc</a></span></tt> </span>
+    
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Creates a new <code>Proc</code> object, bound to the current context.
+<code>Proc::new</code> may be called without a block only within a method
+with an attached block, in which case that block is converted to the
+<code>Proc</code> object.</p>
+
+<pre class="code"><code class=""><span class='kw'>def</span> <span class='id identifier rubyid_proc_from'>proc_from</span>
+  <span class='const'><span class='object_link'><a href="" title="Proc (class)">Proc</a></span></span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span>
+<span class='kw'>end</span>
+<span class='id identifier rubyid_proc'>proc</span> <span class='op'>=</span> <span class='id identifier rubyid_proc_from'>proc_from</span> <span class='lbrace'>{</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>hello</span><span class='tstring_end'>&quot;</span></span> <span class='rbrace'>}</span>
+<span class='id identifier rubyid_proc'>proc</span><span class='period'>.</span><span class='id identifier rubyid_call'>call</span>   <span class='comment'>#=&gt; &quot;hello&quot;
+</span></code></pre>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+  <p class="tag_title">Overloads:</p>
+  <ul class="overload">
+    
+      
+      <li class="overload_item">
+        <span class="signature">.<strong>new</strong> {|...| ... } &#x21d2; <tt><span class='object_link'><a href="" title="Proc (class)">Proc</a></span></tt> </span>
+        <div class="docstring">
+  <div class="discussion">
+    
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Yields:</p>
+<ul class="yield">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>...</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="" title="Proc (class)">Proc</a></span></tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div>
+      </li>
+    
+      
+      <li class="overload_item">
+        <span class="signature">.<strong>new</strong>  &#x21d2; <tt><span class='object_link'><a href="" title="Proc (class)">Proc</a></span></tt> </span>
+        <div class="docstring">
+  <div class="discussion">
+    
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="" title="Proc (class)">Proc</a></span></tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div>
+      </li>
+    
+  </ul>
+
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+775
+776
+777
+778
+779
+780
+781
+782</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'proc.c', line 775</span>
+
+static VALUE
+rb_proc_s_new(int argc, VALUE *argv, VALUE klass)
+{
+    VALUE block = proc_new(klass, FALSE);
+
+    rb_obj_call_init(block, argc, argv);
+    return block;
+}</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+  </div>
+
+  <div id="instance_method_details" class="method_details_list">
+    <h2>Instance Method Details</h2>
+
+    
+      <div class="method_details first">
+  <h3 class="signature first" id="===-instance_method">
+  
+    #<strong>===</strong>(*args)  &#x21d2; <tt><span class='object_link'><a href="Object.html" title="Object (class)">Object</a></span></tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>call-seq:</p>
+
+<pre class="code"><code class="">proc === obj   -&gt; result_of_proc</code></pre>
+
+<p>Invokes the block with <code>obj</code> as the proc&#39;s parameter like
+Proc#call.  It is to allow a proc object to be a target of
+<code>when</code> clause in a case statement.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+862
+863
+864
+865
+866</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'proc.c', line 862</span>
+
+static VALUE
+proc_call(int argc, VALUE *argv, VALUE procval)
+{
+    /* removed */
+}</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="[]-instance_method">
+  
+    #<strong>[]</strong>(*args)  &#x21d2; <tt><span class='object_link'><a href="Object.html" title="Object (class)">Object</a></span></tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>call-seq:</p>
+
+<pre class="code"><code class="">prc.call(params,...)   -&gt; obj
+prc[params,...]        -&gt; obj
+prc.(params,...)       -&gt; obj
+prc.yield(params,...)  -&gt; obj</code></pre>
+
+<p>Invokes the block, setting the block&#39;s parameters to the values in
+<em>params</em> using something close to method calling semantics. Returns
+the value of the last expression evaluated in the block.</p>
+
+<pre class="code"><code class=""><span class='id identifier rubyid_a_proc'>a_proc</span> <span class='op'>=</span> <span class='const'><span class='object_link'><a href="" title="Proc (class)">Proc</a></span></span><span class='period'>.</span><span class='id identifier rubyid_new'><span class='object_link'><a href="#new-class_method" title="Proc.new (method)">new</a></span></span> <span class='lbrace'>{</span><span class='op'>|</span><span class='id identifier rubyid_scalar'>scalar</span><span class='comma'>,</span> <span class='op'>*</span><span class='id identifier rubyid_values'>values</span><span class='op'>|</span> <span class='id identifier rubyid_values'>values</span><span class='period'>.</span><span class='id identifier rubyid_map'>map</span> <span class='lbrace'>{</span><span class='op'>|</span><span class='id identifier rubyid_value'>value</span><span class='op'>|</span> <span class='id identifier rubyid_value'>value</span><span class='op'>*</span><span class='id identifier rubyid_scalar'>scalar</span> <span class='rbrace'>}</span> <span class='rbrace'>}</span>
+<span class='id identifier rubyid_a_proc'>a_proc</span><span class='period'>.</span><span class='id identifier rubyid_call'>call</span><span class='lparen'>(</span><span class='int'>9</span><span class='comma'>,</span> <span class='int'>1</span><span class='comma'>,</span> <span class='int'>2</span><span class='comma'>,</span> <span class='int'>3</span><span class='rparen'>)</span>    <span class='comment'>#=&gt; [9, 18, 27]
+</span><span class='id identifier rubyid_a_proc'>a_proc</span><span class='lbracket'>[</span><span class='int'>9</span><span class='comma'>,</span> <span class='int'>1</span><span class='comma'>,</span> <span class='int'>2</span><span class='comma'>,</span> <span class='int'>3</span><span class='rbracket'>]</span>         <span class='comment'>#=&gt; [9, 18, 27]
+</span><span class='id identifier rubyid_a_proc'>a_proc</span><span class='period'>.</span><span class='lparen'>(</span><span class='int'>9</span><span class='comma'>,</span> <span class='int'>1</span><span class='comma'>,</span> <span class='int'>2</span><span class='comma'>,</span> <span class='int'>3</span><span class='rparen'>)</span>        <span class='comment'>#=&gt; [9, 18, 27]
+</span><span class='id identifier rubyid_a_proc'>a_proc</span><span class='period'>.</span><span class='id identifier rubyid_yield'>yield</span><span class='lparen'>(</span><span class='int'>9</span><span class='comma'>,</span> <span class='int'>1</span><span class='comma'>,</span> <span class='int'>2</span><span class='comma'>,</span> <span class='int'>3</span><span class='rparen'>)</span>   <span class='comment'>#=&gt; [9, 18, 27]
+</span></code></pre>
+
+<p>Note that <code>prc.()</code> invokes <code>prc.call()</code> with the
+parameters given.  It&#39;s syntactic sugar to hide “call”.</p>
+
+<p>For procs created using <code>lambda</code> or <code>-&gt;()</code> an
+error is generated if the wrong number of parameters are passed to the
+proc. For procs created using <code>Proc.new</code> or
+<code>Kernel.proc</code>, extra parameters are silently discarded and
+missing parameters are set to <code>nil</code>.</p>
+
+<pre class="code"><code class=""><span class='id identifier rubyid_a_proc'>a_proc</span> <span class='op'>=</span> <span class='id identifier rubyid_proc'>proc</span> <span class='lbrace'>{</span><span class='op'>|</span><span class='id identifier rubyid_a'>a</span><span class='comma'>,</span><span class='id identifier rubyid_b'>b</span><span class='op'>|</span> <span class='lbracket'>[</span><span class='id identifier rubyid_a'>a</span><span class='comma'>,</span><span class='id identifier rubyid_b'>b</span><span class='rbracket'>]</span> <span class='rbrace'>}</span>
+<span class='id identifier rubyid_a_proc'>a_proc</span><span class='period'>.</span><span class='id identifier rubyid_call'>call</span><span class='lparen'>(</span><span class='int'>1</span><span class='rparen'>)</span>   <span class='comment'>#=&gt; [1, nil]
+</span>
+<span class='id identifier rubyid_a_proc'>a_proc</span> <span class='op'>=</span> <span class='id identifier rubyid_lambda'>lambda</span> <span class='lbrace'>{</span><span class='op'>|</span><span class='id identifier rubyid_a'>a</span><span class='comma'>,</span><span class='id identifier rubyid_b'>b</span><span class='op'>|</span> <span class='lbracket'>[</span><span class='id identifier rubyid_a'>a</span><span class='comma'>,</span><span class='id identifier rubyid_b'>b</span><span class='rbracket'>]</span> <span class='rbrace'>}</span>
+<span class='id identifier rubyid_a_proc'>a_proc</span><span class='period'>.</span><span class='id identifier rubyid_call'>call</span><span class='lparen'>(</span><span class='int'>1</span><span class='rparen'>)</span>   <span class='comment'># ArgumentError: wrong number of arguments (given 1, expected 2)
+</span></code></pre>
+
+<p>See also Proc#lambda?.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+862
+863
+864
+865
+866</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'proc.c', line 862</span>
+
+static VALUE
+proc_call(int argc, VALUE *argv, VALUE procval)
+{
+    /* removed */
+}</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="arity-instance_method">
+  
+    #<strong>arity</strong>  &#x21d2; <tt><span class='object_link'><a href="Integer.html" title="Integer (class)">Integer</a></span></tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Returns the number of mandatory arguments. If the block is declared to take
+no arguments, returns 0. If the block is known to take exactly n arguments,
+returns n. If the block has optional arguments, returns -n-1, where n is
+the number of mandatory arguments, with the exception for blocks that are
+not lambdas and have only a finite number of optional arguments; in this
+latter case, returns n. Keyword arguments will be considered as a single
+additional argument, that argument being mandatory if any keyword argument
+is mandatory. A <code>proc</code> with no argument declarations is the same
+as a block declaring <code>||</code> as its arguments.</p>
+
+<pre class="code"><code class=""><span class='id identifier rubyid_proc'>proc</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='period'>.</span><span class='id identifier rubyid_arity'>arity</span>                  <span class='comment'>#=&gt;  0
+</span><span class='id identifier rubyid_proc'>proc</span> <span class='lbrace'>{</span> <span class='op'>||</span> <span class='rbrace'>}</span><span class='period'>.</span><span class='id identifier rubyid_arity'>arity</span>              <span class='comment'>#=&gt;  0
+</span><span class='id identifier rubyid_proc'>proc</span> <span class='lbrace'>{</span> <span class='op'>|</span><span class='id identifier rubyid_a'>a</span><span class='op'>|</span> <span class='rbrace'>}</span><span class='period'>.</span><span class='id identifier rubyid_arity'>arity</span>             <span class='comment'>#=&gt;  1
+</span><span class='id identifier rubyid_proc'>proc</span> <span class='lbrace'>{</span> <span class='op'>|</span><span class='id identifier rubyid_a'>a</span><span class='comma'>,</span> <span class='id identifier rubyid_b'>b</span><span class='op'>|</span> <span class='rbrace'>}</span><span class='period'>.</span><span class='id identifier rubyid_arity'>arity</span>          <span class='comment'>#=&gt;  2
+</span><span class='id identifier rubyid_proc'>proc</span> <span class='lbrace'>{</span> <span class='op'>|</span><span class='id identifier rubyid_a'>a</span><span class='comma'>,</span> <span class='id identifier rubyid_b'>b</span><span class='comma'>,</span> <span class='id identifier rubyid_c'>c</span><span class='op'>|</span> <span class='rbrace'>}</span><span class='period'>.</span><span class='id identifier rubyid_arity'>arity</span>       <span class='comment'>#=&gt;  3
+</span><span class='id identifier rubyid_proc'>proc</span> <span class='lbrace'>{</span> <span class='op'>|</span><span class='op'>*</span><span class='id identifier rubyid_a'>a</span><span class='op'>|</span> <span class='rbrace'>}</span><span class='period'>.</span><span class='id identifier rubyid_arity'>arity</span>            <span class='comment'>#=&gt; -1
+</span><span class='id identifier rubyid_proc'>proc</span> <span class='lbrace'>{</span> <span class='op'>|</span><span class='id identifier rubyid_a'>a</span><span class='comma'>,</span> <span class='op'>*</span><span class='id identifier rubyid_b'>b</span><span class='op'>|</span> <span class='rbrace'>}</span><span class='period'>.</span><span class='id identifier rubyid_arity'>arity</span>         <span class='comment'>#=&gt; -2
+</span><span class='id identifier rubyid_proc'>proc</span> <span class='lbrace'>{</span> <span class='op'>|</span><span class='id identifier rubyid_a'>a</span><span class='comma'>,</span> <span class='op'>*</span><span class='id identifier rubyid_b'>b</span><span class='comma'>,</span> <span class='id identifier rubyid_c'>c</span><span class='op'>|</span> <span class='rbrace'>}</span><span class='period'>.</span><span class='id identifier rubyid_arity'>arity</span>      <span class='comment'>#=&gt; -3
+</span><span class='id identifier rubyid_proc'>proc</span> <span class='lbrace'>{</span> <span class='op'>|</span><span class='label'>x:</span><span class='comma'>,</span> <span class='label'>y:</span><span class='comma'>,</span> <span class='label'>z:</span><span class='int'>0</span><span class='op'>|</span> <span class='rbrace'>}</span><span class='period'>.</span><span class='id identifier rubyid_arity'>arity</span>   <span class='comment'>#=&gt;  1
+</span><span class='id identifier rubyid_proc'>proc</span> <span class='lbrace'>{</span> <span class='op'>|</span><span class='op'>*</span><span class='id identifier rubyid_a'>a</span><span class='comma'>,</span> <span class='label'>x:</span><span class='comma'>,</span> <span class='label'>y:</span><span class='int'>0</span><span class='op'>|</span> <span class='rbrace'>}</span><span class='period'>.</span><span class='id identifier rubyid_arity'>arity</span>   <span class='comment'>#=&gt; -2
+</span>
+<span class='id identifier rubyid_proc'>proc</span>   <span class='lbrace'>{</span> <span class='op'>|</span><span class='id identifier rubyid_a'>a</span><span class='op'>=</span><span class='int'>0</span><span class='op'>|</span> <span class='rbrace'>}</span><span class='period'>.</span><span class='id identifier rubyid_arity'>arity</span>         <span class='comment'>#=&gt;  0
+</span><span class='id identifier rubyid_lambda'>lambda</span> <span class='lbrace'>{</span> <span class='op'>|</span><span class='id identifier rubyid_a'>a</span><span class='op'>=</span><span class='int'>0</span><span class='op'>|</span> <span class='rbrace'>}</span><span class='period'>.</span><span class='id identifier rubyid_arity'>arity</span>         <span class='comment'>#=&gt; -1
+</span><span class='id identifier rubyid_proc'>proc</span>   <span class='lbrace'>{</span> <span class='op'>|</span><span class='id identifier rubyid_a'>a</span><span class='op'>=</span><span class='int'>0</span><span class='comma'>,</span> <span class='id identifier rubyid_b'>b</span><span class='op'>|</span> <span class='rbrace'>}</span><span class='period'>.</span><span class='id identifier rubyid_arity'>arity</span>      <span class='comment'>#=&gt;  1
+</span><span class='id identifier rubyid_lambda'>lambda</span> <span class='lbrace'>{</span> <span class='op'>|</span><span class='id identifier rubyid_a'>a</span><span class='op'>=</span><span class='int'>0</span><span class='comma'>,</span> <span class='id identifier rubyid_b'>b</span><span class='op'>|</span> <span class='rbrace'>}</span><span class='period'>.</span><span class='id identifier rubyid_arity'>arity</span>      <span class='comment'>#=&gt; -2
+</span><span class='id identifier rubyid_proc'>proc</span>   <span class='lbrace'>{</span> <span class='op'>|</span><span class='id identifier rubyid_a'>a</span><span class='op'>=</span><span class='int'>0</span><span class='comma'>,</span> <span class='id identifier rubyid_b'>b</span><span class='op'>=</span><span class='int'>0</span><span class='op'>|</span> <span class='rbrace'>}</span><span class='period'>.</span><span class='id identifier rubyid_arity'>arity</span>    <span class='comment'>#=&gt;  0
+</span><span class='id identifier rubyid_lambda'>lambda</span> <span class='lbrace'>{</span> <span class='op'>|</span><span class='id identifier rubyid_a'>a</span><span class='op'>=</span><span class='int'>0</span><span class='comma'>,</span> <span class='id identifier rubyid_b'>b</span><span class='op'>=</span><span class='int'>0</span><span class='op'>|</span> <span class='rbrace'>}</span><span class='period'>.</span><span class='id identifier rubyid_arity'>arity</span>    <span class='comment'>#=&gt; -1
+</span><span class='id identifier rubyid_proc'>proc</span>   <span class='lbrace'>{</span> <span class='op'>|</span><span class='id identifier rubyid_a'>a</span><span class='comma'>,</span> <span class='id identifier rubyid_b'>b</span><span class='op'>=</span><span class='int'>0</span><span class='op'>|</span> <span class='rbrace'>}</span><span class='period'>.</span><span class='id identifier rubyid_arity'>arity</span>      <span class='comment'>#=&gt;  1
+</span><span class='id identifier rubyid_lambda'>lambda</span> <span class='lbrace'>{</span> <span class='op'>|</span><span class='id identifier rubyid_a'>a</span><span class='comma'>,</span> <span class='id identifier rubyid_b'>b</span><span class='op'>=</span><span class='int'>0</span><span class='op'>|</span> <span class='rbrace'>}</span><span class='period'>.</span><span class='id identifier rubyid_arity'>arity</span>      <span class='comment'>#=&gt; -2
+</span><span class='id identifier rubyid_proc'>proc</span>   <span class='lbrace'>{</span> <span class='op'>|</span><span class='lparen'>(</span><span class='id identifier rubyid_a'>a</span><span class='comma'>,</span> <span class='id identifier rubyid_b'>b</span><span class='rparen'>)</span><span class='comma'>,</span> <span class='id identifier rubyid_c'>c</span><span class='op'>=</span><span class='int'>0</span><span class='op'>|</span> <span class='rbrace'>}</span><span class='period'>.</span><span class='id identifier rubyid_arity'>arity</span> <span class='comment'>#=&gt;  1
+</span><span class='id identifier rubyid_lambda'>lambda</span> <span class='lbrace'>{</span> <span class='op'>|</span><span class='lparen'>(</span><span class='id identifier rubyid_a'>a</span><span class='comma'>,</span> <span class='id identifier rubyid_b'>b</span><span class='rparen'>)</span><span class='comma'>,</span> <span class='id identifier rubyid_c'>c</span><span class='op'>=</span><span class='int'>0</span><span class='op'>|</span> <span class='rbrace'>}</span><span class='period'>.</span><span class='id identifier rubyid_arity'>arity</span> <span class='comment'>#=&gt; -2
+</span><span class='id identifier rubyid_proc'>proc</span>   <span class='lbrace'>{</span> <span class='op'>|</span><span class='id identifier rubyid_a'>a</span><span class='comma'>,</span> <span class='label'>x:</span><span class='int'>0</span><span class='comma'>,</span> <span class='label'>y:</span><span class='int'>0</span><span class='op'>|</span> <span class='rbrace'>}</span><span class='period'>.</span><span class='id identifier rubyid_arity'>arity</span> <span class='comment'>#=&gt;  1
+</span><span class='id identifier rubyid_lambda'>lambda</span> <span class='lbrace'>{</span> <span class='op'>|</span><span class='id identifier rubyid_a'>a</span><span class='comma'>,</span> <span class='label'>x:</span><span class='int'>0</span><span class='comma'>,</span> <span class='label'>y:</span><span class='int'>0</span><span class='op'>|</span> <span class='rbrace'>}</span><span class='period'>.</span><span class='id identifier rubyid_arity'>arity</span> <span class='comment'>#=&gt; -2
+</span></code></pre>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+  <div class="docstring">
+  <div class="discussion">
+    
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="Integer.html" title="Integer (class)">Integer</a></span></tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div>
+
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+957
+958
+959
+960
+961
+962</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'proc.c', line 957</span>
+
+static VALUE
+proc_arity(VALUE self)
+{
+    int arity = rb_proc_arity(self);
+    return INT2FIX(arity);
+}</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="binding-instance_method">
+  
+    #<strong>binding</strong>  &#x21d2; <tt><span class='object_link'><a href="Binding.html" title="Binding (class)">Binding</a></span></tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Returns the binding associated with <em>prc</em>. Note that
+<code>Kernel#eval</code> accepts either a <code>Proc</code> or a
+<code>Binding</code> object as its second parameter.</p>
+
+<pre class="code"><code class=""><span class='kw'>def</span> <span class='id identifier rubyid_fred'>fred</span><span class='lparen'>(</span><span class='id identifier rubyid_param'>param</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_proc'>proc</span> <span class='lbrace'>{</span><span class='rbrace'>}</span>
+<span class='kw'>end</span>
+
+<span class='id identifier rubyid_b'>b</span> <span class='op'>=</span> <span class='id identifier rubyid_fred'>fred</span><span class='lparen'>(</span><span class='int'>99</span><span class='rparen'>)</span>
+<span class='id identifier rubyid_eval'>eval</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>param</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='id identifier rubyid_b'>b</span><span class='period'>.</span><span class='id identifier rubyid_binding'>binding</span><span class='rparen'>)</span>   <span class='comment'>#=&gt; 99
+</span></code></pre>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+  <div class="docstring">
+  <div class="discussion">
+    
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="Binding.html" title="Binding (class)">Binding</a></span></tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div>
+
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+2803
+2804
+2805
+2806
+2807
+2808
+2809
+2810
+2811
+2812
+2813
+2814
+2815
+2816
+2817
+2818
+2819
+2820
+2821
+2822
+2823
+2824
+2825
+2826
+2827
+2828
+2829
+2830
+2831
+2832
+2833
+2834
+2835
+2836
+2837
+2838
+2839
+2840
+2841
+2842
+2843
+2844
+2845
+2846
+2847
+2848
+2849
+2850
+2851
+2852
+2853
+2854
+2855
+2856
+2857
+2858
+2859
+2860
+2861
+2862
+2863
+2864
+2865
+2866
+2867
+2868
+2869
+2870
+2871
+2872</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'proc.c', line 2803</span>
+
+static VALUE
+proc_binding(VALUE self)
+{
+    VALUE bindval, binding_self = Qundef;
+    rb_binding_t *bind;
+    const rb_proc_t *proc;
+    const rb_iseq_t *iseq = NULL;
+    const struct rb_block *block;
+    const rb_env_t *env = NULL;
+
+    GetProcPtr(self, proc);
+    block = &amp;proc-&gt;block;
+
+  again:
+    switch (vm_block_type(block)) {
+      case block_type_iseq:
+	iseq = block-&gt;as.captured.code.iseq;
+	binding_self = block-&gt;as.captured.self;
+	env = VM_ENV_ENVVAL_PTR(block-&gt;as.captured.ep);
+	break;
+      case block_type_proc:
+	GetProcPtr(block-&gt;as.proc, proc);
+	block = &amp;proc-&gt;block;
+	goto again;
+      case block_type_symbol:
+	goto error;
+      case block_type_ifunc:
+	{
+	    const struct vm_ifunc *ifunc = block-&gt;as.captured.code.ifunc;
+	    if (IS_METHOD_PROC_IFUNC(ifunc)) {
+		VALUE method = (VALUE)ifunc-&gt;data;
+		VALUE name = rb_fstring_cstr(&quot;&lt;empty_iseq&gt;&quot;);
+		rb_iseq_t *empty;
+		binding_self = method_receiver(method);
+		iseq = rb_method_iseq(method);
+		env = VM_ENV_ENVVAL_PTR(block-&gt;as.captured.ep);
+		env = env_clone(env, method_cref(method));
+		/* set empty iseq */
+		empty = rb_iseq_new(NULL, name, name, Qnil, 0, ISEQ_TYPE_TOP);
+		RB_OBJ_WRITE(env, &amp;env-&gt;iseq, empty);
+		break;
+	    }
+	    else {
+	      error:
+		rb_raise(rb_eArgError, &quot;Can&#39;t create Binding from C level Proc&quot;);
+		return Qnil;
+	    }
+	}
+    }
+
+    bindval = rb_binding_alloc(rb_cBinding);
+    GetBindingPtr(bindval, bind);
+    RB_OBJ_WRITE(bindval, &amp;bind-&gt;block.as.captured.self, binding_self);
+    RB_OBJ_WRITE(bindval, &amp;bind-&gt;block.as.captured.code.iseq, env-&gt;iseq);
+    rb_vm_block_ep_update(bindval, &amp;bind-&gt;block, env-&gt;ep);
+    RB_OBJ_WRITTEN(bindval, Qundef, VM_ENV_ENVVAL(env-&gt;ep));
+
+    if (iseq) {
+	rb_iseq_check(iseq);
+	RB_OBJ_WRITE(bindval, &amp;bind-&gt;pathobj, iseq-&gt;body-&gt;location.pathobj);
+	bind-&gt;first_lineno = FIX2INT(rb_iseq_first_lineno(iseq));
+    }
+    else {
+	RB_OBJ_WRITE(bindval, &amp;bind-&gt;pathobj,
+		     rb_iseq_pathobj_new(rb_fstring_cstr(&quot;(binding)&quot;), Qnil));
+	bind-&gt;first_lineno = 1;
+    }
+
+    return bindval;
+}</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="call-instance_method">
+  
+    #<strong>call</strong>(*args)  &#x21d2; <tt><span class='object_link'><a href="Object.html" title="Object (class)">Object</a></span></tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>call-seq:</p>
+
+<pre class="code"><code class="">prc.call(params,...)   -&gt; obj
+prc[params,...]        -&gt; obj
+prc.(params,...)       -&gt; obj
+prc.yield(params,...)  -&gt; obj</code></pre>
+
+<p>Invokes the block, setting the block&#39;s parameters to the values in
+<em>params</em> using something close to method calling semantics. Returns
+the value of the last expression evaluated in the block.</p>
+
+<pre class="code"><code class=""><span class='id identifier rubyid_a_proc'>a_proc</span> <span class='op'>=</span> <span class='const'><span class='object_link'><a href="" title="Proc (class)">Proc</a></span></span><span class='period'>.</span><span class='id identifier rubyid_new'><span class='object_link'><a href="#new-class_method" title="Proc.new (method)">new</a></span></span> <span class='lbrace'>{</span><span class='op'>|</span><span class='id identifier rubyid_scalar'>scalar</span><span class='comma'>,</span> <span class='op'>*</span><span class='id identifier rubyid_values'>values</span><span class='op'>|</span> <span class='id identifier rubyid_values'>values</span><span class='period'>.</span><span class='id identifier rubyid_map'>map</span> <span class='lbrace'>{</span><span class='op'>|</span><span class='id identifier rubyid_value'>value</span><span class='op'>|</span> <span class='id identifier rubyid_value'>value</span><span class='op'>*</span><span class='id identifier rubyid_scalar'>scalar</span> <span class='rbrace'>}</span> <span class='rbrace'>}</span>
+<span class='id identifier rubyid_a_proc'>a_proc</span><span class='period'>.</span><span class='id identifier rubyid_call'>call</span><span class='lparen'>(</span><span class='int'>9</span><span class='comma'>,</span> <span class='int'>1</span><span class='comma'>,</span> <span class='int'>2</span><span class='comma'>,</span> <span class='int'>3</span><span class='rparen'>)</span>    <span class='comment'>#=&gt; [9, 18, 27]
+</span><span class='id identifier rubyid_a_proc'>a_proc</span><span class='lbracket'>[</span><span class='int'>9</span><span class='comma'>,</span> <span class='int'>1</span><span class='comma'>,</span> <span class='int'>2</span><span class='comma'>,</span> <span class='int'>3</span><span class='rbracket'>]</span>         <span class='comment'>#=&gt; [9, 18, 27]
+</span><span class='id identifier rubyid_a_proc'>a_proc</span><span class='period'>.</span><span class='lparen'>(</span><span class='int'>9</span><span class='comma'>,</span> <span class='int'>1</span><span class='comma'>,</span> <span class='int'>2</span><span class='comma'>,</span> <span class='int'>3</span><span class='rparen'>)</span>        <span class='comment'>#=&gt; [9, 18, 27]
+</span><span class='id identifier rubyid_a_proc'>a_proc</span><span class='period'>.</span><span class='id identifier rubyid_yield'>yield</span><span class='lparen'>(</span><span class='int'>9</span><span class='comma'>,</span> <span class='int'>1</span><span class='comma'>,</span> <span class='int'>2</span><span class='comma'>,</span> <span class='int'>3</span><span class='rparen'>)</span>   <span class='comment'>#=&gt; [9, 18, 27]
+</span></code></pre>
+
+<p>Note that <code>prc.()</code> invokes <code>prc.call()</code> with the
+parameters given.  It&#39;s syntactic sugar to hide “call”.</p>
+
+<p>For procs created using <code>lambda</code> or <code>-&gt;()</code> an
+error is generated if the wrong number of parameters are passed to the
+proc. For procs created using <code>Proc.new</code> or
+<code>Kernel.proc</code>, extra parameters are silently discarded and
+missing parameters are set to <code>nil</code>.</p>
+
+<pre class="code"><code class=""><span class='id identifier rubyid_a_proc'>a_proc</span> <span class='op'>=</span> <span class='id identifier rubyid_proc'>proc</span> <span class='lbrace'>{</span><span class='op'>|</span><span class='id identifier rubyid_a'>a</span><span class='comma'>,</span><span class='id identifier rubyid_b'>b</span><span class='op'>|</span> <span class='lbracket'>[</span><span class='id identifier rubyid_a'>a</span><span class='comma'>,</span><span class='id identifier rubyid_b'>b</span><span class='rbracket'>]</span> <span class='rbrace'>}</span>
+<span class='id identifier rubyid_a_proc'>a_proc</span><span class='period'>.</span><span class='id identifier rubyid_call'>call</span><span class='lparen'>(</span><span class='int'>1</span><span class='rparen'>)</span>   <span class='comment'>#=&gt; [1, nil]
+</span>
+<span class='id identifier rubyid_a_proc'>a_proc</span> <span class='op'>=</span> <span class='id identifier rubyid_lambda'>lambda</span> <span class='lbrace'>{</span><span class='op'>|</span><span class='id identifier rubyid_a'>a</span><span class='comma'>,</span><span class='id identifier rubyid_b'>b</span><span class='op'>|</span> <span class='lbracket'>[</span><span class='id identifier rubyid_a'>a</span><span class='comma'>,</span><span class='id identifier rubyid_b'>b</span><span class='rbracket'>]</span> <span class='rbrace'>}</span>
+<span class='id identifier rubyid_a_proc'>a_proc</span><span class='period'>.</span><span class='id identifier rubyid_call'>call</span><span class='lparen'>(</span><span class='int'>1</span><span class='rparen'>)</span>   <span class='comment'># ArgumentError: wrong number of arguments (given 1, expected 2)
+</span></code></pre>
+
+<p>See also Proc#lambda?.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+862
+863
+864
+865
+866</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'proc.c', line 862</span>
+
+static VALUE
+proc_call(int argc, VALUE *argv, VALUE procval)
+{
+    /* removed */
+}</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="clone-instance_method">
+  
+    #<strong>clone</strong>  &#x21d2; <tt><span class='object_link'><a href="Object.html" title="Object (class)">Object</a></span></tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>:nodoc:</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+128
+129
+130
+131
+132
+133
+134</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'proc.c', line 128</span>
+
+static VALUE
+proc_clone(VALUE self)
+{
+    VALUE procval = rb_proc_dup(self);
+    CLONESETUP(procval, self);
+    return procval;
+}</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="curry-instance_method">
+  
+    
+      <span class="overload">#<strong>curry</strong>  &#x21d2; <tt><span class='object_link'><a href="" title="Proc (class)">Proc</a></span></tt> </span>
+    
+      <span class="overload">#<strong>curry</strong>(arity)  &#x21d2; <tt><span class='object_link'><a href="" title="Proc (class)">Proc</a></span></tt> </span>
+    
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Returns a curried proc. If the optional <em>arity</em> argument is given,
+it determines the number of arguments. A curried proc receives some
+arguments. If a sufficient number of arguments are supplied, it passes the
+supplied arguments to the original proc and returns the result. Otherwise,
+returns another curried proc that takes the rest of arguments.</p>
+
+<pre class="code"><code class=""><span class='id identifier rubyid_b'>b</span> <span class='op'>=</span> <span class='id identifier rubyid_proc'>proc</span> <span class='lbrace'>{</span><span class='op'>|</span><span class='id identifier rubyid_x'>x</span><span class='comma'>,</span> <span class='id identifier rubyid_y'>y</span><span class='comma'>,</span> <span class='id identifier rubyid_z'>z</span><span class='op'>|</span> <span class='lparen'>(</span><span class='id identifier rubyid_x'>x</span><span class='op'>||</span><span class='int'>0</span><span class='rparen'>)</span> <span class='op'>+</span> <span class='lparen'>(</span><span class='id identifier rubyid_y'>y</span><span class='op'>||</span><span class='int'>0</span><span class='rparen'>)</span> <span class='op'>+</span> <span class='lparen'>(</span><span class='id identifier rubyid_z'>z</span><span class='op'>||</span><span class='int'>0</span><span class='rparen'>)</span> <span class='rbrace'>}</span>
+<span class='id identifier rubyid_p'>p</span> <span class='id identifier rubyid_b'>b</span><span class='period'>.</span><span class='id identifier rubyid_curry'>curry</span><span class='lbracket'>[</span><span class='int'>1</span><span class='rbracket'>]</span><span class='lbracket'>[</span><span class='int'>2</span><span class='rbracket'>]</span><span class='lbracket'>[</span><span class='int'>3</span><span class='rbracket'>]</span>           <span class='comment'>#=&gt; 6
+</span><span class='id identifier rubyid_p'>p</span> <span class='id identifier rubyid_b'>b</span><span class='period'>.</span><span class='id identifier rubyid_curry'>curry</span><span class='lbracket'>[</span><span class='int'>1</span><span class='comma'>,</span> <span class='int'>2</span><span class='rbracket'>]</span><span class='lbracket'>[</span><span class='int'>3</span><span class='comma'>,</span> <span class='int'>4</span><span class='rbracket'>]</span>        <span class='comment'>#=&gt; 6
+</span><span class='id identifier rubyid_p'>p</span> <span class='id identifier rubyid_b'>b</span><span class='period'>.</span><span class='id identifier rubyid_curry'>curry</span><span class='lparen'>(</span><span class='int'>5</span><span class='rparen'>)</span><span class='lbracket'>[</span><span class='int'>1</span><span class='rbracket'>]</span><span class='lbracket'>[</span><span class='int'>2</span><span class='rbracket'>]</span><span class='lbracket'>[</span><span class='int'>3</span><span class='rbracket'>]</span><span class='lbracket'>[</span><span class='int'>4</span><span class='rbracket'>]</span><span class='lbracket'>[</span><span class='int'>5</span><span class='rbracket'>]</span>  <span class='comment'>#=&gt; 6
+</span><span class='id identifier rubyid_p'>p</span> <span class='id identifier rubyid_b'>b</span><span class='period'>.</span><span class='id identifier rubyid_curry'>curry</span><span class='lparen'>(</span><span class='int'>5</span><span class='rparen'>)</span><span class='lbracket'>[</span><span class='int'>1</span><span class='comma'>,</span> <span class='int'>2</span><span class='rbracket'>]</span><span class='lbracket'>[</span><span class='int'>3</span><span class='comma'>,</span> <span class='int'>4</span><span class='rbracket'>]</span><span class='lbracket'>[</span><span class='int'>5</span><span class='rbracket'>]</span>  <span class='comment'>#=&gt; 6
+</span><span class='id identifier rubyid_p'>p</span> <span class='id identifier rubyid_b'>b</span><span class='period'>.</span><span class='id identifier rubyid_curry'>curry</span><span class='lparen'>(</span><span class='int'>1</span><span class='rparen'>)</span><span class='lbracket'>[</span><span class='int'>1</span><span class='rbracket'>]</span>              <span class='comment'>#=&gt; 1
+</span>
+<span class='id identifier rubyid_b'>b</span> <span class='op'>=</span> <span class='id identifier rubyid_proc'>proc</span> <span class='lbrace'>{</span><span class='op'>|</span><span class='id identifier rubyid_x'>x</span><span class='comma'>,</span> <span class='id identifier rubyid_y'>y</span><span class='comma'>,</span> <span class='id identifier rubyid_z'>z</span><span class='comma'>,</span> <span class='op'>*</span><span class='id identifier rubyid_w'>w</span><span class='op'>|</span> <span class='lparen'>(</span><span class='id identifier rubyid_x'>x</span><span class='op'>||</span><span class='int'>0</span><span class='rparen'>)</span> <span class='op'>+</span> <span class='lparen'>(</span><span class='id identifier rubyid_y'>y</span><span class='op'>||</span><span class='int'>0</span><span class='rparen'>)</span> <span class='op'>+</span> <span class='lparen'>(</span><span class='id identifier rubyid_z'>z</span><span class='op'>||</span><span class='int'>0</span><span class='rparen'>)</span> <span class='op'>+</span> <span class='id identifier rubyid_w'>w</span><span class='period'>.</span><span class='id identifier rubyid_inject'>inject</span><span class='lparen'>(</span><span class='int'>0</span><span class='comma'>,</span> <span class='op'>&amp;</span><span class='symbol'>:+</span><span class='rparen'>)</span> <span class='rbrace'>}</span>
+<span class='id identifier rubyid_p'>p</span> <span class='id identifier rubyid_b'>b</span><span class='period'>.</span><span class='id identifier rubyid_curry'>curry</span><span class='lbracket'>[</span><span class='int'>1</span><span class='rbracket'>]</span><span class='lbracket'>[</span><span class='int'>2</span><span class='rbracket'>]</span><span class='lbracket'>[</span><span class='int'>3</span><span class='rbracket'>]</span>           <span class='comment'>#=&gt; 6
+</span><span class='id identifier rubyid_p'>p</span> <span class='id identifier rubyid_b'>b</span><span class='period'>.</span><span class='id identifier rubyid_curry'>curry</span><span class='lbracket'>[</span><span class='int'>1</span><span class='comma'>,</span> <span class='int'>2</span><span class='rbracket'>]</span><span class='lbracket'>[</span><span class='int'>3</span><span class='comma'>,</span> <span class='int'>4</span><span class='rbracket'>]</span>        <span class='comment'>#=&gt; 10
+</span><span class='id identifier rubyid_p'>p</span> <span class='id identifier rubyid_b'>b</span><span class='period'>.</span><span class='id identifier rubyid_curry'>curry</span><span class='lparen'>(</span><span class='int'>5</span><span class='rparen'>)</span><span class='lbracket'>[</span><span class='int'>1</span><span class='rbracket'>]</span><span class='lbracket'>[</span><span class='int'>2</span><span class='rbracket'>]</span><span class='lbracket'>[</span><span class='int'>3</span><span class='rbracket'>]</span><span class='lbracket'>[</span><span class='int'>4</span><span class='rbracket'>]</span><span class='lbracket'>[</span><span class='int'>5</span><span class='rbracket'>]</span>  <span class='comment'>#=&gt; 15
+</span><span class='id identifier rubyid_p'>p</span> <span class='id identifier rubyid_b'>b</span><span class='period'>.</span><span class='id identifier rubyid_curry'>curry</span><span class='lparen'>(</span><span class='int'>5</span><span class='rparen'>)</span><span class='lbracket'>[</span><span class='int'>1</span><span class='comma'>,</span> <span class='int'>2</span><span class='rbracket'>]</span><span class='lbracket'>[</span><span class='int'>3</span><span class='comma'>,</span> <span class='int'>4</span><span class='rbracket'>]</span><span class='lbracket'>[</span><span class='int'>5</span><span class='rbracket'>]</span>  <span class='comment'>#=&gt; 15
+</span><span class='id identifier rubyid_p'>p</span> <span class='id identifier rubyid_b'>b</span><span class='period'>.</span><span class='id identifier rubyid_curry'>curry</span><span class='lparen'>(</span><span class='int'>1</span><span class='rparen'>)</span><span class='lbracket'>[</span><span class='int'>1</span><span class='rbracket'>]</span>              <span class='comment'>#=&gt; 1
+</span>
+<span class='id identifier rubyid_b'>b</span> <span class='op'>=</span> <span class='id identifier rubyid_lambda'>lambda</span> <span class='lbrace'>{</span><span class='op'>|</span><span class='id identifier rubyid_x'>x</span><span class='comma'>,</span> <span class='id identifier rubyid_y'>y</span><span class='comma'>,</span> <span class='id identifier rubyid_z'>z</span><span class='op'>|</span> <span class='lparen'>(</span><span class='id identifier rubyid_x'>x</span><span class='op'>||</span><span class='int'>0</span><span class='rparen'>)</span> <span class='op'>+</span> <span class='lparen'>(</span><span class='id identifier rubyid_y'>y</span><span class='op'>||</span><span class='int'>0</span><span class='rparen'>)</span> <span class='op'>+</span> <span class='lparen'>(</span><span class='id identifier rubyid_z'>z</span><span class='op'>||</span><span class='int'>0</span><span class='rparen'>)</span> <span class='rbrace'>}</span>
+<span class='id identifier rubyid_p'>p</span> <span class='id identifier rubyid_b'>b</span><span class='period'>.</span><span class='id identifier rubyid_curry'>curry</span><span class='lbracket'>[</span><span class='int'>1</span><span class='rbracket'>]</span><span class='lbracket'>[</span><span class='int'>2</span><span class='rbracket'>]</span><span class='lbracket'>[</span><span class='int'>3</span><span class='rbracket'>]</span>           <span class='comment'>#=&gt; 6
+</span><span class='id identifier rubyid_p'>p</span> <span class='id identifier rubyid_b'>b</span><span class='period'>.</span><span class='id identifier rubyid_curry'>curry</span><span class='lbracket'>[</span><span class='int'>1</span><span class='comma'>,</span> <span class='int'>2</span><span class='rbracket'>]</span><span class='lbracket'>[</span><span class='int'>3</span><span class='comma'>,</span> <span class='int'>4</span><span class='rbracket'>]</span>        <span class='comment'>#=&gt; wrong number of arguments (given 4, expected 3)
+</span><span class='id identifier rubyid_p'>p</span> <span class='id identifier rubyid_b'>b</span><span class='period'>.</span><span class='id identifier rubyid_curry'>curry</span><span class='lparen'>(</span><span class='int'>5</span><span class='rparen'>)</span>                 <span class='comment'>#=&gt; wrong number of arguments (given 5, expected 3)
+</span><span class='id identifier rubyid_p'>p</span> <span class='id identifier rubyid_b'>b</span><span class='period'>.</span><span class='id identifier rubyid_curry'>curry</span><span class='lparen'>(</span><span class='int'>1</span><span class='rparen'>)</span>                 <span class='comment'>#=&gt; wrong number of arguments (given 1, expected 3)
+</span>
+<span class='id identifier rubyid_b'>b</span> <span class='op'>=</span> <span class='id identifier rubyid_lambda'>lambda</span> <span class='lbrace'>{</span><span class='op'>|</span><span class='id identifier rubyid_x'>x</span><span class='comma'>,</span> <span class='id identifier rubyid_y'>y</span><span class='comma'>,</span> <span class='id identifier rubyid_z'>z</span><span class='comma'>,</span> <span class='op'>*</span><span class='id identifier rubyid_w'>w</span><span class='op'>|</span> <span class='lparen'>(</span><span class='id identifier rubyid_x'>x</span><span class='op'>||</span><span class='int'>0</span><span class='rparen'>)</span> <span class='op'>+</span> <span class='lparen'>(</span><span class='id identifier rubyid_y'>y</span><span class='op'>||</span><span class='int'>0</span><span class='rparen'>)</span> <span class='op'>+</span> <span class='lparen'>(</span><span class='id identifier rubyid_z'>z</span><span class='op'>||</span><span class='int'>0</span><span class='rparen'>)</span> <span class='op'>+</span> <span class='id identifier rubyid_w'>w</span><span class='period'>.</span><span class='id identifier rubyid_inject'>inject</span><span class='lparen'>(</span><span class='int'>0</span><span class='comma'>,</span> <span class='op'>&amp;</span><span class='symbol'>:+</span><span class='rparen'>)</span> <span class='rbrace'>}</span>
+<span class='id identifier rubyid_p'>p</span> <span class='id identifier rubyid_b'>b</span><span class='period'>.</span><span class='id identifier rubyid_curry'>curry</span><span class='lbracket'>[</span><span class='int'>1</span><span class='rbracket'>]</span><span class='lbracket'>[</span><span class='int'>2</span><span class='rbracket'>]</span><span class='lbracket'>[</span><span class='int'>3</span><span class='rbracket'>]</span>           <span class='comment'>#=&gt; 6
+</span><span class='id identifier rubyid_p'>p</span> <span class='id identifier rubyid_b'>b</span><span class='period'>.</span><span class='id identifier rubyid_curry'>curry</span><span class='lbracket'>[</span><span class='int'>1</span><span class='comma'>,</span> <span class='int'>2</span><span class='rbracket'>]</span><span class='lbracket'>[</span><span class='int'>3</span><span class='comma'>,</span> <span class='int'>4</span><span class='rbracket'>]</span>        <span class='comment'>#=&gt; 10
+</span><span class='id identifier rubyid_p'>p</span> <span class='id identifier rubyid_b'>b</span><span class='period'>.</span><span class='id identifier rubyid_curry'>curry</span><span class='lparen'>(</span><span class='int'>5</span><span class='rparen'>)</span><span class='lbracket'>[</span><span class='int'>1</span><span class='rbracket'>]</span><span class='lbracket'>[</span><span class='int'>2</span><span class='rbracket'>]</span><span class='lbracket'>[</span><span class='int'>3</span><span class='rbracket'>]</span><span class='lbracket'>[</span><span class='int'>4</span><span class='rbracket'>]</span><span class='lbracket'>[</span><span class='int'>5</span><span class='rbracket'>]</span>  <span class='comment'>#=&gt; 15
+</span><span class='id identifier rubyid_p'>p</span> <span class='id identifier rubyid_b'>b</span><span class='period'>.</span><span class='id identifier rubyid_curry'>curry</span><span class='lparen'>(</span><span class='int'>5</span><span class='rparen'>)</span><span class='lbracket'>[</span><span class='int'>1</span><span class='comma'>,</span> <span class='int'>2</span><span class='rbracket'>]</span><span class='lbracket'>[</span><span class='int'>3</span><span class='comma'>,</span> <span class='int'>4</span><span class='rbracket'>]</span><span class='lbracket'>[</span><span class='int'>5</span><span class='rbracket'>]</span>  <span class='comment'>#=&gt; 15
+</span><span class='id identifier rubyid_p'>p</span> <span class='id identifier rubyid_b'>b</span><span class='period'>.</span><span class='id identifier rubyid_curry'>curry</span><span class='lparen'>(</span><span class='int'>1</span><span class='rparen'>)</span>                 <span class='comment'>#=&gt; wrong number of arguments (given 1, expected 3)
+</span>
+<span class='id identifier rubyid_b'>b</span> <span class='op'>=</span> <span class='id identifier rubyid_proc'>proc</span> <span class='lbrace'>{</span> <span class='symbol'>:foo</span> <span class='rbrace'>}</span>
+<span class='id identifier rubyid_p'>p</span> <span class='id identifier rubyid_b'>b</span><span class='period'>.</span><span class='id identifier rubyid_curry'>curry</span><span class='lbracket'>[</span><span class='rbracket'>]</span>                  <span class='comment'>#=&gt; :foo
+</span></code></pre>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+  <p class="tag_title">Overloads:</p>
+  <ul class="overload">
+    
+      
+      <li class="overload_item">
+        <span class="signature">#<strong>curry</strong>  &#x21d2; <tt><span class='object_link'><a href="" title="Proc (class)">Proc</a></span></tt> </span>
+        <div class="docstring">
+  <div class="discussion">
+    
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="" title="Proc (class)">Proc</a></span></tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div>
+      </li>
+    
+      
+      <li class="overload_item">
+        <span class="signature">#<strong>curry</strong>(arity)  &#x21d2; <tt><span class='object_link'><a href="" title="Proc (class)">Proc</a></span></tt> </span>
+        <div class="docstring">
+  <div class="discussion">
+    
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="" title="Proc (class)">Proc</a></span></tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div>
+      </li>
+    
+  </ul>
+
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+2958
+2959
+2960
+2961
+2962
+2963
+2964
+2965
+2966
+2967
+2968
+2969
+2970
+2971
+2972
+2973
+2974
+2975
+2976</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'proc.c', line 2958</span>
+
+static VALUE
+proc_curry(int argc, const VALUE *argv, VALUE self)
+{
+    int sarity, max_arity, min_arity = rb_proc_min_max_arity(self, &amp;max_arity);
+    VALUE arity;
+
+    rb_scan_args(argc, argv, &quot;01&quot;, &amp;arity);
+    if (NIL_P(arity)) {
+	arity = INT2FIX(min_arity);
+    }
+    else {
+	sarity = FIX2INT(arity);
+	if (rb_proc_lambda_p(self)) {
+	    rb_check_arity(sarity, min_arity, max_arity);
+	}
+    }
+
+    return make_curry_proc(self, rb_ary_new(), arity);
+}</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="dup-instance_method">
+  
+    #<strong>dup</strong>  &#x21d2; <tt><span class='object_link'><a href="Object.html" title="Object (class)">Object</a></span></tt> 
+  
+
+  
+
+  
+</h3>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="hash-instance_method">
+  
+    #<strong>hash</strong>  &#x21d2; <tt><span class='object_link'><a href="Integer.html" title="Integer (class)">Integer</a></span></tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Returns a hash value corresponding to proc body.</p>
+
+<p>See also Object#hash.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+  <div class="docstring">
+  <div class="discussion">
+    
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="Integer.html" title="Integer (class)">Integer</a></span></tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div>
+
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+1249
+1250
+1251
+1252
+1253
+1254
+1255
+1256
+1257</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'proc.c', line 1249</span>
+
+static VALUE
+proc_hash(VALUE self)
+{
+    st_index_t hash;
+    hash = rb_hash_start(0);
+    hash = rb_hash_proc(hash, self);
+    hash = rb_hash_end(hash);
+    return ST2FIX(hash);
+}</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="lambda?-instance_method">
+  
+    #<strong>lambda?</strong>  &#x21d2; <tt>Boolean</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Returns <code>true</code> for a Proc object for which argument handling is
+rigid. Such procs are typically generated by <code>lambda</code>.</p>
+
+<p>A Proc object generated by <code>proc</code> ignores extra arguments.</p>
+
+<pre class="code"><code class=""><span class='id identifier rubyid_proc'>proc</span> <span class='lbrace'>{</span><span class='op'>|</span><span class='id identifier rubyid_a'>a</span><span class='comma'>,</span><span class='id identifier rubyid_b'>b</span><span class='op'>|</span> <span class='lbracket'>[</span><span class='id identifier rubyid_a'>a</span><span class='comma'>,</span><span class='id identifier rubyid_b'>b</span><span class='rbracket'>]</span> <span class='rbrace'>}</span><span class='period'>.</span><span class='id identifier rubyid_call'>call</span><span class='lparen'>(</span><span class='int'>1</span><span class='comma'>,</span><span class='int'>2</span><span class='comma'>,</span><span class='int'>3</span><span class='rparen'>)</span>    <span class='comment'>#=&gt; [1,2]
+</span></code></pre>
+
+<p>It provides <code>nil</code> for missing arguments.</p>
+
+<pre class="code"><code class=""><span class='id identifier rubyid_proc'>proc</span> <span class='lbrace'>{</span><span class='op'>|</span><span class='id identifier rubyid_a'>a</span><span class='comma'>,</span><span class='id identifier rubyid_b'>b</span><span class='op'>|</span> <span class='lbracket'>[</span><span class='id identifier rubyid_a'>a</span><span class='comma'>,</span><span class='id identifier rubyid_b'>b</span><span class='rbracket'>]</span> <span class='rbrace'>}</span><span class='period'>.</span><span class='id identifier rubyid_call'>call</span><span class='lparen'>(</span><span class='int'>1</span><span class='rparen'>)</span>        <span class='comment'>#=&gt; [1,nil]
+</span></code></pre>
+
+<p>It expands a single array argument.</p>
+
+<pre class="code"><code class=""><span class='id identifier rubyid_proc'>proc</span> <span class='lbrace'>{</span><span class='op'>|</span><span class='id identifier rubyid_a'>a</span><span class='comma'>,</span><span class='id identifier rubyid_b'>b</span><span class='op'>|</span> <span class='lbracket'>[</span><span class='id identifier rubyid_a'>a</span><span class='comma'>,</span><span class='id identifier rubyid_b'>b</span><span class='rbracket'>]</span> <span class='rbrace'>}</span><span class='period'>.</span><span class='id identifier rubyid_call'>call</span><span class='lparen'>(</span><span class='lbracket'>[</span><span class='int'>1</span><span class='comma'>,</span><span class='int'>2</span><span class='rbracket'>]</span><span class='rparen'>)</span>    <span class='comment'>#=&gt; [1,2]
+</span></code></pre>
+
+<p>A Proc object generated by <code>lambda</code> doesn&#39;t have such
+tricks.</p>
+
+<pre class="code"><code class=""><span class='id identifier rubyid_lambda'>lambda</span> <span class='lbrace'>{</span><span class='op'>|</span><span class='id identifier rubyid_a'>a</span><span class='comma'>,</span><span class='id identifier rubyid_b'>b</span><span class='op'>|</span> <span class='lbracket'>[</span><span class='id identifier rubyid_a'>a</span><span class='comma'>,</span><span class='id identifier rubyid_b'>b</span><span class='rbracket'>]</span> <span class='rbrace'>}</span><span class='period'>.</span><span class='id identifier rubyid_call'>call</span><span class='lparen'>(</span><span class='int'>1</span><span class='comma'>,</span><span class='int'>2</span><span class='comma'>,</span><span class='int'>3</span><span class='rparen'>)</span>  <span class='comment'>#=&gt; ArgumentError
+</span><span class='id identifier rubyid_lambda'>lambda</span> <span class='lbrace'>{</span><span class='op'>|</span><span class='id identifier rubyid_a'>a</span><span class='comma'>,</span><span class='id identifier rubyid_b'>b</span><span class='op'>|</span> <span class='lbracket'>[</span><span class='id identifier rubyid_a'>a</span><span class='comma'>,</span><span class='id identifier rubyid_b'>b</span><span class='rbracket'>]</span> <span class='rbrace'>}</span><span class='period'>.</span><span class='id identifier rubyid_call'>call</span><span class='lparen'>(</span><span class='int'>1</span><span class='rparen'>)</span>      <span class='comment'>#=&gt; ArgumentError
+</span><span class='id identifier rubyid_lambda'>lambda</span> <span class='lbrace'>{</span><span class='op'>|</span><span class='id identifier rubyid_a'>a</span><span class='comma'>,</span><span class='id identifier rubyid_b'>b</span><span class='op'>|</span> <span class='lbracket'>[</span><span class='id identifier rubyid_a'>a</span><span class='comma'>,</span><span class='id identifier rubyid_b'>b</span><span class='rbracket'>]</span> <span class='rbrace'>}</span><span class='period'>.</span><span class='id identifier rubyid_call'>call</span><span class='lparen'>(</span><span class='lbracket'>[</span><span class='int'>1</span><span class='comma'>,</span><span class='int'>2</span><span class='rbracket'>]</span><span class='rparen'>)</span>  <span class='comment'>#=&gt; ArgumentError
+</span></code></pre>
+
+<p>Proc#lambda? is a predicate for the tricks. It returns <code>true</code> if
+no tricks apply.</p>
+
+<pre class="code"><code class=""><span class='id identifier rubyid_lambda'>lambda</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='period'>.</span><span class='id identifier rubyid_lambda?'>lambda?</span>            <span class='comment'>#=&gt; true
+</span><span class='id identifier rubyid_proc'>proc</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='period'>.</span><span class='id identifier rubyid_lambda?'>lambda?</span>              <span class='comment'>#=&gt; false
+</span></code></pre>
+
+<p>Proc.new is the same as <code>proc</code>.</p>
+
+<pre class="code"><code class=""><span class='const'><span class='object_link'><a href="" title="Proc (class)">Proc</a></span></span><span class='period'>.</span><span class='id identifier rubyid_new'><span class='object_link'><a href="#new-class_method" title="Proc.new (method)">new</a></span></span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='period'>.</span><span class='id identifier rubyid_lambda?'>lambda?</span>          <span class='comment'>#=&gt; false
+</span></code></pre>
+
+<p><code>lambda</code>, <code>proc</code> and Proc.new preserve the tricks of
+a Proc object given by <code>&amp;</code> argument.</p>
+
+<pre class="code"><code class=""><span class='id identifier rubyid_lambda'>lambda</span><span class='lparen'>(</span><span class='op'>&amp;</span><span class='id identifier rubyid_lambda'>lambda</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_lambda?'>lambda?</span>   <span class='comment'>#=&gt; true
+</span><span class='id identifier rubyid_proc'>proc</span><span class='lparen'>(</span><span class='op'>&amp;</span><span class='id identifier rubyid_lambda'>lambda</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_lambda?'>lambda?</span>     <span class='comment'>#=&gt; true
+</span><span class='const'><span class='object_link'><a href="" title="Proc (class)">Proc</a></span></span><span class='period'>.</span><span class='id identifier rubyid_new'><span class='object_link'><a href="#new-class_method" title="Proc.new (method)">new</a></span></span><span class='lparen'>(</span><span class='op'>&amp;</span><span class='id identifier rubyid_lambda'>lambda</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_lambda?'>lambda?</span> <span class='comment'>#=&gt; true
+</span>
+<span class='id identifier rubyid_lambda'>lambda</span><span class='lparen'>(</span><span class='op'>&amp;</span><span class='id identifier rubyid_proc'>proc</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_lambda?'>lambda?</span>     <span class='comment'>#=&gt; false
+</span><span class='id identifier rubyid_proc'>proc</span><span class='lparen'>(</span><span class='op'>&amp;</span><span class='id identifier rubyid_proc'>proc</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_lambda?'>lambda?</span>       <span class='comment'>#=&gt; false
+</span><span class='const'><span class='object_link'><a href="" title="Proc (class)">Proc</a></span></span><span class='period'>.</span><span class='id identifier rubyid_new'><span class='object_link'><a href="#new-class_method" title="Proc.new (method)">new</a></span></span><span class='lparen'>(</span><span class='op'>&amp;</span><span class='id identifier rubyid_proc'>proc</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_lambda?'>lambda?</span>   <span class='comment'>#=&gt; false
+</span></code></pre>
+
+<p>A Proc object generated by <code>&amp;</code> argument has the tricks</p>
+
+<pre class="code"><code class=""><span class='kw'>def</span> <span class='id identifier rubyid_n'>n</span><span class='lparen'>(</span><span class='op'>&amp;</span><span class='id identifier rubyid_b'>b</span><span class='rparen'>)</span> <span class='id identifier rubyid_b'>b</span><span class='period'>.</span><span class='id identifier rubyid_lambda?'>lambda?</span> <span class='kw'>end</span>
+<span class='id identifier rubyid_n'>n</span> <span class='lbrace'>{</span><span class='rbrace'>}</span>                         <span class='comment'>#=&gt; false
+</span></code></pre>
+
+<p>The <code>&amp;</code> argument preserves the tricks if a Proc object is
+given by <code>&amp;</code> argument.</p>
+
+<pre class="code"><code class=""><span class='id identifier rubyid_n'>n</span><span class='lparen'>(</span><span class='op'>&amp;</span><span class='id identifier rubyid_lambda'>lambda</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>                <span class='comment'>#=&gt; true
+</span><span class='id identifier rubyid_n'>n</span><span class='lparen'>(</span><span class='op'>&amp;</span><span class='id identifier rubyid_proc'>proc</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>                  <span class='comment'>#=&gt; false
+</span><span class='id identifier rubyid_n'>n</span><span class='lparen'>(</span><span class='op'>&amp;</span><span class='const'><span class='object_link'><a href="" title="Proc (class)">Proc</a></span></span><span class='period'>.</span><span class='id identifier rubyid_new'><span class='object_link'><a href="#new-class_method" title="Proc.new (method)">new</a></span></span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>              <span class='comment'>#=&gt; false
+</span></code></pre>
+
+<p>A Proc object converted from a method has no tricks.</p>
+
+<pre class="code"><code class=""><span class='kw'>def</span> <span class='id identifier rubyid_m'>m</span><span class='lparen'>(</span><span class='rparen'>)</span> <span class='kw'>end</span>
+<span class='id identifier rubyid_method'>method</span><span class='lparen'>(</span><span class='symbol'>:m</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_to_proc'>to_proc</span><span class='period'>.</span><span class='id identifier rubyid_lambda?'>lambda?</span>   <span class='comment'>#=&gt; true
+</span>
+<span class='id identifier rubyid_n'>n</span><span class='lparen'>(</span><span class='op'>&amp;</span><span class='id identifier rubyid_method'>method</span><span class='lparen'>(</span><span class='symbol'>:m</span><span class='rparen'>)</span><span class='rparen'>)</span>               <span class='comment'>#=&gt; true
+</span><span class='id identifier rubyid_n'>n</span><span class='lparen'>(</span><span class='op'>&amp;</span><span class='id identifier rubyid_method'>method</span><span class='lparen'>(</span><span class='symbol'>:m</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_to_proc'>to_proc</span><span class='rparen'>)</span>       <span class='comment'>#=&gt; true
+</span></code></pre>
+
+<p><code>define_method</code> is treated the same as method definition. The
+defined method has no tricks.</p>
+
+<pre class="code"><code class=""><span class='kw'>class</span> <span class='const'>C</span>
+  <span class='id identifier rubyid_define_method'>define_method</span><span class='lparen'>(</span><span class='symbol'>:d</span><span class='rparen'>)</span> <span class='lbrace'>{</span><span class='rbrace'>}</span>
+<span class='kw'>end</span>
+<span class='const'>C</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='period'>.</span><span class='id identifier rubyid_d'>d</span><span class='lparen'>(</span><span class='int'>1</span><span class='comma'>,</span><span class='int'>2</span><span class='rparen'>)</span>       <span class='comment'>#=&gt; ArgumentError
+</span><span class='const'>C</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='period'>.</span><span class='id identifier rubyid_method'>method</span><span class='lparen'>(</span><span class='symbol'>:d</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_to_proc'>to_proc</span><span class='period'>.</span><span class='id identifier rubyid_lambda?'>lambda?</span>   <span class='comment'>#=&gt; true
+</span></code></pre>
+
+<p><code>define_method</code> always defines a method without the tricks, even
+if a non-lambda Proc object is given. This is the only exception for which
+the tricks are not preserved.</p>
+
+<pre class="code"><code class=""><span class='kw'>class</span> <span class='const'>C</span>
+  <span class='id identifier rubyid_define_method'>define_method</span><span class='lparen'>(</span><span class='symbol'>:e</span><span class='comma'>,</span> <span class='op'>&amp;</span><span class='id identifier rubyid_proc'>proc</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
+<span class='kw'>end</span>
+<span class='const'>C</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='period'>.</span><span class='id identifier rubyid_e'>e</span><span class='lparen'>(</span><span class='int'>1</span><span class='comma'>,</span><span class='int'>2</span><span class='rparen'>)</span>       <span class='comment'>#=&gt; ArgumentError
+</span><span class='const'>C</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='period'>.</span><span class='id identifier rubyid_method'>method</span><span class='lparen'>(</span><span class='symbol'>:e</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_to_proc'>to_proc</span><span class='period'>.</span><span class='id identifier rubyid_lambda?'>lambda?</span>   <span class='comment'>#=&gt; true
+</span></code></pre>
+
+<p>This exception ensures that methods never have tricks and makes it easy to
+have wrappers to define methods that behave as usual.</p>
+
+<pre class="code"><code class=""><span class='kw'>class</span> <span class='const'>C</span>
+  <span class='kw'>def</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_def2'>def2</span><span class='lparen'>(</span><span class='id identifier rubyid_name'>name</span><span class='comma'>,</span> <span class='op'>&amp;</span><span class='id identifier rubyid_body'>body</span><span class='rparen'>)</span>
+    <span class='id identifier rubyid_define_method'>define_method</span><span class='lparen'>(</span><span class='id identifier rubyid_name'>name</span><span class='comma'>,</span> <span class='op'>&amp;</span><span class='id identifier rubyid_body'>body</span><span class='rparen'>)</span>
+  <span class='kw'>end</span>
+
+  <span class='id identifier rubyid_def2'>def2</span><span class='lparen'>(</span><span class='symbol'>:f</span><span class='rparen'>)</span> <span class='lbrace'>{</span><span class='rbrace'>}</span>
+<span class='kw'>end</span>
+<span class='const'>C</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='period'>.</span><span class='id identifier rubyid_f'>f</span><span class='lparen'>(</span><span class='int'>1</span><span class='comma'>,</span><span class='int'>2</span><span class='rparen'>)</span>       <span class='comment'>#=&gt; ArgumentError
+</span></code></pre>
+
+<p>The wrapper <em>def2</em> defines a method which has no tricks.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+  <div class="docstring">
+  <div class="discussion">
+    
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Boolean</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div>
+
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Boolean</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+237
+238
+239
+240
+241
+242
+243
+244</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'proc.c', line 237</span>
+
+VALUE
+rb_proc_lambda_p(VALUE procval)
+{
+    rb_proc_t *proc;
+    GetProcPtr(procval, proc);
+
+    return proc-&gt;is_lambda ? Qtrue : Qfalse;
+}</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="parameters-instance_method">
+  
+    #<strong>parameters</strong>  &#x21d2; <tt><span class='object_link'><a href="Array.html" title="Array (class)">Array</a></span></tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Returns the parameter information of this proc.</p>
+
+<pre class="code"><code class=""><span class='id identifier rubyid_prc'>prc</span> <span class='op'>=</span> <span class='id identifier rubyid_lambda'>lambda</span><span class='lbrace'>{</span><span class='op'>|</span><span class='id identifier rubyid_x'>x</span><span class='comma'>,</span> <span class='id identifier rubyid_y'>y</span><span class='op'>=</span><span class='int'>42</span><span class='comma'>,</span> <span class='op'>*</span><span class='id identifier rubyid_other'>other</span><span class='op'>|</span><span class='rbrace'>}</span>
+<span class='id identifier rubyid_prc'>prc</span><span class='period'>.</span><span class='id identifier rubyid_parameters'>parameters</span>  <span class='comment'>#=&gt; [[:req, :x], [:opt, :y], [:rest, :other]]
+</span></code></pre>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+  <div class="docstring">
+  <div class="discussion">
+    
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="Array.html" title="Array (class)">Array</a></span></tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div>
+
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+1188
+1189
+1190
+1191
+1192
+1193
+1194
+1195
+1196
+1197</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'proc.c', line 1188</span>
+
+static VALUE
+rb_proc_parameters(VALUE self)
+{
+    int is_proc;
+    const rb_iseq_t *iseq = rb_proc_get_iseq(self, &amp;is_proc);
+    if (!iseq) {
+	return unnamed_parameters(rb_proc_arity(self));
+    }
+    return rb_iseq_parameters(iseq, is_proc);
+}</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="source_location-instance_method">
+  
+    #<strong>source_location</strong>  &#x21d2; <tt><span class='object_link'><a href="Array.html" title="Array (class)">Array</a></span></tt>, <tt><span class='object_link'><a href="Integer.html" title="Integer (class)">Integer</a></span></tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Returns the Ruby source filename and line number containing this proc or
+<code>nil</code> if this proc was not defined in Ruby (i.e. native).</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+  <div class="docstring">
+  <div class="discussion">
+    
+<p>Returns ]</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="Array.html" title="Array (class)">Array</a></span></tt>, <tt><span class='object_link'><a href="Integer.html" title="Integer (class)">Integer</a></span></tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>]</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div>
+
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+1153
+1154
+1155
+1156
+1157</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'proc.c', line 1153</span>
+
+VALUE
+rb_proc_location(VALUE self)
+{
+    return iseq_location(rb_proc_get_iseq(self, 0));
+}</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="to_proc-instance_method">
+  
+    #<strong>to_proc</strong>  &#x21d2; <tt><span class='object_link'><a href="" title="Proc (class)">Proc</a></span></tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Part of the protocol for converting objects to <code>Proc</code> objects.
+Instances of class <code>Proc</code> simply return themselves.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+  <div class="docstring">
+  <div class="discussion">
+    
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="" title="Proc (class)">Proc</a></span></tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div>
+
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+1317
+1318
+1319
+1320
+1321</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'proc.c', line 1317</span>
+
+static VALUE
+proc_to_proc(VALUE self)
+{
+    return self;
+}</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="to_s-instance_method">
+  
+    #<strong>to_s</strong>  &#x21d2; <tt><span class='object_link'><a href="String.html" title="String (class)">String</a></span></tt> 
+  
+
+  
+    <span class="aliases">Also known as:
+    <span class="names"><span id='inspect-instance_method'>inspect</span></span>
+    </span>
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Returns the unique identifier for this proc, along with an indication of
+where the proc was defined.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+  <div class="docstring">
+  <div class="discussion">
+    
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="String.html" title="String (class)">String</a></span></tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div>
+
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+1300
+1301
+1302
+1303
+1304
+1305
+1306</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'proc.c', line 1300</span>
+
+static VALUE
+proc_to_s(VALUE self)
+{
+    const rb_proc_t *proc;
+    GetProcPtr(self, proc);
+    return rb_block_to_s(self, &amp;proc-&gt;block, proc-&gt;is_lambda ? &quot; (lambda)&quot; : NULL);
+}</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="yield-instance_method">
+  
+    #<strong>yield</strong>(*args)  &#x21d2; <tt><span class='object_link'><a href="Object.html" title="Object (class)">Object</a></span></tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>call-seq:</p>
+
+<pre class="code"><code class="">prc.call(params,...)   -&gt; obj
+prc[params,...]        -&gt; obj
+prc.(params,...)       -&gt; obj
+prc.yield(params,...)  -&gt; obj</code></pre>
+
+<p>Invokes the block, setting the block&#39;s parameters to the values in
+<em>params</em> using something close to method calling semantics. Returns
+the value of the last expression evaluated in the block.</p>
+
+<pre class="code"><code class=""><span class='id identifier rubyid_a_proc'>a_proc</span> <span class='op'>=</span> <span class='const'><span class='object_link'><a href="" title="Proc (class)">Proc</a></span></span><span class='period'>.</span><span class='id identifier rubyid_new'><span class='object_link'><a href="#new-class_method" title="Proc.new (method)">new</a></span></span> <span class='lbrace'>{</span><span class='op'>|</span><span class='id identifier rubyid_scalar'>scalar</span><span class='comma'>,</span> <span class='op'>*</span><span class='id identifier rubyid_values'>values</span><span class='op'>|</span> <span class='id identifier rubyid_values'>values</span><span class='period'>.</span><span class='id identifier rubyid_map'>map</span> <span class='lbrace'>{</span><span class='op'>|</span><span class='id identifier rubyid_value'>value</span><span class='op'>|</span> <span class='id identifier rubyid_value'>value</span><span class='op'>*</span><span class='id identifier rubyid_scalar'>scalar</span> <span class='rbrace'>}</span> <span class='rbrace'>}</span>
+<span class='id identifier rubyid_a_proc'>a_proc</span><span class='period'>.</span><span class='id identifier rubyid_call'>call</span><span class='lparen'>(</span><span class='int'>9</span><span class='comma'>,</span> <span class='int'>1</span><span class='comma'>,</span> <span class='int'>2</span><span class='comma'>,</span> <span class='int'>3</span><span class='rparen'>)</span>    <span class='comment'>#=&gt; [9, 18, 27]
+</span><span class='id identifier rubyid_a_proc'>a_proc</span><span class='lbracket'>[</span><span class='int'>9</span><span class='comma'>,</span> <span class='int'>1</span><span class='comma'>,</span> <span class='int'>2</span><span class='comma'>,</span> <span class='int'>3</span><span class='rbracket'>]</span>         <span class='comment'>#=&gt; [9, 18, 27]
+</span><span class='id identifier rubyid_a_proc'>a_proc</span><span class='period'>.</span><span class='lparen'>(</span><span class='int'>9</span><span class='comma'>,</span> <span class='int'>1</span><span class='comma'>,</span> <span class='int'>2</span><span class='comma'>,</span> <span class='int'>3</span><span class='rparen'>)</span>        <span class='comment'>#=&gt; [9, 18, 27]
+</span><span class='id identifier rubyid_a_proc'>a_proc</span><span class='period'>.</span><span class='id identifier rubyid_yield'>yield</span><span class='lparen'>(</span><span class='int'>9</span><span class='comma'>,</span> <span class='int'>1</span><span class='comma'>,</span> <span class='int'>2</span><span class='comma'>,</span> <span class='int'>3</span><span class='rparen'>)</span>   <span class='comment'>#=&gt; [9, 18, 27]
+</span></code></pre>
+
+<p>Note that <code>prc.()</code> invokes <code>prc.call()</code> with the
+parameters given.  It&#39;s syntactic sugar to hide “call”.</p>
+
+<p>For procs created using <code>lambda</code> or <code>-&gt;()</code> an
+error is generated if the wrong number of parameters are passed to the
+proc. For procs created using <code>Proc.new</code> or
+<code>Kernel.proc</code>, extra parameters are silently discarded and
+missing parameters are set to <code>nil</code>.</p>
+
+<pre class="code"><code class=""><span class='id identifier rubyid_a_proc'>a_proc</span> <span class='op'>=</span> <span class='id identifier rubyid_proc'>proc</span> <span class='lbrace'>{</span><span class='op'>|</span><span class='id identifier rubyid_a'>a</span><span class='comma'>,</span><span class='id identifier rubyid_b'>b</span><span class='op'>|</span> <span class='lbracket'>[</span><span class='id identifier rubyid_a'>a</span><span class='comma'>,</span><span class='id identifier rubyid_b'>b</span><span class='rbracket'>]</span> <span class='rbrace'>}</span>
+<span class='id identifier rubyid_a_proc'>a_proc</span><span class='period'>.</span><span class='id identifier rubyid_call'>call</span><span class='lparen'>(</span><span class='int'>1</span><span class='rparen'>)</span>   <span class='comment'>#=&gt; [1, nil]
+</span>
+<span class='id identifier rubyid_a_proc'>a_proc</span> <span class='op'>=</span> <span class='id identifier rubyid_lambda'>lambda</span> <span class='lbrace'>{</span><span class='op'>|</span><span class='id identifier rubyid_a'>a</span><span class='comma'>,</span><span class='id identifier rubyid_b'>b</span><span class='op'>|</span> <span class='lbracket'>[</span><span class='id identifier rubyid_a'>a</span><span class='comma'>,</span><span class='id identifier rubyid_b'>b</span><span class='rbracket'>]</span> <span class='rbrace'>}</span>
+<span class='id identifier rubyid_a_proc'>a_proc</span><span class='period'>.</span><span class='id identifier rubyid_call'>call</span><span class='lparen'>(</span><span class='int'>1</span><span class='rparen'>)</span>   <span class='comment'># ArgumentError: wrong number of arguments (given 1, expected 2)
+</span></code></pre>
+
+<p>See also Proc#lambda?.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+862
+863
+864
+865
+866</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'proc.c', line 862</span>
+
+static VALUE
+proc_call(int argc, VALUE *argv, VALUE procval)
+{
+    /* removed */
+}</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+  </div>
+
+</div>
+
+      <div id="footer">
+  Generated on Mon Feb 26 22:23:25 2018 by
+  <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
+  0.9.12 (ruby-2.4.2).
+</div>
+
+    </div>
+  </body>
+</html>

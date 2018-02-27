@@ -1,0 +1,7097 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>
+  Class: Thread
+  
+    &mdash; Documentation by YARD 0.9.12
+  
+</title>
+
+  <link rel="stylesheet" href="css/style.css" type="text/css" charset="utf-8" />
+
+  <link rel="stylesheet" href="css/common.css" type="text/css" charset="utf-8" />
+
+<script type="text/javascript" charset="utf-8">
+  pathId = "Thread";
+  relpath = '';
+</script>
+
+
+  <script type="text/javascript" charset="utf-8" src="js/jquery.js"></script>
+
+  <script type="text/javascript" charset="utf-8" src="js/app.js"></script>
+
+
+  </head>
+  <body>
+    <div class="nav_wrap">
+      <iframe id="nav" src="class_list.html?1"></iframe>
+      <div id="resizer"></div>
+    </div>
+
+    <div id="main" tabindex="-1">
+      <div id="header">
+        <div id="menu">
+  
+    <a href="_index.html">Index (T)</a> &raquo;
+    
+    
+    <span class="title">Thread</span>
+  
+</div>
+
+        <div id="search">
+  
+    <a class="full_list_link" id="class_list_link"
+        href="class_list.html">
+
+        <svg width="24" height="24">
+          <rect x="0" y="4" width="24" height="4" rx="1" ry="1"></rect>
+          <rect x="0" y="12" width="24" height="4" rx="1" ry="1"></rect>
+          <rect x="0" y="20" width="24" height="4" rx="1" ry="1"></rect>
+        </svg>
+    </a>
+  
+</div>
+        <div class="clear"></div>
+      </div>
+
+      <div id="content"><h1>Class: Thread
+  
+  
+  
+</h1>
+<div class="box_info">
+  
+  <dl>
+    <dt>Inherits:</dt>
+    <dd>
+      <span class="inheritName"><span class='object_link'><a href="Object.html" title="Object (class)">Object</a></span></span>
+      
+        <ul class="fullTree">
+          <li><span class='object_link'><a href="Object.html" title="Object (class)">Object</a></span></li>
+          
+            <li class="next">Thread</li>
+          
+        </ul>
+        <a href="#" class="inheritanceTree">show all</a>
+      
+    </dd>
+  </dl>
+  
+
+  
+  
+  
+  
+  
+
+  
+
+  
+  <dl>
+    <dt>Defined in:</dt>
+    <dd>vm.c<span class="defines">,<br />
+  vm.c</span>
+</dd>
+  </dl>
+  
+</div>
+
+<h2>Overview</h2><div class="docstring">
+  <div class="discussion">
+    
+<p>Threads are the Ruby implementation for a concurrent programming model.</p>
+
+<p>Programs that require multiple threads of execution are a perfect candidate
+for Ruby&#39;s Thread class.</p>
+
+<p>For example, we can create a new thread separate from the main thread&#39;s
+execution using ::new.</p>
+
+<pre class="code ruby"><code class="ruby"><span class='id identifier rubyid_thr'>thr</span> <span class='op'>=</span> <span class='const'>Thread</span><span class='period'>.</span><span class='id identifier rubyid_new'><span class='object_link'><a href="#new-class_method" title="Thread.new (method)">new</a></span></span> <span class='lbrace'>{</span> <span class='id identifier rubyid_puts'>puts</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Whats the big deal</span><span class='tstring_end'>&quot;</span></span> <span class='rbrace'>}</span>
+</code></pre>
+
+<p>Then we are able to pause the execution of the main thread and allow our
+new thread to finish, using #join:</p>
+
+<pre class="code ruby"><code class="ruby"><span class='id identifier rubyid_thr'>thr</span><span class='period'>.</span><span class='id identifier rubyid_join'>join</span> <span class='comment'>#=&gt; &quot;Whats the big deal&quot;
+</span></code></pre>
+
+<p>If we don&#39;t call <code>thr.join</code> before the main thread
+terminates, then all other threads including <code>thr</code> will be
+killed.</p>
+
+<p>Alternatively, you can use an array for handling multiple threads at once,
+like in the following example:</p>
+
+<pre class="code ruby"><code class="ruby"><span class='id identifier rubyid_threads'>threads</span> <span class='op'>=</span> <span class='lbracket'>[</span><span class='rbracket'>]</span>
+<span class='id identifier rubyid_threads'>threads</span> <span class='op'>&lt;&lt;</span> <span class='const'>Thread</span><span class='period'>.</span><span class='id identifier rubyid_new'><span class='object_link'><a href="#new-class_method" title="Thread.new (method)">new</a></span></span> <span class='lbrace'>{</span> <span class='id identifier rubyid_puts'>puts</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Whats the big deal</span><span class='tstring_end'>&quot;</span></span> <span class='rbrace'>}</span>
+<span class='id identifier rubyid_threads'>threads</span> <span class='op'>&lt;&lt;</span> <span class='const'>Thread</span><span class='period'>.</span><span class='id identifier rubyid_new'><span class='object_link'><a href="#new-class_method" title="Thread.new (method)">new</a></span></span> <span class='lbrace'>{</span> <span class='int'>3</span><span class='period'>.</span><span class='id identifier rubyid_times'>times</span> <span class='lbrace'>{</span> <span class='id identifier rubyid_puts'>puts</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Threads are fun!</span><span class='tstring_end'>&quot;</span></span> <span class='rbrace'>}</span> <span class='rbrace'>}</span>
+</code></pre>
+
+<p>After creating a few threads we wait for them all to finish consecutively.</p>
+
+<pre class="code ruby"><code class="ruby"><span class='id identifier rubyid_threads'>threads</span><span class='period'>.</span><span class='id identifier rubyid_each'>each</span> <span class='lbrace'>{</span> <span class='op'>|</span><span class='id identifier rubyid_thr'>thr</span><span class='op'>|</span> <span class='id identifier rubyid_thr'>thr</span><span class='period'>.</span><span class='id identifier rubyid_join'>join</span> <span class='rbrace'>}</span>
+</code></pre>
+
+<h3 id="label-Thread+initialization">Thread initialization</h3>
+
+<p>In order to create new threads, Ruby provides ::new, ::start, and ::fork. A
+block must be provided with each of these methods, otherwise a ThreadError
+will be raised.</p>
+
+<p>When subclassing the Thread class, the <code>initialize</code> method of
+your subclass will be ignored by ::start and ::fork. Otherwise, be sure to
+call super in your <code>initialize</code> method.</p>
+
+<p>=== Thread termination</p>
+
+<p>For terminating threads, Ruby provides a variety of ways to do this.</p>
+
+<p>The class method ::kill, is meant to exit a given thread:</p>
+
+<pre class="code ruby"><code class="ruby">thr = Thread.new { ... }
+Thread.kill(thr) # sends exit() to thr</code></pre>
+
+<p>Alternatively, you can use the instance method #exit, or any of its aliases
+#kill or #terminate.</p>
+
+<pre class="code ruby"><code class="ruby"><span class='id identifier rubyid_thr'>thr</span><span class='period'>.</span><span class='id identifier rubyid_exit'>exit</span>
+</code></pre>
+
+<p>=== Thread status</p>
+
+<p>Ruby provides a few instance methods for querying the state of a given
+	thread. To get a string with the current thread&#39;s state use #status</p>
+
+<pre class="code ruby"><code class="ruby"><span class='id identifier rubyid_thr'>thr</span> <span class='op'>=</span> <span class='const'>Thread</span><span class='period'>.</span><span class='id identifier rubyid_new'><span class='object_link'><a href="#new-class_method" title="Thread.new (method)">new</a></span></span> <span class='lbrace'>{</span> <span class='id identifier rubyid_sleep'>sleep</span> <span class='rbrace'>}</span>
+<span class='id identifier rubyid_thr'>thr</span><span class='period'>.</span><span class='id identifier rubyid_status'>status</span> <span class='comment'># =&gt; &quot;sleep&quot;
+</span><span class='id identifier rubyid_thr'>thr</span><span class='period'>.</span><span class='id identifier rubyid_exit'>exit</span>
+<span class='id identifier rubyid_thr'>thr</span><span class='period'>.</span><span class='id identifier rubyid_status'>status</span> <span class='comment'># =&gt; false
+</span></code></pre>
+
+<p>You can also use #alive? to tell if the thread is running or sleeping, and
+#stop? if the thread is dead or sleeping.</p>
+
+<p>=== Thread variables and scope</p>
+
+<p>Since threads are created with blocks, the same rules apply to other 	Ruby
+blocks for variable scope. Any local variables created within this 	block
+are accessible to only this thread.</p>
+
+<p>==== Fiber-local vs. Thread-local</p>
+
+<p>Each fiber has its own bucket for Thread#[] storage. When you set a new
+fiber-local it is only accessible within this Fiber. To illustrate:</p>
+
+<pre class="code ruby"><code class="ruby"><span class='const'>Thread</span><span class='period'>.</span><span class='id identifier rubyid_new'><span class='object_link'><a href="#new-class_method" title="Thread.new (method)">new</a></span></span> <span class='lbrace'>{</span>
+  <span class='const'>Thread</span><span class='period'>.</span><span class='id identifier rubyid_current'><span class='object_link'><a href="#current-class_method" title="Thread.current (method)">current</a></span></span><span class='lbracket'>[</span><span class='symbol'>:foo</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>bar</span><span class='tstring_end'>&quot;</span></span>
+  <span class='const'><span class='object_link'><a href="Fiber.html" title="Fiber (class)">Fiber</a></span></span><span class='period'>.</span><span class='id identifier rubyid_new'><span class='object_link'><a href="Fiber.html#initialize-instance_method" title="Fiber#initialize (method)">new</a></span></span> <span class='lbrace'>{</span>
+    <span class='id identifier rubyid_p'>p</span> <span class='const'>Thread</span><span class='period'>.</span><span class='id identifier rubyid_current'><span class='object_link'><a href="#current-class_method" title="Thread.current (method)">current</a></span></span><span class='lbracket'>[</span><span class='symbol'>:foo</span><span class='rbracket'>]</span> <span class='comment'># =&gt; nil
+</span>  <span class='rbrace'>}</span><span class='period'>.</span><span class='id identifier rubyid_resume'>resume</span>
+<span class='rbrace'>}</span><span class='period'>.</span><span class='id identifier rubyid_join'>join</span>
+</code></pre>
+
+<p>This example uses #[] for getting and #[]= for setting fiber-locals, 	you
+can also use #keys to list the fiber-locals for a given 	thread and #key?
+to check if a fiber-local exists.</p>
+
+<p>When it comes to thread-locals, they are accessible within the entire scope
+of the thread. Given the following example:</p>
+
+<pre class="code ruby"><code class="ruby">Thread.new{
+  Thread.current.thread_variable_set(:foo, 1)
+  p Thread.current.thread_variable_get(:foo) # =&gt; 1
+  Fiber.new{</code></pre>
+
+<p>Thread.current.thread_variable_set(:foo, 2) 	p
+Thread.current.thread_variable_get(:foo) # =&gt; 2</p>
+
+<pre class="code ruby"><code class="ruby">     }.resume
+     p Thread.current.thread_variable_get(:foo)   # =&gt; 2
+   }.join
+
+You can see that the thread-local +:foo+ carried over into the fiber
+and was changed to +2+ by the end of the thread.
+
+This example makes use of #thread_variable_set to create new
+thread-locals, and #thread_variable_get to reference them.
+
+There is also #thread_variables to list all thread-locals, and
+#thread_variable? to check if a given thread-local exists.</code></pre>
+
+<p>=== Exception handling</p>
+
+<p>Any thread can raise an exception using the #raise instance method, which
+operates similarly to Kernel#raise.</p>
+
+<p>However, it&#39;s important to note that an exception that occurs in any
+thread except the main thread depends on #abort_on_exception. This option
+is <code>false</code> by default, meaning that any unhandled exception will
+cause the thread to terminate silently when waited on by either #join or
+#value. You can change this default by either #abort_on_exception=
+<code>true</code> or setting $DEBUG to <code>true</code>.</p>
+
+<p>With the addition of the class method ::handle_interrupt, you can now
+handle exceptions asynchronously with threads.</p>
+
+<p>=== Scheduling</p>
+
+<p>Ruby provides a few ways to support scheduling threads in your program.</p>
+
+<p>The first way is by using the class method ::stop, to put the current
+	running thread to sleep and schedule the execution of another thread.</p>
+
+<p>Once a thread is asleep, you can use the instance method #wakeup to 	mark
+your thread as eligible for scheduling.</p>
+
+<p>You can also try ::pass, which attempts to pass execution to another
+	thread but is dependent on the OS whether a running thread will switch 	or
+not. The same goes for #priority, which lets you hint to the thread
+	scheduler which threads you want to take precedence when passing
+	execution. This method is also dependent on the OS and may be ignored 	on
+some platforms.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><div id="subclasses">
+  <h2>Direct Known Subclasses</h2>
+  <p class="children"><span class='object_link'><a href="Process/Waiter.html" title="Process::Waiter (class)">Process::Waiter</a></span></p>
+</div>
+<h2>Defined Under Namespace</h2>
+<p class="children">
+  
+    
+  
+    
+      <strong class="classes">Classes:</strong> <span class='object_link'><a href="Thread/Backtrace.html" title="Thread::Backtrace (class)">Backtrace</a></span>
+    
+  
+</p>
+
+
+
+
+
+
+
+  
+    <h2>
+      Class Method Summary
+      <small><a href="#" class="summary_toggle">collapse</a></small>
+    </h2>
+
+    <ul class="summary">
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#abort_on_exception-class_method" title="abort_on_exception (class method)">.<strong>abort_on_exception</strong>  &#x21d2; Boolean </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Returns the status of the global “abort on exception&#39;&#39; condition.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#abort_on_exception=-class_method" title="abort_on_exception= (class method)">.<strong>abort_on_exception=</strong>(boolean)  &#x21d2; Boolean </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>When set to <code>true</code>, if any thread is aborted by an exception,
+the raised exception will be re-raised in the main thread.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#current-class_method" title="current (class method)">.<strong>current</strong>  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Returns the currently executing thread.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#DEBUG-class_method" title="DEBUG (class method)">.<strong>DEBUG</strong>  &#x21d2; Numeric </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Returns the thread debug level.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#DEBUG=-class_method" title="DEBUG= (class method)">.<strong>DEBUG=</strong>(num)  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Sets the thread debug level.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#exit-class_method" title="exit (class method)">.<strong>exit</strong>  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Terminates the currently running thread and schedules another thread to be
+run.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#fork-class_method" title="fork (class method)">.<strong>fork</strong>(args)  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Basically the same as ::new.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#handle_interrupt-class_method" title="handle_interrupt (class method)">.<strong>handle_interrupt</strong>(hash) { ... } &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Changes asynchronous interrupt timing.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#kill-class_method" title="kill (class method)">.<strong>kill</strong>(thread)  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Causes the given <code>thread</code> to exit, see also Thread::exit.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#list-class_method" title="list (class method)">.<strong>list</strong>  &#x21d2; Array </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Returns an array of Thread objects for all threads that are either runnable
+or stopped.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#main-class_method" title="main (class method)">.<strong>main</strong>  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Returns the main thread.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#new-class_method" title="new (class method)">.<strong>new</strong>(*args)  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Thread.new(*args, &amp;proc)		-&gt; thread  Thread.new(*args) { |args| …
+}	-&gt; thread.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#pass-class_method" title="pass (class method)">.<strong>pass</strong>  &#x21d2; nil </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Give the thread scheduler a hint to pass execution to another thread.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#pending_interrupt%3F-class_method" title="pending_interrupt? (class method)">.<strong>pending_interrupt?</strong>(error = nil)  &#x21d2; Boolean </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Returns whether or not the asynchronous queue is empty.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#report_on_exception-class_method" title="report_on_exception (class method)">.<strong>report_on_exception</strong>  &#x21d2; Boolean </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Returns the status of the global “report on exception&#39;&#39; condition.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#report_on_exception=-class_method" title="report_on_exception= (class method)">.<strong>report_on_exception=</strong>(boolean)  &#x21d2; Boolean </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Returns the new state.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#start-class_method" title="start (class method)">.<strong>start</strong>(args)  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Basically the same as ::new.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#stop-class_method" title="stop (class method)">.<strong>stop</strong>  &#x21d2; nil </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Stops execution of the current thread, putting it into a “sleep&#39;&#39;
+state, and schedules execution of another thread.</p>
+</div></span>
+  
+</li>
+
+      
+    </ul>
+  
+    <h2>
+      Instance Method Summary
+      <small><a href="#" class="summary_toggle">collapse</a></small>
+    </h2>
+
+    <ul class="summary">
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#[]-instance_method" title="#[] (instance method)">#<strong>[]</strong>(sym)  &#x21d2; Object<sup>?</sup> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Attribute Reference—Returns the value of a fiber-local variable (current
+thread&#39;s root fiber if not explicitly inside a Fiber), using either a
+symbol or a string name.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#[]=-instance_method" title="#[]= (instance method)">#<strong>[]=</strong>(sym)  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Attribute Assignment—Sets or creates the value of a fiber-local variable,
+using either a symbol or a string.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#abort_on_exception-instance_method" title="#abort_on_exception (instance method)">#<strong>abort_on_exception</strong>  &#x21d2; Boolean </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Returns the status of the thread-local “abort on exception&#39;&#39;
+condition for this <code>thr</code>.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#abort_on_exception=-instance_method" title="#abort_on_exception= (instance method)">#<strong>abort_on_exception=</strong>(boolean)  &#x21d2; Boolean </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>When set to <code>true</code>, if this <code>thr</code> is aborted by an
+exception, the raised exception will be re-raised in the main thread.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#add_trace_func-instance_method" title="#add_trace_func (instance method)">#<strong>add_trace_func</strong>(proc)  &#x21d2; Proc </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Adds <em>proc</em> as a handler for tracing.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#alive%3F-instance_method" title="#alive? (instance method)">#<strong>alive?</strong>  &#x21d2; Boolean </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Returns <code>true</code> if <code>thr</code> is running or sleeping.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#backtrace-instance_method" title="#backtrace (instance method)">#<strong>backtrace</strong>  &#x21d2; Array </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Returns the current backtrace of the target thread.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#backtrace_locations-instance_method" title="#backtrace_locations (instance method)">#<strong>backtrace_locations</strong>(*args)  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Returns the execution stack for the target thread—an array containing
+backtrace location objects.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#exit-instance_method" title="#exit (instance method)">#<strong>exit</strong>  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Terminates <code>thr</code> and schedules another thread to be run.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#fetch-instance_method" title="#fetch (instance method)">#<strong>fetch</strong>(*args)  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Returns a fiber-local for the given key.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#group-instance_method" title="#group (instance method)">#<strong>group</strong>  &#x21d2; nil </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Returns the ThreadGroup which contains the given thread, or returns
+<code>nil</code> if <code>thr</code> is not a member of any group.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#initialize-instance_method" title="#initialize (instance method)">#<strong>initialize</strong>(args)  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+    <span class="note title constructor">constructor</span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>:nodoc:.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#join-instance_method" title="#join (instance method)">#<strong>join</strong>(*args)  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>The calling thread will suspend execution and run this <code>thr</code>.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#key%3F-instance_method" title="#key? (instance method)">#<strong>key?</strong>(sym)  &#x21d2; Boolean </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Returns <code>true</code> if the given string (or symbol) exists as a
+fiber-local variable.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#keys-instance_method" title="#keys (instance method)">#<strong>keys</strong>  &#x21d2; Array </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Returns an array of the names of the fiber-local variables (as Symbols).</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#kill-instance_method" title="#kill (instance method)">#<strong>kill</strong>  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Terminates <code>thr</code> and schedules another thread to be run.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#name-instance_method" title="#name (instance method)">#<strong>name</strong>  &#x21d2; String </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>show the name of the thread.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#name=-instance_method" title="#name= (instance method)">#<strong>name=</strong>(name)  &#x21d2; String </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>set given name to the ruby thread.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#pending_interrupt%3F-instance_method" title="#pending_interrupt? (instance method)">#<strong>pending_interrupt?</strong>(error = nil)  &#x21d2; Boolean </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Returns whether or not the asynchronous queue is empty for the target
+thread.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#priority-instance_method" title="#priority (instance method)">#<strong>priority</strong>  &#x21d2; Integer </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Returns the priority of <em>thr</em>.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#priority=-instance_method" title="#priority= (instance method)">#<strong>priority=</strong>(integer)  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Sets the priority of <em>thr</em> to <em>integer</em>.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#raise-instance_method" title="#raise (instance method)">#<strong>raise</strong>(*args)  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Raises an exception from the given thread.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#report_on_exception-instance_method" title="#report_on_exception (instance method)">#<strong>report_on_exception</strong>  &#x21d2; Boolean </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Returns the status of the thread-local “report on exception&#39;&#39;
+condition for this <code>thr</code>.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#report_on_exception=-instance_method" title="#report_on_exception= (instance method)">#<strong>report_on_exception=</strong>(boolean)  &#x21d2; Boolean </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>When set to <code>true</code>, a message is printed on $stderr if an
+exception kills this <code>thr</code>.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#run-instance_method" title="#run (instance method)">#<strong>run</strong>  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Wakes up <code>thr</code>, making it eligible for scheduling.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#safe_level-instance_method" title="#safe_level (instance method)">#<strong>safe_level</strong>  &#x21d2; Integer </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Returns the safe level.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#set_trace_func-instance_method" title="#set_trace_func (instance method)">#<strong>set_trace_func</strong>(trace)  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Establishes <em>proc</em> on <em>thr</em> as the handler for tracing, or
+disables tracing if the parameter is <code>nil</code>.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#status-instance_method" title="#status (instance method)">#<strong>status</strong>  &#x21d2; String, ... </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Returns the status of <code>thr</code>.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#stop%3F-instance_method" title="#stop? (instance method)">#<strong>stop?</strong>  &#x21d2; Boolean </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Returns <code>true</code> if <code>thr</code> is dead or sleeping.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#terminate-instance_method" title="#terminate (instance method)">#<strong>terminate</strong>  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Terminates <code>thr</code> and schedules another thread to be run.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#thread_variable%3F-instance_method" title="#thread_variable? (instance method)">#<strong>thread_variable?</strong>(key)  &#x21d2; Boolean </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Returns <code>true</code> if the given string (or symbol) exists as a
+thread-local variable.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#thread_variable_get-instance_method" title="#thread_variable_get (instance method)">#<strong>thread_variable_get</strong>(key)  &#x21d2; Object<sup>?</sup> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Returns the value of a thread local variable that has been set.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#thread_variable_set-instance_method" title="#thread_variable_set (instance method)">#<strong>thread_variable_set</strong>(key, value)  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Sets a thread local with <code>key</code> to <code>value</code>.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#thread_variables-instance_method" title="#thread_variables (instance method)">#<strong>thread_variables</strong>  &#x21d2; Array </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Returns an array of the names of the thread-local variables (as Symbols).</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#to_s-instance_method" title="#to_s (instance method)">#<strong>to_s</strong>  &#x21d2; String </a>
+    
+
+    
+      (also: #inspect)
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Dump the name, id, and status of <em>thr</em> to a string.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#value-instance_method" title="#value (instance method)">#<strong>value</strong>  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Waits for <code>thr</code> to complete, using #join, and returns its value
+or raises the exception which terminated the thread.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#wakeup-instance_method" title="#wakeup (instance method)">#<strong>wakeup</strong>  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Marks a given thread as eligible for scheduling, however it may still
+remain blocked on I/O.</p>
+</div></span>
+  
+</li>
+
+      
+    </ul>
+  
+
+<div id="constructor_details" class="method_details_list">
+  <h2>Constructor Details</h2>
+  
+    <div class="method_details first">
+  <h3 class="signature first" id="initialize-instance_method">
+  
+    #<strong>initialize</strong>(args)  &#x21d2; <tt><span class='object_link'><a href="Object.html" title="Object (class)">Object</a></span></tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>:nodoc:</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+855
+856
+857
+858
+859
+860
+861
+862
+863
+864
+865
+866
+867
+868
+869
+870
+871
+872
+873
+874
+875</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'thread.c', line 855</span>
+
+static VALUE
+thread_initialize(VALUE thread, VALUE args)
+{
+    rb_thread_t *th = rb_thread_ptr(thread);
+
+    if (!rb_block_given_p()) {
+	rb_raise(rb_eThreadError, &quot;must be called with a block&quot;);
+    }
+    else if (th-&gt;first_args) {
+	VALUE proc = th-&gt;first_proc, loc;
+	if (!proc || !RTEST(loc = rb_proc_location(proc))) {
+	    rb_raise(rb_eThreadError, &quot;already initialized thread&quot;);
+	}
+	rb_raise(rb_eThreadError,
+		 &quot;already initialized thread - %&quot;PRIsVALUE&quot;:%&quot;PRIsVALUE,
+		 RARRAY_AREF(loc, 0), RARRAY_AREF(loc, 1));
+    }
+    else {
+	return thread_create_core(thread, args, 0);
+    }
+}</pre>
+    </td>
+  </tr>
+</table>
+</div>
+  
+</div>
+
+
+  <div id="class_method_details" class="method_details_list">
+    <h2>Class Method Details</h2>
+
+    
+      <div class="method_details first">
+  <h3 class="signature first" id="abort_on_exception-class_method">
+  
+    .<strong>abort_on_exception</strong>  &#x21d2; <tt>Boolean</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Returns the status of the global “abort on exception&#39;&#39; condition.</p>
+
+<p>The default is <code>false</code>.</p>
+
+<p>When set to <code>true</code>, if any thread is aborted by an exception,
+the raised exception will be re-raised in the main thread.</p>
+
+<p>Can also be specified by the global $DEBUG flag or command line option
+<code>-d</code>.</p>
+
+<p>See also ::abort_on_exception=.</p>
+
+<p>There is also an instance level method to set this for a specific thread,
+see #abort_on_exception.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+  <div class="docstring">
+  <div class="discussion">
+    
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Boolean</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div>
+
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+2629
+2630
+2631
+2632
+2633</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'thread.c', line 2629</span>
+
+static VALUE
+rb_thread_s_abort_exc(void)
+{
+    return GET_THREAD()-&gt;vm-&gt;thread_abort_on_exception ? Qtrue : Qfalse;
+}</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="abort_on_exception=-class_method">
+  
+    .<strong>abort_on_exception=</strong>(boolean)  &#x21d2; <tt>Boolean</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>When set to <code>true</code>, if any thread is aborted by an exception,
+the raised exception will be re-raised in the main thread. Returns the new
+state.</p>
+
+<pre class="code"><code class=""><span class='const'><span class='object_link'><a href="" title="Thread (class)">Thread</a></span></span><span class='period'>.</span><span class='id identifier rubyid_abort_on_exception'><span class='object_link'><a href="#abort_on_exception-class_method" title="Thread.abort_on_exception (method)">abort_on_exception</a></span></span> <span class='op'>=</span> <span class='kw'>true</span>
+<span class='id identifier rubyid_t1'>t1</span> <span class='op'>=</span> <span class='const'><span class='object_link'><a href="" title="Thread (class)">Thread</a></span></span><span class='period'>.</span><span class='id identifier rubyid_new'><span class='object_link'><a href="#new-class_method" title="Thread.new (method)">new</a></span></span> <span class='kw'>do</span>
+  <span class='id identifier rubyid_puts'>puts</span>  <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>In new thread</span><span class='tstring_end'>&quot;</span></span>
+  <span class='id identifier rubyid_raise'>raise</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Exception from thread</span><span class='tstring_end'>&quot;</span></span>
+<span class='kw'>end</span>
+<span class='id identifier rubyid_sleep'>sleep</span><span class='lparen'>(</span><span class='int'>1</span><span class='rparen'>)</span>
+<span class='id identifier rubyid_puts'>puts</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>not reached</span><span class='tstring_end'>&quot;</span></span>
+</code></pre>
+
+<p>This will produce:</p>
+
+<pre class="code"><code class="">In new thread
+prog.rb:4: Exception from thread (RuntimeError)
+	from prog.rb:2:in `initialize&#39;
+	from prog.rb:2:in `new&#39;
+	from prog.rb:2</code></pre>
+
+<p>See also ::abort_on_exception.</p>
+
+<p>There is also an instance level method to set this for a specific thread,
+see #abort_on_exception=.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+  <div class="docstring">
+  <div class="discussion">
+    
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Boolean</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div>
+
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+2666
+2667
+2668
+2669
+2670
+2671</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'thread.c', line 2666</span>
+
+static VALUE
+rb_thread_s_abort_exc_set(VALUE self, VALUE val)
+{
+    GET_THREAD()-&gt;vm-&gt;thread_abort_on_exception = RTEST(val);
+    return val;
+}</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="current-class_method">
+  
+    .<strong>current</strong>  &#x21d2; <tt><span class='object_link'><a href="Object.html" title="Object (class)">Object</a></span></tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Returns the currently executing thread.</p>
+
+<pre class="code"><code class=""><span class='const'><span class='object_link'><a href="" title="Thread (class)">Thread</a></span></span><span class='period'>.</span><span class='id identifier rubyid_current'>current</span>   <span class='comment'>#=&gt; #&lt;Thread:0x401bdf4c run&gt;
+</span></code></pre>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+  
+
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+2583
+2584
+2585
+2586
+2587</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'thread.c', line 2583</span>
+
+static VALUE
+thread_s_current(VALUE klass)
+{
+    return rb_thread_current();
+}</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="DEBUG-class_method">
+  
+    .<strong>DEBUG</strong>  &#x21d2; <tt><span class='object_link'><a href="Numeric.html" title="Numeric (class)">Numeric</a></span></tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Returns the thread debug level.  Available only if compiled with
+THREAD_DEBUG=-1.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+  <div class="docstring">
+  <div class="discussion">
+    
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="Numeric.html" title="Numeric (class)">Numeric</a></span></tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div>
+
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+287
+288
+289
+290
+291</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'thread.c', line 287</span>
+
+static VALUE
+rb_thread_s_debug(void)
+{
+    return INT2NUM(rb_thread_debug_enabled);
+}</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="DEBUG=-class_method">
+  
+    .<strong>DEBUG=</strong>(num)  &#x21d2; <tt><span class='object_link'><a href="Object.html" title="Object (class)">Object</a></span></tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Sets the thread debug level.  Available only if compiled with
+THREAD_DEBUG=-1.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+  
+
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+301
+302
+303
+304
+305
+306</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'thread.c', line 301</span>
+
+static VALUE
+rb_thread_s_debug_set(VALUE self, VALUE val)
+{
+    rb_thread_debug_enabled = RTEST(val) ? NUM2INT(val) : 0;
+    return val;
+}</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="exit-class_method">
+  
+    .<strong>exit</strong>  &#x21d2; <tt><span class='object_link'><a href="Object.html" title="Object (class)">Object</a></span></tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Terminates the currently running thread and schedules another thread to be
+run.</p>
+
+<p>If this thread is already marked to be killed, ::exit returns the Thread.</p>
+
+<p>If this is the main thread, or the last  thread, exit the process.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+  
+
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+2420
+2421
+2422
+2423
+2424
+2425</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'thread.c', line 2420</span>
+
+static VALUE
+rb_thread_exit(void)
+{
+    rb_thread_t *th = GET_THREAD();
+    return rb_thread_kill(th-&gt;self);
+}</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="fork-class_method">
+  
+    
+      <span class="overload">.<strong>start</strong>([args]) {|args| ... } &#x21d2; <tt><span class='object_link'><a href="Object.html" title="Object (class)">Object</a></span></tt> </span>
+    
+      <span class="overload">.<strong>fork</strong>([args]) {|args| ... } &#x21d2; <tt><span class='object_link'><a href="Object.html" title="Object (class)">Object</a></span></tt> </span>
+    
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Basically the same as ::new. However, if class Thread is subclassed, then
+calling <code>start</code> in that subclass will not invoke the
+subclass&#39;s <code>initialize</code> method.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+  <p class="tag_title">Overloads:</p>
+  <ul class="overload">
+    
+      
+      <li class="overload_item">
+        <span class="signature">.<strong>start</strong>([args]) {|args| ... } &#x21d2; <tt><span class='object_link'><a href="Object.html" title="Object (class)">Object</a></span></tt> </span>
+        <div class="docstring">
+  <div class="discussion">
+    
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Yields:</p>
+<ul class="yield">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>args</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div>
+      </li>
+    
+      
+      <li class="overload_item">
+        <span class="signature">.<strong>fork</strong>([args]) {|args| ... } &#x21d2; <tt><span class='object_link'><a href="Object.html" title="Object (class)">Object</a></span></tt> </span>
+        <div class="docstring">
+  <div class="discussion">
+    
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Yields:</p>
+<ul class="yield">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>args</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div>
+      </li>
+    
+  </ul>
+
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+848
+849
+850
+851
+852</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'thread.c', line 848</span>
+
+static VALUE
+thread_start(VALUE klass, VALUE args)
+{
+    return thread_create_core(rb_thread_alloc(klass), args, 0);
+}</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="handle_interrupt-class_method">
+  
+    .<strong>handle_interrupt</strong>(hash) { ... } &#x21d2; <tt><span class='object_link'><a href="Object.html" title="Object (class)">Object</a></span></tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Changes asynchronous interrupt timing.</p>
+
+<p><em>interrupt</em> means asynchronous event and corresponding procedure by
+Thread#raise, Thread#kill, signal trap (not supported yet) and main thread
+termination (if main thread terminates, then all other thread will be
+killed).</p>
+
+<p>The given <code>hash</code> has pairs like <code>ExceptionClass =&gt;
+:TimingSymbol</code>. Where the ExceptionClass is the interrupt handled by
+the given block. The TimingSymbol can be one of the following symbols:</p>
+<dl class="rdoc-list label-list"><dt><code>:immediate</code>
+<dd>
+<p>Invoke interrupts immediately.</p>
+</dd><dt><code>:on_blocking</code>
+<dd>
+<p>Invoke interrupts while <em>BlockingOperation</em>.</p>
+</dd><dt><code>:never</code>
+<dd>
+<p>Never invoke all interrupts.</p>
+</dd></dl>
+
+<p><em>BlockingOperation</em> means that the operation will block the calling
+thread, such as read and write.  On CRuby implementation,
+<em>BlockingOperation</em> is any operation executed without GVL.</p>
+
+<p>Masked asynchronous interrupts are delayed until they are enabled. This
+method is similar to sigprocmask(3).</p>
+
+<h3 id="label-NOTE">NOTE</h3>
+
+<p>Asynchronous interrupts are difficult to use.</p>
+
+<p>If you need to communicate between threads, please consider to use another
+way such as Queue.</p>
+
+<p>Or use them with deep understanding about this method.</p>
+
+<h3 id="label-Usage">Usage</h3>
+
+<p>In this example, we can guard from Thread#raise exceptions.</p>
+
+<p>Using the <code>:never</code> TimingSymbol the RuntimeError exception will
+always be ignored in the first block of the main thread. In the second
+::handle_interrupt block we can purposefully handle RuntimeError
+exceptions.</p>
+
+<pre class="code"><code class=""><span class='id identifier rubyid_th'>th</span> <span class='op'>=</span> <span class='const'><span class='object_link'><a href="" title="Thread (class)">Thread</a></span></span><span class='period'>.</span><span class='id identifier rubyid_new'><span class='object_link'><a href="#new-class_method" title="Thread.new (method)">new</a></span></span> <span class='kw'>do</span>
+  <span class='const'><span class='object_link'><a href="" title="Thread (class)">Thread</a></span></span><span class='period'>.</span><span class='id identifier rubyid_handle_interrupt'>handle_interrupt</span><span class='lparen'>(</span><span class='const'><span class='object_link'><a href="RuntimeError.html" title="RuntimeError (class)">RuntimeError</a></span></span> <span class='op'>=&gt;</span> <span class='symbol'>:never</span><span class='rparen'>)</span> <span class='lbrace'>{</span>
+    <span class='kw'>begin</span>
+      <span class='comment'># You can write resource allocation code safely.
+</span>      <span class='const'><span class='object_link'><a href="" title="Thread (class)">Thread</a></span></span><span class='period'>.</span><span class='id identifier rubyid_handle_interrupt'>handle_interrupt</span><span class='lparen'>(</span><span class='const'><span class='object_link'><a href="RuntimeError.html" title="RuntimeError (class)">RuntimeError</a></span></span> <span class='op'>=&gt;</span> <span class='symbol'>:immediate</span><span class='rparen'>)</span> <span class='lbrace'>{</span>
+   <span class='comment'># ...
+</span>      <span class='rbrace'>}</span>
+    <span class='kw'>ensure</span>
+      <span class='comment'># You can write resource deallocation code safely.
+</span>    <span class='kw'>end</span>
+  <span class='rbrace'>}</span>
+<span class='kw'>end</span>
+<span class='const'><span class='object_link'><a href="" title="Thread (class)">Thread</a></span></span><span class='period'>.</span><span class='id identifier rubyid_pass'><span class='object_link'><a href="#pass-class_method" title="Thread.pass (method)">pass</a></span></span>
+<span class='comment'># ...
+</span><span class='id identifier rubyid_th'>th</span><span class='period'>.</span><span class='id identifier rubyid_raise'>raise</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>stop</span><span class='tstring_end'>&quot;</span></span>
+</code></pre>
+
+<p>While we are ignoring the RuntimeError exception, it&#39;s safe to write
+our resource allocation code. Then, the ensure block is where we can safely
+deallocate your resources.</p>
+
+<h4 id="label-Guarding+from+Timeout-3A-3AError">Guarding from Timeout::Error</h4>
+
+<p>In the next example, we will guard from the Timeout::Error exception. This
+will help prevent from leaking resources when Timeout::Error exceptions
+occur during normal ensure clause. For this example we use the help of the
+standard library Timeout, from lib/timeout.rb</p>
+
+<pre class="code"><code class=""><span class='id identifier rubyid_require'>require</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>timeout</span><span class='tstring_end'>&#39;</span></span>
+<span class='const'><span class='object_link'><a href="" title="Thread (class)">Thread</a></span></span><span class='period'>.</span><span class='id identifier rubyid_handle_interrupt'>handle_interrupt</span><span class='lparen'>(</span><span class='const'>Timeout</span><span class='op'>::</span><span class='const'>Error</span> <span class='op'>=&gt;</span> <span class='symbol'>:never</span><span class='rparen'>)</span> <span class='lbrace'>{</span>
+  <span class='id identifier rubyid_timeout'>timeout</span><span class='lparen'>(</span><span class='int'>10</span><span class='rparen'>)</span><span class='lbrace'>{</span>
+    <span class='comment'># Timeout::Error doesn&#39;t occur here
+</span>    <span class='const'><span class='object_link'><a href="" title="Thread (class)">Thread</a></span></span><span class='period'>.</span><span class='id identifier rubyid_handle_interrupt'>handle_interrupt</span><span class='lparen'>(</span><span class='const'>Timeout</span><span class='op'>::</span><span class='const'>Error</span> <span class='op'>=&gt;</span> <span class='symbol'>:on_blocking</span><span class='rparen'>)</span> <span class='lbrace'>{</span>
+      <span class='comment'># possible to be killed by Timeout::Error
+</span>      <span class='comment'># while blocking operation
+</span>    <span class='rbrace'>}</span>
+    <span class='comment'># Timeout::Error doesn&#39;t occur here
+</span>  <span class='rbrace'>}</span>
+<span class='rbrace'>}</span>
+</code></pre>
+
+<p>In the first part of the <code>timeout</code> block, we can rely on
+Timeout::Error being ignored. Then in the <code>Timeout::Error =&gt;
+:on_blocking</code> block, any operation that will block the calling thread
+is susceptible to a Timeout::Error exception being raised.</p>
+
+<h4 id="label-Stack+control+settings">Stack control settings</h4>
+
+<p>It&#39;s possible to stack multiple levels of ::handle_interrupt blocks in
+order to control more than one ExceptionClass and TimingSymbol at a time.</p>
+
+<pre class="code"><code class=""><span class='const'><span class='object_link'><a href="" title="Thread (class)">Thread</a></span></span><span class='period'>.</span><span class='id identifier rubyid_handle_interrupt'>handle_interrupt</span><span class='lparen'>(</span><span class='const'>FooError</span> <span class='op'>=&gt;</span> <span class='symbol'>:never</span><span class='rparen'>)</span> <span class='lbrace'>{</span>
+  <span class='const'><span class='object_link'><a href="" title="Thread (class)">Thread</a></span></span><span class='period'>.</span><span class='id identifier rubyid_handle_interrupt'>handle_interrupt</span><span class='lparen'>(</span><span class='const'>BarError</span> <span class='op'>=&gt;</span> <span class='symbol'>:never</span><span class='rparen'>)</span> <span class='lbrace'>{</span>
+     <span class='comment'># FooError and BarError are prohibited.
+</span>  <span class='rbrace'>}</span>
+<span class='rbrace'>}</span>
+</code></pre>
+
+<h4 id="label-Inheritance+with+ExceptionClass">Inheritance with ExceptionClass</h4>
+
+<p>All exceptions inherited from the ExceptionClass parameter will be
+considered.</p>
+
+<pre class="code"><code class=""><span class='const'><span class='object_link'><a href="" title="Thread (class)">Thread</a></span></span><span class='period'>.</span><span class='id identifier rubyid_handle_interrupt'>handle_interrupt</span><span class='lparen'>(</span><span class='const'><span class='object_link'><a href="Exception.html" title="Exception (class)">Exception</a></span></span> <span class='op'>=&gt;</span> <span class='symbol'>:never</span><span class='rparen'>)</span> <span class='lbrace'>{</span>
+  <span class='comment'># all exceptions inherited from Exception are prohibited.
+</span><span class='rbrace'>}</span>
+</code></pre>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+  <div class="docstring">
+  <div class="discussion">
+    
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Yields:</p>
+<ul class="yield">
+  
+    <li>
+      
+      
+        <span class='type'></span>
+      
+      
+      
+        
+        <div class='inline'><dl class="rdoc-list label-list"><dt>
+<dd></dd></dl>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div>
+
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+1934
+1935
+1936
+1937
+1938
+1939
+1940
+1941
+1942
+1943
+1944
+1945
+1946
+1947
+1948
+1949
+1950
+1951
+1952
+1953
+1954
+1955
+1956
+1957
+1958
+1959
+1960
+1961
+1962
+1963
+1964
+1965
+1966
+1967
+1968
+1969
+1970
+1971
+1972
+1973
+1974
+1975
+1976
+1977
+1978
+1979</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'thread.c', line 1934</span>
+
+static VALUE
+rb_thread_s_handle_interrupt(VALUE self, VALUE mask_arg)
+{
+    VALUE mask;
+    rb_execution_context_t * volatile ec = GET_EC();
+    rb_thread_t * volatile th = rb_ec_thread_ptr(ec);
+    volatile VALUE r = Qnil;
+    enum ruby_tag_type state;
+
+    if (!rb_block_given_p()) {
+	rb_raise(rb_eArgError, &quot;block is needed.&quot;);
+    }
+
+    mask = 0;
+    mask_arg = rb_to_hash_type(mask_arg);
+    rb_hash_foreach(mask_arg, handle_interrupt_arg_check_i, (VALUE)&amp;mask);
+    if (!mask) {
+	return rb_yield(Qnil);
+    }
+    OBJ_FREEZE_RAW(mask);
+    rb_ary_push(th-&gt;pending_interrupt_mask_stack, mask);
+    if (!rb_threadptr_pending_interrupt_empty_p(th)) {
+	th-&gt;pending_interrupt_queue_checked = 0;
+	RUBY_VM_SET_INTERRUPT(th-&gt;ec);
+    }
+
+    EC_PUSH_TAG(th-&gt;ec);
+    if ((state = EC_EXEC_TAG()) == TAG_NONE) {
+	r = rb_yield(Qnil);
+    }
+    EC_POP_TAG();
+
+    rb_ary_pop(th-&gt;pending_interrupt_mask_stack);
+    if (!rb_threadptr_pending_interrupt_empty_p(th)) {
+	th-&gt;pending_interrupt_queue_checked = 0;
+	RUBY_VM_SET_INTERRUPT(th-&gt;ec);
+    }
+
+    RUBY_VM_CHECK_INTS(th-&gt;ec);
+
+    if (state) {
+	EC_JUMP_TAG(th-&gt;ec, state);
+    }
+
+    return r;
+}</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="kill-class_method">
+  
+    .<strong>kill</strong>(thread)  &#x21d2; <tt><span class='object_link'><a href="Object.html" title="Object (class)">Object</a></span></tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Causes the given <code>thread</code> to exit, see also Thread::exit.</p>
+
+<pre class="code"><code class=""><span class='id identifier rubyid_count'>count</span> <span class='op'>=</span> <span class='int'>0</span>
+<span class='id identifier rubyid_a'>a</span> <span class='op'>=</span> <span class='const'><span class='object_link'><a href="" title="Thread (class)">Thread</a></span></span><span class='period'>.</span><span class='id identifier rubyid_new'><span class='object_link'><a href="#new-class_method" title="Thread.new (method)">new</a></span></span> <span class='lbrace'>{</span> <span class='id identifier rubyid_loop'>loop</span> <span class='lbrace'>{</span> <span class='id identifier rubyid_count'>count</span> <span class='op'>+=</span> <span class='int'>1</span> <span class='rbrace'>}</span> <span class='rbrace'>}</span>
+<span class='id identifier rubyid_sleep'>sleep</span><span class='lparen'>(</span><span class='float'>0.1</span><span class='rparen'>)</span>       <span class='comment'>#=&gt; 0
+</span><span class='const'><span class='object_link'><a href="" title="Thread (class)">Thread</a></span></span><span class='period'>.</span><span class='id identifier rubyid_kill'>kill</span><span class='lparen'>(</span><span class='id identifier rubyid_a'>a</span><span class='rparen'>)</span>   <span class='comment'>#=&gt; #&lt;Thread:0x401b3d30 dead&gt;
+</span><span class='id identifier rubyid_count'>count</span>            <span class='comment'>#=&gt; 93947
+</span><span class='id identifier rubyid_a'>a</span><span class='period'>.</span><span class='id identifier rubyid_alive?'>alive?</span>         <span class='comment'>#=&gt; false
+</span></code></pre>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+  
+
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+2401
+2402
+2403
+2404
+2405</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'thread.c', line 2401</span>
+
+static VALUE
+rb_thread_s_kill(VALUE obj, VALUE th)
+{
+    return rb_thread_kill(th);
+}</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="list-class_method">
+  
+    .<strong>list</strong>  &#x21d2; <tt><span class='object_link'><a href="Array.html" title="Array (class)">Array</a></span></tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Returns an array of Thread objects for all threads that are either runnable
+or stopped.</p>
+
+<pre class="code"><code class=""><span class='const'><span class='object_link'><a href="" title="Thread (class)">Thread</a></span></span><span class='period'>.</span><span class='id identifier rubyid_new'><span class='object_link'><a href="#new-class_method" title="Thread.new (method)">new</a></span></span> <span class='lbrace'>{</span> <span class='id identifier rubyid_sleep'>sleep</span><span class='lparen'>(</span><span class='int'>200</span><span class='rparen'>)</span> <span class='rbrace'>}</span>
+<span class='const'><span class='object_link'><a href="" title="Thread (class)">Thread</a></span></span><span class='period'>.</span><span class='id identifier rubyid_new'><span class='object_link'><a href="#new-class_method" title="Thread.new (method)">new</a></span></span> <span class='lbrace'>{</span> <span class='int'>1000000</span><span class='period'>.</span><span class='id identifier rubyid_times'>times</span> <span class='lbrace'>{</span><span class='op'>|</span><span class='id identifier rubyid_i'>i</span><span class='op'>|</span> <span class='id identifier rubyid_i'>i</span><span class='op'>*</span><span class='id identifier rubyid_i'>i</span> <span class='rbrace'>}</span> <span class='rbrace'>}</span>
+<span class='const'><span class='object_link'><a href="" title="Thread (class)">Thread</a></span></span><span class='period'>.</span><span class='id identifier rubyid_new'><span class='object_link'><a href="#new-class_method" title="Thread.new (method)">new</a></span></span> <span class='lbrace'>{</span> <span class='const'><span class='object_link'><a href="" title="Thread (class)">Thread</a></span></span><span class='period'>.</span><span class='id identifier rubyid_stop'><span class='object_link'><a href="#stop-class_method" title="Thread.stop (method)">stop</a></span></span> <span class='rbrace'>}</span>
+<span class='const'><span class='object_link'><a href="" title="Thread (class)">Thread</a></span></span><span class='period'>.</span><span class='id identifier rubyid_list'>list</span><span class='period'>.</span><span class='id identifier rubyid_each'><span class='object_link'><a href="Array.html#each-instance_method" title="Array#each (method)">each</a></span></span> <span class='lbrace'>{</span><span class='op'>|</span><span class='id identifier rubyid_t'>t</span><span class='op'>|</span> <span class='id identifier rubyid_p'>p</span> <span class='id identifier rubyid_t'>t</span><span class='rbrace'>}</span>
+</code></pre>
+
+<p>This will produce:</p>
+
+<pre class="code"><code class=""><span class='comment'>#&lt;Thread:0x401b3e84 sleep&gt;
+</span><span class='comment'>#&lt;Thread:0x401b3f38 run&gt;
+</span><span class='comment'>#&lt;Thread:0x401b3fb0 sleep&gt;
+</span><span class='comment'>#&lt;Thread:0x401bdf4c run&gt;
+</span></code></pre>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+  <div class="docstring">
+  <div class="discussion">
+    
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="Array.html" title="Array (class)">Array</a></span></tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div>
+
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+2548
+2549
+2550
+2551
+2552
+2553
+2554
+2555
+2556
+2557
+2558
+2559
+2560
+2561
+2562
+2563
+2564
+2565
+2566</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'thread.c', line 2548</span>
+
+VALUE
+rb_thread_list(void)
+{
+    VALUE ary = rb_ary_new();
+    rb_vm_t *vm = GET_THREAD()-&gt;vm;
+    rb_thread_t *th = 0;
+
+    list_for_each(&amp;vm-&gt;living_threads, th, vmlt_node) {
+	switch (th-&gt;status) {
+	  case THREAD_RUNNABLE:
+	  case THREAD_STOPPED:
+	  case THREAD_STOPPED_FOREVER:
+	    rb_ary_push(ary, th-&gt;self);
+	  default:
+	    break;
+	}
+    }
+    return ary;
+}</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="main-class_method">
+  
+    .<strong>main</strong>  &#x21d2; <tt><span class='object_link'><a href="Object.html" title="Object (class)">Object</a></span></tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Returns the main thread.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+  
+
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+2602
+2603
+2604
+2605
+2606</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'thread.c', line 2602</span>
+
+static VALUE
+rb_thread_s_main(VALUE klass)
+{
+    return rb_thread_main();
+}</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="new-class_method">
+  
+    .<strong>new</strong>(*args)  &#x21d2; <tt><span class='object_link'><a href="Object.html" title="Object (class)">Object</a></span></tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Thread.new(*args, &amp;proc)		-&gt; thread</p>
+
+<pre class="code"><code class="">Thread.new(*args) { |args| ... }	-&gt; thread
+
+Creates a new thread executing the given block.
+
+Any +args+ given to ::new will be passed to the block:</code></pre>
+
+<p>arr = [] a, b, c = 1, 2, 3 Thread.new(a,b,c) { |d,e,f| arr &lt;&lt; d
+&lt;&lt; e &lt;&lt; f }.join arr #=&gt; [1, 2, 3]</p>
+
+<pre class="code"><code class="">A ThreadError exception is raised if ::new is called without a block.
+
+If you&#39;re going to subclass Thread, be sure to call super in your
++initialize+ method, otherwise a ThreadError will be raised.</code></pre>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+820
+821
+822
+823
+824
+825
+826
+827
+828
+829
+830
+831
+832
+833
+834
+835
+836</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'thread.c', line 820</span>
+
+static VALUE
+thread_s_new(int argc, VALUE *argv, VALUE klass)
+{
+    rb_thread_t *th;
+    VALUE thread = rb_thread_alloc(klass);
+
+    if (GET_VM()-&gt;main_thread-&gt;status == THREAD_KILLED)
+	rb_raise(rb_eThreadError, &quot;can&#39;t alloc thread&quot;);
+
+    rb_obj_call_init(thread, argc, argv);
+    th = rb_thread_ptr(thread);
+    if (!threadptr_initialized(th)) {
+	rb_raise(rb_eThreadError, &quot;uninitialized thread - check `%&quot;PRIsVALUE&quot;#initialize&#39;&quot;,
+		 klass);
+    }
+    return thread;
+}</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="pass-class_method">
+  
+    .<strong>pass</strong>  &#x21d2; <tt>nil</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Give the thread scheduler a hint to pass execution to another thread. A
+running thread may or may not switch, it depends on OS and processor.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+  <div class="docstring">
+  <div class="discussion">
+    
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>nil</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div>
+
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+1640
+1641
+1642
+1643
+1644
+1645</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'thread.c', line 1640</span>
+
+static VALUE
+thread_s_pass(VALUE klass)
+{
+    rb_thread_schedule();
+    return Qnil;
+}</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="pending_interrupt?-class_method">
+  
+    .<strong>pending_interrupt?</strong>(error = nil)  &#x21d2; <tt>Boolean</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Returns whether or not the asynchronous queue is empty.</p>
+
+<p>Since Thread::handle_interrupt can be used to defer asynchronous events,
+this method can be used to determine if there are any deferred events.</p>
+
+<p>If you find this method returns true, then you may finish
+<code>:never</code> blocks.</p>
+
+<p>For example, the following method processes deferred asynchronous events
+immediately.</p>
+
+<pre class="code"><code class=""><span class='kw'>def</span> <span class='const'><span class='object_link'><a href="" title="Thread (class)">Thread</a></span></span><span class='period'>.</span><span class='id identifier rubyid_kick_interrupt_immediately'>kick_interrupt_immediately</span>
+  <span class='const'><span class='object_link'><a href="" title="Thread (class)">Thread</a></span></span><span class='period'>.</span><span class='id identifier rubyid_handle_interrupt'><span class='object_link'><a href="#handle_interrupt-class_method" title="Thread.handle_interrupt (method)">handle_interrupt</a></span></span><span class='lparen'>(</span><span class='const'><span class='object_link'><a href="Object.html" title="Object (class)">Object</a></span></span> <span class='op'>=&gt;</span> <span class='symbol'>:immediate</span><span class='rparen'>)</span> <span class='lbrace'>{</span>
+    <span class='const'><span class='object_link'><a href="" title="Thread (class)">Thread</a></span></span><span class='period'>.</span><span class='id identifier rubyid_pass'><span class='object_link'><a href="#pass-class_method" title="Thread.pass (method)">pass</a></span></span>
+  <span class='rbrace'>}</span>
+<span class='kw'>end</span>
+</code></pre>
+
+<p>If <code>error</code> is given, then check only for <code>error</code> type
+deferred events.</p>
+
+<h3 id="label-Usage">Usage</h3>
+
+<pre class="code"><code class="">th = Thread.new{
+  Thread.handle_interrupt(RuntimeError =&gt; :on_blocking){
+    while true
+      ...
+      # reach safe point to invoke interrupt
+      if Thread.pending_interrupt?
+        Thread.handle_interrupt(Object =&gt; :immediate){}
+      end
+      ...
+    end
+  }
+}
+...
+th.raise # stop thread</code></pre>
+
+<p>This example can also be written as the following, which you should use to
+avoid asynchronous interrupts.</p>
+
+<pre class="code"><code class="">flag = true
+th = Thread.new{
+  Thread.handle_interrupt(RuntimeError =&gt; :on_blocking){
+    while true
+      ...
+      # reach safe point to invoke interrupt
+      break if flag == false
+      ...
+    end
+  }
+}
+...
+flag = false # stop thread</code></pre>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+  
+
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Boolean</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+2077
+2078
+2079
+2080
+2081</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'thread.c', line 2077</span>
+
+static VALUE
+rb_thread_s_pending_interrupt_p(int argc, VALUE *argv, VALUE self)
+{
+    return rb_thread_pending_interrupt_p(argc, argv, GET_THREAD()-&gt;self);
+}</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="report_on_exception-class_method">
+  
+    .<strong>report_on_exception</strong>  &#x21d2; <tt>Boolean</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Returns the status of the global “report on exception&#39;&#39; condition.</p>
+
+<p>The default is <code>true</code> since Ruby 2.5.</p>
+
+<p>All threads created when this flag is true will report a message on $stderr
+if an exception kills the thread.</p>
+
+<pre class="code"><code class=""><span class='const'><span class='object_link'><a href="" title="Thread (class)">Thread</a></span></span><span class='period'>.</span><span class='id identifier rubyid_new'><span class='object_link'><a href="#new-class_method" title="Thread.new (method)">new</a></span></span> <span class='lbrace'>{</span> <span class='int'>1</span><span class='period'>.</span><span class='id identifier rubyid_times'>times</span> <span class='lbrace'>{</span> <span class='id identifier rubyid_raise'>raise</span> <span class='rbrace'>}</span> <span class='rbrace'>}</span>
+</code></pre>
+
+<p>will produce this output on $stderr:</p>
+
+<pre class="code"><code class="">#&lt;Thread:...&gt; terminated with exception (report_on_exception is true):
+Traceback (most recent call last):
+        2: from -e:1:in `block in &lt;main&gt;&#39;
+        1: from -e:1:in `times&#39;</code></pre>
+
+<p>This is done to catch errors in threads early. In some cases, you might not
+want this output. There are multiple ways to avoid the extra output:</p>
+<ul><li>
+<p>If the exception is not intended, the best is to fix the cause of the
+exception so it does not happen anymore.</p>
+</li><li>
+<p>If the exception is intended, it might be better to rescue it closer to
+where it is raised rather then let it kill the Thread.</p>
+</li><li>
+<p>If it is guaranteed the Thread will be joined with Thread#join or
+Thread#value, then it is safe to disable this report with
+<code>Thread.current.report_on_exception = false</code> when starting the
+Thread. However, this might handle the exception much later, or not at all
+if the Thread is never joined due to the parent thread being blocked, etc.</p>
+</li></ul>
+
+<p>See also ::report_on_exception=.</p>
+
+<p>There is also an instance level method to set this for a specific thread,
+see #report_on_exception=.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+  <div class="docstring">
+  <div class="discussion">
+    
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Boolean</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div>
+
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+2759
+2760
+2761
+2762
+2763</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'thread.c', line 2759</span>
+
+static VALUE
+rb_thread_s_report_exc(void)
+{
+    return GET_THREAD()-&gt;vm-&gt;thread_report_on_exception ? Qtrue : Qfalse;
+}</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="report_on_exception=-class_method">
+  
+    .<strong>report_on_exception=</strong>(boolean)  &#x21d2; <tt>Boolean</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Returns the new state. When set to <code>true</code>, all threads created
+afterwards will inherit the condition and report a message on $stderr if an
+exception kills a thread:</p>
+
+<pre class="code"><code class=""><span class='const'><span class='object_link'><a href="" title="Thread (class)">Thread</a></span></span><span class='period'>.</span><span class='id identifier rubyid_report_on_exception'><span class='object_link'><a href="#report_on_exception-class_method" title="Thread.report_on_exception (method)">report_on_exception</a></span></span> <span class='op'>=</span> <span class='kw'>true</span>
+<span class='id identifier rubyid_t1'>t1</span> <span class='op'>=</span> <span class='const'><span class='object_link'><a href="" title="Thread (class)">Thread</a></span></span><span class='period'>.</span><span class='id identifier rubyid_new'><span class='object_link'><a href="#new-class_method" title="Thread.new (method)">new</a></span></span> <span class='kw'>do</span>
+  <span class='id identifier rubyid_puts'>puts</span>  <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>In new thread</span><span class='tstring_end'>&quot;</span></span>
+  <span class='id identifier rubyid_raise'>raise</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Exception from thread</span><span class='tstring_end'>&quot;</span></span>
+<span class='kw'>end</span>
+<span class='id identifier rubyid_sleep'>sleep</span><span class='lparen'>(</span><span class='int'>1</span><span class='rparen'>)</span>
+<span class='id identifier rubyid_puts'>puts</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>In the main thread</span><span class='tstring_end'>&quot;</span></span>
+</code></pre>
+
+<p>This will produce:</p>
+
+<pre class="code"><code class="">In new thread
+#&lt;Thread:...prog.rb:2&gt; terminated with exception (report_on_exception is true):
+Traceback (most recent call last):
+prog.rb:4:in `block in &lt;main&gt;&#39;: Exception from thread (RuntimeError)
+In the main thread</code></pre>
+
+<p>See also ::report_on_exception.</p>
+
+<p>There is also an instance level method to set this for a specific thread,
+see #report_on_exception=.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+  <div class="docstring">
+  <div class="discussion">
+    
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Boolean</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div>
+
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+2796
+2797
+2798
+2799
+2800
+2801</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'thread.c', line 2796</span>
+
+static VALUE
+rb_thread_s_report_exc_set(VALUE self, VALUE val)
+{
+    GET_THREAD()-&gt;vm-&gt;thread_report_on_exception = RTEST(val);
+    return val;
+}</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="start-class_method">
+  
+    
+      <span class="overload">.<strong>start</strong>([args]) {|args| ... } &#x21d2; <tt><span class='object_link'><a href="Object.html" title="Object (class)">Object</a></span></tt> </span>
+    
+      <span class="overload">.<strong>fork</strong>([args]) {|args| ... } &#x21d2; <tt><span class='object_link'><a href="Object.html" title="Object (class)">Object</a></span></tt> </span>
+    
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Basically the same as ::new. However, if class Thread is subclassed, then
+calling <code>start</code> in that subclass will not invoke the
+subclass&#39;s <code>initialize</code> method.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+  <p class="tag_title">Overloads:</p>
+  <ul class="overload">
+    
+      
+      <li class="overload_item">
+        <span class="signature">.<strong>start</strong>([args]) {|args| ... } &#x21d2; <tt><span class='object_link'><a href="Object.html" title="Object (class)">Object</a></span></tt> </span>
+        <div class="docstring">
+  <div class="discussion">
+    
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Yields:</p>
+<ul class="yield">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>args</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div>
+      </li>
+    
+      
+      <li class="overload_item">
+        <span class="signature">.<strong>fork</strong>([args]) {|args| ... } &#x21d2; <tt><span class='object_link'><a href="Object.html" title="Object (class)">Object</a></span></tt> </span>
+        <div class="docstring">
+  <div class="discussion">
+    
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Yields:</p>
+<ul class="yield">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>args</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div>
+      </li>
+    
+  </ul>
+
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+848
+849
+850
+851
+852</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'thread.c', line 848</span>
+
+static VALUE
+thread_start(VALUE klass, VALUE args)
+{
+    return thread_create_core(rb_thread_alloc(klass), args, 0);
+}</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="stop-class_method">
+  
+    .<strong>stop</strong>  &#x21d2; <tt>nil</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Stops execution of the current thread, putting it into a “sleep&#39;&#39;
+state, and schedules execution of another thread.</p>
+
+<pre class="code"><code class=""><span class='id identifier rubyid_a'>a</span> <span class='op'>=</span> <span class='const'><span class='object_link'><a href="" title="Thread (class)">Thread</a></span></span><span class='period'>.</span><span class='id identifier rubyid_new'><span class='object_link'><a href="#new-class_method" title="Thread.new (method)">new</a></span></span> <span class='lbrace'>{</span> <span class='id identifier rubyid_print'>print</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>a</span><span class='tstring_end'>&quot;</span></span><span class='semicolon'>;</span> <span class='const'><span class='object_link'><a href="" title="Thread (class)">Thread</a></span></span><span class='period'>.</span><span class='id identifier rubyid_stop'>stop</span><span class='semicolon'>;</span> <span class='id identifier rubyid_print'>print</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>c</span><span class='tstring_end'>&quot;</span></span> <span class='rbrace'>}</span>
+<span class='id identifier rubyid_sleep'>sleep</span> <span class='float'>0.1</span> <span class='kw'>while</span> <span class='id identifier rubyid_a'>a</span><span class='period'>.</span><span class='id identifier rubyid_status'>status</span><span class='op'>!=</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>sleep</span><span class='tstring_end'>&#39;</span></span>
+<span class='id identifier rubyid_print'>print</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>b</span><span class='tstring_end'>&quot;</span></span>
+<span class='id identifier rubyid_a'>a</span><span class='period'>.</span><span class='id identifier rubyid_run'>run</span>
+<span class='id identifier rubyid_a'>a</span><span class='period'>.</span><span class='id identifier rubyid_join'>join</span>
+<span class='comment'>#=&gt; &quot;abc&quot;
+</span></code></pre>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+  <div class="docstring">
+  <div class="discussion">
+    
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>nil</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div>
+
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+2515
+2516
+2517
+2518
+2519
+2520
+2521
+2522
+2523
+2524</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'thread.c', line 2515</span>
+
+VALUE
+rb_thread_stop(void)
+{
+    if (rb_thread_alone()) {
+	rb_raise(rb_eThreadError,
+		 &quot;stopping only thread\n\tnote: use sleep to stop forever&quot;);
+    }
+    rb_thread_sleep_deadly();
+    return Qnil;
+}</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+  </div>
+
+  <div id="instance_method_details" class="method_details_list">
+    <h2>Instance Method Details</h2>
+
+    
+      <div class="method_details first">
+  <h3 class="signature first" id="[]-instance_method">
+  
+    #<strong>[]</strong>(sym)  &#x21d2; <tt><span class='object_link'><a href="Object.html" title="Object (class)">Object</a></span></tt><sup>?</sup> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Attribute Reference—Returns the value of a fiber-local variable (current
+thread&#39;s root fiber if not explicitly inside a Fiber), using either a
+symbol or a string name. If the specified variable does not exist, returns
+<code>nil</code>.</p>
+
+<pre class="code"><code class=""><span class='lbracket'>[</span>
+  <span class='const'><span class='object_link'><a href="" title="Thread (class)">Thread</a></span></span><span class='period'>.</span><span class='id identifier rubyid_new'><span class='object_link'><a href="#new-class_method" title="Thread.new (method)">new</a></span></span> <span class='lbrace'>{</span> <span class='const'><span class='object_link'><a href="" title="Thread (class)">Thread</a></span></span><span class='period'>.</span><span class='id identifier rubyid_current'><span class='object_link'><a href="#current-class_method" title="Thread.current (method)">current</a></span></span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>name</span><span class='tstring_end'>&quot;</span></span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>A</span><span class='tstring_end'>&quot;</span></span> <span class='rbrace'>}</span><span class='comma'>,</span>
+  <span class='const'><span class='object_link'><a href="" title="Thread (class)">Thread</a></span></span><span class='period'>.</span><span class='id identifier rubyid_new'><span class='object_link'><a href="#new-class_method" title="Thread.new (method)">new</a></span></span> <span class='lbrace'>{</span> <span class='const'><span class='object_link'><a href="" title="Thread (class)">Thread</a></span></span><span class='period'>.</span><span class='id identifier rubyid_current'><span class='object_link'><a href="#current-class_method" title="Thread.current (method)">current</a></span></span><span class='lbracket'>[</span><span class='symbol'>:name</span><span class='rbracket'>]</span>  <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>B</span><span class='tstring_end'>&quot;</span></span> <span class='rbrace'>}</span><span class='comma'>,</span>
+  <span class='const'><span class='object_link'><a href="" title="Thread (class)">Thread</a></span></span><span class='period'>.</span><span class='id identifier rubyid_new'><span class='object_link'><a href="#new-class_method" title="Thread.new (method)">new</a></span></span> <span class='lbrace'>{</span> <span class='const'><span class='object_link'><a href="" title="Thread (class)">Thread</a></span></span><span class='period'>.</span><span class='id identifier rubyid_current'><span class='object_link'><a href="#current-class_method" title="Thread.current (method)">current</a></span></span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>name</span><span class='tstring_end'>&quot;</span></span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>C</span><span class='tstring_end'>&quot;</span></span> <span class='rbrace'>}</span>
+<span class='rbracket'>]</span><span class='period'>.</span><span class='id identifier rubyid_each'>each</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_th'>th</span><span class='op'>|</span>
+  <span class='id identifier rubyid_th'>th</span><span class='period'>.</span><span class='id identifier rubyid_join'>join</span>
+  <span class='id identifier rubyid_puts'>puts</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_th'>th</span><span class='period'>.</span><span class='id identifier rubyid_inspect'>inspect</span><span class='embexpr_end'>}</span><span class='tstring_content'>: </span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_th'>th</span><span class='lbracket'>[</span><span class='symbol'>:name</span><span class='rbracket'>]</span><span class='embexpr_end'>}</span><span class='tstring_end'>&quot;</span></span>
+<span class='kw'>end</span>
+</code></pre>
+
+<p>This will produce:</p>
+
+<pre class="code"><code class=""><span class='comment'>#&lt;Thread:0x00000002a54220 dead&gt;: A
+</span><span class='comment'>#&lt;Thread:0x00000002a541a8 dead&gt;: B
+</span><span class='comment'>#&lt;Thread:0x00000002a54130 dead&gt;: C
+</span></code></pre>
+
+<p>Thread#[] and Thread#[]= are not thread-local but fiber-local. This
+confusion did not exist in Ruby 1.8 because fibers are only available since
+Ruby 1.9. Ruby 1.9 chooses that the methods behaves fiber-local to save
+following idiom for dynamic scope.</p>
+
+<pre class="code"><code class=""><span class='kw'>def</span> <span class='id identifier rubyid_meth'>meth</span><span class='lparen'>(</span><span class='id identifier rubyid_newvalue'>newvalue</span><span class='rparen'>)</span>
+  <span class='kw'>begin</span>
+    <span class='id identifier rubyid_oldvalue'>oldvalue</span> <span class='op'>=</span> <span class='const'><span class='object_link'><a href="" title="Thread (class)">Thread</a></span></span><span class='period'>.</span><span class='id identifier rubyid_current'><span class='object_link'><a href="#current-class_method" title="Thread.current (method)">current</a></span></span><span class='lbracket'>[</span><span class='symbol'>:name</span><span class='rbracket'>]</span>
+    <span class='const'><span class='object_link'><a href="" title="Thread (class)">Thread</a></span></span><span class='period'>.</span><span class='id identifier rubyid_current'><span class='object_link'><a href="#current-class_method" title="Thread.current (method)">current</a></span></span><span class='lbracket'>[</span><span class='symbol'>:name</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='id identifier rubyid_newvalue'>newvalue</span>
+    <span class='kw'>yield</span>
+  <span class='kw'>ensure</span>
+    <span class='const'><span class='object_link'><a href="" title="Thread (class)">Thread</a></span></span><span class='period'>.</span><span class='id identifier rubyid_current'><span class='object_link'><a href="#current-class_method" title="Thread.current (method)">current</a></span></span><span class='lbracket'>[</span><span class='symbol'>:name</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='id identifier rubyid_oldvalue'>oldvalue</span>
+  <span class='kw'>end</span>
+<span class='kw'>end</span>
+</code></pre>
+
+<p>The idiom may not work as dynamic scope if the methods are thread-local and
+a given block switches fiber.</p>
+
+<pre class="code"><code class=""><span class='id identifier rubyid_f'>f</span> <span class='op'>=</span> <span class='const'><span class='object_link'><a href="Fiber.html" title="Fiber (class)">Fiber</a></span></span><span class='period'>.</span><span class='id identifier rubyid_new'><span class='object_link'><a href="Fiber.html#initialize-instance_method" title="Fiber#initialize (method)">new</a></span></span> <span class='lbrace'>{</span>
+  <span class='id identifier rubyid_meth'>meth</span><span class='lparen'>(</span><span class='int'>1</span><span class='rparen'>)</span> <span class='lbrace'>{</span>
+    <span class='const'><span class='object_link'><a href="Fiber.html" title="Fiber (class)">Fiber</a></span></span><span class='period'>.</span><span class='id identifier rubyid_yield'><span class='object_link'><a href="Fiber.html#yield-class_method" title="Fiber.yield (method)">yield</a></span></span>
+  <span class='rbrace'>}</span>
+<span class='rbrace'>}</span>
+<span class='id identifier rubyid_meth'>meth</span><span class='lparen'>(</span><span class='int'>2</span><span class='rparen'>)</span> <span class='lbrace'>{</span>
+  <span class='id identifier rubyid_f'>f</span><span class='period'>.</span><span class='id identifier rubyid_resume'>resume</span>
+<span class='rbrace'>}</span>
+<span class='id identifier rubyid_f'>f</span><span class='period'>.</span><span class='id identifier rubyid_resume'>resume</span>
+<span class='id identifier rubyid_p'>p</span> <span class='const'><span class='object_link'><a href="" title="Thread (class)">Thread</a></span></span><span class='period'>.</span><span class='id identifier rubyid_current'><span class='object_link'><a href="#current-class_method" title="Thread.current (method)">current</a></span></span><span class='lbracket'>[</span><span class='symbol'>:name</span><span class='rbracket'>]</span>
+<span class='comment'>#=&gt; nil if fiber-local
+</span><span class='comment'>#=&gt; 2 if thread-local (The value 2 is leaked to outside of meth method.)
+</span></code></pre>
+
+<p>For thread-local variables, please see #thread_variable_get and
+#thread_variable_set.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+  <div class="docstring">
+  <div class="discussion">
+    
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="Object.html" title="Object (class)">Object</a></span></tt>, <tt>nil</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div>
+
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+3177
+3178
+3179
+3180
+3181
+3182
+3183</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'thread.c', line 3177</span>
+
+static VALUE
+rb_thread_aref(VALUE thread, VALUE key)
+{
+    ID id = rb_check_id(&amp;key);
+    if (!id) return Qnil;
+    return rb_thread_local_aref(thread, id);
+}</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="[]=-instance_method">
+  
+    #<strong>[]=</strong>(sym)  &#x21d2; <tt><span class='object_link'><a href="Object.html" title="Object (class)">Object</a></span></tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Attribute Assignment—Sets or creates the value of a fiber-local variable,
+using either a symbol or a string.</p>
+
+<p>See also Thread#[].</p>
+
+<p>For thread-local variables, please see #thread_variable_set and
+#thread_variable_get.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+  <div class="docstring">
+  <div class="discussion">
+    
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="Object.html" title="Object (class)">Object</a></span></tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div>
+
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+3282
+3283
+3284
+3285
+3286</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'thread.c', line 3282</span>
+
+static VALUE
+rb_thread_aset(VALUE self, VALUE id, VALUE val)
+{
+    return rb_thread_local_aset(self, rb_to_id(id), val);
+}</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="abort_on_exception-instance_method">
+  
+    #<strong>abort_on_exception</strong>  &#x21d2; <tt>Boolean</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Returns the status of the thread-local “abort on exception&#39;&#39;
+condition for this <code>thr</code>.</p>
+
+<p>The default is <code>false</code>.</p>
+
+<p>See also #abort_on_exception=.</p>
+
+<p>There is also a class level method to set this for all threads, see
+::abort_on_exception.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+  <div class="docstring">
+  <div class="discussion">
+    
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Boolean</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div>
+
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+2689
+2690
+2691
+2692
+2693</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'thread.c', line 2689</span>
+
+static VALUE
+rb_thread_abort_exc(VALUE thread)
+{
+    return rb_thread_ptr(thread)-&gt;abort_on_exception ? Qtrue : Qfalse;
+}</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="abort_on_exception=-instance_method">
+  
+    #<strong>abort_on_exception=</strong>(boolean)  &#x21d2; <tt>Boolean</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>When set to <code>true</code>, if this <code>thr</code> is aborted by an
+exception, the raised exception will be re-raised in the main thread.</p>
+
+<p>See also #abort_on_exception.</p>
+
+<p>There is also a class level method to set this for all threads, see
+::abort_on_exception=.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+  <div class="docstring">
+  <div class="discussion">
+    
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Boolean</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div>
+
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+2709
+2710
+2711
+2712
+2713
+2714</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'thread.c', line 2709</span>
+
+static VALUE
+rb_thread_abort_exc_set(VALUE thread, VALUE val)
+{
+    rb_thread_ptr(thread)-&gt;abort_on_exception = RTEST(val);
+    return val;
+}</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="add_trace_func-instance_method">
+  
+    #<strong>add_trace_func</strong>(proc)  &#x21d2; <tt><span class='object_link'><a href="Proc.html" title="Proc (class)">Proc</a></span></tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Adds <em>proc</em> as a handler for tracing.</p>
+
+<p>See Thread#set_trace_func and Kernel#set_trace_func.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+  <div class="docstring">
+  <div class="discussion">
+    
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="Proc.html" title="Proc (class)">Proc</a></span></tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div>
+
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+522
+523
+524
+525
+526
+527</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'vm_trace.c', line 522</span>
+
+static VALUE
+thread_add_trace_func_m(VALUE obj, VALUE trace)
+{
+    thread_add_trace_func(GET_EC(), rb_thread_ptr(obj), trace);
+    return trace;
+}</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="alive?-instance_method">
+  
+    #<strong>alive?</strong>  &#x21d2; <tt>Boolean</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Returns <code>true</code> if <code>thr</code> is running or sleeping.</p>
+
+<pre class="code"><code class=""><span class='id identifier rubyid_thr'>thr</span> <span class='op'>=</span> <span class='const'><span class='object_link'><a href="" title="Thread (class)">Thread</a></span></span><span class='period'>.</span><span class='id identifier rubyid_new'><span class='object_link'><a href="#new-class_method" title="Thread.new (method)">new</a></span></span> <span class='lbrace'>{</span> <span class='rbrace'>}</span>
+<span class='id identifier rubyid_thr'>thr</span><span class='period'>.</span><span class='id identifier rubyid_join'>join</span>                <span class='comment'>#=&gt; #&lt;Thread:0x401b3fb0 dead&gt;
+</span><span class='const'><span class='object_link'><a href="" title="Thread (class)">Thread</a></span></span><span class='period'>.</span><span class='id identifier rubyid_current'><span class='object_link'><a href="#current-class_method" title="Thread.current (method)">current</a></span></span><span class='period'>.</span><span class='id identifier rubyid_alive?'>alive?</span>   <span class='comment'>#=&gt; true
+</span><span class='id identifier rubyid_thr'>thr</span><span class='period'>.</span><span class='id identifier rubyid_alive?'>alive?</span>              <span class='comment'>#=&gt; false
+</span></code></pre>
+
+<p>See also #stop? and #status.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+  <div class="docstring">
+  <div class="discussion">
+    
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Boolean</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div>
+
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Boolean</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+2954
+2955
+2956
+2957
+2958
+2959
+2960
+2961
+2962
+2963</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'thread.c', line 2954</span>
+
+static VALUE
+rb_thread_alive_p(VALUE thread)
+{
+    if (rb_threadptr_dead(rb_thread_ptr(thread))) {
+	return Qfalse;
+    }
+    else {
+	return Qtrue;
+    }
+}</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="backtrace-instance_method">
+  
+    #<strong>backtrace</strong>  &#x21d2; <tt><span class='object_link'><a href="Array.html" title="Array (class)">Array</a></span></tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Returns the current backtrace of the target thread.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+  <div class="docstring">
+  <div class="discussion">
+    
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="Array.html" title="Array (class)">Array</a></span></tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div>
+
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+4831
+4832
+4833
+4834
+4835</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'thread.c', line 4831</span>
+
+static VALUE
+rb_thread_backtrace_m(int argc, VALUE *argv, VALUE thval)
+{
+    return rb_vm_thread_backtrace(argc, argv, thval);
+}</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="backtrace_locations-instance_method">
+  
+    #<strong>backtrace_locations</strong>(*args)  &#x21d2; <tt><span class='object_link'><a href="Object.html" title="Object (class)">Object</a></span></tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Returns the execution stack for the target thread—an array containing
+backtrace location objects.</p>
+
+<p>See Thread::Backtrace::Location for more information.</p>
+
+<p>This method behaves similarly to Kernel#caller_locations except it applies
+to a specific thread.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+  
+
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+4848
+4849
+4850
+4851
+4852</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'thread.c', line 4848</span>
+
+static VALUE
+rb_thread_backtrace_locations_m(int argc, VALUE *argv, VALUE thval)
+{
+    return rb_vm_thread_backtrace_locations(argc, argv, thval);
+}</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="exit-instance_method">
+  
+    
+      <span class="overload">#<strong>exit</strong>  &#x21d2; <tt>nil</tt> </span>
+    
+      <span class="overload">#<strong>kill</strong>  &#x21d2; <tt>nil</tt> </span>
+    
+      <span class="overload">#<strong>terminate</strong>  &#x21d2; <tt>nil</tt> </span>
+    
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Terminates <code>thr</code> and schedules another thread to be run.</p>
+
+<p>If this thread is already marked to be killed, #exit returns the Thread.</p>
+
+<p>If this is the main thread, or the last thread, exits the process.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+  <p class="tag_title">Overloads:</p>
+  <ul class="overload">
+    
+      
+      <li class="overload_item">
+        <span class="signature">#<strong>exit</strong>  &#x21d2; <tt>nil</tt> </span>
+        <div class="docstring">
+  <div class="discussion">
+    
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>nil</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div>
+      </li>
+    
+      
+      <li class="overload_item">
+        <span class="signature">#<strong>kill</strong>  &#x21d2; <tt>nil</tt> </span>
+        <div class="docstring">
+  <div class="discussion">
+    
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>nil</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div>
+      </li>
+    
+      
+      <li class="overload_item">
+        <span class="signature">#<strong>terminate</strong>  &#x21d2; <tt>nil</tt> </span>
+        <div class="docstring">
+  <div class="discussion">
+    
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>nil</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div>
+      </li>
+    
+  </ul>
+
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+2350
+2351
+2352
+2353
+2354
+2355
+2356
+2357
+2358
+2359
+2360
+2361
+2362
+2363
+2364
+2365
+2366
+2367
+2368
+2369
+2370
+2371
+2372
+2373
+2374</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'thread.c', line 2350</span>
+
+VALUE
+rb_thread_kill(VALUE thread)
+{
+    rb_thread_t *th = rb_thread_ptr(thread);
+
+    if (th-&gt;to_kill || th-&gt;status == THREAD_KILLED) {
+	return thread;
+    }
+    if (th == th-&gt;vm-&gt;main_thread) {
+	rb_exit(EXIT_SUCCESS);
+    }
+
+    thread_debug(&quot;rb_thread_kill: %p (%&quot;PRI_THREAD_ID&quot;)\n&quot;, (void *)th, thread_id_str(th));
+
+    if (th == GET_THREAD()) {
+	/* kill myself immediately */
+	rb_threadptr_to_kill(th);
+    }
+    else {
+	threadptr_check_pending_interrupt_queue(th);
+	rb_threadptr_pending_interrupt_enque(th, eKillSignal);
+	rb_threadptr_interrupt(th);
+    }
+    return thread;
+}</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="fetch-instance_method">
+  
+    
+      <span class="overload">#<strong>fetch</strong>(sym)  &#x21d2; <tt><span class='object_link'><a href="Object.html" title="Object (class)">Object</a></span></tt> </span>
+    
+      <span class="overload">#<strong>fetch</strong>(sym) { ... } &#x21d2; <tt><span class='object_link'><a href="Object.html" title="Object (class)">Object</a></span></tt> </span>
+    
+      <span class="overload">#<strong>fetch</strong>(sym, default)  &#x21d2; <tt><span class='object_link'><a href="Object.html" title="Object (class)">Object</a></span></tt> </span>
+    
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Returns a fiber-local for the given key. If the key can&#39;t be found,
+there are several options: With no other arguments, it will raise a
+<code>KeyError</code> exception; if <em>default</em> is given, then that
+will be returned; if the optional code block is specified, then that will
+be run and its result returned. See Thread#[] and Hash#fetch.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+  <p class="tag_title">Overloads:</p>
+  <ul class="overload">
+    
+      
+      <li class="overload_item">
+        <span class="signature">#<strong>fetch</strong>(sym)  &#x21d2; <tt><span class='object_link'><a href="Object.html" title="Object (class)">Object</a></span></tt> </span>
+        <div class="docstring">
+  <div class="discussion">
+    
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="Object.html" title="Object (class)">Object</a></span></tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div>
+      </li>
+    
+      
+      <li class="overload_item">
+        <span class="signature">#<strong>fetch</strong>(sym) { ... } &#x21d2; <tt><span class='object_link'><a href="Object.html" title="Object (class)">Object</a></span></tt> </span>
+        <div class="docstring">
+  <div class="discussion">
+    
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Yields:</p>
+<ul class="yield">
+  
+    <li>
+      
+      
+        <span class='type'></span>
+      
+      
+      
+        
+        <div class='inline'><dl class="rdoc-list label-list"><dt>
+<dd></dd></dl>
+</div>
+      
+    </li>
+  
+</ul>
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="Object.html" title="Object (class)">Object</a></span></tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div>
+      </li>
+    
+      
+      <li class="overload_item">
+        <span class="signature">#<strong>fetch</strong>(sym, default)  &#x21d2; <tt><span class='object_link'><a href="Object.html" title="Object (class)">Object</a></span></tt> </span>
+        <div class="docstring">
+  <div class="discussion">
+    
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="Object.html" title="Object (class)">Object</a></span></tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div>
+      </li>
+    
+  </ul>
+
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+3198
+3199
+3200
+3201
+3202
+3203
+3204
+3205
+3206
+3207
+3208
+3209
+3210
+3211
+3212
+3213
+3214
+3215
+3216
+3217
+3218
+3219
+3220
+3221
+3222
+3223
+3224
+3225
+3226
+3227
+3228
+3229
+3230
+3231
+3232</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'thread.c', line 3198</span>
+
+static VALUE
+rb_thread_fetch(int argc, VALUE *argv, VALUE self)
+{
+    VALUE key, val;
+    ID id;
+    rb_thread_t *target_th = rb_thread_ptr(self);
+    int block_given;
+
+    rb_check_arity(argc, 1, 2);
+    key = argv[0];
+
+    block_given = rb_block_given_p();
+    if (block_given &amp;&amp; argc == 2) {
+	rb_warn(&quot;block supersedes default value argument&quot;);
+    }
+
+    id = rb_check_id(&amp;key);
+
+    if (id == recursive_key) {
+	return target_th-&gt;ec-&gt;local_storage_recursive_hash;
+    }
+    else if (id &amp;&amp; target_th-&gt;ec-&gt;local_storage &amp;&amp;
+	     st_lookup(target_th-&gt;ec-&gt;local_storage, id, &amp;val)) {
+	return val;
+    }
+    else if (block_given) {
+	return rb_yield(key);
+    }
+    else if (argc == 1) {
+	rb_key_err_raise(rb_sprintf(&quot;key not found: %+&quot;PRIsVALUE, key), self, key);
+    }
+    else {
+	return argv[1];
+    }
+}</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="group-instance_method">
+  
+    #<strong>group</strong>  &#x21d2; <tt>nil</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Returns the ThreadGroup which contains the given thread, or returns
+<code>nil</code> if <code>thr</code> is not a member of any group.</p>
+
+<pre class="code"><code class=""><span class='const'><span class='object_link'><a href="" title="Thread (class)">Thread</a></span></span><span class='period'>.</span><span class='id identifier rubyid_main'><span class='object_link'><a href="#main-class_method" title="Thread.main (method)">main</a></span></span><span class='period'>.</span><span class='id identifier rubyid_group'>group</span>   <span class='comment'>#=&gt; #&lt;ThreadGroup:0x4029d914&gt;
+</span></code></pre>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+  <div class="docstring">
+  <div class="discussion">
+    
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>nil</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div>
+
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+2858
+2859
+2860
+2861
+2862
+2863</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'thread.c', line 2858</span>
+
+VALUE
+rb_thread_group(VALUE thread)
+{
+    VALUE group = rb_thread_ptr(thread)-&gt;thgroup;
+    return group == 0 ? Qnil : group;
+}</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="join-instance_method">
+  
+    
+      <span class="overload">#<strong>join</strong>  &#x21d2; <tt><span class='object_link'><a href="Object.html" title="Object (class)">Object</a></span></tt> </span>
+    
+      <span class="overload">#<strong>join</strong>(limit)  &#x21d2; <tt><span class='object_link'><a href="Object.html" title="Object (class)">Object</a></span></tt> </span>
+    
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>The calling thread will suspend execution and run this <code>thr</code>.</p>
+
+<p>Does not return until <code>thr</code> exits or until the given
+<code>limit</code> seconds have passed.</p>
+
+<p>If the time limit expires, <code>nil</code> will be returned, otherwise
+<code>thr</code> is returned.</p>
+
+<p>Any threads not joined will be killed when the main program exits.</p>
+
+<p>If <code>thr</code> had previously raised an exception and the
+::abort_on_exception or $DEBUG flags are not set, (so the exception has not
+yet been processed), it will be processed at this time.</p>
+
+<pre class="code"><code class=""><span class='id identifier rubyid_a'>a</span> <span class='op'>=</span> <span class='const'><span class='object_link'><a href="" title="Thread (class)">Thread</a></span></span><span class='period'>.</span><span class='id identifier rubyid_new'><span class='object_link'><a href="#new-class_method" title="Thread.new (method)">new</a></span></span> <span class='lbrace'>{</span> <span class='id identifier rubyid_print'>print</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>a</span><span class='tstring_end'>&quot;</span></span><span class='semicolon'>;</span> <span class='id identifier rubyid_sleep'>sleep</span><span class='lparen'>(</span><span class='int'>10</span><span class='rparen'>)</span><span class='semicolon'>;</span> <span class='id identifier rubyid_print'>print</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>b</span><span class='tstring_end'>&quot;</span></span><span class='semicolon'>;</span> <span class='id identifier rubyid_print'>print</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>c</span><span class='tstring_end'>&quot;</span></span> <span class='rbrace'>}</span>
+<span class='id identifier rubyid_x'>x</span> <span class='op'>=</span> <span class='const'><span class='object_link'><a href="" title="Thread (class)">Thread</a></span></span><span class='period'>.</span><span class='id identifier rubyid_new'><span class='object_link'><a href="#new-class_method" title="Thread.new (method)">new</a></span></span> <span class='lbrace'>{</span> <span class='id identifier rubyid_print'>print</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>x</span><span class='tstring_end'>&quot;</span></span><span class='semicolon'>;</span> <span class='const'><span class='object_link'><a href="" title="Thread (class)">Thread</a></span></span><span class='period'>.</span><span class='id identifier rubyid_pass'><span class='object_link'><a href="#pass-class_method" title="Thread.pass (method)">pass</a></span></span><span class='semicolon'>;</span> <span class='id identifier rubyid_print'>print</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>y</span><span class='tstring_end'>&quot;</span></span><span class='semicolon'>;</span> <span class='id identifier rubyid_print'>print</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>z</span><span class='tstring_end'>&quot;</span></span> <span class='rbrace'>}</span>
+<span class='id identifier rubyid_x'>x</span><span class='period'>.</span><span class='id identifier rubyid_join'>join</span> <span class='comment'># Let thread x finish, thread a will be killed on exit.
+</span><span class='comment'>#=&gt; &quot;axyz&quot;
+</span></code></pre>
+
+<p>The following example illustrates the <code>limit</code> parameter.</p>
+
+<pre class="code"><code class=""><span class='id identifier rubyid_y'>y</span> <span class='op'>=</span> <span class='const'><span class='object_link'><a href="" title="Thread (class)">Thread</a></span></span><span class='period'>.</span><span class='id identifier rubyid_new'><span class='object_link'><a href="#new-class_method" title="Thread.new (method)">new</a></span></span> <span class='lbrace'>{</span> <span class='int'>4</span><span class='period'>.</span><span class='id identifier rubyid_times'>times</span> <span class='lbrace'>{</span> <span class='id identifier rubyid_sleep'>sleep</span> <span class='float'>0.1</span><span class='semicolon'>;</span> <span class='id identifier rubyid_puts'>puts</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>tick... </span><span class='tstring_end'>&#39;</span></span> <span class='rbrace'>}</span><span class='rbrace'>}</span>
+<span class='id identifier rubyid_puts'>puts</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Waiting</span><span class='tstring_end'>&quot;</span></span> <span class='kw'>until</span> <span class='id identifier rubyid_y'>y</span><span class='period'>.</span><span class='id identifier rubyid_join'>join</span><span class='lparen'>(</span><span class='float'>0.15</span><span class='rparen'>)</span>
+</code></pre>
+
+<p>This will produce:</p>
+
+<pre class="code"><code class="">tick...
+Waiting
+tick...
+Waiting
+tick...
+tick...</code></pre>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+1048
+1049
+1050
+1051
+1052
+1053
+1054
+1055
+1056
+1057
+1058
+1059
+1060
+1061
+1062
+1063
+1064
+1065
+1066
+1067
+1068
+1069
+1070
+1071
+1072
+1073
+1074
+1075</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'thread.c', line 1048</span>
+
+static VALUE
+thread_join_m(int argc, VALUE *argv, VALUE self)
+{
+    VALUE limit;
+    struct timespec timespec;
+    struct timespec *ts = 0;
+
+    rb_scan_args(argc, argv, &quot;01&quot;, &amp;limit);
+
+    /*
+     * This supports INFINITY and negative values, so we can&#39;t use
+     * rb_time_interval right now...
+     */
+    switch (TYPE(limit)) {
+      case T_NIL: break;
+      case T_FIXNUM:
+        timespec.tv_sec = NUM2TIMET(limit);
+        if (timespec.tv_sec &lt; 0)
+            timespec.tv_sec = 0;
+        timespec.tv_nsec = 0;
+        ts = &amp;timespec;
+        break;
+      default:
+        ts = double2timespec(&amp;timespec, rb_num2dbl(limit));
+    }
+
+    return thread_join(rb_thread_ptr(self), ts);
+}</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="key?-instance_method">
+  
+    #<strong>key?</strong>(sym)  &#x21d2; <tt>Boolean</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Returns <code>true</code> if the given string (or symbol) exists as a
+fiber-local variable.</p>
+
+<pre class="code"><code class=""><span class='id identifier rubyid_me'>me</span> <span class='op'>=</span> <span class='const'><span class='object_link'><a href="" title="Thread (class)">Thread</a></span></span><span class='period'>.</span><span class='id identifier rubyid_current'><span class='object_link'><a href="#current-class_method" title="Thread.current (method)">current</a></span></span>
+<span class='id identifier rubyid_me'>me</span><span class='lbracket'>[</span><span class='symbol'>:oliver</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>a</span><span class='tstring_end'>&quot;</span></span>
+<span class='id identifier rubyid_me'>me</span><span class='period'>.</span><span class='id identifier rubyid_key?'>key?</span><span class='lparen'>(</span><span class='symbol'>:oliver</span><span class='rparen'>)</span>    <span class='comment'>#=&gt; true
+</span><span class='id identifier rubyid_me'>me</span><span class='period'>.</span><span class='id identifier rubyid_key?'>key?</span><span class='lparen'>(</span><span class='symbol'>:stanley</span><span class='rparen'>)</span>   <span class='comment'>#=&gt; false
+</span></code></pre>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+  <div class="docstring">
+  <div class="discussion">
+    
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Boolean</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div>
+
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Boolean</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+3360
+3361
+3362
+3363
+3364
+3365
+3366
+3367
+3368
+3369
+3370
+3371
+3372
+3373
+3374
+3375</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'thread.c', line 3360</span>
+
+static VALUE
+rb_thread_key_p(VALUE self, VALUE key)
+{
+    ID id = rb_check_id(&amp;key);
+    st_table *local_storage = rb_thread_ptr(self)-&gt;ec-&gt;local_storage;
+
+    if (!id || local_storage == NULL) {
+	return Qfalse;
+    }
+    else if (st_lookup(local_storage, id, 0)) {
+	return Qtrue;
+    }
+    else {
+	return Qfalse;
+    }
+}</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="keys-instance_method">
+  
+    #<strong>keys</strong>  &#x21d2; <tt><span class='object_link'><a href="Array.html" title="Array (class)">Array</a></span></tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Returns an array of the names of the fiber-local variables (as Symbols).</p>
+
+<pre class="code"><code class=""><span class='id identifier rubyid_thr'>thr</span> <span class='op'>=</span> <span class='const'><span class='object_link'><a href="" title="Thread (class)">Thread</a></span></span><span class='period'>.</span><span class='id identifier rubyid_new'><span class='object_link'><a href="#new-class_method" title="Thread.new (method)">new</a></span></span> <span class='kw'>do</span>
+  <span class='const'><span class='object_link'><a href="" title="Thread (class)">Thread</a></span></span><span class='period'>.</span><span class='id identifier rubyid_current'><span class='object_link'><a href="#current-class_method" title="Thread.current (method)">current</a></span></span><span class='lbracket'>[</span><span class='symbol'>:cat</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>meow</span><span class='tstring_end'>&#39;</span></span>
+  <span class='const'><span class='object_link'><a href="" title="Thread (class)">Thread</a></span></span><span class='period'>.</span><span class='id identifier rubyid_current'><span class='object_link'><a href="#current-class_method" title="Thread.current (method)">current</a></span></span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>dog</span><span class='tstring_end'>&quot;</span></span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>woof</span><span class='tstring_end'>&#39;</span></span>
+<span class='kw'>end</span>
+<span class='id identifier rubyid_thr'>thr</span><span class='period'>.</span><span class='id identifier rubyid_join'>join</span>   <span class='comment'>#=&gt; #&lt;Thread:0x401b3f10 dead&gt;
+</span><span class='id identifier rubyid_thr'>thr</span><span class='period'>.</span><span class='id identifier rubyid_keys'>keys</span>   <span class='comment'>#=&gt; [:dog, :cat]
+</span></code></pre>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+  <div class="docstring">
+  <div class="discussion">
+    
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="Array.html" title="Array (class)">Array</a></span></tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div>
+
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+3404
+3405
+3406
+3407
+3408
+3409
+3410
+3411
+3412
+3413
+3414</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'thread.c', line 3404</span>
+
+static VALUE
+rb_thread_keys(VALUE self)
+{
+    st_table *local_storage = rb_thread_ptr(self)-&gt;ec-&gt;local_storage;
+    VALUE ary = rb_ary_new();
+
+    if (local_storage) {
+	st_foreach(local_storage, thread_keys_i, ary);
+    }
+    return ary;
+}</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="kill-instance_method">
+  
+    
+      <span class="overload">#<strong>exit</strong>  &#x21d2; <tt>nil</tt> </span>
+    
+      <span class="overload">#<strong>kill</strong>  &#x21d2; <tt>nil</tt> </span>
+    
+      <span class="overload">#<strong>terminate</strong>  &#x21d2; <tt>nil</tt> </span>
+    
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Terminates <code>thr</code> and schedules another thread to be run.</p>
+
+<p>If this thread is already marked to be killed, #exit returns the Thread.</p>
+
+<p>If this is the main thread, or the last thread, exits the process.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+  <p class="tag_title">Overloads:</p>
+  <ul class="overload">
+    
+      
+      <li class="overload_item">
+        <span class="signature">#<strong>exit</strong>  &#x21d2; <tt>nil</tt> </span>
+        <div class="docstring">
+  <div class="discussion">
+    
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>nil</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div>
+      </li>
+    
+      
+      <li class="overload_item">
+        <span class="signature">#<strong>kill</strong>  &#x21d2; <tt>nil</tt> </span>
+        <div class="docstring">
+  <div class="discussion">
+    
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>nil</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div>
+      </li>
+    
+      
+      <li class="overload_item">
+        <span class="signature">#<strong>terminate</strong>  &#x21d2; <tt>nil</tt> </span>
+        <div class="docstring">
+  <div class="discussion">
+    
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>nil</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div>
+      </li>
+    
+  </ul>
+
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+2350
+2351
+2352
+2353
+2354
+2355
+2356
+2357
+2358
+2359
+2360
+2361
+2362
+2363
+2364
+2365
+2366
+2367
+2368
+2369
+2370
+2371
+2372
+2373
+2374</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'thread.c', line 2350</span>
+
+VALUE
+rb_thread_kill(VALUE thread)
+{
+    rb_thread_t *th = rb_thread_ptr(thread);
+
+    if (th-&gt;to_kill || th-&gt;status == THREAD_KILLED) {
+	return thread;
+    }
+    if (th == th-&gt;vm-&gt;main_thread) {
+	rb_exit(EXIT_SUCCESS);
+    }
+
+    thread_debug(&quot;rb_thread_kill: %p (%&quot;PRI_THREAD_ID&quot;)\n&quot;, (void *)th, thread_id_str(th));
+
+    if (th == GET_THREAD()) {
+	/* kill myself immediately */
+	rb_threadptr_to_kill(th);
+    }
+    else {
+	threadptr_check_pending_interrupt_queue(th);
+	rb_threadptr_pending_interrupt_enque(th, eKillSignal);
+	rb_threadptr_interrupt(th);
+    }
+    return thread;
+}</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="name-instance_method">
+  
+    #<strong>name</strong>  &#x21d2; <tt><span class='object_link'><a href="String.html" title="String (class)">String</a></span></tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>show the name of the thread.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+  <div class="docstring">
+  <div class="discussion">
+    
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="String.html" title="String (class)">String</a></span></tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div>
+
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+3019
+3020
+3021
+3022
+3023</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'thread.c', line 3019</span>
+
+static VALUE
+rb_thread_getname(VALUE thread)
+{
+    return rb_thread_ptr(thread)-&gt;name;
+}</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="name=-instance_method">
+  
+    #<strong>name=</strong>(name)  &#x21d2; <tt><span class='object_link'><a href="String.html" title="String (class)">String</a></span></tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>set given name to the ruby thread. On some platform, it may set the name to
+pthread and/or kernel.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+  <div class="docstring">
+  <div class="discussion">
+    
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="String.html" title="String (class)">String</a></span></tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div>
+
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+3033
+3034
+3035
+3036
+3037
+3038
+3039
+3040
+3041
+3042
+3043
+3044
+3045
+3046
+3047
+3048
+3049
+3050
+3051
+3052
+3053</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'thread.c', line 3033</span>
+
+static VALUE
+rb_thread_setname(VALUE thread, VALUE name)
+{
+    rb_thread_t *target_th = rb_thread_ptr(thread);
+
+    if (!NIL_P(name)) {
+	rb_encoding *enc;
+	StringValueCStr(name);
+	enc = rb_enc_get(name);
+	if (!rb_enc_asciicompat(enc)) {
+	    rb_raise(rb_eArgError, &quot;ASCII incompatible encoding (%s)&quot;,
+		     rb_enc_name(enc));
+	}
+	name = rb_str_new_frozen(name);
+    }
+    target_th-&gt;name = name;
+    if (threadptr_initialized(target_th)) {
+	native_set_another_thread_name(target_th-&gt;thread_id, name);
+    }
+    return name;
+}</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="pending_interrupt?-instance_method">
+  
+    #<strong>pending_interrupt?</strong>(error = nil)  &#x21d2; <tt>Boolean</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Returns whether or not the asynchronous queue is empty for the target
+thread.</p>
+
+<p>If <code>error</code> is given, then check only for <code>error</code> type
+deferred events.</p>
+
+<p>See ::pending_interrupt? for more information.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+  
+
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Boolean</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+1991
+1992
+1993
+1994
+1995
+1996
+1997
+1998
+1999
+2000
+2001
+2002
+2003
+2004
+2005
+2006
+2007
+2008
+2009
+2010
+2011
+2012
+2013
+2014
+2015
+2016
+2017
+2018</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'thread.c', line 1991</span>
+
+static VALUE
+rb_thread_pending_interrupt_p(int argc, VALUE *argv, VALUE target_thread)
+{
+    rb_thread_t *target_th = rb_thread_ptr(target_thread);
+
+    if (!target_th-&gt;pending_interrupt_queue) {
+	return Qfalse;
+    }
+    if (rb_threadptr_pending_interrupt_empty_p(target_th)) {
+	return Qfalse;
+    }
+    else {
+	if (argc == 1) {
+	    VALUE err;
+	    rb_scan_args(argc, argv, &quot;01&quot;, &amp;err);
+	    if (!rb_obj_is_kind_of(err, rb_cModule)) {
+		rb_raise(rb_eTypeError, &quot;class or module required for rescue clause&quot;);
+	    }
+	    if (rb_threadptr_pending_interrupt_include_p(target_th, err)) {
+		return Qtrue;
+	    }
+	    else {
+		return Qfalse;
+	    }
+	}
+	return Qtrue;
+    }
+}</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="priority-instance_method">
+  
+    #<strong>priority</strong>  &#x21d2; <tt><span class='object_link'><a href="Integer.html" title="Integer (class)">Integer</a></span></tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Returns the priority of <em>thr</em>. Default is inherited from the current
+thread which creating the new thread, or zero for the initial main thread;
+higher-priority thread will run more frequently than lower-priority threads
+(but lower-priority threads can also run).</p>
+
+<p>This is just hint for Ruby thread scheduler.  It may be ignored on some
+platform.</p>
+
+<pre class="code"><code class=""><span class='const'><span class='object_link'><a href="" title="Thread (class)">Thread</a></span></span><span class='period'>.</span><span class='id identifier rubyid_current'><span class='object_link'><a href="#current-class_method" title="Thread.current (method)">current</a></span></span><span class='period'>.</span><span class='id identifier rubyid_priority'>priority</span>   <span class='comment'>#=&gt; 0
+</span></code></pre>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+  <div class="docstring">
+  <div class="discussion">
+    
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="Integer.html" title="Integer (class)">Integer</a></span></tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div>
+
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+3504
+3505
+3506
+3507
+3508</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'thread.c', line 3504</span>
+
+static VALUE
+rb_thread_priority(VALUE thread)
+{
+    return INT2NUM(rb_thread_ptr(thread)-&gt;priority);
+}</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="priority=-instance_method">
+  
+    #<strong>priority=</strong>(integer)  &#x21d2; <tt><span class='object_link'><a href="Object.html" title="Object (class)">Object</a></span></tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Sets the priority of <em>thr</em> to <em>integer</em>. Higher-priority
+threads will run more frequently than lower-priority threads (but
+lower-priority threads can also run).</p>
+
+<p>This is just hint for Ruby thread scheduler.  It may be ignored on some
+platform.</p>
+
+<pre class="code"><code class=""><span class='id identifier rubyid_count1'>count1</span> <span class='op'>=</span> <span class='id identifier rubyid_count2'>count2</span> <span class='op'>=</span> <span class='int'>0</span>
+<span class='id identifier rubyid_a'>a</span> <span class='op'>=</span> <span class='const'><span class='object_link'><a href="" title="Thread (class)">Thread</a></span></span><span class='period'>.</span><span class='id identifier rubyid_new'><span class='object_link'><a href="#new-class_method" title="Thread.new (method)">new</a></span></span> <span class='kw'>do</span>
+      <span class='id identifier rubyid_loop'>loop</span> <span class='lbrace'>{</span> <span class='id identifier rubyid_count1'>count1</span> <span class='op'>+=</span> <span class='int'>1</span> <span class='rbrace'>}</span>
+    <span class='kw'>end</span>
+<span class='id identifier rubyid_a'>a</span><span class='period'>.</span><span class='id identifier rubyid_priority'>priority</span> <span class='op'>=</span> <span class='op'>-</span><span class='int'>1</span>
+
+<span class='id identifier rubyid_b'>b</span> <span class='op'>=</span> <span class='const'><span class='object_link'><a href="" title="Thread (class)">Thread</a></span></span><span class='period'>.</span><span class='id identifier rubyid_new'><span class='object_link'><a href="#new-class_method" title="Thread.new (method)">new</a></span></span> <span class='kw'>do</span>
+      <span class='id identifier rubyid_loop'>loop</span> <span class='lbrace'>{</span> <span class='id identifier rubyid_count2'>count2</span> <span class='op'>+=</span> <span class='int'>1</span> <span class='rbrace'>}</span>
+    <span class='kw'>end</span>
+<span class='id identifier rubyid_b'>b</span><span class='period'>.</span><span class='id identifier rubyid_priority'>priority</span> <span class='op'>=</span> <span class='op'>-</span><span class='int'>2</span>
+<span class='id identifier rubyid_sleep'>sleep</span> <span class='int'>1</span>   <span class='comment'>#=&gt; 1
+</span><span class='id identifier rubyid_count1'>count1</span>    <span class='comment'>#=&gt; 622504
+</span><span class='id identifier rubyid_count2'>count2</span>    <span class='comment'>#=&gt; 5832
+</span></code></pre>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+  
+
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+3537
+3538
+3539
+3540
+3541
+3542
+3543
+3544
+3545
+3546
+3547
+3548
+3549
+3550
+3551
+3552
+3553
+3554
+3555
+3556
+3557</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'thread.c', line 3537</span>
+
+static VALUE
+rb_thread_priority_set(VALUE thread, VALUE prio)
+{
+    rb_thread_t *target_th = rb_thread_ptr(thread);
+    int priority;
+
+#if USE_NATIVE_THREAD_PRIORITY
+    target_th-&gt;priority = NUM2INT(prio);
+    native_thread_apply_priority(th);
+#else
+    priority = NUM2INT(prio);
+    if (priority &gt; RUBY_THREAD_PRIORITY_MAX) {
+	priority = RUBY_THREAD_PRIORITY_MAX;
+    }
+    else if (priority &lt; RUBY_THREAD_PRIORITY_MIN) {
+	priority = RUBY_THREAD_PRIORITY_MIN;
+    }
+    target_th-&gt;priority = priority;
+#endif
+    return INT2NUM(target_th-&gt;priority);
+}</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="raise-instance_method">
+  
+    
+      <span class="overload">#<strong>raise</strong>  &#x21d2; <tt><span class='object_link'><a href="Object.html" title="Object (class)">Object</a></span></tt> </span>
+    
+      <span class="overload">#<strong>raise</strong>(string)  &#x21d2; <tt><span class='object_link'><a href="Object.html" title="Object (class)">Object</a></span></tt> </span>
+    
+      <span class="overload">#<strong>raise</strong>(exception[, string [, array]])  &#x21d2; <tt><span class='object_link'><a href="Object.html" title="Object (class)">Object</a></span></tt> </span>
+    
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Raises an exception from the given thread. The caller does not have to be
+<code>thr</code>. See Kernel#raise for more information.</p>
+
+<pre class="code"><code class=""><span class='const'><span class='object_link'><a href="" title="Thread (class)">Thread</a></span></span><span class='period'>.</span><span class='id identifier rubyid_abort_on_exception'><span class='object_link'><a href="#abort_on_exception-class_method" title="Thread.abort_on_exception (method)">abort_on_exception</a></span></span> <span class='op'>=</span> <span class='kw'>true</span>
+<span class='id identifier rubyid_a'>a</span> <span class='op'>=</span> <span class='const'><span class='object_link'><a href="" title="Thread (class)">Thread</a></span></span><span class='period'>.</span><span class='id identifier rubyid_new'><span class='object_link'><a href="#new-class_method" title="Thread.new (method)">new</a></span></span> <span class='lbrace'>{</span> <span class='id identifier rubyid_sleep'>sleep</span><span class='lparen'>(</span><span class='int'>200</span><span class='rparen'>)</span> <span class='rbrace'>}</span>
+<span class='id identifier rubyid_a'>a</span><span class='period'>.</span><span class='id identifier rubyid_raise'>raise</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Gotcha</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
+</code></pre>
+
+<p>This will produce:</p>
+
+<pre class="code"><code class="">prog.rb:3: Gotcha (RuntimeError)
+	from prog.rb:2:in `initialize&#39;
+	from prog.rb:2:in `new&#39;
+	from prog.rb:2</code></pre>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+2320
+2321
+2322
+2323
+2324
+2325
+2326
+2327
+2328
+2329
+2330
+2331
+2332
+2333
+2334</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'thread.c', line 2320</span>
+
+static VALUE
+thread_raise_m(int argc, VALUE *argv, VALUE self)
+{
+    rb_thread_t *target_th = rb_thread_ptr(self);
+    const rb_thread_t *current_th = GET_THREAD();
+
+    threadptr_check_pending_interrupt_queue(target_th);
+    rb_threadptr_raise(target_th, argc, argv);
+
+    /* To perform Thread.current.raise as Kernel.raise */
+    if (current_th == target_th) {
+	RUBY_VM_CHECK_INTS(target_th-&gt;ec);
+    }
+    return Qnil;
+}</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="report_on_exception-instance_method">
+  
+    #<strong>report_on_exception</strong>  &#x21d2; <tt>Boolean</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Returns the status of the thread-local “report on exception&#39;&#39;
+condition for this <code>thr</code>.</p>
+
+<p>The default value when creating a Thread is the value of the global flag
+Thread.report_on_exception.</p>
+
+<p>See also #report_on_exception=.</p>
+
+<p>There is also a class level method to set this for all new threads, see
+::report_on_exception=.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+  <div class="docstring">
+  <div class="discussion">
+    
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Boolean</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div>
+
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+2820
+2821
+2822
+2823
+2824</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'thread.c', line 2820</span>
+
+static VALUE
+rb_thread_report_exc(VALUE thread)
+{
+    return rb_thread_ptr(thread)-&gt;report_on_exception ? Qtrue : Qfalse;
+}</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="report_on_exception=-instance_method">
+  
+    #<strong>report_on_exception=</strong>(boolean)  &#x21d2; <tt>Boolean</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>When set to <code>true</code>, a message is printed on $stderr if an
+exception kills this <code>thr</code>.  See ::report_on_exception for
+details.</p>
+
+<p>See also #report_on_exception.</p>
+
+<p>There is also a class level method to set this for all new threads, see
+::report_on_exception=.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+  <div class="docstring">
+  <div class="discussion">
+    
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Boolean</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div>
+
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+2840
+2841
+2842
+2843
+2844
+2845</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'thread.c', line 2840</span>
+
+static VALUE
+rb_thread_report_exc_set(VALUE thread, VALUE val)
+{
+    rb_thread_ptr(thread)-&gt;report_on_exception = RTEST(val);
+    return val;
+}</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="run-instance_method">
+  
+    #<strong>run</strong>  &#x21d2; <tt><span class='object_link'><a href="Object.html" title="Object (class)">Object</a></span></tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Wakes up <code>thr</code>, making it eligible for scheduling.</p>
+
+<pre class="code"><code class=""><span class='id identifier rubyid_a'>a</span> <span class='op'>=</span> <span class='const'><span class='object_link'><a href="" title="Thread (class)">Thread</a></span></span><span class='period'>.</span><span class='id identifier rubyid_new'><span class='object_link'><a href="#new-class_method" title="Thread.new (method)">new</a></span></span> <span class='lbrace'>{</span> <span class='id identifier rubyid_puts'>puts</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>a</span><span class='tstring_end'>&quot;</span></span><span class='semicolon'>;</span> <span class='const'><span class='object_link'><a href="" title="Thread (class)">Thread</a></span></span><span class='period'>.</span><span class='id identifier rubyid_stop'><span class='object_link'><a href="#stop-class_method" title="Thread.stop (method)">stop</a></span></span><span class='semicolon'>;</span> <span class='id identifier rubyid_puts'>puts</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>c</span><span class='tstring_end'>&quot;</span></span> <span class='rbrace'>}</span>
+<span class='id identifier rubyid_sleep'>sleep</span> <span class='float'>0.1</span> <span class='kw'>while</span> <span class='id identifier rubyid_a'>a</span><span class='period'>.</span><span class='id identifier rubyid_status'>status</span><span class='op'>!=</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>sleep</span><span class='tstring_end'>&#39;</span></span>
+<span class='id identifier rubyid_puts'>puts</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Got here</span><span class='tstring_end'>&quot;</span></span>
+<span class='id identifier rubyid_a'>a</span><span class='period'>.</span><span class='id identifier rubyid_run'>run</span>
+<span class='id identifier rubyid_a'>a</span><span class='period'>.</span><span class='id identifier rubyid_join'>join</span>
+</code></pre>
+
+<p>This will produce:</p>
+
+<pre class="code"><code class=""><span class='id identifier rubyid_a'>a</span>
+<span class='const'>Got</span> <span class='id identifier rubyid_here'>here</span>
+<span class='id identifier rubyid_c'>c</span>
+</code></pre>
+
+<p>See also the instance method #wakeup.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+  
+
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+2491
+2492
+2493
+2494
+2495
+2496
+2497</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'thread.c', line 2491</span>
+
+VALUE
+rb_thread_run(VALUE thread)
+{
+    rb_thread_wakeup(thread);
+    rb_thread_schedule();
+    return thread;
+}</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="safe_level-instance_method">
+  
+    #<strong>safe_level</strong>  &#x21d2; <tt><span class='object_link'><a href="Integer.html" title="Integer (class)">Integer</a></span></tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Returns the safe level.</p>
+
+<p>This method is obsolete because $SAFE is a process global state. Simply
+check $SAFE.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+  <div class="docstring">
+  <div class="discussion">
+    
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="Integer.html" title="Integer (class)">Integer</a></span></tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div>
+
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+3006
+3007
+3008
+3009
+3010</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'thread.c', line 3006</span>
+
+static VALUE
+rb_thread_safe_level(VALUE thread)
+{
+    return UINT2NUM(rb_safe_level());
+}</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="set_trace_func-instance_method">
+  
+    
+      <span class="overload">#<strong>set_trace_func</strong>(proc)  &#x21d2; <tt><span class='object_link'><a href="Proc.html" title="Proc (class)">Proc</a></span></tt> </span>
+    
+      <span class="overload">#<strong>set_trace_func</strong>(nil)  &#x21d2; <tt>nil</tt> </span>
+    
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Establishes <em>proc</em> on <em>thr</em> as the handler for tracing, or
+disables tracing if the parameter is <code>nil</code>.</p>
+
+<p>See Kernel#set_trace_func.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+  <p class="tag_title">Overloads:</p>
+  <ul class="overload">
+    
+      
+      <li class="overload_item">
+        <span class="signature">#<strong>set_trace_func</strong>(proc)  &#x21d2; <tt><span class='object_link'><a href="Proc.html" title="Proc (class)">Proc</a></span></tt> </span>
+        <div class="docstring">
+  <div class="discussion">
+    
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="Proc.html" title="Proc (class)">Proc</a></span></tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div>
+      </li>
+    
+      
+      <li class="overload_item">
+        <span class="signature">#<strong>set_trace_func</strong>(nil)  &#x21d2; <tt>nil</tt> </span>
+        <div class="docstring">
+  <div class="discussion">
+    
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>nil</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div>
+      </li>
+    
+  </ul>
+
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+540
+541
+542
+543
+544
+545
+546
+547
+548
+549
+550
+551
+552
+553
+554
+555</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'vm_trace.c', line 540</span>
+
+static VALUE
+thread_set_trace_func_m(VALUE target_thread, VALUE trace)
+{
+    rb_execution_context_t *ec = GET_EC();
+    rb_thread_t *target_th = rb_thread_ptr(target_thread);
+
+    rb_threadptr_remove_event_hook(ec, target_th, call_trace_func, Qundef);
+
+    if (NIL_P(trace)) {
+	return Qnil;
+    }
+    else {
+	thread_add_trace_func(ec, target_th, trace);
+	return trace;
+    }
+}</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="status-instance_method">
+  
+    #<strong>status</strong>  &#x21d2; <tt><span class='object_link'><a href="String.html" title="String (class)">String</a></span></tt>, ... 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Returns the status of <code>thr</code>.</p>
+<dl class="rdoc-list label-list"><dt><code>&quot;sleep&quot;</code>
+<dd>
+<p>Returned if this thread is sleeping or waiting on I/O</p>
+<dl class="rdoc-list label-list"><dt><code>&quot;run&quot;</code>
+<dd>
+<p>When this thread is executing</p>
+<dl class="rdoc-list label-list"><dt><code>&quot;aborting&quot;</code>
+<dd>
+<p>If this thread is aborting</p>
+<dl class="rdoc-list label-list"><dt><code>false</code>
+<dd>
+<p>When this thread is terminated normally</p>
+<dl class="rdoc-list label-list"><dt><code>nil</code>
+<dd>
+<p>If terminated with an exception.</p>
+
+<pre class="code"><code class=""><span class='id identifier rubyid_a'>a</span> <span class='op'>=</span> <span class='const'><span class='object_link'><a href="" title="Thread (class)">Thread</a></span></span><span class='period'>.</span><span class='id identifier rubyid_new'><span class='object_link'><a href="#new-class_method" title="Thread.new (method)">new</a></span></span> <span class='lbrace'>{</span> <span class='id identifier rubyid_raise'>raise</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>die now</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span> <span class='rbrace'>}</span>
+<span class='id identifier rubyid_b'>b</span> <span class='op'>=</span> <span class='const'><span class='object_link'><a href="" title="Thread (class)">Thread</a></span></span><span class='period'>.</span><span class='id identifier rubyid_new'><span class='object_link'><a href="#new-class_method" title="Thread.new (method)">new</a></span></span> <span class='lbrace'>{</span> <span class='const'><span class='object_link'><a href="" title="Thread (class)">Thread</a></span></span><span class='period'>.</span><span class='id identifier rubyid_stop'><span class='object_link'><a href="#stop-class_method" title="Thread.stop (method)">stop</a></span></span> <span class='rbrace'>}</span>
+<span class='id identifier rubyid_c'>c</span> <span class='op'>=</span> <span class='const'><span class='object_link'><a href="" title="Thread (class)">Thread</a></span></span><span class='period'>.</span><span class='id identifier rubyid_new'><span class='object_link'><a href="#new-class_method" title="Thread.new (method)">new</a></span></span> <span class='lbrace'>{</span> <span class='const'><span class='object_link'><a href="" title="Thread (class)">Thread</a></span></span><span class='period'>.</span><span class='id identifier rubyid_exit'><span class='object_link'><a href="#exit-class_method" title="Thread.exit (method)">exit</a></span></span> <span class='rbrace'>}</span>
+<span class='id identifier rubyid_d'>d</span> <span class='op'>=</span> <span class='const'><span class='object_link'><a href="" title="Thread (class)">Thread</a></span></span><span class='period'>.</span><span class='id identifier rubyid_new'><span class='object_link'><a href="#new-class_method" title="Thread.new (method)">new</a></span></span> <span class='lbrace'>{</span> <span class='id identifier rubyid_sleep'>sleep</span> <span class='rbrace'>}</span>
+<span class='id identifier rubyid_d'>d</span><span class='period'>.</span><span class='id identifier rubyid_kill'>kill</span>                  <span class='comment'>#=&gt; #&lt;Thread:0x401b3678 aborting&gt;
+</span><span class='id identifier rubyid_a'>a</span><span class='period'>.</span><span class='id identifier rubyid_status'>status</span>                <span class='comment'>#=&gt; nil
+</span><span class='id identifier rubyid_b'>b</span><span class='period'>.</span><span class='id identifier rubyid_status'>status</span>                <span class='comment'>#=&gt; &quot;sleep&quot;
+</span><span class='id identifier rubyid_c'>c</span><span class='period'>.</span><span class='id identifier rubyid_status'>status</span>                <span class='comment'>#=&gt; false
+</span><span class='id identifier rubyid_d'>d</span><span class='period'>.</span><span class='id identifier rubyid_status'>status</span>                <span class='comment'>#=&gt; &quot;aborting&quot;
+</span><span class='const'><span class='object_link'><a href="" title="Thread (class)">Thread</a></span></span><span class='period'>.</span><span class='id identifier rubyid_current'><span class='object_link'><a href="#current-class_method" title="Thread.current (method)">current</a></span></span><span class='period'>.</span><span class='id identifier rubyid_status'>status</span>   <span class='comment'>#=&gt; &quot;run&quot;
+</span></code></pre>
+
+<p>See also the instance methods #alive? and #stop?</p>
+</dd></dl>
+</dd></dl>
+</dd></dl>
+</dd></dl>
+</dd></dl>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+  <div class="docstring">
+  <div class="discussion">
+    
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="String.html" title="String (class)">String</a></span></tt>, <tt>false</tt>, <tt>nil</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div>
+
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+2920
+2921
+2922
+2923
+2924
+2925
+2926
+2927
+2928
+2929
+2930
+2931
+2932
+2933
+2934
+2935
+2936
+2937</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'thread.c', line 2920</span>
+
+static VALUE
+rb_thread_status(VALUE thread)
+{
+    rb_thread_t *target_th = rb_thread_ptr(thread);
+
+    if (rb_threadptr_dead(target_th)) {
+	if (!NIL_P(target_th-&gt;ec-&gt;errinfo) &amp;&amp;
+	    !FIXNUM_P(target_th-&gt;ec-&gt;errinfo)) {
+	    return Qnil;
+	}
+	else {
+	    return Qfalse;
+	}
+    }
+    else {
+	return rb_str_new2(thread_status_name(target_th, FALSE));
+    }
+}</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="stop?-instance_method">
+  
+    #<strong>stop?</strong>  &#x21d2; <tt>Boolean</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Returns <code>true</code> if <code>thr</code> is dead or sleeping.</p>
+
+<pre class="code"><code class=""><span class='id identifier rubyid_a'>a</span> <span class='op'>=</span> <span class='const'><span class='object_link'><a href="" title="Thread (class)">Thread</a></span></span><span class='period'>.</span><span class='id identifier rubyid_new'><span class='object_link'><a href="#new-class_method" title="Thread.new (method)">new</a></span></span> <span class='lbrace'>{</span> <span class='const'><span class='object_link'><a href="" title="Thread (class)">Thread</a></span></span><span class='period'>.</span><span class='id identifier rubyid_stop'><span class='object_link'><a href="#stop-class_method" title="Thread.stop (method)">stop</a></span></span> <span class='rbrace'>}</span>
+<span class='id identifier rubyid_b'>b</span> <span class='op'>=</span> <span class='const'><span class='object_link'><a href="" title="Thread (class)">Thread</a></span></span><span class='period'>.</span><span class='id identifier rubyid_current'><span class='object_link'><a href="#current-class_method" title="Thread.current (method)">current</a></span></span>
+<span class='id identifier rubyid_a'>a</span><span class='period'>.</span><span class='id identifier rubyid_stop?'>stop?</span>   <span class='comment'>#=&gt; true
+</span><span class='id identifier rubyid_b'>b</span><span class='period'>.</span><span class='id identifier rubyid_stop?'>stop?</span>   <span class='comment'>#=&gt; false
+</span></code></pre>
+
+<p>See also #alive? and #status.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+  <div class="docstring">
+  <div class="discussion">
+    
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Boolean</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div>
+
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Boolean</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+2979
+2980
+2981
+2982
+2983
+2984
+2985
+2986
+2987
+2988
+2989
+2990
+2991
+2992
+2993
+2994</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'thread.c', line 2979</span>
+
+static VALUE
+rb_thread_stop_p(VALUE thread)
+{
+    rb_thread_t *th = rb_thread_ptr(thread);
+
+    if (rb_threadptr_dead(th)) {
+	return Qtrue;
+    }
+    else if (th-&gt;status == THREAD_STOPPED ||
+	     th-&gt;status == THREAD_STOPPED_FOREVER) {
+	return Qtrue;
+    }
+    else {
+	return Qfalse;
+    }
+}</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="terminate-instance_method">
+  
+    
+      <span class="overload">#<strong>exit</strong>  &#x21d2; <tt>nil</tt> </span>
+    
+      <span class="overload">#<strong>kill</strong>  &#x21d2; <tt>nil</tt> </span>
+    
+      <span class="overload">#<strong>terminate</strong>  &#x21d2; <tt>nil</tt> </span>
+    
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Terminates <code>thr</code> and schedules another thread to be run.</p>
+
+<p>If this thread is already marked to be killed, #exit returns the Thread.</p>
+
+<p>If this is the main thread, or the last thread, exits the process.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+  <p class="tag_title">Overloads:</p>
+  <ul class="overload">
+    
+      
+      <li class="overload_item">
+        <span class="signature">#<strong>exit</strong>  &#x21d2; <tt>nil</tt> </span>
+        <div class="docstring">
+  <div class="discussion">
+    
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>nil</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div>
+      </li>
+    
+      
+      <li class="overload_item">
+        <span class="signature">#<strong>kill</strong>  &#x21d2; <tt>nil</tt> </span>
+        <div class="docstring">
+  <div class="discussion">
+    
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>nil</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div>
+      </li>
+    
+      
+      <li class="overload_item">
+        <span class="signature">#<strong>terminate</strong>  &#x21d2; <tt>nil</tt> </span>
+        <div class="docstring">
+  <div class="discussion">
+    
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>nil</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div>
+      </li>
+    
+  </ul>
+
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+2350
+2351
+2352
+2353
+2354
+2355
+2356
+2357
+2358
+2359
+2360
+2361
+2362
+2363
+2364
+2365
+2366
+2367
+2368
+2369
+2370
+2371
+2372
+2373
+2374</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'thread.c', line 2350</span>
+
+VALUE
+rb_thread_kill(VALUE thread)
+{
+    rb_thread_t *th = rb_thread_ptr(thread);
+
+    if (th-&gt;to_kill || th-&gt;status == THREAD_KILLED) {
+	return thread;
+    }
+    if (th == th-&gt;vm-&gt;main_thread) {
+	rb_exit(EXIT_SUCCESS);
+    }
+
+    thread_debug(&quot;rb_thread_kill: %p (%&quot;PRI_THREAD_ID&quot;)\n&quot;, (void *)th, thread_id_str(th));
+
+    if (th == GET_THREAD()) {
+	/* kill myself immediately */
+	rb_threadptr_to_kill(th);
+    }
+    else {
+	threadptr_check_pending_interrupt_queue(th);
+	rb_threadptr_pending_interrupt_enque(th, eKillSignal);
+	rb_threadptr_interrupt(th);
+    }
+    return thread;
+}</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="thread_variable?-instance_method">
+  
+    #<strong>thread_variable?</strong>(key)  &#x21d2; <tt>Boolean</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Returns <code>true</code> if the given string (or symbol) exists as a
+thread-local variable.</p>
+
+<pre class="code"><code class=""><span class='id identifier rubyid_me'>me</span> <span class='op'>=</span> <span class='const'><span class='object_link'><a href="" title="Thread (class)">Thread</a></span></span><span class='period'>.</span><span class='id identifier rubyid_current'><span class='object_link'><a href="#current-class_method" title="Thread.current (method)">current</a></span></span>
+<span class='id identifier rubyid_me'>me</span><span class='period'>.</span><span class='id identifier rubyid_thread_variable_set'>thread_variable_set</span><span class='lparen'>(</span><span class='symbol'>:oliver</span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>a</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
+<span class='id identifier rubyid_me'>me</span><span class='period'>.</span><span class='id identifier rubyid_thread_variable?'>thread_variable?</span><span class='lparen'>(</span><span class='symbol'>:oliver</span><span class='rparen'>)</span>    <span class='comment'>#=&gt; true
+</span><span class='id identifier rubyid_me'>me</span><span class='period'>.</span><span class='id identifier rubyid_thread_variable?'>thread_variable?</span><span class='lparen'>(</span><span class='symbol'>:stanley</span><span class='rparen'>)</span>   <span class='comment'>#=&gt; false
+</span></code></pre>
+
+<p>Note that these are not fiber local variables.  Please see Thread#[] and
+Thread#thread_variable_get for more details.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+  <div class="docstring">
+  <div class="discussion">
+    
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Boolean</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div>
+
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Boolean</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+3469
+3470
+3471
+3472
+3473
+3474
+3475
+3476
+3477
+3478
+3479
+3480
+3481
+3482
+3483
+3484
+3485
+3486
+3487</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'thread.c', line 3469</span>
+
+static VALUE
+rb_thread_variable_p(VALUE thread, VALUE key)
+{
+    VALUE locals;
+    ID id = rb_check_id(&amp;key);
+
+    if (!id) return Qfalse;
+
+    locals = rb_ivar_get(thread, id_locals);
+
+    if (!RHASH(locals)-&gt;ntbl)
+        return Qfalse;
+
+    if (st_lookup(RHASH(locals)-&gt;ntbl, ID2SYM(id), 0)) {
+	return Qtrue;
+    }
+
+    return Qfalse;
+}</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="thread_variable_get-instance_method">
+  
+    #<strong>thread_variable_get</strong>(key)  &#x21d2; <tt><span class='object_link'><a href="Object.html" title="Object (class)">Object</a></span></tt><sup>?</sup> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Returns the value of a thread local variable that has been set.  Note that
+these are different than fiber local values.  For fiber local values,
+please see Thread#[] and Thread#[]=.</p>
+
+<p>Thread local values are carried along with threads, and do not respect
+fibers.  For example:</p>
+
+<pre class="code"><code class=""><span class='const'><span class='object_link'><a href="" title="Thread (class)">Thread</a></span></span><span class='period'>.</span><span class='id identifier rubyid_new'><span class='object_link'><a href="#new-class_method" title="Thread.new (method)">new</a></span></span> <span class='lbrace'>{</span>
+  <span class='const'><span class='object_link'><a href="" title="Thread (class)">Thread</a></span></span><span class='period'>.</span><span class='id identifier rubyid_current'><span class='object_link'><a href="#current-class_method" title="Thread.current (method)">current</a></span></span><span class='period'>.</span><span class='id identifier rubyid_thread_variable_set'>thread_variable_set</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>foo</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>bar</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span> <span class='comment'># set a thread local
+</span>  <span class='const'><span class='object_link'><a href="" title="Thread (class)">Thread</a></span></span><span class='period'>.</span><span class='id identifier rubyid_current'><span class='object_link'><a href="#current-class_method" title="Thread.current (method)">current</a></span></span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>foo</span><span class='tstring_end'>&quot;</span></span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>bar</span><span class='tstring_end'>&quot;</span></span>                    <span class='comment'># set a fiber local
+</span>
+  <span class='const'><span class='object_link'><a href="Fiber.html" title="Fiber (class)">Fiber</a></span></span><span class='period'>.</span><span class='id identifier rubyid_new'><span class='object_link'><a href="Fiber.html#initialize-instance_method" title="Fiber#initialize (method)">new</a></span></span> <span class='lbrace'>{</span>
+    <span class='const'><span class='object_link'><a href="Fiber.html" title="Fiber (class)">Fiber</a></span></span><span class='period'>.</span><span class='id identifier rubyid_yield'><span class='object_link'><a href="Fiber.html#yield-class_method" title="Fiber.yield (method)">yield</a></span></span> <span class='lbracket'>[</span>
+      <span class='const'><span class='object_link'><a href="" title="Thread (class)">Thread</a></span></span><span class='period'>.</span><span class='id identifier rubyid_current'><span class='object_link'><a href="#current-class_method" title="Thread.current (method)">current</a></span></span><span class='period'>.</span><span class='id identifier rubyid_thread_variable_get'>thread_variable_get</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>foo</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span><span class='comma'>,</span> <span class='comment'># get the thread local
+</span>      <span class='const'><span class='object_link'><a href="" title="Thread (class)">Thread</a></span></span><span class='period'>.</span><span class='id identifier rubyid_current'><span class='object_link'><a href="#current-class_method" title="Thread.current (method)">current</a></span></span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>foo</span><span class='tstring_end'>&quot;</span></span><span class='rbracket'>]</span><span class='comma'>,</span>                     <span class='comment'># get the fiber local
+</span>    <span class='rbracket'>]</span>
+  <span class='rbrace'>}</span><span class='period'>.</span><span class='id identifier rubyid_resume'>resume</span>
+<span class='rbrace'>}</span><span class='period'>.</span><span class='id identifier rubyid_join'>join</span><span class='period'>.</span><span class='id identifier rubyid_value'>value</span> <span class='comment'># =&gt; [&#39;bar&#39;, nil]
+</span></code></pre>
+
+<p>The value “bar” is returned for the thread local, where nil is returned for
+the fiber local.  The fiber is executed in the same thread, so the thread
+local values are available.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+  <div class="docstring">
+  <div class="discussion">
+    
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="Object.html" title="Object (class)">Object</a></span></tt>, <tt>nil</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div>
+
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+3316
+3317
+3318
+3319
+3320
+3321
+3322
+3323</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'thread.c', line 3316</span>
+
+static VALUE
+rb_thread_variable_get(VALUE thread, VALUE key)
+{
+    VALUE locals;
+
+    locals = rb_ivar_get(thread, id_locals);
+    return rb_hash_aref(locals, rb_to_symbol(key));
+}</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="thread_variable_set-instance_method">
+  
+    #<strong>thread_variable_set</strong>(key, value)  &#x21d2; <tt><span class='object_link'><a href="Object.html" title="Object (class)">Object</a></span></tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Sets a thread local with <code>key</code> to <code>value</code>.  Note that
+these are local to threads, and not to fibers.  Please see
+Thread#thread_variable_get and Thread#[] for more information.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+  
+
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+3334
+3335
+3336
+3337
+3338
+3339
+3340
+3341
+3342
+3343
+3344
+3345</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'thread.c', line 3334</span>
+
+static VALUE
+rb_thread_variable_set(VALUE thread, VALUE id, VALUE val)
+{
+    VALUE locals;
+
+    if (OBJ_FROZEN(thread)) {
+	rb_error_frozen(&quot;thread locals&quot;);
+    }
+
+    locals = rb_ivar_get(thread, id_locals);
+    return rb_hash_aset(locals, rb_to_symbol(id), val);
+}</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="thread_variables-instance_method">
+  
+    #<strong>thread_variables</strong>  &#x21d2; <tt><span class='object_link'><a href="Array.html" title="Array (class)">Array</a></span></tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Returns an array of the names of the thread-local variables (as Symbols).</p>
+
+<pre class="code"><code class=""><span class='id identifier rubyid_thr'>thr</span> <span class='op'>=</span> <span class='const'><span class='object_link'><a href="" title="Thread (class)">Thread</a></span></span><span class='period'>.</span><span class='id identifier rubyid_new'><span class='object_link'><a href="#new-class_method" title="Thread.new (method)">new</a></span></span> <span class='kw'>do</span>
+  <span class='const'><span class='object_link'><a href="" title="Thread (class)">Thread</a></span></span><span class='period'>.</span><span class='id identifier rubyid_current'><span class='object_link'><a href="#current-class_method" title="Thread.current (method)">current</a></span></span><span class='period'>.</span><span class='id identifier rubyid_thread_variable_set'>thread_variable_set</span><span class='lparen'>(</span><span class='symbol'>:cat</span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>meow</span><span class='tstring_end'>&#39;</span></span><span class='rparen'>)</span>
+  <span class='const'><span class='object_link'><a href="" title="Thread (class)">Thread</a></span></span><span class='period'>.</span><span class='id identifier rubyid_current'><span class='object_link'><a href="#current-class_method" title="Thread.current (method)">current</a></span></span><span class='period'>.</span><span class='id identifier rubyid_thread_variable_set'>thread_variable_set</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>dog</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>woof</span><span class='tstring_end'>&#39;</span></span><span class='rparen'>)</span>
+<span class='kw'>end</span>
+<span class='id identifier rubyid_thr'>thr</span><span class='period'>.</span><span class='id identifier rubyid_join'>join</span>               <span class='comment'>#=&gt; #&lt;Thread:0x401b3f10 dead&gt;
+</span><span class='id identifier rubyid_thr'>thr</span><span class='period'>.</span><span class='id identifier rubyid_thread_variables'>thread_variables</span>   <span class='comment'>#=&gt; [:dog, :cat]
+</span></code></pre>
+
+<p>Note that these are not fiber local variables.  Please see Thread#[] and
+Thread#thread_variable_get for more details.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+  <div class="docstring">
+  <div class="discussion">
+    
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="Array.html" title="Array (class)">Array</a></span></tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div>
+
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+3440
+3441
+3442
+3443
+3444
+3445
+3446
+3447
+3448
+3449
+3450
+3451</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'thread.c', line 3440</span>
+
+static VALUE
+rb_thread_variables(VALUE thread)
+{
+    VALUE locals;
+    VALUE ary;
+
+    locals = rb_ivar_get(thread, id_locals);
+    ary = rb_ary_new();
+    rb_hash_foreach(locals, keys_i, ary);
+
+    return ary;
+}</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="to_s-instance_method">
+  
+    #<strong>to_s</strong>  &#x21d2; <tt><span class='object_link'><a href="String.html" title="String (class)">String</a></span></tt> 
+  
+
+  
+    <span class="aliases">Also known as:
+    <span class="names"><span id='inspect-instance_method'>inspect</span></span>
+    </span>
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Dump the name, id, and status of <em>thr</em> to a string.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+  <div class="docstring">
+  <div class="discussion">
+    
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="String.html" title="String (class)">String</a></span></tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div>
+
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+3062
+3063
+3064
+3065
+3066
+3067
+3068
+3069
+3070
+3071
+3072
+3073
+3074
+3075
+3076
+3077
+3078
+3079
+3080
+3081
+3082
+3083
+3084
+3085
+3086
+3087</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'thread.c', line 3062</span>
+
+static VALUE
+rb_thread_to_s(VALUE thread)
+{
+    VALUE cname = rb_class_path(rb_obj_class(thread));
+    rb_thread_t *target_th = rb_thread_ptr(thread);
+    const char *status;
+    VALUE str;
+
+    status = thread_status_name(target_th, TRUE);
+    str = rb_sprintf(&quot;#&lt;%&quot;PRIsVALUE&quot;:%p&quot;, cname, (void *)thread);
+    if (!NIL_P(target_th-&gt;name)) {
+	rb_str_catf(str, &quot;@%&quot;PRIsVALUE, target_th-&gt;name);
+    }
+    if (!target_th-&gt;first_func &amp;&amp; target_th-&gt;first_proc) {
+	VALUE loc = rb_proc_location(target_th-&gt;first_proc);
+	if (!NIL_P(loc)) {
+	    const VALUE *ptr = RARRAY_CONST_PTR(loc);
+	    rb_str_catf(str, &quot;@%&quot;PRIsVALUE&quot;:%&quot;PRIsVALUE, ptr[0], ptr[1]);
+	    rb_gc_force_recycle(loc);
+	}
+    }
+    rb_str_catf(str, &quot; %s&gt;&quot;, status);
+    OBJ_INFECT(str, thread);
+
+    return str;
+}</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="value-instance_method">
+  
+    #<strong>value</strong>  &#x21d2; <tt><span class='object_link'><a href="Object.html" title="Object (class)">Object</a></span></tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Waits for <code>thr</code> to complete, using #join, and returns its value
+or raises the exception which terminated the thread.</p>
+
+<pre class="code"><code class=""><span class='id identifier rubyid_a'>a</span> <span class='op'>=</span> <span class='const'><span class='object_link'><a href="" title="Thread (class)">Thread</a></span></span><span class='period'>.</span><span class='id identifier rubyid_new'><span class='object_link'><a href="#new-class_method" title="Thread.new (method)">new</a></span></span> <span class='lbrace'>{</span> <span class='int'>2</span> <span class='op'>+</span> <span class='int'>2</span> <span class='rbrace'>}</span>
+<span class='id identifier rubyid_a'>a</span><span class='period'>.</span><span class='id identifier rubyid_value'>value</span>   <span class='comment'>#=&gt; 4
+</span>
+<span class='id identifier rubyid_b'>b</span> <span class='op'>=</span> <span class='const'><span class='object_link'><a href="" title="Thread (class)">Thread</a></span></span><span class='period'>.</span><span class='id identifier rubyid_new'><span class='object_link'><a href="#new-class_method" title="Thread.new (method)">new</a></span></span> <span class='lbrace'>{</span> <span class='id identifier rubyid_raise'>raise</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>something went wrong</span><span class='tstring_end'>&#39;</span></span> <span class='rbrace'>}</span>
+<span class='id identifier rubyid_b'>b</span><span class='period'>.</span><span class='id identifier rubyid_value'>value</span>   <span class='comment'>#=&gt; RuntimeError: something went wrong
+</span></code></pre>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+  <div class="docstring">
+  <div class="discussion">
+    
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="Object.html" title="Object (class)">Object</a></span></tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div>
+
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+1091
+1092
+1093
+1094
+1095
+1096
+1097</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'thread.c', line 1091</span>
+
+static VALUE
+thread_value(VALUE self)
+{
+    rb_thread_t *th = rb_thread_ptr(self);
+    thread_join(th, 0);
+    return th-&gt;value;
+}</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="wakeup-instance_method">
+  
+    #<strong>wakeup</strong>  &#x21d2; <tt><span class='object_link'><a href="Object.html" title="Object (class)">Object</a></span></tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Marks a given thread as eligible for scheduling, however it may still
+remain blocked on I/O.</p>
+
+<p><strong>Note:</strong> This does not invoke the scheduler, see #run for
+more information.</p>
+
+<pre class="code"><code class=""><span class='id identifier rubyid_c'>c</span> <span class='op'>=</span> <span class='const'><span class='object_link'><a href="" title="Thread (class)">Thread</a></span></span><span class='period'>.</span><span class='id identifier rubyid_new'><span class='object_link'><a href="#new-class_method" title="Thread.new (method)">new</a></span></span> <span class='lbrace'>{</span> <span class='const'><span class='object_link'><a href="" title="Thread (class)">Thread</a></span></span><span class='period'>.</span><span class='id identifier rubyid_stop'><span class='object_link'><a href="#stop-class_method" title="Thread.stop (method)">stop</a></span></span><span class='semicolon'>;</span> <span class='id identifier rubyid_puts'>puts</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>hey!</span><span class='tstring_end'>&quot;</span></span> <span class='rbrace'>}</span>
+<span class='id identifier rubyid_sleep'>sleep</span> <span class='float'>0.1</span> <span class='kw'>while</span> <span class='id identifier rubyid_c'>c</span><span class='period'>.</span><span class='id identifier rubyid_status'>status</span><span class='op'>!=</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>sleep</span><span class='tstring_end'>&#39;</span></span>
+<span class='id identifier rubyid_c'>c</span><span class='period'>.</span><span class='id identifier rubyid_wakeup'>wakeup</span>
+<span class='id identifier rubyid_c'>c</span><span class='period'>.</span><span class='id identifier rubyid_join'>join</span>
+<span class='comment'>#=&gt; &quot;hey!&quot;
+</span></code></pre>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+  
+
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+2444
+2445
+2446
+2447
+2448
+2449
+2450
+2451</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'thread.c', line 2444</span>
+
+VALUE
+rb_thread_wakeup(VALUE thread)
+{
+    if (!RTEST(rb_thread_wakeup_alive(thread))) {
+	rb_raise(rb_eThreadError, &quot;killed thread&quot;);
+    }
+    return thread;
+}</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+  </div>
+
+</div>
+
+      <div id="footer">
+  Generated on Mon Feb 26 22:23:27 2018 by
+  <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
+  0.9.12 (ruby-2.4.2).
+</div>
+
+    </div>
+  </body>
+</html>

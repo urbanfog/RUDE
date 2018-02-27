@@ -1,0 +1,3794 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>
+  Class: Regexp
+  
+    &mdash; Documentation by YARD 0.9.12
+  
+</title>
+
+  <link rel="stylesheet" href="css/style.css" type="text/css" charset="utf-8" />
+
+  <link rel="stylesheet" href="css/common.css" type="text/css" charset="utf-8" />
+
+<script type="text/javascript" charset="utf-8">
+  pathId = "Regexp";
+  relpath = '';
+</script>
+
+
+  <script type="text/javascript" charset="utf-8" src="js/jquery.js"></script>
+
+  <script type="text/javascript" charset="utf-8" src="js/app.js"></script>
+
+
+  </head>
+  <body>
+    <div class="nav_wrap">
+      <iframe id="nav" src="class_list.html?1"></iframe>
+      <div id="resizer"></div>
+    </div>
+
+    <div id="main" tabindex="-1">
+      <div id="header">
+        <div id="menu">
+  
+    <a href="_index.html">Index (R)</a> &raquo;
+    
+    
+    <span class="title">Regexp</span>
+  
+</div>
+
+        <div id="search">
+  
+    <a class="full_list_link" id="class_list_link"
+        href="class_list.html">
+
+        <svg width="24" height="24">
+          <rect x="0" y="4" width="24" height="4" rx="1" ry="1"></rect>
+          <rect x="0" y="12" width="24" height="4" rx="1" ry="1"></rect>
+          <rect x="0" y="20" width="24" height="4" rx="1" ry="1"></rect>
+        </svg>
+    </a>
+  
+</div>
+        <div class="clear"></div>
+      </div>
+
+      <div id="content"><h1>Class: Regexp
+  
+  
+  
+</h1>
+<div class="box_info">
+  
+  <dl>
+    <dt>Inherits:</dt>
+    <dd>
+      <span class="inheritName"><span class='object_link'><a href="Object.html" title="Object (class)">Object</a></span></span>
+      
+        <ul class="fullTree">
+          <li><span class='object_link'><a href="Object.html" title="Object (class)">Object</a></span></li>
+          
+            <li class="next">Regexp</li>
+          
+        </ul>
+        <a href="#" class="inheritanceTree">show all</a>
+      
+    </dd>
+  </dl>
+  
+
+  
+  
+  
+  
+  
+
+  
+
+  
+  <dl>
+    <dt>Defined in:</dt>
+    <dd>re.c<span class="defines">,<br />
+  re.c</span>
+</dd>
+  </dl>
+  
+</div>
+
+<h2>Overview</h2><div class="docstring">
+  <div class="discussion">
+    
+<p>A <code>Regexp</code> holds a regular expression, used to match a pattern
+against strings. Regexps are created using the <code>/.../</code> and
+<code>%r{...}</code> literals, and by the <code>Regexp::new</code>
+constructor.</p>
+
+<p>:include: doc/regexp.rdoc</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div>
+  <h2>Constant Summary</h2>
+  <dl class="constants">
+    
+      <dt id="IGNORECASE-constant" class="">IGNORECASE =
+        <div class="docstring">
+  <div class="discussion">
+    
+<p>see Regexp.options and Regexp.new</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div>
+      </dt>
+      <dd><pre class="code"><span class='const'>INT2FIX</span><span class='lparen'>(</span><span class='const'>ONIG_OPTION_IGNORECASE</span><span class='rparen'>)</span></pre></dd>
+    
+      <dt id="EXTENDED-constant" class="">EXTENDED =
+        <div class="docstring">
+  <div class="discussion">
+    
+<p>see Regexp.options and Regexp.new</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div>
+      </dt>
+      <dd><pre class="code"><span class='const'>INT2FIX</span><span class='lparen'>(</span><span class='const'>ONIG_OPTION_EXTEND</span><span class='rparen'>)</span></pre></dd>
+    
+      <dt id="MULTILINE-constant" class="">MULTILINE =
+        <div class="docstring">
+  <div class="discussion">
+    
+<p>see Regexp.options and Regexp.new</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div>
+      </dt>
+      <dd><pre class="code"><span class='const'>INT2FIX</span><span class='lparen'>(</span><span class='const'>ONIG_OPTION_MULTILINE</span><span class='rparen'>)</span></pre></dd>
+    
+      <dt id="FIXEDENCODING-constant" class="">FIXEDENCODING =
+        <div class="docstring">
+  <div class="discussion">
+    
+<p>see Regexp.options and Regexp.new</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div>
+      </dt>
+      <dd><pre class="code"><span class='const'>INT2FIX</span><span class='lparen'>(</span><span class='const'>ARG_ENCODING_FIXED</span><span class='rparen'>)</span></pre></dd>
+    
+      <dt id="NOENCODING-constant" class="">NOENCODING =
+        <div class="docstring">
+  <div class="discussion">
+    
+<p>see Regexp.options and Regexp.new</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div>
+      </dt>
+      <dd><pre class="code"><span class='const'>INT2FIX</span><span class='lparen'>(</span><span class='const'>ARG_ENCODING_NONE</span><span class='rparen'>)</span></pre></dd>
+    
+  </dl>
+
+
+
+
+
+
+
+  
+    <h2>
+      Class Method Summary
+      <small><a href="#" class="summary_toggle">collapse</a></small>
+    </h2>
+
+    <ul class="summary">
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#compile-class_method" title="compile (class method)">.<strong>compile</strong>(*args)  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Allocates and initializes an instance of a klass.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#escape-class_method" title="escape (class method)">.<strong>escape</strong>(str)  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Escapes any characters that would have special meaning in a regular
+expression.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#last_match-class_method" title="last_match (class method)">.<strong>last_match</strong>(*args)  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>The first form returns the MatchData object generated by the last
+successful pattern match.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#quote-class_method" title="quote (class method)">.<strong>quote</strong>(str)  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Escapes any characters that would have special meaning in a regular
+expression.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#try_convert-class_method" title="try_convert (class method)">.<strong>try_convert</strong>(obj)  &#x21d2; nil </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Try to convert <em>obj</em> into a Regexp, using to_regexp method.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#union-class_method" title="union (class method)">.<strong>union</strong>(args)  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Return a <code>Regexp</code> object that is the union of the given
+<em>pattern</em>s, i.e., will match any of its parts.</p>
+</div></span>
+  
+</li>
+
+      
+    </ul>
+  
+    <h2>
+      Instance Method Summary
+      <small><a href="#" class="summary_toggle">collapse</a></small>
+    </h2>
+
+    <ul class="summary">
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#==-instance_method" title="#== (instance method)">#<strong>==</strong>(re2)  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Equality—Two regexps are equal if their patterns are identical, they have
+the same character set code, and their <code>casefold?</code> values are
+the same.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#===-instance_method" title="#=== (instance method)">#<strong>===</strong>(str)  &#x21d2; Boolean </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Case Equality—Used in case statements.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#=~-instance_method" title="#=~ (instance method)">#<strong>=~</strong>(str)  &#x21d2; Integer<sup>?</sup> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Match—Matches <em>rxp</em> against <em>str</em>.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#casefold%3F-instance_method" title="#casefold? (instance method)">#<strong>casefold?</strong>  &#x21d2; Boolean </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Returns the value of the case-insensitive flag.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#encoding-instance_method" title="#encoding (instance method)">#<strong>encoding</strong>  &#x21d2; Encoding </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Returns the Encoding object that represents the encoding of obj.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#eql%3F-instance_method" title="#eql? (instance method)">#<strong>eql?</strong>(re2)  &#x21d2; Boolean </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Equality—Two regexps are equal if their patterns are identical, they have
+the same character set code, and their <code>casefold?</code> values are
+the same.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#fixed_encoding%3F-instance_method" title="#fixed_encoding? (instance method)">#<strong>fixed_encoding?</strong>  &#x21d2; Boolean </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Returns false if rxp is applicable to a string with any ASCII compatible
+encoding.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#hash-instance_method" title="#hash (instance method)">#<strong>hash</strong>  &#x21d2; Integer </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Produce a hash based on the text and options of this regular expression.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#initialize-instance_method" title="#initialize (instance method)">#<strong>initialize</strong>(*args)  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+    <span class="note title constructor">constructor</span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Constructs a new regular expression from <code>pattern</code>, which can be
+either a String or a Regexp (in which case that regexp&#39;s options are
+propagated), and new options may not be specified (a change as of Ruby
+1.8).</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#initialize_copy-instance_method" title="#initialize_copy (instance method)">#<strong>initialize_copy</strong>(re)  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>:nodoc:.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#inspect-instance_method" title="#inspect (instance method)">#<strong>inspect</strong>  &#x21d2; String </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Produce a nicely formatted string-version of <em>rxp</em>.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#match-instance_method" title="#match (instance method)">#<strong>match</strong>(*args)  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Returns a <code>MatchData</code> object describing the match, or
+<code>nil</code> if there was no match.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#match%3F-instance_method" title="#match? (instance method)">#<strong>match?</strong>(*args)  &#x21d2; Boolean </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Returns a <code>true</code> or <code>false</code> indicates whether the
+regexp is matched or not without updating $~ and other related variables.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#named_captures-instance_method" title="#named_captures (instance method)">#<strong>named_captures</strong>  &#x21d2; Hash </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Returns a hash representing information about named captures of
+<em>rxp</em>.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#names-instance_method" title="#names (instance method)">#<strong>names</strong>  &#x21d2; Array </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Returns a list of names of captures as an array of strings.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#options-instance_method" title="#options (instance method)">#<strong>options</strong>  &#x21d2; Integer </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Returns the set of bits corresponding to the options used when creating
+this Regexp (see <code>Regexp::new</code> for details. Note that additional
+bits may be set in the returned options: these are used internally by the
+regular expression code. These extra bits are ignored if the options are
+passed to <code>Regexp::new</code>.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#source-instance_method" title="#source (instance method)">#<strong>source</strong>  &#x21d2; String </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Returns the original string of the pattern.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#to_s-instance_method" title="#to_s (instance method)">#<strong>to_s</strong>  &#x21d2; String </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Returns a string containing the regular expression and its options (using
+the <code>(?opts:source)</code> notation. This string can be fed back in to
+<code>Regexp::new</code> to a regular expression with the same semantics as
+the original. (However, <code>Regexp#==</code> may not return true when
+comparing the two, as the source of the regular expression itself may
+differ, as the example shows).  <code>Regexp#inspect</code> produces a
+generally more readable version of <em>rxp</em>.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#~-instance_method" title="#~ (instance method)">#<strong>~</strong>(rxp)  &#x21d2; Integer<sup>?</sup> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Match—Matches <em>rxp</em> against the contents of <code>$_</code>.</p>
+</div></span>
+  
+</li>
+
+      
+    </ul>
+  
+
+<div id="constructor_details" class="method_details_list">
+  <h2>Constructor Details</h2>
+  
+    <div class="method_details first">
+  <h3 class="signature first" id="initialize-instance_method">
+  
+    
+      <span class="overload">#<strong>new</strong>(string, [options])  &#x21d2; <tt><span class='object_link'><a href="" title="Regexp (class)">Regexp</a></span></tt> </span>
+    
+      <span class="overload">#<strong>new</strong>(regexp)  &#x21d2; <tt><span class='object_link'><a href="" title="Regexp (class)">Regexp</a></span></tt> </span>
+    
+      <span class="overload">#<strong>compile</strong>(string, [options])  &#x21d2; <tt><span class='object_link'><a href="" title="Regexp (class)">Regexp</a></span></tt> </span>
+    
+      <span class="overload">#<strong>compile</strong>(regexp)  &#x21d2; <tt><span class='object_link'><a href="" title="Regexp (class)">Regexp</a></span></tt> </span>
+    
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Constructs a new regular expression from <code>pattern</code>, which can be
+either a String or a Regexp (in which case that regexp&#39;s options are
+propagated), and new options may not be specified (a change as of Ruby
+1.8).</p>
+
+<p>If <code>options</code> is an Integer, it should be one or more of the
+constants Regexp::EXTENDED, Regexp::IGNORECASE, and Regexp::MULTILINE,
+<em>or</em>-ed together.  Otherwise, if <code>options</code> is not
+<code>nil</code> or <code>false</code>, the regexp will be case
+insensitive.</p>
+
+<pre class="code"><code class=""><span class='id identifier rubyid_r1'>r1</span> <span class='op'>=</span> <span class='const'><span class='object_link'><a href="" title="Regexp (class)">Regexp</a></span></span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>^a-z+:\\s+\w+</span><span class='tstring_end'>&#39;</span></span><span class='rparen'>)</span> <span class='comment'>#=&gt; /^a-z+:\s+\w+/
+</span><span class='id identifier rubyid_r2'>r2</span> <span class='op'>=</span> <span class='const'><span class='object_link'><a href="" title="Regexp (class)">Regexp</a></span></span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>cat</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span> <span class='kw'>true</span><span class='rparen'>)</span>     <span class='comment'>#=&gt; /cat/i
+</span><span class='id identifier rubyid_r3'>r3</span> <span class='op'>=</span> <span class='const'><span class='object_link'><a href="" title="Regexp (class)">Regexp</a></span></span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='id identifier rubyid_r2'>r2</span><span class='rparen'>)</span>              <span class='comment'>#=&gt; /cat/i
+</span><span class='id identifier rubyid_r4'>r4</span> <span class='op'>=</span> <span class='const'><span class='object_link'><a href="" title="Regexp (class)">Regexp</a></span></span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>dog</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span> <span class='const'><span class='object_link'><a href="" title="Regexp (class)">Regexp</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="#EXTENDED-constant" title="Regexp::EXTENDED (constant)">EXTENDED</a></span></span> <span class='op'>|</span> <span class='const'><span class='object_link'><a href="" title="Regexp (class)">Regexp</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="#IGNORECASE-constant" title="Regexp::IGNORECASE (constant)">IGNORECASE</a></span></span><span class='rparen'>)</span> <span class='comment'>#=&gt; /dog/ix
+</span></code></pre>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+  <p class="tag_title">Overloads:</p>
+  <ul class="overload">
+    
+      
+      <li class="overload_item">
+        <span class="signature">#<strong>new</strong>(string, [options])  &#x21d2; <tt><span class='object_link'><a href="" title="Regexp (class)">Regexp</a></span></tt> </span>
+        <div class="docstring">
+  <div class="discussion">
+    
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div>
+      </li>
+    
+      
+      <li class="overload_item">
+        <span class="signature">#<strong>new</strong>(regexp)  &#x21d2; <tt><span class='object_link'><a href="" title="Regexp (class)">Regexp</a></span></tt> </span>
+        <div class="docstring">
+  <div class="discussion">
+    
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div>
+      </li>
+    
+      
+      <li class="overload_item">
+        <span class="signature">#<strong>compile</strong>(string, [options])  &#x21d2; <tt><span class='object_link'><a href="" title="Regexp (class)">Regexp</a></span></tt> </span>
+        <div class="docstring">
+  <div class="discussion">
+    
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div>
+      </li>
+    
+      
+      <li class="overload_item">
+        <span class="signature">#<strong>compile</strong>(regexp)  &#x21d2; <tt><span class='object_link'><a href="" title="Regexp (class)">Regexp</a></span></tt> </span>
+        <div class="docstring">
+  <div class="discussion">
+    
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div>
+      </li>
+    
+  </ul>
+
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+3384
+3385
+3386
+3387
+3388
+3389
+3390
+3391
+3392
+3393
+3394
+3395
+3396
+3397
+3398
+3399
+3400
+3401
+3402
+3403
+3404
+3405
+3406
+3407
+3408
+3409
+3410
+3411
+3412
+3413
+3414
+3415
+3416
+3417
+3418
+3419
+3420
+3421
+3422
+3423
+3424</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 're.c', line 3384</span>
+
+static VALUE
+rb_reg_initialize_m(int argc, VALUE *argv, VALUE self)
+{
+    int flags = 0;
+    VALUE str;
+    rb_encoding *enc = 0;
+
+    rb_check_arity(argc, 1, 3);
+    if (RB_TYPE_P(argv[0], T_REGEXP)) {
+	VALUE re = argv[0];
+
+	if (argc &gt; 1) {
+	    rb_warn(&quot;flags ignored&quot;);
+	}
+	rb_reg_check(re);
+	flags = rb_reg_options(re);
+	str = RREGEXP_SRC(re);
+    }
+    else {
+	if (argc &gt;= 2) {
+	    if (FIXNUM_P(argv[1])) flags = FIX2INT(argv[1]);
+	    else if (RTEST(argv[1])) flags = ONIG_OPTION_IGNORECASE;
+	}
+	if (argc == 3 &amp;&amp; !NIL_P(argv[2])) {
+	    char *kcode = StringValuePtr(argv[2]);
+	    if (kcode[0] == &#39;n&#39; || kcode[0] == &#39;N&#39;) {
+		enc = rb_ascii8bit_encoding();
+		flags |= ARG_ENCODING_NONE;
+	    }
+	    else {
+		rb_warn(&quot;encoding option is ignored - %s&quot;, kcode);
+	    }
+	}
+	str = StringValue(argv[0]);
+    }
+    if (enc &amp;&amp; rb_enc_get(str) != enc)
+	rb_reg_init_str_enc(self, str, enc, flags);
+    else
+	rb_reg_init_str(self, str, flags);
+    return self;
+}</pre>
+    </td>
+  </tr>
+</table>
+</div>
+  
+</div>
+
+
+  <div id="class_method_details" class="method_details_list">
+    <h2>Class Method Details</h2>
+
+    
+      <div class="method_details first">
+  <h3 class="signature first" id="compile-class_method">
+  
+    .<strong>compile</strong>(*args)  &#x21d2; <tt><span class='object_link'><a href="Object.html" title="Object (class)">Object</a></span></tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Allocates and initializes an instance of a klass.</p>
+
+<p>Equivalent to c Class#new in Ruby</p>
+
+<p><a href=“in”>param</a> argc  the number of arguments to c #initialize <a
+href=“in”>param</a> argv  a pointer to an array of arguments to c
+#initialize <a href=“in”>param</a> klass a Class object return the new
+instance of a klass sa rb_obj_call_init sa rb_obj_alloc</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+2170
+2171
+2172
+2173
+2174
+2175</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'object.c', line 2170</span>
+
+VALUE
+rb_class_new_instance(int argc, const VALUE *argv, VALUE klass)
+{
+    Check_Type(klass, T_CLASS);
+    return rb_class_s_new(argc, argv, klass);
+}</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="escape-class_method">
+  
+    
+      <span class="overload">.<strong>escape</strong>(str)  &#x21d2; <tt><span class='object_link'><a href="String.html" title="String (class)">String</a></span></tt> </span>
+    
+      <span class="overload">.<strong>quote</strong>(str)  &#x21d2; <tt><span class='object_link'><a href="String.html" title="String (class)">String</a></span></tt> </span>
+    
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Escapes any characters that would have special meaning in a regular
+expression. Returns a new escaped string, or self if no characters are
+escaped.  For any string,
+<code>Regexp.new(Regexp.escape(<em>str</em>))=~<em>str</em></code> will be
+true.</p>
+
+<pre class="code"><code class=""><span class='const'><span class='object_link'><a href="" title="Regexp (class)">Regexp</a></span></span><span class='period'>.</span><span class='id identifier rubyid_escape'>escape</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>\*?{}.</span><span class='tstring_end'>&#39;</span></span><span class='rparen'>)</span>   <span class='comment'>#=&gt; \\\*\?\{\}\.
+</span></code></pre>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+  <p class="tag_title">Overloads:</p>
+  <ul class="overload">
+    
+      
+      <li class="overload_item">
+        <span class="signature">.<strong>escape</strong>(str)  &#x21d2; <tt><span class='object_link'><a href="String.html" title="String (class)">String</a></span></tt> </span>
+        <div class="docstring">
+  <div class="discussion">
+    
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="String.html" title="String (class)">String</a></span></tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div>
+      </li>
+    
+      
+      <li class="overload_item">
+        <span class="signature">.<strong>quote</strong>(str)  &#x21d2; <tt><span class='object_link'><a href="String.html" title="String (class)">String</a></span></tt> </span>
+        <div class="docstring">
+  <div class="discussion">
+    
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="String.html" title="String (class)">String</a></span></tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div>
+      </li>
+    
+  </ul>
+
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+3538
+3539
+3540
+3541
+3542</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 're.c', line 3538</span>
+
+static VALUE
+rb_reg_s_quote(VALUE c, VALUE str)
+{
+    return rb_reg_quote(reg_operand(str, TRUE));
+}</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="last_match-class_method">
+  
+    
+      <span class="overload">.<strong>last_match</strong>  &#x21d2; <tt><span class='object_link'><a href="MatchData.html" title="MatchData (class)">MatchData</a></span></tt> </span>
+    
+      <span class="overload">.<strong>last_match</strong>(n)  &#x21d2; <tt><span class='object_link'><a href="String.html" title="String (class)">String</a></span></tt> </span>
+    
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>The first form returns the MatchData object generated by the last
+successful pattern match.  Equivalent to reading the special global
+variable <code>$~</code> (see Special global variables in Regexp for
+details).</p>
+
+<p>The second form returns the <em>n</em>th field in this MatchData object.
+<em>n</em> can be a string or symbol to reference a named capture.</p>
+
+<p>Note that the last_match is local to the thread and method scope of the
+method that did the pattern match.</p>
+
+<pre class="code"><code class=""><span class='tstring'><span class='regexp_beg'>/</span><span class='tstring_content'>c(.)t</span><span class='regexp_end'>/</span></span> <span class='op'>=~</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>cat</span><span class='tstring_end'>&#39;</span></span>        <span class='comment'>#=&gt; 0
+</span><span class='const'><span class='object_link'><a href="" title="Regexp (class)">Regexp</a></span></span><span class='period'>.</span><span class='id identifier rubyid_last_match'>last_match</span>       <span class='comment'>#=&gt; #&lt;MatchData &quot;cat&quot; 1:&quot;a&quot;&gt;
+</span><span class='const'><span class='object_link'><a href="" title="Regexp (class)">Regexp</a></span></span><span class='period'>.</span><span class='id identifier rubyid_last_match'>last_match</span><span class='lparen'>(</span><span class='int'>0</span><span class='rparen'>)</span>    <span class='comment'>#=&gt; &quot;cat&quot;
+</span><span class='const'><span class='object_link'><a href="" title="Regexp (class)">Regexp</a></span></span><span class='period'>.</span><span class='id identifier rubyid_last_match'>last_match</span><span class='lparen'>(</span><span class='int'>1</span><span class='rparen'>)</span>    <span class='comment'>#=&gt; &quot;a&quot;
+</span><span class='const'><span class='object_link'><a href="" title="Regexp (class)">Regexp</a></span></span><span class='period'>.</span><span class='id identifier rubyid_last_match'>last_match</span><span class='lparen'>(</span><span class='int'>2</span><span class='rparen'>)</span>    <span class='comment'>#=&gt; nil
+</span>
+<span class='tstring'><span class='regexp_beg'>/</span><span class='tstring_content'>(?&lt;lhs&gt;\w+)\s*=\s*(?&lt;rhs&gt;\w+)</span><span class='regexp_end'>/</span></span> <span class='op'>=~</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>var = val</span><span class='tstring_end'>&quot;</span></span>
+<span class='const'><span class='object_link'><a href="" title="Regexp (class)">Regexp</a></span></span><span class='period'>.</span><span class='id identifier rubyid_last_match'>last_match</span>       <span class='comment'>#=&gt; #&lt;MatchData &quot;var = val&quot; lhs:&quot;var&quot; rhs:&quot;val&quot;&gt;
+</span><span class='const'><span class='object_link'><a href="" title="Regexp (class)">Regexp</a></span></span><span class='period'>.</span><span class='id identifier rubyid_last_match'>last_match</span><span class='lparen'>(</span><span class='symbol'>:lhs</span><span class='rparen'>)</span> <span class='comment'>#=&gt; &quot;var&quot;
+</span><span class='const'><span class='object_link'><a href="" title="Regexp (class)">Regexp</a></span></span><span class='period'>.</span><span class='id identifier rubyid_last_match'>last_match</span><span class='lparen'>(</span><span class='symbol'>:rhs</span><span class='rparen'>)</span> <span class='comment'>#=&gt; &quot;val&quot;
+</span></code></pre>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+  <p class="tag_title">Overloads:</p>
+  <ul class="overload">
+    
+      
+      <li class="overload_item">
+        <span class="signature">.<strong>last_match</strong>  &#x21d2; <tt><span class='object_link'><a href="MatchData.html" title="MatchData (class)">MatchData</a></span></tt> </span>
+        <div class="docstring">
+  <div class="discussion">
+    
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="MatchData.html" title="MatchData (class)">MatchData</a></span></tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div>
+      </li>
+    
+      
+      <li class="overload_item">
+        <span class="signature">.<strong>last_match</strong>(n)  &#x21d2; <tt><span class='object_link'><a href="String.html" title="String (class)">String</a></span></tt> </span>
+        <div class="docstring">
+  <div class="discussion">
+    
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="String.html" title="String (class)">String</a></span></tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div>
+      </li>
+    
+  </ul>
+
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+3936
+3937
+3938
+3939
+3940
+3941
+3942
+3943
+3944
+3945
+3946
+3947
+3948
+3949</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 're.c', line 3936</span>
+
+static VALUE
+rb_reg_s_last_match(int argc, VALUE *argv)
+{
+    VALUE nth;
+
+    if (argc &gt; 0 &amp;&amp; rb_scan_args(argc, argv, &quot;01&quot;, &amp;nth) == 1) {
+        VALUE match = rb_backref_get();
+        int n;
+        if (NIL_P(match)) return Qnil;
+        n = match_backref_number(match, nth);
+	return rb_reg_nth_match(n, match);
+    }
+    return match_getter();
+}</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="quote-class_method">
+  
+    
+      <span class="overload">.<strong>escape</strong>(str)  &#x21d2; <tt><span class='object_link'><a href="String.html" title="String (class)">String</a></span></tt> </span>
+    
+      <span class="overload">.<strong>quote</strong>(str)  &#x21d2; <tt><span class='object_link'><a href="String.html" title="String (class)">String</a></span></tt> </span>
+    
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Escapes any characters that would have special meaning in a regular
+expression. Returns a new escaped string, or self if no characters are
+escaped.  For any string,
+<code>Regexp.new(Regexp.escape(<em>str</em>))=~<em>str</em></code> will be
+true.</p>
+
+<pre class="code"><code class=""><span class='const'><span class='object_link'><a href="" title="Regexp (class)">Regexp</a></span></span><span class='period'>.</span><span class='id identifier rubyid_escape'><span class='object_link'><a href="#escape-class_method" title="Regexp.escape (method)">escape</a></span></span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>\*?{}.</span><span class='tstring_end'>&#39;</span></span><span class='rparen'>)</span>   <span class='comment'>#=&gt; \\\*\?\{\}\.
+</span></code></pre>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+  <p class="tag_title">Overloads:</p>
+  <ul class="overload">
+    
+      
+      <li class="overload_item">
+        <span class="signature">.<strong>escape</strong>(str)  &#x21d2; <tt><span class='object_link'><a href="String.html" title="String (class)">String</a></span></tt> </span>
+        <div class="docstring">
+  <div class="discussion">
+    
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="String.html" title="String (class)">String</a></span></tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div>
+      </li>
+    
+      
+      <li class="overload_item">
+        <span class="signature">.<strong>quote</strong>(str)  &#x21d2; <tt><span class='object_link'><a href="String.html" title="String (class)">String</a></span></tt> </span>
+        <div class="docstring">
+  <div class="discussion">
+    
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="String.html" title="String (class)">String</a></span></tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div>
+      </li>
+    
+  </ul>
+
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+3538
+3539
+3540
+3541
+3542</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 're.c', line 3538</span>
+
+static VALUE
+rb_reg_s_quote(VALUE c, VALUE str)
+{
+    return rb_reg_quote(reg_operand(str, TRUE));
+}</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="try_convert-class_method">
+  
+    .<strong>try_convert</strong>(obj)  &#x21d2; <tt>nil</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Try to convert <em>obj</em> into a Regexp, using to_regexp method. Returns
+converted regexp or nil if <em>obj</em> cannot be converted for any reason.</p>
+
+<pre class="code"><code class=""><span class='const'><span class='object_link'><a href="" title="Regexp (class)">Regexp</a></span></span><span class='period'>.</span><span class='id identifier rubyid_try_convert'>try_convert</span><span class='lparen'>(</span><span class='tstring'><span class='regexp_beg'>/</span><span class='tstring_content'>re</span><span class='regexp_end'>/</span></span><span class='rparen'>)</span>         <span class='comment'>#=&gt; /re/
+</span><span class='const'><span class='object_link'><a href="" title="Regexp (class)">Regexp</a></span></span><span class='period'>.</span><span class='id identifier rubyid_try_convert'>try_convert</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>re</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>         <span class='comment'>#=&gt; nil
+</span>
+<span class='id identifier rubyid_o'>o</span> <span class='op'>=</span> <span class='const'><span class='object_link'><a href="Object.html" title="Object (class)">Object</a></span></span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span>
+<span class='const'><span class='object_link'><a href="" title="Regexp (class)">Regexp</a></span></span><span class='period'>.</span><span class='id identifier rubyid_try_convert'>try_convert</span><span class='lparen'>(</span><span class='id identifier rubyid_o'>o</span><span class='rparen'>)</span>            <span class='comment'>#=&gt; nil
+</span><span class='kw'>def</span> <span class='id identifier rubyid_o'>o</span><span class='period'>.</span><span class='id identifier rubyid_to_regexp'>to_regexp</span><span class='lparen'>(</span><span class='rparen'>)</span> <span class='tstring'><span class='regexp_beg'>/</span><span class='tstring_content'>foo</span><span class='regexp_end'>/</span></span> <span class='kw'>end</span>
+<span class='const'><span class='object_link'><a href="" title="Regexp (class)">Regexp</a></span></span><span class='period'>.</span><span class='id identifier rubyid_try_convert'>try_convert</span><span class='lparen'>(</span><span class='id identifier rubyid_o'>o</span><span class='rparen'>)</span>            <span class='comment'>#=&gt; /foo/
+</span></code></pre>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+  <div class="docstring">
+  <div class="discussion">
+    
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>nil</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div>
+
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+3579
+3580
+3581
+3582
+3583</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 're.c', line 3579</span>
+
+static VALUE
+rb_reg_s_try_convert(VALUE dummy, VALUE re)
+{
+    return rb_check_regexp_type(re);
+}</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="union-class_method">
+  
+    
+      <span class="overload">.<strong>union</strong>(pat1, pat2, ...)  &#x21d2; <tt><span class='object_link'><a href="" title="Regexp (class)">Regexp</a></span></tt> </span>
+    
+      <span class="overload">.<strong>union</strong>(pats_ary)  &#x21d2; <tt><span class='object_link'><a href="" title="Regexp (class)">Regexp</a></span></tt> </span>
+    
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Return a <code>Regexp</code> object that is the union of the given
+<em>pattern</em>s, i.e., will match any of its parts. The <em>pattern</em>s
+can be Regexp objects, in which case their options will be preserved, or
+Strings. If no patterns are given, returns <code>/(?!)/</code>. The
+behavior is unspecified if any given <em>pattern</em> contains capture.</p>
+
+<pre class="code"><code class=""><span class='const'><span class='object_link'><a href="" title="Regexp (class)">Regexp</a></span></span><span class='period'>.</span><span class='id identifier rubyid_union'>union</span>                         <span class='comment'>#=&gt; /(?!)/
+</span><span class='const'><span class='object_link'><a href="" title="Regexp (class)">Regexp</a></span></span><span class='period'>.</span><span class='id identifier rubyid_union'>union</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>penzance</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>             <span class='comment'>#=&gt; /penzance/
+</span><span class='const'><span class='object_link'><a href="" title="Regexp (class)">Regexp</a></span></span><span class='period'>.</span><span class='id identifier rubyid_union'>union</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>a+b*c</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>                <span class='comment'>#=&gt; /a\+b\*c/
+</span><span class='const'><span class='object_link'><a href="" title="Regexp (class)">Regexp</a></span></span><span class='period'>.</span><span class='id identifier rubyid_union'>union</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>skiing</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>sledding</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>   <span class='comment'>#=&gt; /skiing|sledding/
+</span><span class='const'><span class='object_link'><a href="" title="Regexp (class)">Regexp</a></span></span><span class='period'>.</span><span class='id identifier rubyid_union'>union</span><span class='lparen'>(</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>skiing</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>sledding</span><span class='tstring_end'>&quot;</span></span><span class='rbracket'>]</span><span class='rparen'>)</span> <span class='comment'>#=&gt; /skiing|sledding/
+</span><span class='const'><span class='object_link'><a href="" title="Regexp (class)">Regexp</a></span></span><span class='period'>.</span><span class='id identifier rubyid_union'>union</span><span class='lparen'>(</span><span class='tstring'><span class='regexp_beg'>/</span><span class='tstring_content'>dogs</span><span class='regexp_end'>/</span></span><span class='comma'>,</span> <span class='tstring'><span class='regexp_beg'>/</span><span class='tstring_content'>cats</span><span class='regexp_end'>/i</span></span><span class='rparen'>)</span>        <span class='comment'>#=&gt; /(?-mix:dogs)|(?i-mx:cats)/
+</span></code></pre>
+
+<p>Note: the arguments for ::union will try to be converted into a regular
+expression literal via #to_regexp.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+  <p class="tag_title">Overloads:</p>
+  <ul class="overload">
+    
+      
+      <li class="overload_item">
+        <span class="signature">.<strong>union</strong>(pat1, pat2, ...)  &#x21d2; <tt><span class='object_link'><a href="" title="Regexp (class)">Regexp</a></span></tt> </span>
+        <div class="docstring">
+  <div class="discussion">
+    
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="" title="Regexp (class)">Regexp</a></span></tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div>
+      </li>
+    
+      
+      <li class="overload_item">
+        <span class="signature">.<strong>union</strong>(pats_ary)  &#x21d2; <tt><span class='object_link'><a href="" title="Regexp (class)">Regexp</a></span></tt> </span>
+        <div class="docstring">
+  <div class="discussion">
+    
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="" title="Regexp (class)">Regexp</a></span></tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div>
+      </li>
+    
+  </ul>
+
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+3720
+3721
+3722
+3723
+3724
+3725
+3726
+3727
+3728
+3729</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 're.c', line 3720</span>
+
+static VALUE
+rb_reg_s_union_m(VALUE self, VALUE args)
+{
+    VALUE v;
+    if (RARRAY_LEN(args) == 1 &amp;&amp;
+        !NIL_P(v = rb_check_array_type(rb_ary_entry(args, 0)))) {
+        return rb_reg_s_union(self, v);
+    }
+    return rb_reg_s_union(self, args);
+}</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+  </div>
+
+  <div id="instance_method_details" class="method_details_list">
+    <h2>Instance Method Details</h2>
+
+    
+      <div class="method_details first">
+  <h3 class="signature first" id="==-instance_method">
+  
+    
+      <span class="overload">#<strong>==</strong>(other_rxp)  &#x21d2; <tt>Boolean</tt> </span>
+    
+      <span class="overload">#<strong>eql?</strong>(other_rxp)  &#x21d2; <tt>Boolean</tt> </span>
+    
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Equality—Two regexps are equal if their patterns are identical, they have
+the same character set code, and their <code>casefold?</code> values are
+the same.</p>
+
+<pre class="code"><code class=""><span class='tstring'><span class='regexp_beg'>/</span><span class='tstring_content'>abc</span><span class='regexp_end'>/</span></span>  <span class='op'>==</span> <span class='tstring'><span class='regexp_beg'>/</span><span class='tstring_content'>abc</span><span class='regexp_end'>/x</span></span>   <span class='comment'>#=&gt; false
+</span><span class='tstring'><span class='regexp_beg'>/</span><span class='tstring_content'>abc</span><span class='regexp_end'>/</span></span>  <span class='op'>==</span> <span class='tstring'><span class='regexp_beg'>/</span><span class='tstring_content'>abc</span><span class='regexp_end'>/i</span></span>   <span class='comment'>#=&gt; false
+</span><span class='tstring'><span class='regexp_beg'>/</span><span class='tstring_content'>abc</span><span class='regexp_end'>/</span></span>  <span class='op'>==</span> <span class='tstring'><span class='regexp_beg'>/</span><span class='tstring_content'>abc</span><span class='regexp_end'>/u</span></span>   <span class='comment'>#=&gt; false
+</span><span class='tstring'><span class='regexp_beg'>/</span><span class='tstring_content'>abc</span><span class='regexp_end'>/u</span></span> <span class='op'>==</span> <span class='tstring'><span class='regexp_beg'>/</span><span class='tstring_content'>abc</span><span class='regexp_end'>/n</span></span>   <span class='comment'>#=&gt; false
+</span></code></pre>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+  <p class="tag_title">Overloads:</p>
+  <ul class="overload">
+    
+      
+      <li class="overload_item">
+        <span class="signature">#<strong>==</strong>(other_rxp)  &#x21d2; <tt>Boolean</tt> </span>
+        <div class="docstring">
+  <div class="discussion">
+    
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Boolean</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div>
+      </li>
+    
+      
+      <li class="overload_item">
+        <span class="signature">#<strong>eql?</strong>(other_rxp)  &#x21d2; <tt>Boolean</tt> </span>
+        <div class="docstring">
+  <div class="discussion">
+    
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Boolean</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div>
+      </li>
+    
+  </ul>
+
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+2992
+2993
+2994
+2995
+2996
+2997
+2998
+2999
+3000
+3001
+3002
+3003
+3004
+3005
+3006</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 're.c', line 2992</span>
+
+static VALUE
+rb_reg_equal(VALUE re1, VALUE re2)
+{
+    if (re1 == re2) return Qtrue;
+    if (!RB_TYPE_P(re2, T_REGEXP)) return Qfalse;
+    rb_reg_check(re1); rb_reg_check(re2);
+    if (FL_TEST(re1, KCODE_FIXED) != FL_TEST(re2, KCODE_FIXED)) return Qfalse;
+    if (RREGEXP_PTR(re1)-&gt;options != RREGEXP_PTR(re2)-&gt;options) return Qfalse;
+    if (RREGEXP_SRC_LEN(re1) != RREGEXP_SRC_LEN(re2)) return Qfalse;
+    if (ENCODING_GET(re1) != ENCODING_GET(re2)) return Qfalse;
+    if (memcmp(RREGEXP_SRC_PTR(re1), RREGEXP_SRC_PTR(re2), RREGEXP_SRC_LEN(re1)) == 0) {
+	return Qtrue;
+    }
+    return Qfalse;
+}</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="===-instance_method">
+  
+    #<strong>===</strong>(str)  &#x21d2; <tt>Boolean</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Case Equality—Used in case statements.</p>
+
+<pre class="code"><code class=""><span class='id identifier rubyid_a'>a</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>HELLO</span><span class='tstring_end'>&quot;</span></span>
+<span class='kw'>case</span> <span class='id identifier rubyid_a'>a</span>
+<span class='kw'>when</span> <span class='tstring'><span class='regexp_beg'>/</span><span class='tstring_content'>\A[a-z]*\z</span><span class='regexp_end'>/</span></span><span class='semicolon'>;</span> <span class='id identifier rubyid_print'>print</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Lower case\n</span><span class='tstring_end'>&quot;</span></span>
+<span class='kw'>when</span> <span class='tstring'><span class='regexp_beg'>/</span><span class='tstring_content'>\A[A-Z]*\z</span><span class='regexp_end'>/</span></span><span class='semicolon'>;</span> <span class='id identifier rubyid_print'>print</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Upper case\n</span><span class='tstring_end'>&quot;</span></span>
+<span class='kw'>else</span><span class='semicolon'>;</span>              <span class='id identifier rubyid_print'>print</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Mixed case\n</span><span class='tstring_end'>&quot;</span></span>
+<span class='kw'>end</span>
+<span class='comment'>#=&gt; &quot;Upper case&quot;
+</span></code></pre>
+
+<p>Following a regular expression literal with the #=== operator allows you to
+compare against a String.</p>
+
+<p>/^[a-z]*$/ === “HELLO” #=&gt; false /^[A-Z]*$/ === “HELLO” #=&gt; true</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+  <div class="docstring">
+  <div class="discussion">
+    
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Boolean</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div>
+
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+3174
+3175
+3176
+3177
+3178
+3179
+3180
+3181
+3182
+3183
+3184
+3185
+3186
+3187
+3188
+3189</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 're.c', line 3174</span>
+
+VALUE
+rb_reg_eqq(VALUE re, VALUE str)
+{
+    long start;
+
+    str = reg_operand(str, FALSE);
+    if (NIL_P(str)) {
+	rb_backref_set(Qnil);
+	return Qfalse;
+    }
+    start = rb_reg_search(re, str, 0, 0);
+    if (start &lt; 0) {
+	return Qfalse;
+    }
+    return Qtrue;
+}</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="=~-instance_method">
+  
+    #<strong>=~</strong>(str)  &#x21d2; <tt><span class='object_link'><a href="Integer.html" title="Integer (class)">Integer</a></span></tt><sup>?</sup> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Match—Matches <em>rxp</em> against <em>str</em>.</p>
+
+<pre class="code"><code class=""><span class='tstring'><span class='regexp_beg'>/</span><span class='tstring_content'>at</span><span class='regexp_end'>/</span></span> <span class='op'>=~</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>input data</span><span class='tstring_end'>&quot;</span></span>   <span class='comment'>#=&gt; 7
+</span><span class='tstring'><span class='regexp_beg'>/</span><span class='tstring_content'>ax</span><span class='regexp_end'>/</span></span> <span class='op'>=~</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>input data</span><span class='tstring_end'>&quot;</span></span>   <span class='comment'>#=&gt; nil
+</span></code></pre>
+
+<p>If <code>=~</code> is used with a regexp literal with named captures,
+captured strings (or nil) is assigned to local variables named by the
+capture names.</p>
+
+<pre class="code"><code class=""><span class='tstring'><span class='regexp_beg'>/</span><span class='tstring_content'>(?&lt;lhs&gt;\w+)\s*=\s*(?&lt;rhs&gt;\w+)</span><span class='regexp_end'>/</span></span> <span class='op'>=~</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>  x = y  </span><span class='tstring_end'>&quot;</span></span>
+<span class='id identifier rubyid_p'>p</span> <span class='id identifier rubyid_lhs'>lhs</span>    <span class='comment'>#=&gt; &quot;x&quot;
+</span><span class='id identifier rubyid_p'>p</span> <span class='id identifier rubyid_rhs'>rhs</span>    <span class='comment'>#=&gt; &quot;y&quot;
+</span></code></pre>
+
+<p>If it is not matched, nil is assigned for the variables.</p>
+
+<pre class="code"><code class=""><span class='tstring'><span class='regexp_beg'>/</span><span class='tstring_content'>(?&lt;lhs&gt;\w+)\s*=\s*(?&lt;rhs&gt;\w+)</span><span class='regexp_end'>/</span></span> <span class='op'>=~</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>  x = </span><span class='tstring_end'>&quot;</span></span>
+<span class='id identifier rubyid_p'>p</span> <span class='id identifier rubyid_lhs'>lhs</span>    <span class='comment'>#=&gt; nil
+</span><span class='id identifier rubyid_p'>p</span> <span class='id identifier rubyid_rhs'>rhs</span>    <span class='comment'>#=&gt; nil
+</span></code></pre>
+
+<p>This assignment is implemented in the Ruby parser. The parser detects
+&#39;regexp-literal =~ expression&#39; for the assignment. The regexp must
+be a literal without interpolation and placed at left hand side.</p>
+
+<p>The assignment does not occur if the regexp is not a literal.</p>
+
+<pre class="code"><code class=""><span class='id identifier rubyid_re'>re</span> <span class='op'>=</span> <span class='tstring'><span class='regexp_beg'>/</span><span class='tstring_content'>(?&lt;lhs&gt;\w+)\s*=\s*(?&lt;rhs&gt;\w+)</span><span class='regexp_end'>/</span></span>
+<span class='id identifier rubyid_re'>re</span> <span class='op'>=~</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>  x = y  </span><span class='tstring_end'>&quot;</span></span>
+<span class='id identifier rubyid_p'>p</span> <span class='id identifier rubyid_lhs'>lhs</span>    <span class='comment'># undefined local variable
+</span><span class='id identifier rubyid_p'>p</span> <span class='id identifier rubyid_rhs'>rhs</span>    <span class='comment'># undefined local variable
+</span></code></pre>
+
+<p>A regexp interpolation, <code>#{}</code>, also disables the assignment.</p>
+
+<pre class="code"><code class=""><span class='id identifier rubyid_rhs_pat'>rhs_pat</span> <span class='op'>=</span> <span class='tstring'><span class='regexp_beg'>/</span><span class='tstring_content'>(?&lt;rhs&gt;\w+)</span><span class='regexp_end'>/</span></span>
+<span class='tstring'><span class='regexp_beg'>/</span><span class='tstring_content'>(?&lt;lhs&gt;\w+)\s*=\s*</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_rhs_pat'>rhs_pat</span><span class='embexpr_end'>}</span><span class='regexp_end'>/</span></span> <span class='op'>=~</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>x = y</span><span class='tstring_end'>&quot;</span></span>
+<span class='id identifier rubyid_p'>p</span> <span class='id identifier rubyid_lhs'>lhs</span>    <span class='comment'># undefined local variable
+</span></code></pre>
+
+<p>The assignment does not occur if the regexp is placed at the right hand
+side.</p>
+
+<pre class="code"><code class=""><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>  x = y  </span><span class='tstring_end'>&quot;</span></span> <span class='op'>=~</span> <span class='tstring'><span class='regexp_beg'>/</span><span class='tstring_content'>(?&lt;lhs&gt;\w+)\s*=\s*(?&lt;rhs&gt;\w+)</span><span class='regexp_end'>/</span></span>
+<span class='id identifier rubyid_p'>p</span> <span class='id identifier rubyid_lhs'>lhs</span><span class='comma'>,</span> <span class='id identifier rubyid_rhs'>rhs</span> <span class='comment'># undefined local variable
+</span></code></pre>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+  <div class="docstring">
+  <div class="discussion">
+    
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="Integer.html" title="Integer (class)">Integer</a></span></tt>, <tt>nil</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div>
+
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+3144
+3145
+3146
+3147
+3148
+3149
+3150
+3151</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 're.c', line 3144</span>
+
+VALUE
+rb_reg_match(VALUE re, VALUE str)
+{
+    long pos = reg_match_pos(re, &amp;str, 0);
+    if (pos &lt; 0) return Qnil;
+    pos = rb_str_sublen(str, pos);
+    return LONG2FIX(pos);
+}</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="casefold?-instance_method">
+  
+    #<strong>casefold?</strong>  &#x21d2; <tt>Boolean</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Returns the value of the case-insensitive flag.</p>
+
+<pre class="code"><code class=""><span class='tstring'><span class='regexp_beg'>/</span><span class='tstring_content'>a</span><span class='regexp_end'>/</span></span><span class='period'>.</span><span class='id identifier rubyid_casefold?'>casefold?</span>           <span class='comment'>#=&gt; false
+</span><span class='tstring'><span class='regexp_beg'>/</span><span class='tstring_content'>a</span><span class='regexp_end'>/i</span></span><span class='period'>.</span><span class='id identifier rubyid_casefold?'>casefold?</span>          <span class='comment'>#=&gt; true
+</span><span class='tstring'><span class='regexp_beg'>/</span><span class='tstring_content'>(?i:a)</span><span class='regexp_end'>/</span></span><span class='period'>.</span><span class='id identifier rubyid_casefold?'>casefold?</span>      <span class='comment'>#=&gt; false
+</span></code></pre>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+  <div class="docstring">
+  <div class="discussion">
+    
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Boolean</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div>
+
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Boolean</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+709
+710
+711
+712
+713
+714
+715</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 're.c', line 709</span>
+
+static VALUE
+rb_reg_casefold_p(VALUE re)
+{
+    rb_reg_check(re);
+    if (RREGEXP_PTR(re)-&gt;options &amp; ONIG_OPTION_IGNORECASE) return Qtrue;
+    return Qfalse;
+}</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="encoding-instance_method">
+  
+    #<strong>encoding</strong>  &#x21d2; <tt><span class='object_link'><a href="Encoding.html" title="Encoding (class)">Encoding</a></span></tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Returns the Encoding object that represents the encoding of obj.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+  <div class="docstring">
+  <div class="discussion">
+    
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="Encoding.html" title="Encoding (class)">Encoding</a></span></tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div>
+
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+1003
+1004
+1005
+1006
+1007
+1008
+1009
+1010
+1011</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'encoding.c', line 1003</span>
+
+VALUE
+rb_obj_encoding(VALUE obj)
+{
+    int idx = rb_enc_get_index(obj);
+    if (idx &lt; 0) {
+	rb_raise(rb_eTypeError, &quot;unknown encoding&quot;);
+    }
+    return rb_enc_from_encoding_index(idx &amp; ENC_INDEX_MASK);
+}</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="eql?-instance_method">
+  
+    
+      <span class="overload">#<strong>==</strong>(other_rxp)  &#x21d2; <tt>Boolean</tt> </span>
+    
+      <span class="overload">#<strong>eql?</strong>(other_rxp)  &#x21d2; <tt>Boolean</tt> </span>
+    
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Equality—Two regexps are equal if their patterns are identical, they have
+the same character set code, and their <code>casefold?</code> values are
+the same.</p>
+
+<pre class="code"><code class=""><span class='tstring'><span class='regexp_beg'>/</span><span class='tstring_content'>abc</span><span class='regexp_end'>/</span></span>  <span class='op'>==</span> <span class='tstring'><span class='regexp_beg'>/</span><span class='tstring_content'>abc</span><span class='regexp_end'>/x</span></span>   <span class='comment'>#=&gt; false
+</span><span class='tstring'><span class='regexp_beg'>/</span><span class='tstring_content'>abc</span><span class='regexp_end'>/</span></span>  <span class='op'>==</span> <span class='tstring'><span class='regexp_beg'>/</span><span class='tstring_content'>abc</span><span class='regexp_end'>/i</span></span>   <span class='comment'>#=&gt; false
+</span><span class='tstring'><span class='regexp_beg'>/</span><span class='tstring_content'>abc</span><span class='regexp_end'>/</span></span>  <span class='op'>==</span> <span class='tstring'><span class='regexp_beg'>/</span><span class='tstring_content'>abc</span><span class='regexp_end'>/u</span></span>   <span class='comment'>#=&gt; false
+</span><span class='tstring'><span class='regexp_beg'>/</span><span class='tstring_content'>abc</span><span class='regexp_end'>/u</span></span> <span class='op'>==</span> <span class='tstring'><span class='regexp_beg'>/</span><span class='tstring_content'>abc</span><span class='regexp_end'>/n</span></span>   <span class='comment'>#=&gt; false
+</span></code></pre>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+  <p class="tag_title">Overloads:</p>
+  <ul class="overload">
+    
+      
+      <li class="overload_item">
+        <span class="signature">#<strong>==</strong>(other_rxp)  &#x21d2; <tt>Boolean</tt> </span>
+        <div class="docstring">
+  <div class="discussion">
+    
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Boolean</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div>
+      </li>
+    
+      
+      <li class="overload_item">
+        <span class="signature">#<strong>eql?</strong>(other_rxp)  &#x21d2; <tt>Boolean</tt> </span>
+        <div class="docstring">
+  <div class="discussion">
+    
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Boolean</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div>
+      </li>
+    
+  </ul>
+
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Boolean</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+2992
+2993
+2994
+2995
+2996
+2997
+2998
+2999
+3000
+3001
+3002
+3003
+3004
+3005
+3006</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 're.c', line 2992</span>
+
+static VALUE
+rb_reg_equal(VALUE re1, VALUE re2)
+{
+    if (re1 == re2) return Qtrue;
+    if (!RB_TYPE_P(re2, T_REGEXP)) return Qfalse;
+    rb_reg_check(re1); rb_reg_check(re2);
+    if (FL_TEST(re1, KCODE_FIXED) != FL_TEST(re2, KCODE_FIXED)) return Qfalse;
+    if (RREGEXP_PTR(re1)-&gt;options != RREGEXP_PTR(re2)-&gt;options) return Qfalse;
+    if (RREGEXP_SRC_LEN(re1) != RREGEXP_SRC_LEN(re2)) return Qfalse;
+    if (ENCODING_GET(re1) != ENCODING_GET(re2)) return Qfalse;
+    if (memcmp(RREGEXP_SRC_PTR(re1), RREGEXP_SRC_PTR(re2), RREGEXP_SRC_LEN(re1)) == 0) {
+	return Qtrue;
+    }
+    return Qfalse;
+}</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="fixed_encoding?-instance_method">
+  
+    #<strong>fixed_encoding?</strong>  &#x21d2; <tt>Boolean</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Returns false if rxp is applicable to a string with any ASCII compatible
+encoding. Returns true otherwise.</p>
+
+<pre class="code"><code class=""><span class='id identifier rubyid_r'>r</span> <span class='op'>=</span> <span class='tstring'><span class='regexp_beg'>/</span><span class='tstring_content'>a</span><span class='regexp_end'>/</span></span>
+<span class='id identifier rubyid_r'>r</span><span class='period'>.</span><span class='id identifier rubyid_fixed_encoding?'>fixed_encoding?</span>                               <span class='comment'>#=&gt; false
+</span><span class='id identifier rubyid_r'>r</span> <span class='op'>=~</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>\u{6666} a</span><span class='tstring_end'>&quot;</span></span>                               <span class='comment'>#=&gt; 2
+</span><span class='id identifier rubyid_r'>r</span> <span class='op'>=~</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>\xa1\xa2 a</span><span class='tstring_end'>&quot;</span></span><span class='period'>.</span><span class='id identifier rubyid_force_encoding'>force_encoding</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>euc-jp</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>      <span class='comment'>#=&gt; 2
+</span><span class='id identifier rubyid_r'>r</span> <span class='op'>=~</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>abc</span><span class='tstring_end'>&quot;</span></span><span class='period'>.</span><span class='id identifier rubyid_force_encoding'>force_encoding</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>euc-jp</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>             <span class='comment'>#=&gt; 0
+</span>
+<span class='id identifier rubyid_r'>r</span> <span class='op'>=</span> <span class='tstring'><span class='regexp_beg'>/</span><span class='tstring_content'>a</span><span class='regexp_end'>/u</span></span>
+<span class='id identifier rubyid_r'>r</span><span class='period'>.</span><span class='id identifier rubyid_fixed_encoding?'>fixed_encoding?</span>                               <span class='comment'>#=&gt; true
+</span><span class='id identifier rubyid_r'>r</span><span class='period'>.</span><span class='id identifier rubyid_encoding'>encoding</span>                                      <span class='comment'>#=&gt; #&lt;Encoding:UTF-8&gt;
+</span><span class='id identifier rubyid_r'>r</span> <span class='op'>=~</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>\u{6666} a</span><span class='tstring_end'>&quot;</span></span>                               <span class='comment'>#=&gt; 2
+</span><span class='id identifier rubyid_r'>r</span> <span class='op'>=~</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>\xa1\xa2</span><span class='tstring_end'>&quot;</span></span><span class='period'>.</span><span class='id identifier rubyid_force_encoding'>force_encoding</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>euc-jp</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>        <span class='comment'>#=&gt; Encoding::CompatibilityError
+</span><span class='id identifier rubyid_r'>r</span> <span class='op'>=~</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>abc</span><span class='tstring_end'>&quot;</span></span><span class='period'>.</span><span class='id identifier rubyid_force_encoding'>force_encoding</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>euc-jp</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>             <span class='comment'>#=&gt; 0
+</span>
+<span class='id identifier rubyid_r'>r</span> <span class='op'>=</span> <span class='tstring'><span class='regexp_beg'>/</span><span class='tstring_content'>\u{6666}</span><span class='regexp_end'>/</span></span>
+<span class='id identifier rubyid_r'>r</span><span class='period'>.</span><span class='id identifier rubyid_fixed_encoding?'>fixed_encoding?</span>                               <span class='comment'>#=&gt; true
+</span><span class='id identifier rubyid_r'>r</span><span class='period'>.</span><span class='id identifier rubyid_encoding'>encoding</span>                                      <span class='comment'>#=&gt; #&lt;Encoding:UTF-8&gt;
+</span><span class='id identifier rubyid_r'>r</span> <span class='op'>=~</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>\u{6666} a</span><span class='tstring_end'>&quot;</span></span>                               <span class='comment'>#=&gt; 0
+</span><span class='id identifier rubyid_r'>r</span> <span class='op'>=~</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>\xa1\xa2</span><span class='tstring_end'>&quot;</span></span><span class='period'>.</span><span class='id identifier rubyid_force_encoding'>force_encoding</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>euc-jp</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>        <span class='comment'>#=&gt; Encoding::CompatibilityError
+</span><span class='id identifier rubyid_r'>r</span> <span class='op'>=~</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>abc</span><span class='tstring_end'>&quot;</span></span><span class='period'>.</span><span class='id identifier rubyid_force_encoding'>force_encoding</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>euc-jp</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>             <span class='comment'>#=&gt; nil
+</span></code></pre>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+  <div class="docstring">
+  <div class="discussion">
+    
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Boolean</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div>
+
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Boolean</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+1340
+1341
+1342
+1343
+1344
+1345
+1346
+1347</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 're.c', line 1340</span>
+
+static VALUE
+rb_reg_fixed_encoding_p(VALUE re)
+{
+    if (FL_TEST(re, KCODE_FIXED))
+        return Qtrue;
+    else
+        return Qfalse;
+}</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="hash-instance_method">
+  
+    #<strong>hash</strong>  &#x21d2; <tt><span class='object_link'><a href="Integer.html" title="Integer (class)">Integer</a></span></tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Produce a hash based on the text and options of this regular expression.</p>
+
+<p>See also Object#hash.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+  <div class="docstring">
+  <div class="discussion">
+    
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="Integer.html" title="Integer (class)">Integer</a></span></tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div>
+
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+2958
+2959
+2960
+2961
+2962
+2963</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 're.c', line 2958</span>
+
+static VALUE
+rb_reg_hash(VALUE re)
+{
+    st_index_t hashval = reg_hash(re);
+    return ST2FIX(hashval);
+}</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="initialize_copy-instance_method">
+  
+    #<strong>initialize_copy</strong>(re)  &#x21d2; <tt><span class='object_link'><a href="Object.html" title="Object (class)">Object</a></span></tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>:nodoc:</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+3732
+3733
+3734
+3735
+3736
+3737
+3738</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 're.c', line 3732</span>
+
+static VALUE
+rb_reg_init_copy(VALUE copy, VALUE re)
+{
+    if (!OBJ_INIT_COPY(copy, re)) return copy;
+    rb_reg_check(re);
+    return rb_reg_init_str(copy, RREGEXP_SRC(re), rb_reg_options(re));
+}</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="inspect-instance_method">
+  
+    #<strong>inspect</strong>  &#x21d2; <tt><span class='object_link'><a href="String.html" title="String (class)">String</a></span></tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Produce a nicely formatted string-version of <em>rxp</em>. Perhaps
+surprisingly, <code>#inspect</code> actually produces the more natural
+version of the string than <code>#to_s</code>.</p>
+
+<pre class="code"><code class=""><span class='tstring'><span class='regexp_beg'>/</span><span class='tstring_content'>ab+c</span><span class='regexp_end'>/ix</span></span><span class='period'>.</span><span class='id identifier rubyid_inspect'>inspect</span>        <span class='comment'>#=&gt; &quot;/ab+c/ix&quot;
+</span></code></pre>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+  <div class="docstring">
+  <div class="discussion">
+    
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="String.html" title="String (class)">String</a></span></tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div>
+
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+507
+508
+509
+510
+511
+512
+513
+514</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 're.c', line 507</span>
+
+static VALUE
+rb_reg_inspect(VALUE re)
+{
+    if (!RREGEXP_PTR(re) || !RREGEXP_SRC(re) || !RREGEXP_SRC_PTR(re)) {
+        return rb_any_to_s(re);
+    }
+    return rb_reg_desc(RREGEXP_SRC_PTR(re), RREGEXP_SRC_LEN(re), re);
+}</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="match-instance_method">
+  
+    
+      <span class="overload">#<strong>match</strong>(str)  &#x21d2; <tt><span class='object_link'><a href="MatchData.html" title="MatchData (class)">MatchData</a></span></tt><sup>?</sup> </span>
+    
+      <span class="overload">#<strong>match</strong>(str, pos)  &#x21d2; <tt><span class='object_link'><a href="MatchData.html" title="MatchData (class)">MatchData</a></span></tt><sup>?</sup> </span>
+    
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Returns a <code>MatchData</code> object describing the match, or
+<code>nil</code> if there was no match. This is equivalent to retrieving
+the value of the special variable <code>$~</code> following a normal match.
+If the second parameter is present, it specifies the position in the string
+to begin the search.</p>
+
+<pre class="code"><code class=""><span class='tstring'><span class='regexp_beg'>/</span><span class='tstring_content'>(.)(.)(.)</span><span class='regexp_end'>/</span></span><span class='period'>.</span><span class='id identifier rubyid_match'>match</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>abc</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span><span class='lbracket'>[</span><span class='int'>2</span><span class='rbracket'>]</span>   <span class='comment'>#=&gt; &quot;b&quot;
+</span><span class='tstring'><span class='regexp_beg'>/</span><span class='tstring_content'>(.)(.)</span><span class='regexp_end'>/</span></span><span class='period'>.</span><span class='id identifier rubyid_match'>match</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>abc</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='int'>1</span><span class='rparen'>)</span><span class='lbracket'>[</span><span class='int'>2</span><span class='rbracket'>]</span>   <span class='comment'>#=&gt; &quot;c&quot;
+</span></code></pre>
+
+<p>If a block is given, invoke the block with MatchData if match succeed, so
+that you can write</p>
+
+<pre class="code"><code class=""><span class='tstring'><span class='regexp_beg'>/</span><span class='tstring_content'>M(.*)</span><span class='regexp_end'>/</span></span><span class='period'>.</span><span class='id identifier rubyid_match'>match</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Matz</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_m'>m</span><span class='op'>|</span>
+  <span class='id identifier rubyid_puts'>puts</span> <span class='id identifier rubyid_m'>m</span><span class='lbracket'>[</span><span class='int'>0</span><span class='rbracket'>]</span>
+  <span class='id identifier rubyid_puts'>puts</span> <span class='id identifier rubyid_m'>m</span><span class='lbracket'>[</span><span class='int'>1</span><span class='rbracket'>]</span>
+<span class='kw'>end</span>
+</code></pre>
+
+<p>instead of</p>
+
+<pre class="code"><code class=""><span class='kw'>if</span> <span class='id identifier rubyid_m'>m</span> <span class='op'>=</span> <span class='tstring'><span class='regexp_beg'>/</span><span class='tstring_content'>M(.*)</span><span class='regexp_end'>/</span></span><span class='period'>.</span><span class='id identifier rubyid_match'>match</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Matz</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_puts'>puts</span> <span class='id identifier rubyid_m'>m</span><span class='lbracket'>[</span><span class='int'>0</span><span class='rbracket'>]</span>
+  <span class='id identifier rubyid_puts'>puts</span> <span class='id identifier rubyid_m'>m</span><span class='lbracket'>[</span><span class='int'>1</span><span class='rbracket'>]</span>
+<span class='kw'>end</span>
+</code></pre>
+
+<p>The return value is a value from block execution in this case.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+  <p class="tag_title">Overloads:</p>
+  <ul class="overload">
+    
+      
+      <li class="overload_item">
+        <span class="signature">#<strong>match</strong>(str)  &#x21d2; <tt><span class='object_link'><a href="MatchData.html" title="MatchData (class)">MatchData</a></span></tt><sup>?</sup> </span>
+        <div class="docstring">
+  <div class="discussion">
+    
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="MatchData.html" title="MatchData (class)">MatchData</a></span></tt>, <tt>nil</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div>
+      </li>
+    
+      
+      <li class="overload_item">
+        <span class="signature">#<strong>match</strong>(str, pos)  &#x21d2; <tt><span class='object_link'><a href="MatchData.html" title="MatchData (class)">MatchData</a></span></tt><sup>?</sup> </span>
+        <div class="docstring">
+  <div class="discussion">
+    
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="MatchData.html" title="MatchData (class)">MatchData</a></span></tt>, <tt>nil</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div>
+      </li>
+    
+  </ul>
+
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+3255
+3256
+3257
+3258
+3259
+3260
+3261
+3262
+3263
+3264
+3265
+3266
+3267
+3268
+3269
+3270
+3271
+3272
+3273
+3274
+3275
+3276
+3277
+3278
+3279</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 're.c', line 3255</span>
+
+static VALUE
+rb_reg_match_m(int argc, VALUE *argv, VALUE re)
+{
+    VALUE result, str, initpos;
+    long pos;
+
+    if (rb_scan_args(argc, argv, &quot;11&quot;, &amp;str, &amp;initpos) == 2) {
+	pos = NUM2LONG(initpos);
+    }
+    else {
+	pos = 0;
+    }
+
+    pos = reg_match_pos(re, &amp;str, pos);
+    if (pos &lt; 0) {
+	rb_backref_set(Qnil);
+	return Qnil;
+    }
+    result = rb_backref_get();
+    rb_match_busy(result);
+    if (!NIL_P(result) &amp;&amp; rb_block_given_p()) {
+	return rb_yield(result);
+    }
+    return result;
+}</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="match?-instance_method">
+  
+    
+      <span class="overload">#<strong>match?</strong>(str)  &#x21d2; <tt>Boolean</tt> </span>
+    
+      <span class="overload">#<strong>match?</strong>(str, pos)  &#x21d2; <tt>Boolean</tt> </span>
+    
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Returns a <code>true</code> or <code>false</code> indicates whether the
+regexp is matched or not without updating $~ and other related variables.
+If the second parameter is present, it specifies the position in the string
+to begin the search.</p>
+
+<pre class="code"><code class=""><span class='tstring'><span class='regexp_beg'>/</span><span class='tstring_content'>R...</span><span class='regexp_end'>/</span></span><span class='period'>.</span><span class='id identifier rubyid_match?'>match?</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Ruby</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>    <span class='comment'>#=&gt; true
+</span><span class='tstring'><span class='regexp_beg'>/</span><span class='tstring_content'>R...</span><span class='regexp_end'>/</span></span><span class='period'>.</span><span class='id identifier rubyid_match?'>match?</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Ruby</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='int'>1</span><span class='rparen'>)</span> <span class='comment'>#=&gt; false
+</span><span class='tstring'><span class='regexp_beg'>/</span><span class='tstring_content'>P...</span><span class='regexp_end'>/</span></span><span class='period'>.</span><span class='id identifier rubyid_match?'>match?</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Ruby</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>    <span class='comment'>#=&gt; false
+</span><span class='backref'>$&amp;</span>                       <span class='comment'>#=&gt; nil
+</span></code></pre>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+  <p class="tag_title">Overloads:</p>
+  <ul class="overload">
+    
+      
+      <li class="overload_item">
+        <span class="signature">#<strong>match?</strong>(str)  &#x21d2; <tt>Boolean</tt> </span>
+        <div class="docstring">
+  <div class="discussion">
+    
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Boolean</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div>
+      </li>
+    
+      
+      <li class="overload_item">
+        <span class="signature">#<strong>match?</strong>(str, pos)  &#x21d2; <tt>Boolean</tt> </span>
+        <div class="docstring">
+  <div class="discussion">
+    
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Boolean</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div>
+      </li>
+    
+  </ul>
+
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Boolean</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+3297
+3298
+3299
+3300
+3301
+3302</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 're.c', line 3297</span>
+
+static VALUE
+rb_reg_match_m_p(int argc, VALUE *argv, VALUE re)
+{
+    long pos = rb_check_arity(argc, 1, 2) &gt; 1 ? NUM2LONG(argv[1]) : 0;
+    return rb_reg_match_p(re, argv[0], pos);
+}</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="named_captures-instance_method">
+  
+    #<strong>named_captures</strong>  &#x21d2; <tt><span class='object_link'><a href="Hash.html" title="Hash (class)">Hash</a></span></tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Returns a hash representing information about named captures of
+<em>rxp</em>.</p>
+
+<p>A key of the hash is a name of the named captures. A value of the hash is
+an array which is list of indexes of corresponding named captures.</p>
+
+<pre class="code"><code class=""><span class='tstring'><span class='regexp_beg'>/</span><span class='tstring_content'>(?&lt;foo&gt;.)(?&lt;bar&gt;.)</span><span class='regexp_end'>/</span></span><span class='period'>.</span><span class='id identifier rubyid_named_captures'>named_captures</span>
+<span class='comment'>#=&gt; {&quot;foo&quot;=&gt;[1], &quot;bar&quot;=&gt;[2]}
+</span>
+<span class='tstring'><span class='regexp_beg'>/</span><span class='tstring_content'>(?&lt;foo&gt;.)(?&lt;foo&gt;.)</span><span class='regexp_end'>/</span></span><span class='period'>.</span><span class='id identifier rubyid_named_captures'>named_captures</span>
+<span class='comment'>#=&gt; {&quot;foo&quot;=&gt;[1, 2]}
+</span></code></pre>
+
+<p>If there are no named captures, an empty hash is returned.</p>
+
+<pre class="code"><code class=""><span class='tstring'><span class='regexp_beg'>/</span><span class='tstring_content'>(.)(.)</span><span class='regexp_end'>/</span></span><span class='period'>.</span><span class='id identifier rubyid_named_captures'>named_captures</span>
+<span class='comment'>#=&gt; {}
+</span></code></pre>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+  <div class="docstring">
+  <div class="discussion">
+    
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="Hash.html" title="Hash (class)">Hash</a></span></tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div>
+
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+821
+822
+823
+824
+825
+826
+827
+828</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 're.c', line 821</span>
+
+static VALUE
+rb_reg_named_captures(VALUE re)
+{
+    regex_t *reg = (rb_reg_check(re), RREGEXP_PTR(re));
+    VALUE hash = rb_hash_new_with_size(onig_number_of_names(reg));
+    onig_foreach_name(reg, reg_named_captures_iter, (void*)hash);
+    return hash;
+}</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="names-instance_method">
+  
+    #<strong>names</strong>  &#x21d2; <tt><span class='object_link'><a href="Array.html" title="Array (class)">Array</a></span></tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Returns a list of names of captures as an array of strings.</p>
+
+<pre class="code"><code class=""><span class='tstring'><span class='regexp_beg'>/</span><span class='tstring_content'>(?&lt;foo&gt;.)(?&lt;bar&gt;.)(?&lt;baz&gt;.)</span><span class='regexp_end'>/</span></span><span class='period'>.</span><span class='id identifier rubyid_names'>names</span>
+<span class='comment'>#=&gt; [&quot;foo&quot;, &quot;bar&quot;, &quot;baz&quot;]
+</span>
+<span class='tstring'><span class='regexp_beg'>/</span><span class='tstring_content'>(?&lt;foo&gt;.)(?&lt;foo&gt;.)</span><span class='regexp_end'>/</span></span><span class='period'>.</span><span class='id identifier rubyid_names'>names</span>
+<span class='comment'>#=&gt; [&quot;foo&quot;]
+</span>
+<span class='tstring'><span class='regexp_beg'>/</span><span class='tstring_content'>(.)(.)</span><span class='regexp_end'>/</span></span><span class='period'>.</span><span class='id identifier rubyid_names'>names</span>
+<span class='comment'>#=&gt; []
+</span></code></pre>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+  <div class="docstring">
+  <div class="discussion">
+    
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="Array.html" title="Array (class)">Array</a></span></tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div>
+
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+773
+774
+775
+776
+777
+778
+779
+780
+781</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 're.c', line 773</span>
+
+static VALUE
+rb_reg_names(VALUE re)
+{
+    VALUE ary;
+    rb_reg_check(re);
+    ary = rb_ary_new_capa(onig_number_of_names(RREGEXP_PTR(re)));
+    onig_foreach_name(RREGEXP_PTR(re), reg_names_iter, (void*)ary);
+    return ary;
+}</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="options-instance_method">
+  
+    #<strong>options</strong>  &#x21d2; <tt><span class='object_link'><a href="Integer.html" title="Integer (class)">Integer</a></span></tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Returns the set of bits corresponding to the options used when creating
+this Regexp (see <code>Regexp::new</code> for details. Note that additional
+bits may be set in the returned options: these are used internally by the
+regular expression code. These extra bits are ignored if the options are
+passed to <code>Regexp::new</code>.</p>
+
+<pre class="code"><code class=""><span class='const'><span class='object_link'><a href="" title="Regexp (class)">Regexp</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="#IGNORECASE-constant" title="Regexp::IGNORECASE (constant)">IGNORECASE</a></span></span>                  <span class='comment'>#=&gt; 1
+</span><span class='const'><span class='object_link'><a href="" title="Regexp (class)">Regexp</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="#EXTENDED-constant" title="Regexp::EXTENDED (constant)">EXTENDED</a></span></span>                    <span class='comment'>#=&gt; 2
+</span><span class='const'><span class='object_link'><a href="" title="Regexp (class)">Regexp</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="#MULTILINE-constant" title="Regexp::MULTILINE (constant)">MULTILINE</a></span></span>                   <span class='comment'>#=&gt; 4
+</span>
+<span class='tstring'><span class='regexp_beg'>/</span><span class='tstring_content'>cat</span><span class='regexp_end'>/</span></span><span class='period'>.</span><span class='id identifier rubyid_options'>options</span>                       <span class='comment'>#=&gt; 0
+</span><span class='tstring'><span class='regexp_beg'>/</span><span class='tstring_content'>cat</span><span class='regexp_end'>/ix</span></span><span class='period'>.</span><span class='id identifier rubyid_options'>options</span>                     <span class='comment'>#=&gt; 3
+</span><span class='const'><span class='object_link'><a href="" title="Regexp (class)">Regexp</a></span></span><span class='period'>.</span><span class='id identifier rubyid_new'><span class='object_link'><a href="#initialize-instance_method" title="Regexp#initialize (method)">new</a></span></span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>cat</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span> <span class='kw'>true</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_options'>options</span>     <span class='comment'>#=&gt; 1
+</span><span class='tstring'><span class='regexp_beg'>/</span><span class='tstring_content'>\xa1\xa2</span><span class='regexp_end'>/e</span></span><span class='period'>.</span><span class='id identifier rubyid_options'>options</span>                 <span class='comment'>#=&gt; 16
+</span>
+<span class='id identifier rubyid_r'>r</span> <span class='op'>=</span> <span class='tstring'><span class='regexp_beg'>/</span><span class='tstring_content'>cat</span><span class='regexp_end'>/ix</span></span>
+<span class='const'><span class='object_link'><a href="" title="Regexp (class)">Regexp</a></span></span><span class='period'>.</span><span class='id identifier rubyid_new'><span class='object_link'><a href="#initialize-instance_method" title="Regexp#initialize (method)">new</a></span></span><span class='lparen'>(</span><span class='id identifier rubyid_r'>r</span><span class='period'>.</span><span class='id identifier rubyid_source'>source</span><span class='comma'>,</span> <span class='id identifier rubyid_r'>r</span><span class='period'>.</span><span class='id identifier rubyid_options'>options</span><span class='rparen'>)</span>     <span class='comment'>#=&gt; /cat/ix
+</span></code></pre>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+  <div class="docstring">
+  <div class="discussion">
+    
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="Integer.html" title="Integer (class)">Integer</a></span></tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div>
+
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+741
+742
+743
+744
+745
+746</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 're.c', line 741</span>
+
+static VALUE
+rb_reg_options_m(VALUE re)
+{
+    int options = rb_reg_options(re);
+    return INT2NUM(options);
+}</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="source-instance_method">
+  
+    #<strong>source</strong>  &#x21d2; <tt><span class='object_link'><a href="String.html" title="String (class)">String</a></span></tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Returns the original string of the pattern.</p>
+
+<pre class="code"><code class=""><span class='tstring'><span class='regexp_beg'>/</span><span class='tstring_content'>ab+c</span><span class='regexp_end'>/ix</span></span><span class='period'>.</span><span class='id identifier rubyid_source'>source</span> <span class='comment'>#=&gt; &quot;ab+c&quot;
+</span></code></pre>
+
+<p>Note that escape sequences are retained as is.</p>
+
+<pre class="code"><code class=""><span class='tstring'><span class='regexp_beg'>/</span><span class='tstring_content'>\x20\+</span><span class='regexp_end'>/</span></span><span class='period'>.</span><span class='id identifier rubyid_source'>source</span>  <span class='comment'>#=&gt; &quot;\\x20\\+&quot;
+</span></code></pre>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+  <div class="docstring">
+  <div class="discussion">
+    
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="String.html" title="String (class)">String</a></span></tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div>
+
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+484
+485
+486
+487
+488
+489
+490
+491
+492
+493</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 're.c', line 484</span>
+
+static VALUE
+rb_reg_source(VALUE re)
+{
+    VALUE str;
+
+    rb_reg_check(re);
+    str = rb_str_dup(RREGEXP_SRC(re));
+    if (OBJ_TAINTED(re)) OBJ_TAINT(str);
+    return str;
+}</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="to_s-instance_method">
+  
+    #<strong>to_s</strong>  &#x21d2; <tt><span class='object_link'><a href="String.html" title="String (class)">String</a></span></tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Returns a string containing the regular expression and its options (using
+the <code>(?opts:source)</code> notation. This string can be fed back in to
+<code>Regexp::new</code> to a regular expression with the same semantics as
+the original. (However, <code>Regexp#==</code> may not return true when
+comparing the two, as the source of the regular expression itself may
+differ, as the example shows).  <code>Regexp#inspect</code> produces a
+generally more readable version of <em>rxp</em>.</p>
+
+<pre class="code"><code class=""><span class='id identifier rubyid_r1'>r1</span> <span class='op'>=</span> <span class='tstring'><span class='regexp_beg'>/</span><span class='tstring_content'>ab+c</span><span class='regexp_end'>/ix</span></span>           <span class='comment'>#=&gt; /ab+c/ix
+</span><span class='id identifier rubyid_s1'>s1</span> <span class='op'>=</span> <span class='id identifier rubyid_r1'>r1</span><span class='period'>.</span><span class='id identifier rubyid_to_s'>to_s</span>            <span class='comment'>#=&gt; &quot;(?ix-m:ab+c)&quot;
+</span><span class='id identifier rubyid_r2'>r2</span> <span class='op'>=</span> <span class='const'><span class='object_link'><a href="" title="Regexp (class)">Regexp</a></span></span><span class='period'>.</span><span class='id identifier rubyid_new'><span class='object_link'><a href="#initialize-instance_method" title="Regexp#initialize (method)">new</a></span></span><span class='lparen'>(</span><span class='id identifier rubyid_s1'>s1</span><span class='rparen'>)</span>     <span class='comment'>#=&gt; /(?ix-m:ab+c)/
+</span><span class='id identifier rubyid_r1'>r1</span> <span class='op'>==</span> <span class='id identifier rubyid_r2'>r2</span>                <span class='comment'>#=&gt; false
+</span><span class='id identifier rubyid_r1'>r1</span><span class='period'>.</span><span class='id identifier rubyid_source'>source</span>               <span class='comment'>#=&gt; &quot;ab+c&quot;
+</span><span class='id identifier rubyid_r2'>r2</span><span class='period'>.</span><span class='id identifier rubyid_source'>source</span>               <span class='comment'>#=&gt; &quot;(?ix-m:ab+c)&quot;
+</span></code></pre>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+  <div class="docstring">
+  <div class="discussion">
+    
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="String.html" title="String (class)">String</a></span></tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div>
+
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+537
+538
+539
+540
+541
+542
+543
+544
+545
+546
+547
+548
+549
+550
+551
+552
+553
+554
+555
+556
+557
+558
+559
+560
+561
+562
+563
+564
+565
+566
+567
+568
+569
+570
+571
+572
+573
+574
+575
+576
+577
+578
+579
+580
+581
+582
+583
+584
+585
+586
+587
+588
+589
+590
+591
+592
+593
+594
+595
+596
+597
+598
+599
+600
+601
+602
+603
+604
+605
+606
+607
+608
+609
+610
+611
+612
+613
+614
+615
+616
+617
+618
+619
+620
+621
+622
+623
+624
+625
+626
+627
+628
+629
+630
+631
+632
+633
+634
+635
+636
+637
+638
+639
+640
+641
+642
+643
+644
+645</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 're.c', line 537</span>
+
+static VALUE
+rb_reg_to_s(VALUE re)
+{
+    int options, opt;
+    const int embeddable = ONIG_OPTION_MULTILINE|ONIG_OPTION_IGNORECASE|ONIG_OPTION_EXTEND;
+    long len;
+    const UChar* ptr;
+    VALUE str = rb_str_buf_new2(&quot;(?&quot;);
+    char optbuf[5];
+    rb_encoding *enc = rb_enc_get(re);
+
+    rb_reg_check(re);
+
+    rb_enc_copy(str, re);
+    options = RREGEXP_PTR(re)-&gt;options;
+    ptr = (UChar*)RREGEXP_SRC_PTR(re);
+    len = RREGEXP_SRC_LEN(re);
+  again:
+    if (len &gt;= 4 &amp;&amp; ptr[0] == &#39;(&#39; &amp;&amp; ptr[1] == &#39;?&#39;) {
+	int err = 1;
+	ptr += 2;
+	if ((len -= 2) &gt; 0) {
+	    do {
+                opt = char_to_option((int )*ptr);
+                if (opt != 0) {
+                    options |= opt;
+                }
+                else {
+                    break;
+                }
+		++ptr;
+	    } while (--len &gt; 0);
+	}
+	if (len &gt; 1 &amp;&amp; *ptr == &#39;-&#39;) {
+	    ++ptr;
+	    --len;
+	    do {
+                opt = char_to_option((int )*ptr);
+                if (opt != 0) {
+                    options &amp;= ~opt;
+                }
+                else {
+                    break;
+                }
+		++ptr;
+	    } while (--len &gt; 0);
+	}
+	if (*ptr == &#39;)&#39;) {
+	    --len;
+	    ++ptr;
+	    goto again;
+	}
+	if (*ptr == &#39;:&#39; &amp;&amp; ptr[len-1] == &#39;)&#39;) {
+	    Regexp *rp;
+	    VALUE verbose = ruby_verbose;
+	    ruby_verbose = Qfalse;
+
+	    ++ptr;
+	    len -= 2;
+            err = onig_new(&amp;rp, ptr, ptr + len, options,
+			   enc, OnigDefaultSyntax, NULL);
+	    onig_free(rp);
+	    ruby_verbose = verbose;
+	}
+	if (err) {
+	    options = RREGEXP_PTR(re)-&gt;options;
+	    ptr = (UChar*)RREGEXP_SRC_PTR(re);
+	    len = RREGEXP_SRC_LEN(re);
+	}
+    }
+
+    if (*option_to_str(optbuf, options)) rb_str_buf_cat2(str, optbuf);
+
+    if ((options &amp; embeddable) != embeddable) {
+	optbuf[0] = &#39;-&#39;;
+	option_to_str(optbuf + 1, ~options);
+	rb_str_buf_cat2(str, optbuf);
+    }
+
+    rb_str_buf_cat2(str, &quot;:&quot;);
+    if (rb_enc_asciicompat(enc)) {
+	rb_reg_expr_str(str, (char*)ptr, len, enc, NULL);
+	rb_str_buf_cat2(str, &quot;)&quot;);
+    }
+    else {
+	const char *s, *e;
+	char *paren;
+	ptrdiff_t n;
+	rb_str_buf_cat2(str, &quot;)&quot;);
+	rb_enc_associate(str, rb_usascii_encoding());
+	str = rb_str_encode(str, rb_enc_from_encoding(enc), 0, Qnil);
+
+	/* backup encoded &quot;)&quot; to paren */
+	s = RSTRING_PTR(str);
+	e = RSTRING_END(str);
+	s = rb_enc_left_char_head(s, e-1, e, enc);
+	n = e - s;
+	paren = ALLOCA_N(char, n);
+	memcpy(paren, s, n);
+	rb_str_resize(str, RSTRING_LEN(str) - n);
+
+	rb_reg_expr_str(str, (char*)ptr, len, enc, NULL);
+	rb_str_buf_cat(str, paren, n);
+    }
+    rb_enc_copy(str, re);
+
+    OBJ_INFECT(str, re);
+    return str;
+}</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="~-instance_method">
+  
+    #<strong>~</strong>(rxp)  &#x21d2; <tt><span class='object_link'><a href="Integer.html" title="Integer (class)">Integer</a></span></tt><sup>?</sup> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Match—Matches <em>rxp</em> against the contents of <code>$_</code>.
+Equivalent to <code><em>rxp</em> =~ $_</code>.</p>
+
+<pre class="code"><code class=""><span class='gvar'>$_</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>input data</span><span class='tstring_end'>&quot;</span></span>
+<span class='op'>~</span> <span class='tstring'><span class='regexp_beg'>/</span><span class='tstring_content'>at</span><span class='regexp_end'>/</span></span>   <span class='comment'>#=&gt; 7
+</span></code></pre>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+  <div class="docstring">
+  <div class="discussion">
+    
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="Integer.html" title="Integer (class)">Integer</a></span></tt>, <tt>nil</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div>
+
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+3203
+3204
+3205
+3206
+3207
+3208
+3209
+3210
+3211
+3212
+3213
+3214
+3215
+3216
+3217
+3218
+3219
+3220</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 're.c', line 3203</span>
+
+VALUE
+rb_reg_match2(VALUE re)
+{
+    long start;
+    VALUE line = rb_lastline_get();
+
+    if (!RB_TYPE_P(line, T_STRING)) {
+	rb_backref_set(Qnil);
+	return Qnil;
+    }
+
+    start = rb_reg_search(re, line, 0, 0);
+    if (start &lt; 0) {
+	return Qnil;
+    }
+    start = rb_str_sublen(line, start);
+    return LONG2FIX(start);
+}</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+  </div>
+
+</div>
+
+      <div id="footer">
+  Generated on Mon Feb 26 22:23:26 2018 by
+  <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
+  0.9.12 (ruby-2.4.2).
+</div>
+
+    </div>
+  </body>
+</html>

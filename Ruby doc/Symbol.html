@@ -1,0 +1,3035 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>
+  Class: Symbol
+  
+    &mdash; Documentation by YARD 0.9.12
+  
+</title>
+
+  <link rel="stylesheet" href="css/style.css" type="text/css" charset="utf-8" />
+
+  <link rel="stylesheet" href="css/common.css" type="text/css" charset="utf-8" />
+
+<script type="text/javascript" charset="utf-8">
+  pathId = "Symbol";
+  relpath = '';
+</script>
+
+
+  <script type="text/javascript" charset="utf-8" src="js/jquery.js"></script>
+
+  <script type="text/javascript" charset="utf-8" src="js/app.js"></script>
+
+
+  </head>
+  <body>
+    <div class="nav_wrap">
+      <iframe id="nav" src="class_list.html?1"></iframe>
+      <div id="resizer"></div>
+    </div>
+
+    <div id="main" tabindex="-1">
+      <div id="header">
+        <div id="menu">
+  
+    <a href="_index.html">Index (S)</a> &raquo;
+    
+    
+    <span class="title">Symbol</span>
+  
+</div>
+
+        <div id="search">
+  
+    <a class="full_list_link" id="class_list_link"
+        href="class_list.html">
+
+        <svg width="24" height="24">
+          <rect x="0" y="4" width="24" height="4" rx="1" ry="1"></rect>
+          <rect x="0" y="12" width="24" height="4" rx="1" ry="1"></rect>
+          <rect x="0" y="20" width="24" height="4" rx="1" ry="1"></rect>
+        </svg>
+    </a>
+  
+</div>
+        <div class="clear"></div>
+      </div>
+
+      <div id="content"><h1>Class: Symbol
+  
+  
+  
+</h1>
+<div class="box_info">
+  
+  <dl>
+    <dt>Inherits:</dt>
+    <dd>
+      <span class="inheritName"><span class='object_link'><a href="Object.html" title="Object (class)">Object</a></span></span>
+      
+        <ul class="fullTree">
+          <li><span class='object_link'><a href="Object.html" title="Object (class)">Object</a></span></li>
+          
+            <li class="next">Symbol</li>
+          
+        </ul>
+        <a href="#" class="inheritanceTree">show all</a>
+      
+    </dd>
+  </dl>
+  
+
+  
+  
+  
+  
+  <dl>
+      <dt>Includes:</dt>
+      <dd><span class='object_link'><a href="Comparable.html" title="Comparable (module)">Comparable</a></span></dd>
+  </dl>
+  
+  
+
+  
+
+  
+  <dl>
+    <dt>Defined in:</dt>
+    <dd>string.c<span class="defines">,<br />
+  string.c</span>
+</dd>
+  </dl>
+  
+</div>
+
+<h2>Overview</h2><div class="docstring">
+  <div class="discussion">
+    
+<p>********************************************************************</p>
+
+<pre class="code ruby"><code class="ruby">&lt;code&gt;Symbol&lt;/code&gt; objects represent names and some strings
+inside the Ruby
+interpreter. They are generated using the &lt;code&gt;:name&lt;/code&gt; and
+&lt;code&gt;:&quot;string&quot;&lt;/code&gt; literals
+syntax, and by the various &lt;code&gt;to_sym&lt;/code&gt; methods. The same
+&lt;code&gt;Symbol&lt;/code&gt; object will be created for a given name or string
+for the duration of a program&#39;s execution, regardless of the context
+or meaning of that name. Thus if &lt;code&gt;Fred&lt;/code&gt; is a constant in
+one context, a method in another, and a class in a third, the
+&lt;code&gt;Symbol&lt;/code&gt; &lt;code&gt;:Fred&lt;/code&gt; will be the same object in
+all three contexts.
+
+   module One
+     class Fred
+     end
+     $f1 = :Fred
+   end
+   module Two
+     Fred = 1
+     $f2 = :Fred
+   end
+   def Fred()
+   end
+   $f3 = :Fred
+   $f1.object_id   #=&gt; 2514190
+   $f2.object_id   #=&gt; 2514190
+   $f3.object_id   #=&gt; 2514190</code></pre>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div>
+
+
+
+
+
+
+  
+    <h2>
+      Class Method Summary
+      <small><a href="#" class="summary_toggle">collapse</a></small>
+    </h2>
+
+    <ul class="summary">
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#all_symbols-class_method" title="all_symbols (class method)">.<strong>all_symbols</strong>  &#x21d2; Array </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Returns an array of all the symbols currently in Ruby&#39;s symbol table.</p>
+</div></span>
+  
+</li>
+
+      
+    </ul>
+  
+    <h2>
+      Instance Method Summary
+      <small><a href="#" class="summary_toggle">collapse</a></small>
+    </h2>
+
+    <ul class="summary">
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#<=>-instance_method" title="#&lt;=&gt; (instance method)">#<strong>&lt;=&gt;</strong>(other_symbol)  &#x21d2; -1, ... </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Compares <code>symbol</code> with <code>other_symbol</code> after calling
+#to_s on each of the symbols.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#==-instance_method" title="#== (instance method)">#<strong>==</strong>  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#===-instance_method" title="#=== (instance method)">#<strong>===</strong>  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#=~-instance_method" title="#=~ (instance method)">#<strong>=~</strong>(obj)  &#x21d2; Integer<sup>?</sup> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Returns <code>sym.to_s =~ obj</code>.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#[]-instance_method" title="#[] (instance method)">#<strong>[]</strong>(*args)  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Returns <code>sym.to_s[]</code>.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#capitalize-instance_method" title="#capitalize (instance method)">#<strong>capitalize</strong>(*args)  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Same as <code>sym.to_s.capitalize.intern</code>.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#casecmp-instance_method" title="#casecmp (instance method)">#<strong>casecmp</strong>(other_symbol)  &#x21d2; -1, ... </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Case-insensitive version of <code>Symbol#&lt;=&gt;</code>.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#casecmp%3F-instance_method" title="#casecmp? (instance method)">#<strong>casecmp?</strong>(other_symbol)  &#x21d2; true, ... </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Returns <code>true</code> if <code>sym</code> and <code>other_symbol</code>
+are equal after Unicode case folding, <code>false</code> if they are not
+equal.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#downcase-instance_method" title="#downcase (instance method)">#<strong>downcase</strong>(*args)  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Same as <code>sym.to_s.downcase.intern</code>.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#empty%3F-instance_method" title="#empty? (instance method)">#<strong>empty?</strong>  &#x21d2; Boolean </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Returns whether <em>sym</em> is :“” or not.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#encoding-instance_method" title="#encoding (instance method)">#<strong>encoding</strong>  &#x21d2; Encoding </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Returns the Encoding object that represents the encoding of <em>sym</em>.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#id2name-instance_method" title="#id2name (instance method)">#<strong>id2name</strong>  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Returns the name or string corresponding to <em>sym</em>.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#inspect-instance_method" title="#inspect (instance method)">#<strong>inspect</strong>  &#x21d2; String </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Returns the representation of <em>sym</em> as a symbol literal.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#intern-instance_method" title="#intern (instance method)">#<strong>intern</strong>  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>In general, <code>to_sym</code> returns the <code>Symbol</code>
+corresponding to an object.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#length-instance_method" title="#length (instance method)">#<strong>length</strong>  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Same as <code>sym.to_s.length</code>.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#match-instance_method" title="#match (instance method)">#<strong>match</strong>(*args)  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Returns <code>sym.to_s.match</code>.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#match%3F-instance_method" title="#match? (instance method)">#<strong>match?</strong>(*args)  &#x21d2; Boolean </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Returns <code>sym.to_s.match?</code>.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#next-instance_method" title="#succ (instance method)">#<strong>succ</strong>  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Same as <code>sym.to_s.succ.intern</code>.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#size-instance_method" title="#size (instance method)">#<strong>size</strong>  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Same as <code>sym.to_s.length</code>.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#slice-instance_method" title="#slice (instance method)">#<strong>slice</strong>(*args)  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Returns <code>sym.to_s[]</code>.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#succ-instance_method" title="#succ (instance method)">#<strong>succ</strong>  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Same as <code>sym.to_s.succ.intern</code>.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#swapcase-instance_method" title="#swapcase (instance method)">#<strong>swapcase</strong>(*args)  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Same as <code>sym.to_s.swapcase.intern</code>.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#to_proc-instance_method" title="#to_proc (instance method)">#<strong>to_proc</strong>  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Returns a <em>Proc</em> object which responds to the given method by
+<em>sym</em>.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#to_s-instance_method" title="#to_s (instance method)">#<strong>to_s</strong>  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Returns the name or string corresponding to <em>sym</em>.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#to_sym-instance_method" title="#to_sym (instance method)">#<strong>to_sym</strong>  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>In general, <code>to_sym</code> returns the <code>Symbol</code>
+corresponding to an object.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#upcase-instance_method" title="#upcase (instance method)">#<strong>upcase</strong>(*args)  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Same as <code>sym.to_s.upcase.intern</code>.</p>
+</div></span>
+  
+</li>
+
+      
+    </ul>
+  
+
+
+  
+  
+  
+  
+  
+  
+  
+  
+  <h3 class="inherited">Methods included from <span class='object_link'><a href="Comparable.html" title="Comparable (module)">Comparable</a></span></h3>
+  <p class="inherited"><span class='object_link'><a href="Comparable.html#<-instance_method" title="Comparable#&lt; (method)">#<</a></span>, <span class='object_link'><a href="Comparable.html#<=-instance_method" title="Comparable#&lt;= (method)">#<=</a></span>, <span class='object_link'><a href="Comparable.html#>-instance_method" title="Comparable#&gt; (method)">#></a></span>, <span class='object_link'><a href="Comparable.html#>=-instance_method" title="Comparable#&gt;= (method)">#>=</a></span>, <span class='object_link'><a href="Comparable.html#between%3F-instance_method" title="Comparable#between? (method)">#between?</a></span>, <span class='object_link'><a href="Comparable.html#clamp-instance_method" title="Comparable#clamp (method)">#clamp</a></span></p>
+
+
+  <div id="class_method_details" class="method_details_list">
+    <h2>Class Method Details</h2>
+
+    
+      <div class="method_details first">
+  <h3 class="signature first" id="all_symbols-class_method">
+  
+    .<strong>all_symbols</strong>  &#x21d2; <tt><span class='object_link'><a href="Array.html" title="Array (class)">Array</a></span></tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Returns an array of all the symbols currently in Ruby&#39;s symbol table.</p>
+
+<pre class="code"><code class="">Symbol.all_symbols.size    #=&gt; 903
+Symbol.all_symbols[1,20]   #=&gt; [:floor, :ARGV, :Binding, :symlink,
+                                :chown, :EOFError, :$;, :String,
+                                :LOCK_SH, :&quot;setuid?&quot;, :$&lt;,
+                                :default_proc, :compact, :extend,
+                                :Tms, :getwd, :$=, :ThreadGroup,
+                                :wait2, :$&gt;]</code></pre>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+  <div class="docstring">
+  <div class="discussion">
+    
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="Array.html" title="Array (class)">Array</a></span></tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div>
+
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+806
+807
+808
+809
+810
+811
+812</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'symbol.c', line 806</span>
+
+VALUE
+rb_sym_all_symbols(void)
+{
+    VALUE ary = rb_ary_new2(global_symbols.str_sym-&gt;num_entries);
+    st_foreach(global_symbols.str_sym, symbols_i, ary);
+    return ary;
+}</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+  </div>
+
+  <div id="instance_method_details" class="method_details_list">
+    <h2>Instance Method Details</h2>
+
+    
+      <div class="method_details first">
+  <h3 class="signature first" id="<=>-instance_method">
+  
+    #<strong>&lt;=&gt;</strong>(other_symbol)  &#x21d2; <tt>-1</tt>, ... 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Compares <code>symbol</code> with <code>other_symbol</code> after calling
+#to_s on each of the symbols. Returns -1, 0, +1, or <code>nil</code>
+depending on whether <code>symbol</code> is less than, equal to, or greater
+than <code>other_symbol</code>.</p>
+
+<p><code>nil</code> is returned if the two values are incomparable.</p>
+
+<p>See String#&lt;=&gt; for more information.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+  <div class="docstring">
+  <div class="discussion">
+    
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>-1</tt>, <tt>0</tt>, <tt>+1</tt>, <tt>nil</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div>
+
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+10527
+10528
+10529
+10530
+10531
+10532
+10533
+10534</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'string.c', line 10527</span>
+
+static VALUE
+sym_cmp(VALUE sym, VALUE other)
+{
+    if (!SYMBOL_P(other)) {
+	return Qnil;
+    }
+    return rb_str_cmp_m(rb_sym2str(sym), rb_sym2str(other));
+}</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="==-instance_method">
+  
+    #<strong>==</strong>  &#x21d2; <tt><span class='object_link'><a href="Object.html" title="Object (class)">Object</a></span></tt> 
+  
+
+  
+
+  
+</h3>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="===-instance_method">
+  
+    #<strong>===</strong>  &#x21d2; <tt><span class='object_link'><a href="Object.html" title="Object (class)">Object</a></span></tt> 
+  
+
+  
+
+  
+</h3>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="=~-instance_method">
+  
+    #<strong>=~</strong>(obj)  &#x21d2; <tt><span class='object_link'><a href="Integer.html" title="Integer (class)">Integer</a></span></tt><sup>?</sup> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Returns <code>sym.to_s =~ obj</code>.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+  <div class="docstring">
+  <div class="discussion">
+    
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="Integer.html" title="Integer (class)">Integer</a></span></tt>, <tt>nil</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div>
+
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+10601
+10602
+10603
+10604
+10605</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'string.c', line 10601</span>
+
+static VALUE
+sym_match(VALUE sym, VALUE other)
+{
+    return rb_str_match(rb_sym2str(sym), other);
+}</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="[]-instance_method">
+  
+    
+      <span class="overload">#<strong>[]</strong>(idx)  &#x21d2; <tt><span class='object_link'><a href="String.html" title="String (class)">String</a></span></tt> </span>
+    
+      <span class="overload">#<strong>[]</strong>(b, n)  &#x21d2; <tt><span class='object_link'><a href="String.html" title="String (class)">String</a></span></tt> </span>
+    
+      <span class="overload">#<strong>slice</strong>(idx)  &#x21d2; <tt><span class='object_link'><a href="String.html" title="String (class)">String</a></span></tt> </span>
+    
+      <span class="overload">#<strong>slice</strong>(b, n)  &#x21d2; <tt><span class='object_link'><a href="String.html" title="String (class)">String</a></span></tt> </span>
+    
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Returns <code>sym.to_s[]</code>.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+  <p class="tag_title">Overloads:</p>
+  <ul class="overload">
+    
+      
+      <li class="overload_item">
+        <span class="signature">#<strong>[]</strong>(idx)  &#x21d2; <tt><span class='object_link'><a href="String.html" title="String (class)">String</a></span></tt> </span>
+        <div class="docstring">
+  <div class="discussion">
+    
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="String.html" title="String (class)">String</a></span></tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div>
+      </li>
+    
+      
+      <li class="overload_item">
+        <span class="signature">#<strong>[]</strong>(b, n)  &#x21d2; <tt><span class='object_link'><a href="String.html" title="String (class)">String</a></span></tt> </span>
+        <div class="docstring">
+  <div class="discussion">
+    
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="String.html" title="String (class)">String</a></span></tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div>
+      </li>
+    
+      
+      <li class="overload_item">
+        <span class="signature">#<strong>slice</strong>(idx)  &#x21d2; <tt><span class='object_link'><a href="String.html" title="String (class)">String</a></span></tt> </span>
+        <div class="docstring">
+  <div class="discussion">
+    
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="String.html" title="String (class)">String</a></span></tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div>
+      </li>
+    
+      
+      <li class="overload_item">
+        <span class="signature">#<strong>slice</strong>(b, n)  &#x21d2; <tt><span class='object_link'><a href="String.html" title="String (class)">String</a></span></tt> </span>
+        <div class="docstring">
+  <div class="discussion">
+    
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="String.html" title="String (class)">String</a></span></tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div>
+      </li>
+    
+  </ul>
+
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+10645
+10646
+10647
+10648
+10649</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'string.c', line 10645</span>
+
+static VALUE
+sym_aref(int argc, VALUE *argv, VALUE sym)
+{
+    return rb_str_aref_m(argc, argv, rb_sym2str(sym));
+}</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="capitalize-instance_method">
+  
+    
+      <span class="overload">#<strong>capitalize</strong>  &#x21d2; <tt><span class='object_link'><a href="Object.html" title="Object (class)">Object</a></span></tt> </span>
+    
+      <span class="overload">#<strong>capitalize</strong>([options])  &#x21d2; <tt><span class='object_link'><a href="Object.html" title="Object (class)">Object</a></span></tt> </span>
+    
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Same as <code>sym.to_s.capitalize.intern</code>.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+10714
+10715
+10716
+10717
+10718</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'string.c', line 10714</span>
+
+static VALUE
+sym_capitalize(int argc, VALUE *argv, VALUE sym)
+{
+    return rb_str_intern(rb_str_capitalize(argc, argv, rb_sym2str(sym)));
+}</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="casecmp-instance_method">
+  
+    #<strong>casecmp</strong>(other_symbol)  &#x21d2; <tt>-1</tt>, ... 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Case-insensitive version of <code>Symbol#&lt;=&gt;</code>. Currently,
+case-insensitivity only works on characters A-Z/a-z, not all of Unicode.
+This is different from Symbol#casecmp?.</p>
+
+<pre class="code"><code class=""><span class='symbol'>:aBcDeF</span><span class='period'>.</span><span class='id identifier rubyid_casecmp'>casecmp</span><span class='lparen'>(</span><span class='symbol'>:abcde</span><span class='rparen'>)</span>     <span class='comment'>#=&gt; 1
+</span><span class='symbol'>:aBcDeF</span><span class='period'>.</span><span class='id identifier rubyid_casecmp'>casecmp</span><span class='lparen'>(</span><span class='symbol'>:abcdef</span><span class='rparen'>)</span>    <span class='comment'>#=&gt; 0
+</span><span class='symbol'>:aBcDeF</span><span class='period'>.</span><span class='id identifier rubyid_casecmp'>casecmp</span><span class='lparen'>(</span><span class='symbol'>:abcdefg</span><span class='rparen'>)</span>   <span class='comment'>#=&gt; -1
+</span><span class='symbol'>:abcdef</span><span class='period'>.</span><span class='id identifier rubyid_casecmp'>casecmp</span><span class='lparen'>(</span><span class='symbol'>:ABCDEF</span><span class='rparen'>)</span>    <span class='comment'>#=&gt; 0
+</span></code></pre>
+
+<p><code>nil</code> is returned if the two symbols have incompatible
+encodings, or if <code>other_symbol</code> is not a symbol.</p>
+
+<pre class="code"><code class=""><span class='symbol'>:foo</span><span class='period'>.</span><span class='id identifier rubyid_casecmp'>casecmp</span><span class='lparen'>(</span><span class='int'>2</span><span class='rparen'>)</span>   <span class='comment'>#=&gt; nil
+</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>\u{e4 f6 fc}</span><span class='tstring_end'>&quot;</span></span><span class='period'>.</span><span class='id identifier rubyid_encode'>encode</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>ISO-8859-1</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_to_sym'>to_sym</span><span class='period'>.</span><span class='id identifier rubyid_casecmp'>casecmp</span><span class='lparen'>(</span><span class='symbol'>:\u{c4 d6 dc}</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>   <span class='comment'>#=&gt; nil
+</span></code></pre>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+  <div class="docstring">
+  <div class="discussion">
+    
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>-1</tt>, <tt>0</tt>, <tt>+1</tt>, <tt>nil</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div>
+
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+10556
+10557
+10558
+10559
+10560
+10561
+10562
+10563</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'string.c', line 10556</span>
+
+static VALUE
+sym_casecmp(VALUE sym, VALUE other)
+{
+    if (!SYMBOL_P(other)) {
+	return Qnil;
+    }
+    return str_casecmp(rb_sym2str(sym), rb_sym2str(other));
+}</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="casecmp?-instance_method">
+  
+    #<strong>casecmp?</strong>(other_symbol)  &#x21d2; <tt>true</tt>, ... 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Returns <code>true</code> if <code>sym</code> and <code>other_symbol</code>
+are equal after Unicode case folding, <code>false</code> if they are not
+equal.</p>
+
+<pre class="code"><code class=""><span class='symbol'>:aBcDeF</span><span class='period'>.</span><span class='id identifier rubyid_casecmp?'>casecmp?</span><span class='lparen'>(</span><span class='symbol'>:abcde</span><span class='rparen'>)</span>     <span class='comment'>#=&gt; false
+</span><span class='symbol'>:aBcDeF</span><span class='period'>.</span><span class='id identifier rubyid_casecmp?'>casecmp?</span><span class='lparen'>(</span><span class='symbol'>:abcdef</span><span class='rparen'>)</span>    <span class='comment'>#=&gt; true
+</span><span class='symbol'>:aBcDeF</span><span class='period'>.</span><span class='id identifier rubyid_casecmp?'>casecmp?</span><span class='lparen'>(</span><span class='symbol'>:abcdefg</span><span class='rparen'>)</span>   <span class='comment'>#=&gt; false
+</span><span class='symbol'>:abcdef</span><span class='period'>.</span><span class='id identifier rubyid_casecmp?'>casecmp?</span><span class='lparen'>(</span><span class='symbol'>:ABCDEF</span><span class='rparen'>)</span>    <span class='comment'>#=&gt; true
+</span><span class='symbol'>:\u{e4 f6 fc}</span><span class='tstring_end'>&quot;</span></span><span class='period'>.</span><span class='id identifier rubyid_casecmp?'>casecmp?</span><span class='lparen'>(</span><span class='symbol'>:\u{c4 d6 dc}</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>   <span class='comment'>#=&gt; true
+</span></code></pre>
+
+<p><code>nil</code> is returned if the two symbols have incompatible
+encodings, or if <code>other_symbol</code> is not a symbol.</p>
+
+<pre class="code"><code class=""><span class='symbol'>:foo</span><span class='period'>.</span><span class='id identifier rubyid_casecmp?'>casecmp?</span><span class='lparen'>(</span><span class='int'>2</span><span class='rparen'>)</span>   <span class='comment'>#=&gt; nil
+</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>\u{e4 f6 fc}</span><span class='tstring_end'>&quot;</span></span><span class='period'>.</span><span class='id identifier rubyid_encode'>encode</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>ISO-8859-1</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_to_sym'>to_sym</span><span class='period'>.</span><span class='id identifier rubyid_casecmp?'>casecmp?</span><span class='lparen'>(</span><span class='symbol'>:\u{c4 d6 dc}</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>   <span class='comment'>#=&gt; nil
+</span></code></pre>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+  <div class="docstring">
+  <div class="discussion">
+    
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>true</tt>, <tt>false</tt>, <tt>nil</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div>
+
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Boolean</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+10585
+10586
+10587
+10588
+10589
+10590
+10591
+10592</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'string.c', line 10585</span>
+
+static VALUE
+sym_casecmp_p(VALUE sym, VALUE other)
+{
+    if (!SYMBOL_P(other)) {
+	return Qnil;
+    }
+    return str_casecmp_p(rb_sym2str(sym), rb_sym2str(other));
+}</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="downcase-instance_method">
+  
+    
+      <span class="overload">#<strong>downcase</strong>  &#x21d2; <tt><span class='object_link'><a href="Object.html" title="Object (class)">Object</a></span></tt> </span>
+    
+      <span class="overload">#<strong>downcase</strong>([options])  &#x21d2; <tt><span class='object_link'><a href="Object.html" title="Object (class)">Object</a></span></tt> </span>
+    
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Same as <code>sym.to_s.downcase.intern</code>.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+10700
+10701
+10702
+10703
+10704</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'string.c', line 10700</span>
+
+static VALUE
+sym_downcase(int argc, VALUE *argv, VALUE sym)
+{
+    return rb_str_intern(rb_str_downcase(argc, argv, rb_sym2str(sym)));
+}</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="empty?-instance_method">
+  
+    #<strong>empty?</strong>  &#x21d2; <tt>Boolean</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Returns whether <em>sym</em> is :“” or not.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+  <div class="docstring">
+  <div class="discussion">
+    
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Boolean</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div>
+
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Boolean</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+10672
+10673
+10674
+10675
+10676</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'string.c', line 10672</span>
+
+static VALUE
+sym_empty(VALUE sym)
+{
+    return rb_str_empty(rb_sym2str(sym));
+}</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="encoding-instance_method">
+  
+    #<strong>encoding</strong>  &#x21d2; <tt><span class='object_link'><a href="Encoding.html" title="Encoding (class)">Encoding</a></span></tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Returns the Encoding object that represents the encoding of <em>sym</em>.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+  <div class="docstring">
+  <div class="discussion">
+    
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="Encoding.html" title="Encoding (class)">Encoding</a></span></tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div>
+
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+10741
+10742
+10743
+10744
+10745</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'string.c', line 10741</span>
+
+static VALUE
+sym_encoding(VALUE sym)
+{
+    return rb_obj_encoding(rb_sym2str(sym));
+}</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="id2name-instance_method">
+  
+    
+      <span class="overload">#<strong>id2name</strong>  &#x21d2; <tt><span class='object_link'><a href="String.html" title="String (class)">String</a></span></tt> </span>
+    
+      <span class="overload">#<strong>to_s</strong>  &#x21d2; <tt><span class='object_link'><a href="String.html" title="String (class)">String</a></span></tt> </span>
+    
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Returns the name or string corresponding to <em>sym</em>.</p>
+
+<pre class="code"><code class=""><span class='symbol'>:fred</span><span class='period'>.</span><span class='id identifier rubyid_id2name'>id2name</span>   <span class='comment'>#=&gt; &quot;fred&quot;
+</span><span class='symbol'>:ginger</span><span class='period'>.</span><span class='id identifier rubyid_to_s'>to_s</span>    <span class='comment'>#=&gt; &quot;ginger&quot;
+</span></code></pre>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+  <p class="tag_title">Overloads:</p>
+  <ul class="overload">
+    
+      
+      <li class="overload_item">
+        <span class="signature">#<strong>id2name</strong>  &#x21d2; <tt><span class='object_link'><a href="String.html" title="String (class)">String</a></span></tt> </span>
+        <div class="docstring">
+  <div class="discussion">
+    
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="String.html" title="String (class)">String</a></span></tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div>
+      </li>
+    
+      
+      <li class="overload_item">
+        <span class="signature">#<strong>to_s</strong>  &#x21d2; <tt><span class='object_link'><a href="String.html" title="String (class)">String</a></span></tt> </span>
+        <div class="docstring">
+  <div class="discussion">
+    
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="String.html" title="String (class)">String</a></span></tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div>
+      </li>
+    
+  </ul>
+
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+10448
+10449
+10450
+10451
+10452</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'string.c', line 10448</span>
+
+VALUE
+rb_sym_to_s(VALUE sym)
+{
+    return str_new_shared(rb_cString, rb_sym2str(sym));
+}</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="inspect-instance_method">
+  
+    #<strong>inspect</strong>  &#x21d2; <tt><span class='object_link'><a href="String.html" title="String (class)">String</a></span></tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Returns the representation of <em>sym</em> as a symbol literal.</p>
+
+<pre class="code"><code class=""><span class='symbol'>:fred</span><span class='period'>.</span><span class='id identifier rubyid_inspect'>inspect</span>   <span class='comment'>#=&gt; &quot;:fred&quot;
+</span></code></pre>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+  <div class="docstring">
+  <div class="discussion">
+    
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="String.html" title="String (class)">String</a></span></tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div>
+
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+10409
+10410
+10411
+10412
+10413
+10414
+10415
+10416
+10417
+10418
+10419
+10420
+10421
+10422
+10423
+10424
+10425
+10426
+10427
+10428
+10429
+10430
+10431
+10432
+10433</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'string.c', line 10409</span>
+
+static VALUE
+sym_inspect(VALUE sym)
+{
+    VALUE str = rb_sym2str(sym);
+    const char *ptr;
+    long len;
+    char *dest;
+
+    if (!rb_str_symname_p(str)) {
+	str = rb_str_inspect(str);
+	len = RSTRING_LEN(str);
+	rb_str_resize(str, len + 1);
+	dest = RSTRING_PTR(str);
+	memmove(dest + 1, dest, len);
+    }
+    else {
+	rb_encoding *enc = STR_ENC_GET(str);
+	RSTRING_GETMEM(str, ptr, len);
+	str = rb_enc_str_new(0, len + 1, enc);
+	dest = RSTRING_PTR(str);
+	memcpy(dest + 1, ptr, len);
+    }
+    dest[0] = &#39;:&#39;;
+    return str;
+}</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="intern-instance_method">
+  
+    
+      <span class="overload">#<strong>to_sym</strong>  &#x21d2; <tt><span class='object_link'><a href="Object.html" title="Object (class)">Object</a></span></tt> </span>
+    
+      <span class="overload">#<strong>intern</strong>  &#x21d2; <tt><span class='object_link'><a href="Object.html" title="Object (class)">Object</a></span></tt> </span>
+    
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>In general, <code>to_sym</code> returns the <code>Symbol</code>
+corresponding to an object. As <em>sym</em> is already a symbol,
+<code>self</code> is returned in this case.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+10465
+10466
+10467
+10468
+10469</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'string.c', line 10465</span>
+
+static VALUE
+sym_to_sym(VALUE sym)
+{
+    return sym;
+}</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="length-instance_method">
+  
+    
+      <span class="overload">#<strong>length</strong>  &#x21d2; <tt><span class='object_link'><a href="Integer.html" title="Integer (class)">Integer</a></span></tt> </span>
+    
+      <span class="overload">#<strong>size</strong>  &#x21d2; <tt><span class='object_link'><a href="Integer.html" title="Integer (class)">Integer</a></span></tt> </span>
+    
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Same as <code>sym.to_s.length</code>.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+  <p class="tag_title">Overloads:</p>
+  <ul class="overload">
+    
+      
+      <li class="overload_item">
+        <span class="signature">#<strong>length</strong>  &#x21d2; <tt><span class='object_link'><a href="Integer.html" title="Integer (class)">Integer</a></span></tt> </span>
+        <div class="docstring">
+  <div class="discussion">
+    
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="Integer.html" title="Integer (class)">Integer</a></span></tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div>
+      </li>
+    
+      
+      <li class="overload_item">
+        <span class="signature">#<strong>size</strong>  &#x21d2; <tt><span class='object_link'><a href="Integer.html" title="Integer (class)">Integer</a></span></tt> </span>
+        <div class="docstring">
+  <div class="discussion">
+    
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="Integer.html" title="Integer (class)">Integer</a></span></tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div>
+      </li>
+    
+  </ul>
+
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+10659
+10660
+10661
+10662
+10663</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'string.c', line 10659</span>
+
+static VALUE
+sym_length(VALUE sym)
+{
+    return rb_str_length(rb_sym2str(sym));
+}</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="match-instance_method">
+  
+    
+      <span class="overload">#<strong>match</strong>(pattern)  &#x21d2; <tt><span class='object_link'><a href="MatchData.html" title="MatchData (class)">MatchData</a></span></tt><sup>?</sup> </span>
+    
+      <span class="overload">#<strong>match</strong>(pattern, pos)  &#x21d2; <tt><span class='object_link'><a href="MatchData.html" title="MatchData (class)">MatchData</a></span></tt><sup>?</sup> </span>
+    
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Returns <code>sym.to_s.match</code>.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+  <p class="tag_title">Overloads:</p>
+  <ul class="overload">
+    
+      
+      <li class="overload_item">
+        <span class="signature">#<strong>match</strong>(pattern)  &#x21d2; <tt><span class='object_link'><a href="MatchData.html" title="MatchData (class)">MatchData</a></span></tt><sup>?</sup> </span>
+        <div class="docstring">
+  <div class="discussion">
+    
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="MatchData.html" title="MatchData (class)">MatchData</a></span></tt>, <tt>nil</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div>
+      </li>
+    
+      
+      <li class="overload_item">
+        <span class="signature">#<strong>match</strong>(pattern, pos)  &#x21d2; <tt><span class='object_link'><a href="MatchData.html" title="MatchData (class)">MatchData</a></span></tt><sup>?</sup> </span>
+        <div class="docstring">
+  <div class="discussion">
+    
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="MatchData.html" title="MatchData (class)">MatchData</a></span></tt>, <tt>nil</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div>
+      </li>
+    
+  </ul>
+
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+10615
+10616
+10617
+10618
+10619</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'string.c', line 10615</span>
+
+static VALUE
+sym_match_m(int argc, VALUE *argv, VALUE sym)
+{
+    return rb_str_match_m(argc, argv, rb_sym2str(sym));
+}</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="match?-instance_method">
+  
+    
+      <span class="overload">#<strong>match?</strong>(pattern)  &#x21d2; <tt>Boolean</tt> </span>
+    
+      <span class="overload">#<strong>match?</strong>(pattern, pos)  &#x21d2; <tt>Boolean</tt> </span>
+    
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Returns <code>sym.to_s.match?</code>.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+  <p class="tag_title">Overloads:</p>
+  <ul class="overload">
+    
+      
+      <li class="overload_item">
+        <span class="signature">#<strong>match?</strong>(pattern)  &#x21d2; <tt>Boolean</tt> </span>
+        <div class="docstring">
+  <div class="discussion">
+    
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Boolean</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div>
+      </li>
+    
+      
+      <li class="overload_item">
+        <span class="signature">#<strong>match?</strong>(pattern, pos)  &#x21d2; <tt>Boolean</tt> </span>
+        <div class="docstring">
+  <div class="discussion">
+    
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Boolean</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div>
+      </li>
+    
+  </ul>
+
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Boolean</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+10629
+10630
+10631
+10632
+10633</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'string.c', line 10629</span>
+
+static VALUE
+sym_match_m_p(int argc, VALUE *argv, VALUE sym)
+{
+    return rb_str_match_m_p(argc, argv, sym);
+}</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="next-instance_method">
+  
+    #<strong>succ</strong>  &#x21d2; <tt><span class='object_link'><a href="Object.html" title="Object (class)">Object</a></span></tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Same as <code>sym.to_s.succ.intern</code>.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+  
+
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+10507
+10508
+10509
+10510
+10511</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'string.c', line 10507</span>
+
+static VALUE
+sym_succ(VALUE sym)
+{
+    return rb_str_intern(rb_str_succ(rb_sym2str(sym)));
+}</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="size-instance_method">
+  
+    
+      <span class="overload">#<strong>length</strong>  &#x21d2; <tt><span class='object_link'><a href="Integer.html" title="Integer (class)">Integer</a></span></tt> </span>
+    
+      <span class="overload">#<strong>size</strong>  &#x21d2; <tt><span class='object_link'><a href="Integer.html" title="Integer (class)">Integer</a></span></tt> </span>
+    
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Same as <code>sym.to_s.length</code>.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+  <p class="tag_title">Overloads:</p>
+  <ul class="overload">
+    
+      
+      <li class="overload_item">
+        <span class="signature">#<strong>length</strong>  &#x21d2; <tt><span class='object_link'><a href="Integer.html" title="Integer (class)">Integer</a></span></tt> </span>
+        <div class="docstring">
+  <div class="discussion">
+    
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="Integer.html" title="Integer (class)">Integer</a></span></tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div>
+      </li>
+    
+      
+      <li class="overload_item">
+        <span class="signature">#<strong>size</strong>  &#x21d2; <tt><span class='object_link'><a href="Integer.html" title="Integer (class)">Integer</a></span></tt> </span>
+        <div class="docstring">
+  <div class="discussion">
+    
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="Integer.html" title="Integer (class)">Integer</a></span></tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div>
+      </li>
+    
+  </ul>
+
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+10659
+10660
+10661
+10662
+10663</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'string.c', line 10659</span>
+
+static VALUE
+sym_length(VALUE sym)
+{
+    return rb_str_length(rb_sym2str(sym));
+}</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="slice-instance_method">
+  
+    
+      <span class="overload">#<strong>[]</strong>(idx)  &#x21d2; <tt><span class='object_link'><a href="String.html" title="String (class)">String</a></span></tt> </span>
+    
+      <span class="overload">#<strong>[]</strong>(b, n)  &#x21d2; <tt><span class='object_link'><a href="String.html" title="String (class)">String</a></span></tt> </span>
+    
+      <span class="overload">#<strong>slice</strong>(idx)  &#x21d2; <tt><span class='object_link'><a href="String.html" title="String (class)">String</a></span></tt> </span>
+    
+      <span class="overload">#<strong>slice</strong>(b, n)  &#x21d2; <tt><span class='object_link'><a href="String.html" title="String (class)">String</a></span></tt> </span>
+    
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Returns <code>sym.to_s[]</code>.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+  <p class="tag_title">Overloads:</p>
+  <ul class="overload">
+    
+      
+      <li class="overload_item">
+        <span class="signature">#<strong>[]</strong>(idx)  &#x21d2; <tt><span class='object_link'><a href="String.html" title="String (class)">String</a></span></tt> </span>
+        <div class="docstring">
+  <div class="discussion">
+    
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="String.html" title="String (class)">String</a></span></tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div>
+      </li>
+    
+      
+      <li class="overload_item">
+        <span class="signature">#<strong>[]</strong>(b, n)  &#x21d2; <tt><span class='object_link'><a href="String.html" title="String (class)">String</a></span></tt> </span>
+        <div class="docstring">
+  <div class="discussion">
+    
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="String.html" title="String (class)">String</a></span></tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div>
+      </li>
+    
+      
+      <li class="overload_item">
+        <span class="signature">#<strong>slice</strong>(idx)  &#x21d2; <tt><span class='object_link'><a href="String.html" title="String (class)">String</a></span></tt> </span>
+        <div class="docstring">
+  <div class="discussion">
+    
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="String.html" title="String (class)">String</a></span></tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div>
+      </li>
+    
+      
+      <li class="overload_item">
+        <span class="signature">#<strong>slice</strong>(b, n)  &#x21d2; <tt><span class='object_link'><a href="String.html" title="String (class)">String</a></span></tt> </span>
+        <div class="docstring">
+  <div class="discussion">
+    
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="String.html" title="String (class)">String</a></span></tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div>
+      </li>
+    
+  </ul>
+
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+10645
+10646
+10647
+10648
+10649</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'string.c', line 10645</span>
+
+static VALUE
+sym_aref(int argc, VALUE *argv, VALUE sym)
+{
+    return rb_str_aref_m(argc, argv, rb_sym2str(sym));
+}</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="succ-instance_method">
+  
+    #<strong>succ</strong>  &#x21d2; <tt><span class='object_link'><a href="Object.html" title="Object (class)">Object</a></span></tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Same as <code>sym.to_s.succ.intern</code>.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+  
+
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+10507
+10508
+10509
+10510
+10511</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'string.c', line 10507</span>
+
+static VALUE
+sym_succ(VALUE sym)
+{
+    return rb_str_intern(rb_str_succ(rb_sym2str(sym)));
+}</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="swapcase-instance_method">
+  
+    
+      <span class="overload">#<strong>swapcase</strong>  &#x21d2; <tt><span class='object_link'><a href="Object.html" title="Object (class)">Object</a></span></tt> </span>
+    
+      <span class="overload">#<strong>swapcase</strong>([options])  &#x21d2; <tt><span class='object_link'><a href="Object.html" title="Object (class)">Object</a></span></tt> </span>
+    
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Same as <code>sym.to_s.swapcase.intern</code>.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+10728
+10729
+10730
+10731
+10732</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'string.c', line 10728</span>
+
+static VALUE
+sym_swapcase(int argc, VALUE *argv, VALUE sym)
+{
+    return rb_str_intern(rb_str_swapcase(argc, argv, rb_sym2str(sym)));
+}</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="to_proc-instance_method">
+  
+    #<strong>to_proc</strong>  &#x21d2; <tt><span class='object_link'><a href="Object.html" title="Object (class)">Object</a></span></tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Returns a <em>Proc</em> object which responds to the given method by
+<em>sym</em>.</p>
+
+<pre class="code"><code class=""><span class='lparen'>(</span><span class='int'>1</span><span class='op'>..</span><span class='int'>3</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_collect'>collect</span><span class='lparen'>(</span><span class='op'>&amp;</span><span class='symbol'>:to_s</span><span class='rparen'>)</span>  <span class='comment'>#=&gt; [&quot;1&quot;, &quot;2&quot;, &quot;3&quot;]
+</span></code></pre>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+  
+
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+10493
+10494
+10495
+10496</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'string.c', line 10493</span>
+
+<span class='const'>VALUE</span>
+<span class='id identifier rubyid_rb_sym_to_proc'>rb_sym_to_proc</span><span class='lparen'>(</span><span class='const'>VALUE</span> <span class='id identifier rubyid_sym'>sym</span><span class='rparen'>)</span>
+<span class='lbrace'>{</span>
+<span class='rbrace'>}</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="to_s-instance_method">
+  
+    
+      <span class="overload">#<strong>id2name</strong>  &#x21d2; <tt><span class='object_link'><a href="String.html" title="String (class)">String</a></span></tt> </span>
+    
+      <span class="overload">#<strong>to_s</strong>  &#x21d2; <tt><span class='object_link'><a href="String.html" title="String (class)">String</a></span></tt> </span>
+    
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Returns the name or string corresponding to <em>sym</em>.</p>
+
+<pre class="code"><code class=""><span class='symbol'>:fred</span><span class='period'>.</span><span class='id identifier rubyid_id2name'>id2name</span>   <span class='comment'>#=&gt; &quot;fred&quot;
+</span><span class='symbol'>:ginger</span><span class='period'>.</span><span class='id identifier rubyid_to_s'>to_s</span>    <span class='comment'>#=&gt; &quot;ginger&quot;
+</span></code></pre>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+  <p class="tag_title">Overloads:</p>
+  <ul class="overload">
+    
+      
+      <li class="overload_item">
+        <span class="signature">#<strong>id2name</strong>  &#x21d2; <tt><span class='object_link'><a href="String.html" title="String (class)">String</a></span></tt> </span>
+        <div class="docstring">
+  <div class="discussion">
+    
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="String.html" title="String (class)">String</a></span></tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div>
+      </li>
+    
+      
+      <li class="overload_item">
+        <span class="signature">#<strong>to_s</strong>  &#x21d2; <tt><span class='object_link'><a href="String.html" title="String (class)">String</a></span></tt> </span>
+        <div class="docstring">
+  <div class="discussion">
+    
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="String.html" title="String (class)">String</a></span></tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div>
+      </li>
+    
+  </ul>
+
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+10448
+10449
+10450
+10451
+10452</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'string.c', line 10448</span>
+
+VALUE
+rb_sym_to_s(VALUE sym)
+{
+    return str_new_shared(rb_cString, rb_sym2str(sym));
+}</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="to_sym-instance_method">
+  
+    
+      <span class="overload">#<strong>to_sym</strong>  &#x21d2; <tt><span class='object_link'><a href="Object.html" title="Object (class)">Object</a></span></tt> </span>
+    
+      <span class="overload">#<strong>intern</strong>  &#x21d2; <tt><span class='object_link'><a href="Object.html" title="Object (class)">Object</a></span></tt> </span>
+    
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>In general, <code>to_sym</code> returns the <code>Symbol</code>
+corresponding to an object. As <em>sym</em> is already a symbol,
+<code>self</code> is returned in this case.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+10465
+10466
+10467
+10468
+10469</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'string.c', line 10465</span>
+
+static VALUE
+sym_to_sym(VALUE sym)
+{
+    return sym;
+}</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="upcase-instance_method">
+  
+    
+      <span class="overload">#<strong>upcase</strong>  &#x21d2; <tt><span class='object_link'><a href="Object.html" title="Object (class)">Object</a></span></tt> </span>
+    
+      <span class="overload">#<strong>upcase</strong>([options])  &#x21d2; <tt><span class='object_link'><a href="Object.html" title="Object (class)">Object</a></span></tt> </span>
+    
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Same as <code>sym.to_s.upcase.intern</code>.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+10686
+10687
+10688
+10689
+10690</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'string.c', line 10686</span>
+
+static VALUE
+sym_upcase(int argc, VALUE *argv, VALUE sym)
+{
+    return rb_str_intern(rb_str_upcase(argc, argv, rb_sym2str(sym)));
+}</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+  </div>
+
+</div>
+
+      <div id="footer">
+  Generated on Mon Feb 26 22:23:26 2018 by
+  <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
+  0.9.12 (ruby-2.4.2).
+</div>
+
+    </div>
+  </body>
+</html>

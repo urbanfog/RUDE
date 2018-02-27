@@ -1,0 +1,5293 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>
+  Class: Dir
+  
+    &mdash; Documentation by YARD 0.9.12
+  
+</title>
+
+  <link rel="stylesheet" href="css/style.css" type="text/css" charset="utf-8" />
+
+  <link rel="stylesheet" href="css/common.css" type="text/css" charset="utf-8" />
+
+<script type="text/javascript" charset="utf-8">
+  pathId = "Dir";
+  relpath = '';
+</script>
+
+
+  <script type="text/javascript" charset="utf-8" src="js/jquery.js"></script>
+
+  <script type="text/javascript" charset="utf-8" src="js/app.js"></script>
+
+
+  </head>
+  <body>
+    <div class="nav_wrap">
+      <iframe id="nav" src="class_list.html?1"></iframe>
+      <div id="resizer"></div>
+    </div>
+
+    <div id="main" tabindex="-1">
+      <div id="header">
+        <div id="menu">
+  
+    <a href="_index.html">Index (D)</a> &raquo;
+    
+    
+    <span class="title">Dir</span>
+  
+</div>
+
+        <div id="search">
+  
+    <a class="full_list_link" id="class_list_link"
+        href="class_list.html">
+
+        <svg width="24" height="24">
+          <rect x="0" y="4" width="24" height="4" rx="1" ry="1"></rect>
+          <rect x="0" y="12" width="24" height="4" rx="1" ry="1"></rect>
+          <rect x="0" y="20" width="24" height="4" rx="1" ry="1"></rect>
+        </svg>
+    </a>
+  
+</div>
+        <div class="clear"></div>
+      </div>
+
+      <div id="content"><h1>Class: Dir
+  
+  
+  
+</h1>
+<div class="box_info">
+  
+  <dl>
+    <dt>Inherits:</dt>
+    <dd>
+      <span class="inheritName"><span class='object_link'><a href="Object.html" title="Object (class)">Object</a></span></span>
+      
+        <ul class="fullTree">
+          <li><span class='object_link'><a href="Object.html" title="Object (class)">Object</a></span></li>
+          
+            <li class="next">Dir</li>
+          
+        </ul>
+        <a href="#" class="inheritanceTree">show all</a>
+      
+    </dd>
+  </dl>
+  
+
+  
+  
+  
+  
+  <dl>
+      <dt>Includes:</dt>
+      <dd><span class='object_link'><a href="Enumerable.html" title="Enumerable (module)">Enumerable</a></span></dd>
+  </dl>
+  
+  
+
+  
+
+  
+  <dl>
+    <dt>Defined in:</dt>
+    <dd>dir.c</dd>
+  </dl>
+  
+</div>
+
+<h2>Overview</h2><div class="docstring">
+  <div class="discussion">
+    
+<p>Objects of class <code>Dir</code> are directory streams representing
+directories in the underlying file system. They provide a variety of ways
+to list directories and their contents. See also <code>File</code>.</p>
+
+<p>The directory used in these examples contains the two regular files
+(<code>config.h</code> and <code>main.rb</code>), the parent directory
+(<code>..</code>), and the directory itself (<code>.</code>).</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div>
+
+
+
+
+
+
+  
+    <h2>
+      Class Method Summary
+      <small><a href="#" class="summary_toggle">collapse</a></small>
+    </h2>
+
+    <ul class="summary">
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#[]-class_method" title="[] (class method)">.<strong>[]</strong>(string[, string ...))  &#x21d2; Array </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Equivalent to calling <code>Dir.glob([string,...], 0)</code>.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#chdir-class_method" title="chdir (class method)">.<strong>chdir</strong>(*args)  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Changes the current working directory of the process to the given string.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#children-class_method" title="children (class method)">.<strong>children</strong>(*args)  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Returns an array containing all of the filenames except for “.” and “..” in
+the given directory.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#chroot-class_method" title="chroot (class method)">.<strong>chroot</strong>(string)  &#x21d2; 0 </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Changes this process&#39;s idea of the file system root.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#delete-class_method" title="delete (class method)">.<strong>delete</strong>(dir)  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Deletes the named directory.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#each_child-class_method" title="each_child (class method)">.<strong>each_child</strong>(*args)  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Calls the block once for each entry except for “.” and “..” in the named
+directory, passing the filename of each entry as a parameter to the block.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#empty%3F-class_method" title="empty? (class method)">.<strong>empty?</strong>(path_name)  &#x21d2; Boolean </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Returns <code>true</code> if the named file is an empty directory,
+<code>false</code> if it is not a directory or non-empty.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#entries-class_method" title="entries (class method)">.<strong>entries</strong>(*args)  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Returns an array containing all of the filenames in the given directory.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#exist%3F-class_method" title="exist? (class method)">.<strong>exist?</strong>(file_name)  &#x21d2; Boolean </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Returns <code>true</code> if the named file is a directory,
+<code>false</code> otherwise.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#exists%3F-class_method" title="exists? (class method)">.<strong>exists?</strong>(file_name)  &#x21d2; Boolean </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Deprecated method.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#foreach-class_method" title="foreach (class method)">.<strong>foreach</strong>(*args)  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Calls the block once for each entry in the named directory, passing the
+filename of each entry as a parameter to the block.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#getwd-class_method" title="getwd (class method)">.<strong>getwd</strong>  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Returns the path to the current working directory of this process as a
+string.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#glob-class_method" title="glob (class method)">.<strong>glob</strong>(*args)  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Expands <code>pattern</code>, which is a pattern string or an Array of
+pattern strings, and returns an array containing the matching filenames.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#home-class_method" title="home (class method)">.<strong>home</strong>(*args)  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Returns the home directory of the current user or the named user if given.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#mkdir-class_method" title="mkdir (class method)">.<strong>mkdir</strong>(string[, integer])  &#x21d2; 0 </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Makes a new directory named by <em>string</em>, with permissions specified
+by the optional parameter <em>anInteger</em>.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#open-class_method" title="open (class method)">.<strong>open</strong>(*args)  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>The optional <em>encoding</em> keyword argument specifies the encoding of
+the directory.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#pwd-class_method" title="pwd (class method)">.<strong>pwd</strong>  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Returns the path to the current working directory of this process as a
+string.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#rmdir-class_method" title="rmdir (class method)">.<strong>rmdir</strong>(dir)  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Deletes the named directory.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#unlink-class_method" title="unlink (class method)">.<strong>unlink</strong>(dir)  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Deletes the named directory.</p>
+</div></span>
+  
+</li>
+
+      
+    </ul>
+  
+    <h2>
+      Instance Method Summary
+      <small><a href="#" class="summary_toggle">collapse</a></small>
+    </h2>
+
+    <ul class="summary">
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#children-instance_method" title="#children (instance method)">#<strong>children</strong>  &#x21d2; Array </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Returns an array containing all of the filenames except for “.” and “..” in
+this directory.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#close-instance_method" title="#close (instance method)">#<strong>close</strong>  &#x21d2; nil </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Closes the directory stream.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#each-instance_method" title="#each (instance method)">#<strong>each</strong>  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Calls the block once for each entry in this directory, passing the filename
+of each entry as a parameter to the block.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#each_child-instance_method" title="#each_child (instance method)">#<strong>each_child</strong>  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Calls the block once for each entry except for “.” and “..” in this
+directory, passing the filename of each entry as a parameter to the block.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#fileno-instance_method" title="#fileno (instance method)">#<strong>fileno</strong>  &#x21d2; Integer </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Returns the file descriptor used in <em>dir</em>.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#initialize-instance_method" title="#initialize (instance method)">#<strong>initialize</strong>(*args)  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+    <span class="note title constructor">constructor</span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Returns a new directory object for the named directory.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#inspect-instance_method" title="#inspect (instance method)">#<strong>inspect</strong>  &#x21d2; String </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Return a string describing this Dir object.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#path-instance_method" title="#path (instance method)">#<strong>path</strong>  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Returns the path parameter passed to <em>dir</em>&#39;s constructor.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#pos-instance_method" title="#pos (instance method)">#<strong>pos</strong>  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Returns the current position in <em>dir</em>.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#pos=-instance_method" title="#pos= (instance method)">#<strong>pos=</strong>(integer)  &#x21d2; Integer </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Synonym for <code>Dir#seek</code>, but returns the position parameter.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#read-instance_method" title="#read (instance method)">#<strong>read</strong>  &#x21d2; String<sup>?</sup> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Reads the next entry from <em>dir</em> and returns it as a string.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#rewind-instance_method" title="#rewind (instance method)">#<strong>rewind</strong>  &#x21d2; Dir </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Repositions <em>dir</em> to the first entry.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#seek-instance_method" title="#seek (instance method)">#<strong>seek</strong>(integer)  &#x21d2; Dir </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Seeks to a particular location in <em>dir</em>.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#tell-instance_method" title="#tell (instance method)">#<strong>tell</strong>  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Returns the current position in <em>dir</em>.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#to_path-instance_method" title="#to_path (instance method)">#<strong>to_path</strong>  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Returns the path parameter passed to <em>dir</em>&#39;s constructor.</p>
+</div></span>
+  
+</li>
+
+      
+    </ul>
+  
+
+
+  
+  
+  
+  
+  
+  
+  
+  
+  <h3 class="inherited">Methods included from <span class='object_link'><a href="Enumerable.html" title="Enumerable (module)">Enumerable</a></span></h3>
+  <p class="inherited"><span class='object_link'><a href="Enumerable.html#all%3F-instance_method" title="Enumerable#all? (method)">#all?</a></span>, <span class='object_link'><a href="Enumerable.html#any%3F-instance_method" title="Enumerable#any? (method)">#any?</a></span>, <span class='object_link'><a href="Enumerable.html#chunk-instance_method" title="Enumerable#chunk (method)">#chunk</a></span>, <span class='object_link'><a href="Enumerable.html#chunk_while-instance_method" title="Enumerable#chunk_while (method)">#chunk_while</a></span>, <span class='object_link'><a href="Enumerable.html#collect-instance_method" title="Enumerable#collect (method)">#collect</a></span>, <span class='object_link'><a href="Enumerable.html#collect_concat-instance_method" title="Enumerable#collect_concat (method)">#collect_concat</a></span>, <span class='object_link'><a href="Enumerable.html#count-instance_method" title="Enumerable#count (method)">#count</a></span>, <span class='object_link'><a href="Enumerable.html#cycle-instance_method" title="Enumerable#cycle (method)">#cycle</a></span>, <span class='object_link'><a href="Enumerable.html#detect-instance_method" title="Enumerable#detect (method)">#detect</a></span>, <span class='object_link'><a href="Enumerable.html#drop-instance_method" title="Enumerable#drop (method)">#drop</a></span>, <span class='object_link'><a href="Enumerable.html#drop_while-instance_method" title="Enumerable#drop_while (method)">#drop_while</a></span>, <span class='object_link'><a href="Enumerable.html#each_cons-instance_method" title="Enumerable#each_cons (method)">#each_cons</a></span>, <span class='object_link'><a href="Enumerable.html#each_entry-instance_method" title="Enumerable#each_entry (method)">#each_entry</a></span>, <span class='object_link'><a href="Enumerable.html#each_slice-instance_method" title="Enumerable#each_slice (method)">#each_slice</a></span>, <span class='object_link'><a href="Enumerable.html#each_with_index-instance_method" title="Enumerable#each_with_index (method)">#each_with_index</a></span>, <span class='object_link'><a href="Enumerable.html#each_with_object-instance_method" title="Enumerable#each_with_object (method)">#each_with_object</a></span>, <span class='object_link'><a href="Enumerable.html#entries-instance_method" title="Enumerable#entries (method)">#entries</a></span>, <span class='object_link'><a href="Enumerable.html#filter-instance_method" title="Enumerable#filter (method)">#filter</a></span>, <span class='object_link'><a href="Enumerable.html#find-instance_method" title="Enumerable#find (method)">#find</a></span>, <span class='object_link'><a href="Enumerable.html#find_all-instance_method" title="Enumerable#find_all (method)">#find_all</a></span>, <span class='object_link'><a href="Enumerable.html#find_index-instance_method" title="Enumerable#find_index (method)">#find_index</a></span>, <span class='object_link'><a href="Enumerable.html#first-instance_method" title="Enumerable#first (method)">#first</a></span>, <span class='object_link'><a href="Enumerable.html#flat_map-instance_method" title="Enumerable#flat_map (method)">#flat_map</a></span>, <span class='object_link'><a href="Enumerable.html#grep-instance_method" title="Enumerable#grep (method)">#grep</a></span>, <span class='object_link'><a href="Enumerable.html#grep_v-instance_method" title="Enumerable#grep_v (method)">#grep_v</a></span>, <span class='object_link'><a href="Enumerable.html#group_by-instance_method" title="Enumerable#group_by (method)">#group_by</a></span>, <span class='object_link'><a href="Enumerable.html#include%3F-instance_method" title="Enumerable#include? (method)">#include?</a></span>, <span class='object_link'><a href="Enumerable.html#inject-instance_method" title="Enumerable#inject (method)">#inject</a></span>, <span class='object_link'><a href="Enumerable.html#lazy-instance_method" title="Enumerable#lazy (method)">#lazy</a></span>, <span class='object_link'><a href="Enumerable.html#map-instance_method" title="Enumerable#map (method)">#map</a></span>, <span class='object_link'><a href="Enumerable.html#max-instance_method" title="Enumerable#max (method)">#max</a></span>, <span class='object_link'><a href="Enumerable.html#max_by-instance_method" title="Enumerable#max_by (method)">#max_by</a></span>, <span class='object_link'><a href="Enumerable.html#member%3F-instance_method" title="Enumerable#member? (method)">#member?</a></span>, <span class='object_link'><a href="Enumerable.html#min-instance_method" title="Enumerable#min (method)">#min</a></span>, <span class='object_link'><a href="Enumerable.html#min_by-instance_method" title="Enumerable#min_by (method)">#min_by</a></span>, <span class='object_link'><a href="Enumerable.html#minmax-instance_method" title="Enumerable#minmax (method)">#minmax</a></span>, <span class='object_link'><a href="Enumerable.html#minmax_by-instance_method" title="Enumerable#minmax_by (method)">#minmax_by</a></span>, <span class='object_link'><a href="Enumerable.html#none%3F-instance_method" title="Enumerable#none? (method)">#none?</a></span>, <span class='object_link'><a href="Enumerable.html#one%3F-instance_method" title="Enumerable#one? (method)">#one?</a></span>, <span class='object_link'><a href="Enumerable.html#partition-instance_method" title="Enumerable#partition (method)">#partition</a></span>, <span class='object_link'><a href="Enumerable.html#reduce-instance_method" title="Enumerable#reduce (method)">#reduce</a></span>, <span class='object_link'><a href="Enumerable.html#reject-instance_method" title="Enumerable#reject (method)">#reject</a></span>, <span class='object_link'><a href="Enumerable.html#reverse_each-instance_method" title="Enumerable#reverse_each (method)">#reverse_each</a></span>, <span class='object_link'><a href="Enumerable.html#select-instance_method" title="Enumerable#select (method)">#select</a></span>, <span class='object_link'><a href="Enumerable.html#slice_after-instance_method" title="Enumerable#slice_after (method)">#slice_after</a></span>, <span class='object_link'><a href="Enumerable.html#slice_before-instance_method" title="Enumerable#slice_before (method)">#slice_before</a></span>, <span class='object_link'><a href="Enumerable.html#slice_when-instance_method" title="Enumerable#slice_when (method)">#slice_when</a></span>, <span class='object_link'><a href="Enumerable.html#sort-instance_method" title="Enumerable#sort (method)">#sort</a></span>, <span class='object_link'><a href="Enumerable.html#sort_by-instance_method" title="Enumerable#sort_by (method)">#sort_by</a></span>, <span class='object_link'><a href="Enumerable.html#sum-instance_method" title="Enumerable#sum (method)">#sum</a></span>, <span class='object_link'><a href="Enumerable.html#take-instance_method" title="Enumerable#take (method)">#take</a></span>, <span class='object_link'><a href="Enumerable.html#take_while-instance_method" title="Enumerable#take_while (method)">#take_while</a></span>, <span class='object_link'><a href="Enumerable.html#to_a-instance_method" title="Enumerable#to_a (method)">#to_a</a></span>, <span class='object_link'><a href="Enumerable.html#to_h-instance_method" title="Enumerable#to_h (method)">#to_h</a></span>, <span class='object_link'><a href="Enumerable.html#uniq-instance_method" title="Enumerable#uniq (method)">#uniq</a></span>, <span class='object_link'><a href="Enumerable.html#zip-instance_method" title="Enumerable#zip (method)">#zip</a></span></p>
+<div id="constructor_details" class="method_details_list">
+  <h2>Constructor Details</h2>
+  
+    <div class="method_details first">
+  <h3 class="signature first" id="initialize-instance_method">
+  
+    
+      <span class="overload">#<strong>new</strong>(string)  &#x21d2; <tt><span class='object_link'><a href="" title="Dir (class)">Dir</a></span></tt> </span>
+    
+      <span class="overload">#<strong>new</strong>(string, encoding: enc)  &#x21d2; <tt><span class='object_link'><a href="" title="Dir (class)">Dir</a></span></tt> </span>
+    
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Returns a new directory object for the named directory.</p>
+
+<p>The optional <em>encoding</em> keyword argument specifies the encoding of
+the directory. If not specified, the filesystem encoding is used.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+  <p class="tag_title">Overloads:</p>
+  <ul class="overload">
+    
+      
+      <li class="overload_item">
+        <span class="signature">#<strong>new</strong>(string)  &#x21d2; <tt><span class='object_link'><a href="" title="Dir (class)">Dir</a></span></tt> </span>
+        <div class="docstring">
+  <div class="discussion">
+    
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div>
+      </li>
+    
+      
+      <li class="overload_item">
+        <span class="signature">#<strong>new</strong>(string, encoding: enc)  &#x21d2; <tt><span class='object_link'><a href="" title="Dir (class)">Dir</a></span></tt> </span>
+        <div class="docstring">
+  <div class="discussion">
+    
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div>
+      </li>
+    
+  </ul>
+
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+529
+530
+531
+532
+533
+534
+535
+536
+537
+538
+539
+540
+541
+542
+543
+544
+545
+546
+547
+548
+549
+550
+551
+552
+553
+554
+555
+556
+557
+558
+559
+560
+561
+562
+563
+564
+565
+566
+567
+568
+569
+570
+571
+572
+573
+574
+575
+576
+577
+578
+579
+580
+581
+582
+583
+584
+585
+586
+587
+588</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'dir.c', line 529</span>
+
+static VALUE
+dir_initialize(int argc, VALUE *argv, VALUE dir)
+{
+    struct dir_data *dp;
+    rb_encoding  *fsenc;
+    VALUE dirname, opt, orig;
+    static ID keyword_ids[1];
+    const char *path;
+
+    if (!keyword_ids[0]) {
+	keyword_ids[0] = rb_id_encoding();
+    }
+
+    fsenc = rb_filesystem_encoding();
+
+    rb_scan_args(argc, argv, &quot;1:&quot;, &amp;dirname, &amp;opt);
+
+    if (!NIL_P(opt)) {
+	VALUE enc;
+	rb_get_kwargs(opt, keyword_ids, 0, 1, &amp;enc);
+	if (enc != Qundef &amp;&amp; !NIL_P(enc)) {
+	    fsenc = rb_to_encoding(enc);
+	}
+    }
+
+    GlobPathValue(dirname, FALSE);
+    orig = rb_str_dup_frozen(dirname);
+    dirname = rb_str_encode_ospath(dirname);
+    dirname = rb_str_dup_frozen(dirname);
+
+    TypedData_Get_Struct(dir, struct dir_data, &amp;dir_data_type, dp);
+    if (dp-&gt;dir) closedir(dp-&gt;dir);
+    dp-&gt;dir = NULL;
+    RB_OBJ_WRITE(dir, &amp;dp-&gt;path, Qnil);
+    dp-&gt;enc = fsenc;
+    path = RSTRING_PTR(dirname);
+    dp-&gt;dir = opendir_without_gvl(path);
+    if (dp-&gt;dir == NULL) {
+	int e = errno;
+	if (rb_gc_for_fd(e)) {
+	    dp-&gt;dir = opendir_without_gvl(path);
+	}
+#ifdef HAVE_GETATTRLIST
+	else if (e == EIO) {
+	    u_int32_t attrbuf[1];
+	    struct attrlist al = {ATTR_BIT_MAP_COUNT, 0};
+	    if (getattrlist(path, &amp;al, attrbuf, sizeof(attrbuf), FSOPT_NOFOLLOW) == 0) {
+		dp-&gt;dir = opendir_without_gvl(path);
+	    }
+	}
+#endif
+	if (dp-&gt;dir == NULL) {
+	    RB_GC_GUARD(dirname);
+	    rb_syserr_fail_path(e, orig);
+	}
+    }
+    RB_OBJ_WRITE(dir, &amp;dp-&gt;path, orig);
+
+    return dir;
+}</pre>
+    </td>
+  </tr>
+</table>
+</div>
+  
+</div>
+
+
+  <div id="class_method_details" class="method_details_list">
+    <h2>Class Method Details</h2>
+
+    
+      <div class="method_details first">
+  <h3 class="signature first" id="[]-class_method">
+  
+    .<strong>[]</strong>(string[, string ...))  &#x21d2; <tt><span class='object_link'><a href="Array.html" title="Array (class)">Array</a></span></tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Equivalent to calling <code>Dir.glob([string,...], 0)</code>.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+  <div class="docstring">
+  <div class="discussion">
+    
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="Array.html" title="Array (class)">Array</a></span></tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div>
+
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+2620
+2621
+2622
+2623
+2624
+2625
+2626
+2627
+2628
+2629
+2630</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'dir.c', line 2620</span>
+
+static VALUE
+dir_s_aref(int argc, VALUE *argv, VALUE obj)
+{
+    VALUE opts, base;
+    argc = rb_scan_args(argc, argv, &quot;*:&quot;, NULL, &amp;opts);
+    dir_glob_options(opts, &amp;base, NULL);
+    if (argc == 1) {
+	return rb_push_glob(argv[0], base, 0);
+    }
+    return dir_globs(argc, argv, base, 0);
+}</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="chdir-class_method">
+  
+    
+      <span class="overload">.<strong>chdir</strong>([ string])  &#x21d2; <tt>0</tt> </span>
+    
+      <span class="overload">.<strong>chdir</strong>([ string]) {|path| ... } &#x21d2; <tt><span class='object_link'><a href="Object.html" title="Object (class)">Object</a></span></tt> </span>
+    
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Changes the current working directory of the process to the given string.
+When called without an argument, changes the directory to the value of the
+environment variable <code>HOME</code>, or <code>LOGDIR</code>.
+<code>SystemCallError</code> (probably <code>Errno::ENOENT</code>) if the
+target directory does not exist.</p>
+
+<p>If a block is given, it is passed the name of the new current directory,
+and the block is executed with that as the current directory. The original
+working directory is restored when the block exits. The return value of
+<code>chdir</code> is the value of the block. <code>chdir</code> blocks can
+be nested, but in a multi-threaded program an error will be raised if a
+thread attempts to open a <code>chdir</code> block while another thread has
+one open.</p>
+
+<pre class="code"><code class=""><span class='const'><span class='object_link'><a href="" title="Dir (class)">Dir</a></span></span><span class='period'>.</span><span class='id identifier rubyid_chdir'>chdir</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>/var/spool/mail</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
+<span class='id identifier rubyid_puts'>puts</span> <span class='const'><span class='object_link'><a href="" title="Dir (class)">Dir</a></span></span><span class='period'>.</span><span class='id identifier rubyid_pwd'><span class='object_link'><a href="#pwd-class_method" title="Dir.pwd (method)">pwd</a></span></span>
+<span class='const'><span class='object_link'><a href="" title="Dir (class)">Dir</a></span></span><span class='period'>.</span><span class='id identifier rubyid_chdir'>chdir</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>/tmp</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span> <span class='kw'>do</span>
+  <span class='id identifier rubyid_puts'>puts</span> <span class='const'><span class='object_link'><a href="" title="Dir (class)">Dir</a></span></span><span class='period'>.</span><span class='id identifier rubyid_pwd'><span class='object_link'><a href="#pwd-class_method" title="Dir.pwd (method)">pwd</a></span></span>
+  <span class='const'><span class='object_link'><a href="" title="Dir (class)">Dir</a></span></span><span class='period'>.</span><span class='id identifier rubyid_chdir'>chdir</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>/usr</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span> <span class='kw'>do</span>
+    <span class='id identifier rubyid_puts'>puts</span> <span class='const'><span class='object_link'><a href="" title="Dir (class)">Dir</a></span></span><span class='period'>.</span><span class='id identifier rubyid_pwd'><span class='object_link'><a href="#pwd-class_method" title="Dir.pwd (method)">pwd</a></span></span>
+  <span class='kw'>end</span>
+  <span class='id identifier rubyid_puts'>puts</span> <span class='const'><span class='object_link'><a href="" title="Dir (class)">Dir</a></span></span><span class='period'>.</span><span class='id identifier rubyid_pwd'><span class='object_link'><a href="#pwd-class_method" title="Dir.pwd (method)">pwd</a></span></span>
+<span class='kw'>end</span>
+<span class='id identifier rubyid_puts'>puts</span> <span class='const'><span class='object_link'><a href="" title="Dir (class)">Dir</a></span></span><span class='period'>.</span><span class='id identifier rubyid_pwd'><span class='object_link'><a href="#pwd-class_method" title="Dir.pwd (method)">pwd</a></span></span>
+</code></pre>
+
+<p><em>produces:</em></p>
+
+<pre class="code"><code class="">/var/spool/mail
+/tmp
+/usr
+/tmp
+/var/spool/mail</code></pre>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+  <p class="tag_title">Overloads:</p>
+  <ul class="overload">
+    
+      
+      <li class="overload_item">
+        <span class="signature">.<strong>chdir</strong>([ string])  &#x21d2; <tt>0</tt> </span>
+        <div class="docstring">
+  <div class="discussion">
+    
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>0</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div>
+      </li>
+    
+      
+      <li class="overload_item">
+        <span class="signature">.<strong>chdir</strong>([ string]) {|path| ... } &#x21d2; <tt><span class='object_link'><a href="Object.html" title="Object (class)">Object</a></span></tt> </span>
+        <div class="docstring">
+  <div class="discussion">
+    
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Yields:</p>
+<ul class="yield">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="#path-instance_method" title="Dir#path (method)">path</a></span></tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="Object.html" title="Object (class)">Object</a></span></tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div>
+      </li>
+    
+  </ul>
+
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+1083
+1084
+1085
+1086
+1087
+1088
+1089
+1090
+1091
+1092
+1093
+1094
+1095
+1096
+1097
+1098
+1099
+1100
+1101
+1102
+1103
+1104
+1105
+1106
+1107
+1108
+1109
+1110
+1111
+1112
+1113
+1114
+1115
+1116
+1117
+1118
+1119
+1120
+1121
+1122
+1123</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'dir.c', line 1083</span>
+
+static VALUE
+dir_s_chdir(int argc, VALUE *argv, VALUE obj)
+{
+    VALUE path = Qnil;
+
+    if (rb_scan_args(argc, argv, &quot;01&quot;, &amp;path) == 1) {
+	FilePathValue(path);
+	path = rb_str_encode_ospath(path);
+    }
+    else {
+	const char *dist = getenv(&quot;HOME&quot;);
+	if (!dist) {
+	    dist = getenv(&quot;LOGDIR&quot;);
+	    if (!dist) rb_raise(rb_eArgError, &quot;HOME/LOGDIR not set&quot;);
+	}
+	path = rb_str_new2(dist);
+    }
+
+    if (chdir_blocking &gt; 0) {
+	if (!rb_block_given_p() || rb_thread_current() != chdir_thread)
+	    rb_warn(&quot;conflicting chdir during another chdir block&quot;);
+    }
+
+    if (rb_block_given_p()) {
+	struct chdir_data args;
+
+	args.old_path = rb_str_encode_ospath(rb_dir_getwd());
+	args.new_path = path;
+	args.done = FALSE;
+	return rb_ensure(chdir_yield, (VALUE)&amp;args, chdir_restore, (VALUE)&amp;args);
+    }
+    else {
+	char *p = RSTRING_PTR(path);
+	int r = (int)(VALUE)rb_thread_call_without_gvl(nogvl_chdir, p,
+							RUBY_UBF_IO, 0);
+	if (r &lt; 0)
+	    rb_sys_fail_path(path);
+    }
+
+    return INT2FIX(0);
+}</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="children-class_method">
+  
+    
+      <span class="overload">.<strong>children</strong>(dirname)  &#x21d2; <tt><span class='object_link'><a href="Array.html" title="Array (class)">Array</a></span></tt> </span>
+    
+      <span class="overload">.<strong>children</strong>(dirname, encoding: enc)  &#x21d2; <tt><span class='object_link'><a href="Array.html" title="Array (class)">Array</a></span></tt> </span>
+    
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Returns an array containing all of the filenames except for “.” and “..” in
+the given directory. Will raise a <code>SystemCallError</code> if the named
+directory doesn&#39;t exist.</p>
+
+<p>The optional <em>encoding</em> keyword argument specifies the encoding of
+the directory. If not specified, the filesystem encoding is used.</p>
+
+<pre class="code"><code class=""><span class='const'><span class='object_link'><a href="" title="Dir (class)">Dir</a></span></span><span class='period'>.</span><span class='id identifier rubyid_children'>children</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>testdir</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>   <span class='comment'>#=&gt; [&quot;config.h&quot;, &quot;main.rb&quot;]
+</span></code></pre>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+  <p class="tag_title">Overloads:</p>
+  <ul class="overload">
+    
+      
+      <li class="overload_item">
+        <span class="signature">.<strong>children</strong>(dirname)  &#x21d2; <tt><span class='object_link'><a href="Array.html" title="Array (class)">Array</a></span></tt> </span>
+        <div class="docstring">
+  <div class="discussion">
+    
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="Array.html" title="Array (class)">Array</a></span></tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div>
+      </li>
+    
+      
+      <li class="overload_item">
+        <span class="signature">.<strong>children</strong>(dirname, encoding: enc)  &#x21d2; <tt><span class='object_link'><a href="Array.html" title="Array (class)">Array</a></span></tt> </span>
+        <div class="docstring">
+  <div class="discussion">
+    
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="Array.html" title="Array (class)">Array</a></span></tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div>
+      </li>
+    
+  </ul>
+
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+2923
+2924
+2925
+2926
+2927
+2928
+2929
+2930</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'dir.c', line 2923</span>
+
+static VALUE
+dir_s_children(int argc, VALUE *argv, VALUE io)
+{
+    VALUE dir;
+
+    dir = dir_open_dir(argc, argv);
+    return rb_ensure(dir_collect_children, dir, dir_close, dir);
+}</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="chroot-class_method">
+  
+    .<strong>chroot</strong>(string)  &#x21d2; <tt>0</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Changes this process&#39;s idea of the file system root. Only a privileged
+process may make this call. Not available on all platforms. On Unix
+systems, see <code>chroot(2)</code> for more information.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+  <div class="docstring">
+  <div class="discussion">
+    
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>0</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div>
+
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+1219
+1220
+1221
+1222
+1223
+1224
+1225
+1226
+1227</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'dir.c', line 1219</span>
+
+static VALUE
+dir_s_chroot(VALUE dir, VALUE path)
+{
+    path = check_dirname(path);
+    if (chroot(RSTRING_PTR(path)) == -1)
+	rb_sys_fail_path(path);
+
+    return INT2FIX(0);
+}</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="delete-class_method">
+  
+    
+      <span class="overload">.<strong>delete</strong>(string)  &#x21d2; <tt>0</tt> </span>
+    
+      <span class="overload">.<strong>rmdir</strong>(string)  &#x21d2; <tt>0</tt> </span>
+    
+      <span class="overload">.<strong>unlink</strong>(string)  &#x21d2; <tt>0</tt> </span>
+    
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Deletes the named directory. Raises a subclass of
+<code>SystemCallError</code> if the directory isn&#39;t empty.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+  <p class="tag_title">Overloads:</p>
+  <ul class="overload">
+    
+      
+      <li class="overload_item">
+        <span class="signature">.<strong>delete</strong>(string)  &#x21d2; <tt>0</tt> </span>
+        <div class="docstring">
+  <div class="discussion">
+    
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>0</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div>
+      </li>
+    
+      
+      <li class="overload_item">
+        <span class="signature">.<strong>rmdir</strong>(string)  &#x21d2; <tt>0</tt> </span>
+        <div class="docstring">
+  <div class="discussion">
+    
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>0</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div>
+      </li>
+    
+      
+      <li class="overload_item">
+        <span class="signature">.<strong>unlink</strong>(string)  &#x21d2; <tt>0</tt> </span>
+        <div class="docstring">
+  <div class="discussion">
+    
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>0</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div>
+      </li>
+    
+  </ul>
+
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+1300
+1301
+1302
+1303
+1304
+1305
+1306
+1307
+1308
+1309
+1310
+1311
+1312
+1313</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'dir.c', line 1300</span>
+
+static VALUE
+dir_s_rmdir(VALUE obj, VALUE dir)
+{
+    const char *p;
+    int r;
+
+    dir = check_dirname(dir);
+    p = RSTRING_PTR(dir);
+    r = (int)(VALUE)rb_thread_call_without_gvl(nogvl_rmdir, (void *)p, RUBY_UBF_IO, 0);
+    if (r &lt; 0)
+	rb_sys_fail_path(dir);
+
+    return INT2FIX(0);
+}</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="each_child-class_method">
+  
+    
+      <span class="overload">.<strong>each_child</strong>(dirname) {|filename| ... } &#x21d2; <tt>nil</tt> </span>
+    
+      <span class="overload">.<strong>each_child</strong>(dirname, encoding: enc) {|filename| ... } &#x21d2; <tt>nil</tt> </span>
+    
+      <span class="overload">.<strong>each_child</strong>(dirname)  &#x21d2; <tt><span class='object_link'><a href="Object.html" title="Object (class)">Object</a></span></tt> </span>
+    
+      <span class="overload">.<strong>each_child</strong>(dirname, encoding: enc)  &#x21d2; <tt><span class='object_link'><a href="Object.html" title="Object (class)">Object</a></span></tt> </span>
+    
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Calls the block once for each entry except for “.” and “..” in the named
+directory, passing the filename of each entry as a parameter to the block.</p>
+
+<p>If no block is given, an enumerator is returned instead.</p>
+
+<pre class="code"><code class=""><span class='const'><span class='object_link'><a href="" title="Dir (class)">Dir</a></span></span><span class='period'>.</span><span class='id identifier rubyid_each_child'>each_child</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>testdir</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span> <span class='lbrace'>{</span><span class='op'>|</span><span class='id identifier rubyid_x'>x</span><span class='op'>|</span> <span class='id identifier rubyid_puts'>puts</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Got </span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_x'>x</span><span class='embexpr_end'>}</span><span class='tstring_end'>&quot;</span></span> <span class='rbrace'>}</span>
+</code></pre>
+
+<p><em>produces:</em></p>
+
+<pre class="code"><code class=""><span class='const'>Got</span> <span class='id identifier rubyid_config'>config</span><span class='period'>.</span><span class='id identifier rubyid_h'>h</span>
+<span class='const'>Got</span> <span class='id identifier rubyid_main'>main</span><span class='period'>.</span><span class='id identifier rubyid_rb'>rb</span>
+</code></pre>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+  <p class="tag_title">Overloads:</p>
+  <ul class="overload">
+    
+      
+      <li class="overload_item">
+        <span class="signature">.<strong>each_child</strong>(dirname) {|filename| ... } &#x21d2; <tt>nil</tt> </span>
+        <div class="docstring">
+  <div class="discussion">
+    
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Yields:</p>
+<ul class="yield">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>filename</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>nil</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div>
+      </li>
+    
+      
+      <li class="overload_item">
+        <span class="signature">.<strong>each_child</strong>(dirname, encoding: enc) {|filename| ... } &#x21d2; <tt>nil</tt> </span>
+        <div class="docstring">
+  <div class="discussion">
+    
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Yields:</p>
+<ul class="yield">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>filename</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>nil</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div>
+      </li>
+    
+      
+      
+  </ul>
+
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+2851
+2852
+2853
+2854
+2855
+2856
+2857
+2858
+2859
+2860</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'dir.c', line 2851</span>
+
+static VALUE
+dir_s_each_child(int argc, VALUE *argv, VALUE io)
+{
+    VALUE dir;
+
+    RETURN_ENUMERATOR(io, argc, argv);
+    dir = dir_open_dir(argc, argv);
+    rb_ensure(dir_each_child, dir, dir_close, dir);
+    return Qnil;
+}</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="empty?-class_method">
+  
+    .<strong>empty?</strong>(path_name)  &#x21d2; <tt>Boolean</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Returns <code>true</code> if the named file is an empty directory,
+<code>false</code> if it is not a directory or non-empty.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+  <div class="docstring">
+  <div class="discussion">
+    
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Boolean</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div>
+
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Boolean</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+3181
+3182
+3183
+3184
+3185
+3186
+3187
+3188
+3189
+3190
+3191
+3192
+3193
+3194
+3195
+3196
+3197
+3198
+3199
+3200
+3201
+3202
+3203
+3204
+3205
+3206
+3207
+3208
+3209
+3210
+3211
+3212
+3213
+3214
+3215
+3216
+3217
+3218
+3219</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'dir.c', line 3181</span>
+
+static VALUE
+rb_dir_s_empty_p(VALUE obj, VALUE dirname)
+{
+    VALUE result, orig;
+    const char *path;
+    enum {false_on_notdir = 1};
+
+    GlobPathValue(dirname, FALSE);
+    orig = rb_str_dup_frozen(dirname);
+    dirname = rb_str_encode_ospath(dirname);
+    dirname = rb_str_dup_frozen(dirname);
+    path = RSTRING_PTR(dirname);
+
+#if defined HAVE_GETATTRLIST &amp;&amp; defined ATTR_DIR_ENTRYCOUNT
+    {
+	u_int32_t attrbuf[SIZEUP32(fsobj_tag_t)];
+	struct attrlist al = {ATTR_BIT_MAP_COUNT, 0, ATTR_CMN_OBJTAG,};
+	if (getattrlist(path, &amp;al, attrbuf, sizeof(attrbuf), 0) != 0)
+	    rb_sys_fail_path(orig);
+	if (*(const fsobj_tag_t *)(attrbuf+1) == VT_HFS) {
+	    al.commonattr = 0;
+	    al.dirattr = ATTR_DIR_ENTRYCOUNT;
+	    if (getattrlist(path, &amp;al, attrbuf, sizeof(attrbuf), 0) == 0) {
+		if (attrbuf[0] &gt;= 2 * sizeof(u_int32_t))
+		    return attrbuf[1] ? Qfalse : Qtrue;
+		if (false_on_notdir) return Qfalse;
+	    }
+	    rb_sys_fail_path(orig);
+	}
+    }
+#endif
+
+    result = (VALUE)rb_thread_call_without_gvl(nogvl_dir_empty_p, (void *)path,
+					    RUBY_UBF_IO, 0);
+    if (result == Qundef) {
+	rb_sys_fail_path(orig);
+    }
+    return result;
+}</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="entries-class_method">
+  
+    
+      <span class="overload">.<strong>entries</strong>(dirname)  &#x21d2; <tt><span class='object_link'><a href="Array.html" title="Array (class)">Array</a></span></tt> </span>
+    
+      <span class="overload">.<strong>entries</strong>(dirname, encoding: enc)  &#x21d2; <tt><span class='object_link'><a href="Array.html" title="Array (class)">Array</a></span></tt> </span>
+    
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Returns an array containing all of the filenames in the given directory.
+Will raise a <code>SystemCallError</code> if the named directory
+doesn&#39;t exist.</p>
+
+<p>The optional <em>encoding</em> keyword argument specifies the encoding of
+the directory. If not specified, the filesystem encoding is used.</p>
+
+<pre class="code"><code class=""><span class='const'><span class='object_link'><a href="" title="Dir (class)">Dir</a></span></span><span class='period'>.</span><span class='id identifier rubyid_entries'>entries</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>testdir</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>   <span class='comment'>#=&gt; [&quot;.&quot;, &quot;..&quot;, &quot;config.h&quot;, &quot;main.rb&quot;]
+</span></code></pre>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+  <p class="tag_title">Overloads:</p>
+  <ul class="overload">
+    
+      
+      <li class="overload_item">
+        <span class="signature">.<strong>entries</strong>(dirname)  &#x21d2; <tt><span class='object_link'><a href="Array.html" title="Array (class)">Array</a></span></tt> </span>
+        <div class="docstring">
+  <div class="discussion">
+    
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="Array.html" title="Array (class)">Array</a></span></tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div>
+      </li>
+    
+      
+      <li class="overload_item">
+        <span class="signature">.<strong>entries</strong>(dirname, encoding: enc)  &#x21d2; <tt><span class='object_link'><a href="Array.html" title="Array (class)">Array</a></span></tt> </span>
+        <div class="docstring">
+  <div class="discussion">
+    
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="Array.html" title="Array (class)">Array</a></span></tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div>
+      </li>
+    
+  </ul>
+
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+2815
+2816
+2817
+2818
+2819
+2820
+2821
+2822</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'dir.c', line 2815</span>
+
+static VALUE
+dir_entries(int argc, VALUE *argv, VALUE io)
+{
+    VALUE dir;
+
+    dir = dir_open_dir(argc, argv);
+    return rb_ensure(dir_collect, dir, dir_close, dir);
+}</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="exist?-class_method">
+  
+    .<strong>exist?</strong>(file_name)  &#x21d2; <tt>Boolean</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Returns <code>true</code> if the named file is a directory,
+<code>false</code> otherwise.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+  <div class="docstring">
+  <div class="discussion">
+    
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Boolean</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div>
+
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Boolean</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+3123
+3124
+3125
+3126</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'dir.c', line 3123</span>
+
+<span class='const'>VALUE</span>
+<span class='id identifier rubyid_rb_file_directory_p'>rb_file_directory_p</span><span class='lparen'>(</span><span class='id identifier rubyid_void'>void</span><span class='rparen'>)</span>
+<span class='lbrace'>{</span>
+<span class='rbrace'>}</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="exists?-class_method">
+  
+    .<strong>exists?</strong>(file_name)  &#x21d2; <tt>Boolean</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Deprecated method. Don&#39;t use.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+  <div class="docstring">
+  <div class="discussion">
+    
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Boolean</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div>
+
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Boolean</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+3135
+3136
+3137
+3138
+3139
+3140</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'dir.c', line 3135</span>
+
+static VALUE
+rb_dir_exists_p(VALUE obj, VALUE fname)
+{
+    rb_warning(&quot;Dir.exists? is a deprecated name, use Dir.exist? instead&quot;);
+    return rb_file_directory_p(obj, fname);
+}</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="foreach-class_method">
+  
+    
+      <span class="overload">.<strong>foreach</strong>(dirname) {|filename| ... } &#x21d2; <tt>nil</tt> </span>
+    
+      <span class="overload">.<strong>foreach</strong>(dirname, encoding: enc) {|filename| ... } &#x21d2; <tt>nil</tt> </span>
+    
+      <span class="overload">.<strong>foreach</strong>(dirname)  &#x21d2; <tt><span class='object_link'><a href="Object.html" title="Object (class)">Object</a></span></tt> </span>
+    
+      <span class="overload">.<strong>foreach</strong>(dirname, encoding: enc)  &#x21d2; <tt><span class='object_link'><a href="Object.html" title="Object (class)">Object</a></span></tt> </span>
+    
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Calls the block once for each entry in the named directory, passing the
+filename of each entry as a parameter to the block.</p>
+
+<p>If no block is given, an enumerator is returned instead.</p>
+
+<pre class="code"><code class=""><span class='const'><span class='object_link'><a href="" title="Dir (class)">Dir</a></span></span><span class='period'>.</span><span class='id identifier rubyid_foreach'>foreach</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>testdir</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span> <span class='lbrace'>{</span><span class='op'>|</span><span class='id identifier rubyid_x'>x</span><span class='op'>|</span> <span class='id identifier rubyid_puts'>puts</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Got </span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_x'>x</span><span class='embexpr_end'>}</span><span class='tstring_end'>&quot;</span></span> <span class='rbrace'>}</span>
+</code></pre>
+
+<p><em>produces:</em></p>
+
+<pre class="code"><code class="">Got .
+Got ..
+Got config.h
+Got main.rb</code></pre>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+  <p class="tag_title">Overloads:</p>
+  <ul class="overload">
+    
+      
+      <li class="overload_item">
+        <span class="signature">.<strong>foreach</strong>(dirname) {|filename| ... } &#x21d2; <tt>nil</tt> </span>
+        <div class="docstring">
+  <div class="discussion">
+    
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Yields:</p>
+<ul class="yield">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>filename</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>nil</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div>
+      </li>
+    
+      
+      <li class="overload_item">
+        <span class="signature">.<strong>foreach</strong>(dirname, encoding: enc) {|filename| ... } &#x21d2; <tt>nil</tt> </span>
+        <div class="docstring">
+  <div class="discussion">
+    
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Yields:</p>
+<ul class="yield">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>filename</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>nil</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div>
+      </li>
+    
+      
+      
+  </ul>
+
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+2781
+2782
+2783
+2784
+2785
+2786
+2787
+2788
+2789
+2790</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'dir.c', line 2781</span>
+
+static VALUE
+dir_foreach(int argc, VALUE *argv, VALUE io)
+{
+    VALUE dir;
+
+    RETURN_ENUMERATOR(io, argc, argv);
+    dir = dir_open_dir(argc, argv);
+    rb_ensure(dir_each, dir, dir_close, dir);
+    return Qnil;
+}</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="getwd-class_method">
+  
+    
+      <span class="overload">.<strong>getwd</strong>  &#x21d2; <tt><span class='object_link'><a href="String.html" title="String (class)">String</a></span></tt> </span>
+    
+      <span class="overload">.<strong>pwd</strong>  &#x21d2; <tt><span class='object_link'><a href="String.html" title="String (class)">String</a></span></tt> </span>
+    
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Returns the path to the current working directory of this process as a
+string.</p>
+
+<pre class="code"><code class=""><span class='const'><span class='object_link'><a href="" title="Dir (class)">Dir</a></span></span><span class='period'>.</span><span class='id identifier rubyid_chdir'><span class='object_link'><a href="#chdir-class_method" title="Dir.chdir (method)">chdir</a></span></span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>/tmp</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>   <span class='comment'>#=&gt; 0
+</span><span class='const'><span class='object_link'><a href="" title="Dir (class)">Dir</a></span></span><span class='period'>.</span><span class='id identifier rubyid_getwd'>getwd</span>           <span class='comment'>#=&gt; &quot;/tmp&quot;
+</span><span class='const'><span class='object_link'><a href="" title="Dir (class)">Dir</a></span></span><span class='period'>.</span><span class='id identifier rubyid_pwd'><span class='object_link'><a href="#pwd-class_method" title="Dir.pwd (method)">pwd</a></span></span>             <span class='comment'>#=&gt; &quot;/tmp&quot;
+</span></code></pre>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+  <p class="tag_title">Overloads:</p>
+  <ul class="overload">
+    
+      
+      <li class="overload_item">
+        <span class="signature">.<strong>getwd</strong>  &#x21d2; <tt><span class='object_link'><a href="String.html" title="String (class)">String</a></span></tt> </span>
+        <div class="docstring">
+  <div class="discussion">
+    
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="String.html" title="String (class)">String</a></span></tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div>
+      </li>
+    
+      
+      <li class="overload_item">
+        <span class="signature">.<strong>pwd</strong>  &#x21d2; <tt><span class='object_link'><a href="String.html" title="String (class)">String</a></span></tt> </span>
+        <div class="docstring">
+  <div class="discussion">
+    
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="String.html" title="String (class)">String</a></span></tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div>
+      </li>
+    
+  </ul>
+
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+1183
+1184
+1185
+1186
+1187</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'dir.c', line 1183</span>
+
+static VALUE
+dir_s_getwd(VALUE dir)
+{
+    return rb_dir_getwd();
+}</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="glob-class_method">
+  
+    
+      <span class="overload">.<strong>glob</strong>(pattern, [flags], [base: path])  &#x21d2; <tt><span class='object_link'><a href="Array.html" title="Array (class)">Array</a></span></tt> </span>
+    
+      <span class="overload">.<strong>glob</strong>(pattern, [flags], [base: path]) {|filename| ... } &#x21d2; <tt>nil</tt> </span>
+    
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Expands <code>pattern</code>, which is a pattern string or an Array of
+pattern strings, and returns an array containing the matching filenames. If
+a block is given, calls the block once for each matching filename, passing
+the filename as a parameter to the block.</p>
+
+<p>The optional <code>base</code> keyword argument specifies the base
+directory for interpreting relative pathnames instead of the current
+working directory. As the results are not prefixed with the base directory
+name in this case, you will need to prepend the base directory name if you
+want real paths.</p>
+
+<p>Note that the pattern is not a regexp, it&#39;s closer to a shell glob. See
+File::fnmatch for the meaning of the <code>flags</code> parameter. Case
+sensitivity depends on your system (File::FNM_CASEFOLD is ignored), as does
+the order in which the results are returned.</p>
+<dl class="rdoc-list note-list"><dt><code>*</code>
+<dd>
+<p>Matches any file. Can be restricted by other values in the glob. Equivalent
+to <code>/ .* /x</code> in regexp.</p>
+<dl class="rdoc-list note-list"><dt><code>*</code>
+<dd>
+<p>Matches all files</p>
+</dd><dt><code>c*</code>
+<dd>
+<p>Matches all files beginning with <code>c</code></p>
+</dd><dt><code>*c</code>
+<dd>
+<p>Matches all files ending with <code>c</code></p>
+</dd><dt><code>*c*</code>
+<dd>
+<p>Match all files that have <code>c</code> in them (including at the
+beginning or end).</p>
+</dd></dl>
+
+<p>Note, this will not match Unix-like hidden files (dotfiles).  In order to
+include those in the match results, you must use the File::FNM_DOTMATCH
+flag or something like <code>&quot;{*,.*}&quot;</code>.</p>
+</dd><dt><code>**</code>
+<dd>
+<p>Matches directories recursively.</p>
+</dd><dt><code>?</code>
+<dd>
+<p>Matches any one character. Equivalent to <code>/.{1}/</code> in regexp.</p>
+</dd><dt><code>[set]</code>
+<dd>
+<p>Matches any one character in <code>set</code>.  Behaves exactly like
+character sets in Regexp, including set negation (<code>[^a-z]</code>).</p>
+</dd><dt><code>{p,q}</code>
+<dd>
+<p>Matches either literal <code>p</code> or literal <code>q</code>. Equivalent
+to pattern alternation in regexp.</p>
+
+<p>Matching literals may be more than one character in length.  More than two
+literals may be specified.</p>
+</dd><dt><code> \ </code>
+<dd>
+<p>Escapes the next metacharacter.</p>
+
+<p>Note that this means you cannot use backslash on windows as part of a glob,
+i.e.  <code>Dir["c:\foo*"]</code> will not work, use
+<code>Dir["c:/foo*"]</code> instead.</p>
+</dd></dl>
+
+<p>Examples:</p>
+
+<pre class="code"><code class=""><span class='const'><span class='object_link'><a href="" title="Dir (class)">Dir</a></span></span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>config.?</span><span class='tstring_end'>&quot;</span></span><span class='rbracket'>]</span>                     <span class='comment'>#=&gt; [&quot;config.h&quot;]
+</span><span class='const'><span class='object_link'><a href="" title="Dir (class)">Dir</a></span></span><span class='period'>.</span><span class='id identifier rubyid_glob'>glob</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>config.?</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>                <span class='comment'>#=&gt; [&quot;config.h&quot;]
+</span><span class='const'><span class='object_link'><a href="" title="Dir (class)">Dir</a></span></span><span class='period'>.</span><span class='id identifier rubyid_glob'>glob</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>*.[a-z][a-z]</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>            <span class='comment'>#=&gt; [&quot;main.rb&quot;]
+</span><span class='const'><span class='object_link'><a href="" title="Dir (class)">Dir</a></span></span><span class='period'>.</span><span class='id identifier rubyid_glob'>glob</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>*.[^r]*</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>                 <span class='comment'>#=&gt; [&quot;config.h&quot;]
+</span><span class='const'><span class='object_link'><a href="" title="Dir (class)">Dir</a></span></span><span class='period'>.</span><span class='id identifier rubyid_glob'>glob</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>*.{rb,h}</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>                <span class='comment'>#=&gt; [&quot;main.rb&quot;, &quot;config.h&quot;]
+</span><span class='const'><span class='object_link'><a href="" title="Dir (class)">Dir</a></span></span><span class='period'>.</span><span class='id identifier rubyid_glob'>glob</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>*</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>                       <span class='comment'>#=&gt; [&quot;config.h&quot;, &quot;main.rb&quot;]
+</span><span class='const'><span class='object_link'><a href="" title="Dir (class)">Dir</a></span></span><span class='period'>.</span><span class='id identifier rubyid_glob'>glob</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>*</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='const'><span class='object_link'><a href="File.html" title="File (class)">File</a></span></span><span class='op'>::</span><span class='const'>FNM_DOTMATCH</span><span class='rparen'>)</span>   <span class='comment'>#=&gt; [&quot;.&quot;, &quot;..&quot;, &quot;config.h&quot;, &quot;main.rb&quot;]
+</span>
+<span class='id identifier rubyid_rbfiles'>rbfiles</span> <span class='op'>=</span> <span class='const'><span class='object_link'><a href="File.html" title="File (class)">File</a></span></span><span class='period'>.</span><span class='id identifier rubyid_join'><span class='object_link'><a href="File.html#join-class_method" title="File.join (method)">join</a></span></span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>**</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>*.rb</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
+<span class='const'><span class='object_link'><a href="" title="Dir (class)">Dir</a></span></span><span class='period'>.</span><span class='id identifier rubyid_glob'>glob</span><span class='lparen'>(</span><span class='id identifier rubyid_rbfiles'>rbfiles</span><span class='rparen'>)</span>                   <span class='comment'>#=&gt; [&quot;main.rb&quot;,
+</span>                                    <span class='comment'>#    &quot;lib/song.rb&quot;,
+</span>                                    <span class='comment'>#    &quot;lib/song/karaoke.rb&quot;]
+</span>
+<span class='const'><span class='object_link'><a href="" title="Dir (class)">Dir</a></span></span><span class='period'>.</span><span class='id identifier rubyid_glob'>glob</span><span class='lparen'>(</span><span class='id identifier rubyid_rbfiles'>rbfiles</span><span class='comma'>,</span> <span class='label'>base:</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>lib</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>      <span class='comment'>#=&gt; [&quot;song.rb&quot;,
+</span>                                    <span class='comment'>#    &quot;song/karaoke.rb&quot;]
+</span>
+<span class='id identifier rubyid_libdirs'>libdirs</span> <span class='op'>=</span> <span class='const'><span class='object_link'><a href="File.html" title="File (class)">File</a></span></span><span class='period'>.</span><span class='id identifier rubyid_join'><span class='object_link'><a href="File.html#join-class_method" title="File.join (method)">join</a></span></span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>**</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>lib</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
+<span class='const'><span class='object_link'><a href="" title="Dir (class)">Dir</a></span></span><span class='period'>.</span><span class='id identifier rubyid_glob'>glob</span><span class='lparen'>(</span><span class='id identifier rubyid_libdirs'>libdirs</span><span class='rparen'>)</span>                   <span class='comment'>#=&gt; [&quot;lib&quot;]
+</span>
+<span class='id identifier rubyid_librbfiles'>librbfiles</span> <span class='op'>=</span> <span class='const'><span class='object_link'><a href="File.html" title="File (class)">File</a></span></span><span class='period'>.</span><span class='id identifier rubyid_join'><span class='object_link'><a href="File.html#join-class_method" title="File.join (method)">join</a></span></span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>**</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>lib</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>**</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>*.rb</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
+<span class='const'><span class='object_link'><a href="" title="Dir (class)">Dir</a></span></span><span class='period'>.</span><span class='id identifier rubyid_glob'>glob</span><span class='lparen'>(</span><span class='id identifier rubyid_librbfiles'>librbfiles</span><span class='rparen'>)</span>                <span class='comment'>#=&gt; [&quot;lib/song.rb&quot;,
+</span>                                    <span class='comment'>#    &quot;lib/song/karaoke.rb&quot;]
+</span>
+<span class='id identifier rubyid_librbfiles'>librbfiles</span> <span class='op'>=</span> <span class='const'><span class='object_link'><a href="File.html" title="File (class)">File</a></span></span><span class='period'>.</span><span class='id identifier rubyid_join'><span class='object_link'><a href="File.html#join-class_method" title="File.join (method)">join</a></span></span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>**</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>lib</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>*.rb</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
+<span class='const'><span class='object_link'><a href="" title="Dir (class)">Dir</a></span></span><span class='period'>.</span><span class='id identifier rubyid_glob'>glob</span><span class='lparen'>(</span><span class='id identifier rubyid_librbfiles'>librbfiles</span><span class='rparen'>)</span>                <span class='comment'>#=&gt; [&quot;lib/song.rb&quot;]
+</span></code></pre>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+  <p class="tag_title">Overloads:</p>
+  <ul class="overload">
+    
+      
+      <li class="overload_item">
+        <span class="signature">.<strong>glob</strong>(pattern, [flags], [base: path])  &#x21d2; <tt><span class='object_link'><a href="Array.html" title="Array (class)">Array</a></span></tt> </span>
+        <div class="docstring">
+  <div class="discussion">
+    
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="Array.html" title="Array (class)">Array</a></span></tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div>
+      </li>
+    
+      
+      <li class="overload_item">
+        <span class="signature">.<strong>glob</strong>(pattern, [flags], [base: path]) {|filename| ... } &#x21d2; <tt>nil</tt> </span>
+        <div class="docstring">
+  <div class="discussion">
+    
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Yields:</p>
+<ul class="yield">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>filename</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>nil</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div>
+      </li>
+    
+  </ul>
+
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+2719
+2720
+2721
+2722
+2723
+2724
+2725
+2726
+2727
+2728
+2729
+2730
+2731
+2732
+2733
+2734
+2735
+2736
+2737
+2738
+2739
+2740
+2741
+2742
+2743
+2744
+2745
+2746
+2747</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'dir.c', line 2719</span>
+
+static VALUE
+dir_s_glob(int argc, VALUE *argv, VALUE obj)
+{
+    VALUE str, rflags, ary, opts, base;
+    int flags;
+
+    argc = rb_scan_args(argc, argv, &quot;11:&quot;, &amp;str, &amp;rflags, &amp;opts);
+    if (argc == 2)
+	flags = NUM2INT(rflags);
+    else
+	flags = 0;
+    dir_glob_options(opts, &amp;base, &amp;flags);
+
+    ary = rb_check_array_type(str);
+    if (NIL_P(ary)) {
+	ary = rb_push_glob(str, base, flags);
+    }
+    else {
+	VALUE v = ary;
+	ary = dir_globs(RARRAY_LEN(v), RARRAY_CONST_PTR(v), base, flags);
+	RB_GC_GUARD(v);
+    }
+
+    if (rb_block_given_p()) {
+	rb_ary_each(ary);
+	return Qnil;
+    }
+    return ary;
+}</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="home-class_method">
+  
+    
+      <span class="overload">.<strong>home</strong>  &#x21d2; <tt><span class='object_link'><a href="Object.html" title="Object (class)">Object</a></span></tt> </span>
+    
+      <span class="overload">.<strong>home</strong>(&quot;root&quot;)  &#x21d2; <tt><span class='object_link'><a href="Object.html" title="Object (class)">Object</a></span></tt> </span>
+    
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Returns the home directory of the current user or the named user if given.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+3094
+3095
+3096
+3097
+3098
+3099
+3100
+3101
+3102
+3103
+3104
+3105
+3106
+3107
+3108
+3109
+3110
+3111
+3112</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'dir.c', line 3094</span>
+
+static VALUE
+dir_s_home(int argc, VALUE *argv, VALUE obj)
+{
+    VALUE user;
+    const char *u = 0;
+
+    rb_check_arity(argc, 0, 1);
+    user = (argc &gt; 0) ? argv[0] : Qnil;
+    if (!NIL_P(user)) {
+	SafeStringValue(user);
+	rb_must_asciicompat(user);
+	u = StringValueCStr(user);
+	if (*u) {
+	    return rb_home_dir_of(user, rb_str_new(0, 0));
+	}
+    }
+    return rb_default_home_dir(rb_str_new(0, 0));
+
+}</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="mkdir-class_method">
+  
+    .<strong>mkdir</strong>(string[, integer])  &#x21d2; <tt>0</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Makes a new directory named by <em>string</em>, with permissions specified
+by the optional parameter <em>anInteger</em>. The permissions may be
+modified by the value of <code>File::umask</code>, and are ignored on NT.
+Raises a <code>SystemCallError</code> if the directory cannot be created.
+See also the discussion of permissions in the class documentation for
+<code>File</code>.</p>
+
+<pre class="code"><code class=""><span class='const'><span class='object_link'><a href="" title="Dir (class)">Dir</a></span></span><span class='period'>.</span><span class='id identifier rubyid_mkdir'>mkdir</span><span class='lparen'>(</span><span class='const'><span class='object_link'><a href="File.html" title="File (class)">File</a></span></span><span class='period'>.</span><span class='id identifier rubyid_join'><span class='object_link'><a href="File.html#join-class_method" title="File.join (method)">join</a></span></span><span class='lparen'>(</span><span class='const'><span class='object_link'><a href="" title="Dir (class)">Dir</a></span></span><span class='period'>.</span><span class='id identifier rubyid_home'><span class='object_link'><a href="#home-class_method" title="Dir.home (method)">home</a></span></span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>.foo</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span><span class='comma'>,</span> <span class='int'>0700</span><span class='rparen'>)</span> <span class='comment'>#=&gt; 0
+</span></code></pre>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+  <div class="docstring">
+  <div class="discussion">
+    
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>0</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div>
+
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+1260
+1261
+1262
+1263
+1264
+1265
+1266
+1267
+1268
+1269
+1270
+1271
+1272
+1273
+1274
+1275
+1276
+1277
+1278
+1279
+1280
+1281</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'dir.c', line 1260</span>
+
+static VALUE
+dir_s_mkdir(int argc, VALUE *argv, VALUE obj)
+{
+    struct mkdir_arg m;
+    VALUE path, vmode;
+    int r;
+
+    if (rb_scan_args(argc, argv, &quot;11&quot;, &amp;path, &amp;vmode) == 2) {
+	m.mode = NUM2MODET(vmode);
+    }
+    else {
+	m.mode = 0777;
+    }
+
+    path = check_dirname(path);
+    m.path = RSTRING_PTR(path);
+    r = (int)(VALUE)rb_thread_call_without_gvl(nogvl_mkdir, &amp;m, RUBY_UBF_IO, 0);
+    if (r &lt; 0)
+	rb_sys_fail_path(path);
+
+    return INT2FIX(0);
+}</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="open-class_method">
+  
+    
+      <span class="overload">.<strong>open</strong>(string)  &#x21d2; <tt><span class='object_link'><a href="" title="Dir (class)">Dir</a></span></tt> </span>
+    
+      <span class="overload">.<strong>open</strong>(string, encoding: enc)  &#x21d2; <tt><span class='object_link'><a href="" title="Dir (class)">Dir</a></span></tt> </span>
+    
+      <span class="overload">.<strong>open</strong>(string) {|aDir| ... } &#x21d2; <tt><span class='object_link'><a href="Object.html" title="Object (class)">Object</a></span></tt> </span>
+    
+      <span class="overload">.<strong>open</strong>(string, encoding: enc) {|aDir| ... } &#x21d2; <tt><span class='object_link'><a href="Object.html" title="Object (class)">Object</a></span></tt> </span>
+    
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>The optional <em>encoding</em> keyword argument specifies the encoding of
+the directory. If not specified, the filesystem encoding is used.</p>
+
+<p>With no block, <code>open</code> is a synonym for <code>Dir::new</code>. If
+a block is present, it is passed <em>aDir</em> as a parameter. The
+directory is closed at the end of the block, and <code>Dir::open</code>
+returns the value of the block.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+  <p class="tag_title">Overloads:</p>
+  <ul class="overload">
+    
+      
+      <li class="overload_item">
+        <span class="signature">.<strong>open</strong>(string)  &#x21d2; <tt><span class='object_link'><a href="" title="Dir (class)">Dir</a></span></tt> </span>
+        <div class="docstring">
+  <div class="discussion">
+    
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="" title="Dir (class)">Dir</a></span></tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div>
+      </li>
+    
+      
+      <li class="overload_item">
+        <span class="signature">.<strong>open</strong>(string, encoding: enc)  &#x21d2; <tt><span class='object_link'><a href="" title="Dir (class)">Dir</a></span></tt> </span>
+        <div class="docstring">
+  <div class="discussion">
+    
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="" title="Dir (class)">Dir</a></span></tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div>
+      </li>
+    
+      
+      <li class="overload_item">
+        <span class="signature">.<strong>open</strong>(string) {|aDir| ... } &#x21d2; <tt><span class='object_link'><a href="Object.html" title="Object (class)">Object</a></span></tt> </span>
+        <div class="docstring">
+  <div class="discussion">
+    
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Yields:</p>
+<ul class="yield">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>aDir</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="Object.html" title="Object (class)">Object</a></span></tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div>
+      </li>
+    
+      
+      <li class="overload_item">
+        <span class="signature">.<strong>open</strong>(string, encoding: enc) {|aDir| ... } &#x21d2; <tt><span class='object_link'><a href="Object.html" title="Object (class)">Object</a></span></tt> </span>
+        <div class="docstring">
+  <div class="discussion">
+    
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Yields:</p>
+<ul class="yield">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>aDir</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="Object.html" title="Object (class)">Object</a></span></tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div>
+      </li>
+    
+  </ul>
+
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+606
+607
+608
+609
+610
+611
+612
+613
+614
+615
+616
+617
+618</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'dir.c', line 606</span>
+
+static VALUE
+dir_s_open(int argc, VALUE *argv, VALUE klass)
+{
+    struct dir_data *dp;
+    VALUE dir = TypedData_Make_Struct(klass, struct dir_data, &amp;dir_data_type, dp);
+
+    dir_initialize(argc, argv, dir);
+    if (rb_block_given_p()) {
+	return rb_ensure(rb_yield, dir, dir_close, dir);
+    }
+
+    return dir;
+}</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="pwd-class_method">
+  
+    
+      <span class="overload">.<strong>getwd</strong>  &#x21d2; <tt><span class='object_link'><a href="String.html" title="String (class)">String</a></span></tt> </span>
+    
+      <span class="overload">.<strong>pwd</strong>  &#x21d2; <tt><span class='object_link'><a href="String.html" title="String (class)">String</a></span></tt> </span>
+    
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Returns the path to the current working directory of this process as a
+string.</p>
+
+<pre class="code"><code class=""><span class='const'><span class='object_link'><a href="" title="Dir (class)">Dir</a></span></span><span class='period'>.</span><span class='id identifier rubyid_chdir'><span class='object_link'><a href="#chdir-class_method" title="Dir.chdir (method)">chdir</a></span></span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>/tmp</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>   <span class='comment'>#=&gt; 0
+</span><span class='const'><span class='object_link'><a href="" title="Dir (class)">Dir</a></span></span><span class='period'>.</span><span class='id identifier rubyid_getwd'><span class='object_link'><a href="#getwd-class_method" title="Dir.getwd (method)">getwd</a></span></span>           <span class='comment'>#=&gt; &quot;/tmp&quot;
+</span><span class='const'><span class='object_link'><a href="" title="Dir (class)">Dir</a></span></span><span class='period'>.</span><span class='id identifier rubyid_pwd'>pwd</span>             <span class='comment'>#=&gt; &quot;/tmp&quot;
+</span></code></pre>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+  <p class="tag_title">Overloads:</p>
+  <ul class="overload">
+    
+      
+      <li class="overload_item">
+        <span class="signature">.<strong>getwd</strong>  &#x21d2; <tt><span class='object_link'><a href="String.html" title="String (class)">String</a></span></tt> </span>
+        <div class="docstring">
+  <div class="discussion">
+    
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="String.html" title="String (class)">String</a></span></tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div>
+      </li>
+    
+      
+      <li class="overload_item">
+        <span class="signature">.<strong>pwd</strong>  &#x21d2; <tt><span class='object_link'><a href="String.html" title="String (class)">String</a></span></tt> </span>
+        <div class="docstring">
+  <div class="discussion">
+    
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="String.html" title="String (class)">String</a></span></tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div>
+      </li>
+    
+  </ul>
+
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+1183
+1184
+1185
+1186
+1187</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'dir.c', line 1183</span>
+
+static VALUE
+dir_s_getwd(VALUE dir)
+{
+    return rb_dir_getwd();
+}</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="rmdir-class_method">
+  
+    
+      <span class="overload">.<strong>delete</strong>(string)  &#x21d2; <tt>0</tt> </span>
+    
+      <span class="overload">.<strong>rmdir</strong>(string)  &#x21d2; <tt>0</tt> </span>
+    
+      <span class="overload">.<strong>unlink</strong>(string)  &#x21d2; <tt>0</tt> </span>
+    
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Deletes the named directory. Raises a subclass of
+<code>SystemCallError</code> if the directory isn&#39;t empty.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+  <p class="tag_title">Overloads:</p>
+  <ul class="overload">
+    
+      
+      <li class="overload_item">
+        <span class="signature">.<strong>delete</strong>(string)  &#x21d2; <tt>0</tt> </span>
+        <div class="docstring">
+  <div class="discussion">
+    
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>0</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div>
+      </li>
+    
+      
+      <li class="overload_item">
+        <span class="signature">.<strong>rmdir</strong>(string)  &#x21d2; <tt>0</tt> </span>
+        <div class="docstring">
+  <div class="discussion">
+    
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>0</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div>
+      </li>
+    
+      
+      <li class="overload_item">
+        <span class="signature">.<strong>unlink</strong>(string)  &#x21d2; <tt>0</tt> </span>
+        <div class="docstring">
+  <div class="discussion">
+    
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>0</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div>
+      </li>
+    
+  </ul>
+
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+1300
+1301
+1302
+1303
+1304
+1305
+1306
+1307
+1308
+1309
+1310
+1311
+1312
+1313</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'dir.c', line 1300</span>
+
+static VALUE
+dir_s_rmdir(VALUE obj, VALUE dir)
+{
+    const char *p;
+    int r;
+
+    dir = check_dirname(dir);
+    p = RSTRING_PTR(dir);
+    r = (int)(VALUE)rb_thread_call_without_gvl(nogvl_rmdir, (void *)p, RUBY_UBF_IO, 0);
+    if (r &lt; 0)
+	rb_sys_fail_path(dir);
+
+    return INT2FIX(0);
+}</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="unlink-class_method">
+  
+    
+      <span class="overload">.<strong>delete</strong>(string)  &#x21d2; <tt>0</tt> </span>
+    
+      <span class="overload">.<strong>rmdir</strong>(string)  &#x21d2; <tt>0</tt> </span>
+    
+      <span class="overload">.<strong>unlink</strong>(string)  &#x21d2; <tt>0</tt> </span>
+    
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Deletes the named directory. Raises a subclass of
+<code>SystemCallError</code> if the directory isn&#39;t empty.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+  <p class="tag_title">Overloads:</p>
+  <ul class="overload">
+    
+      
+      <li class="overload_item">
+        <span class="signature">.<strong>delete</strong>(string)  &#x21d2; <tt>0</tt> </span>
+        <div class="docstring">
+  <div class="discussion">
+    
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>0</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div>
+      </li>
+    
+      
+      <li class="overload_item">
+        <span class="signature">.<strong>rmdir</strong>(string)  &#x21d2; <tt>0</tt> </span>
+        <div class="docstring">
+  <div class="discussion">
+    
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>0</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div>
+      </li>
+    
+      
+      <li class="overload_item">
+        <span class="signature">.<strong>unlink</strong>(string)  &#x21d2; <tt>0</tt> </span>
+        <div class="docstring">
+  <div class="discussion">
+    
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>0</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div>
+      </li>
+    
+  </ul>
+
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+1300
+1301
+1302
+1303
+1304
+1305
+1306
+1307
+1308
+1309
+1310
+1311
+1312
+1313</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'dir.c', line 1300</span>
+
+static VALUE
+dir_s_rmdir(VALUE obj, VALUE dir)
+{
+    const char *p;
+    int r;
+
+    dir = check_dirname(dir);
+    p = RSTRING_PTR(dir);
+    r = (int)(VALUE)rb_thread_call_without_gvl(nogvl_rmdir, (void *)p, RUBY_UBF_IO, 0);
+    if (r &lt; 0)
+	rb_sys_fail_path(dir);
+
+    return INT2FIX(0);
+}</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+  </div>
+
+  <div id="instance_method_details" class="method_details_list">
+    <h2>Instance Method Details</h2>
+
+    
+      <div class="method_details first">
+  <h3 class="signature first" id="children-instance_method">
+  
+    #<strong>children</strong>  &#x21d2; <tt><span class='object_link'><a href="Array.html" title="Array (class)">Array</a></span></tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Returns an array containing all of the filenames except for “.” and “..” in
+this directory.</p>
+
+<pre class="code"><code class=""><span class='id identifier rubyid_d'>d</span> <span class='op'>=</span> <span class='const'><span class='object_link'><a href="" title="Dir (class)">Dir</a></span></span><span class='period'>.</span><span class='id identifier rubyid_new'><span class='object_link'><a href="#initialize-instance_method" title="Dir#initialize (method)">new</a></span></span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>testdir</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
+<span class='id identifier rubyid_d'>d</span><span class='period'>.</span><span class='id identifier rubyid_children'>children</span>   <span class='comment'>#=&gt; [&quot;config.h&quot;, &quot;main.rb&quot;]
+</span></code></pre>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+  <div class="docstring">
+  <div class="discussion">
+    
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="Array.html" title="Array (class)">Array</a></span></tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div>
+
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+2900
+2901
+2902
+2903
+2904
+2905
+2906</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'dir.c', line 2900</span>
+
+static VALUE
+dir_collect_children(VALUE dir)
+{
+    VALUE ary = rb_ary_new();
+    dir_each_entry(dir, rb_ary_push, ary, TRUE);
+    return ary;
+}</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="close-instance_method">
+  
+    #<strong>close</strong>  &#x21d2; <tt>nil</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Closes the directory stream. Calling this method on closed Dir object is
+ignored since Ruby 2.3.</p>
+
+<pre class="code"><code class=""><span class='id identifier rubyid_d'>d</span> <span class='op'>=</span> <span class='const'><span class='object_link'><a href="" title="Dir (class)">Dir</a></span></span><span class='period'>.</span><span class='id identifier rubyid_new'><span class='object_link'><a href="#initialize-instance_method" title="Dir#initialize (method)">new</a></span></span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>testdir</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
+<span class='id identifier rubyid_d'>d</span><span class='period'>.</span><span class='id identifier rubyid_close'>close</span>   <span class='comment'>#=&gt; nil
+</span></code></pre>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+  <div class="docstring">
+  <div class="discussion">
+    
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>nil</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div>
+
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+985
+986
+987
+988
+989
+990
+991
+992
+993
+994
+995
+996</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'dir.c', line 985</span>
+
+static VALUE
+dir_close(VALUE dir)
+{
+    struct dir_data *dirp;
+
+    dirp = dir_get(dir);
+    if (!dirp-&gt;dir) return Qnil;
+    closedir(dirp-&gt;dir);
+    dirp-&gt;dir = NULL;
+
+    return Qnil;
+}</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="each-instance_method">
+  
+    
+      <span class="overload">#<strong>each</strong> {|filename| ... } &#x21d2; <tt><span class='object_link'><a href="" title="Dir (class)">Dir</a></span></tt> </span>
+    
+      <span class="overload">#<strong>each</strong>  &#x21d2; <tt><span class='object_link'><a href="Object.html" title="Object (class)">Object</a></span></tt> </span>
+    
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Calls the block once for each entry in this directory, passing the filename
+of each entry as a parameter to the block.</p>
+
+<p>If no block is given, an enumerator is returned instead.</p>
+
+<pre class="code"><code class=""><span class='id identifier rubyid_d'>d</span> <span class='op'>=</span> <span class='const'><span class='object_link'><a href="" title="Dir (class)">Dir</a></span></span><span class='period'>.</span><span class='id identifier rubyid_new'><span class='object_link'><a href="#initialize-instance_method" title="Dir#initialize (method)">new</a></span></span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>testdir</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
+<span class='id identifier rubyid_d'>d</span><span class='period'>.</span><span class='id identifier rubyid_each'>each</span>  <span class='lbrace'>{</span><span class='op'>|</span><span class='id identifier rubyid_x'>x</span><span class='op'>|</span> <span class='id identifier rubyid_puts'>puts</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Got </span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_x'>x</span><span class='embexpr_end'>}</span><span class='tstring_end'>&quot;</span></span> <span class='rbrace'>}</span>
+</code></pre>
+
+<p><em>produces:</em></p>
+
+<pre class="code"><code class="">Got .
+Got ..
+Got config.h
+Got main.rb</code></pre>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+  <p class="tag_title">Overloads:</p>
+  <ul class="overload">
+    
+      
+      <li class="overload_item">
+        <span class="signature">#<strong>each</strong> {|filename| ... } &#x21d2; <tt><span class='object_link'><a href="" title="Dir (class)">Dir</a></span></tt> </span>
+        <div class="docstring">
+  <div class="discussion">
+    
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Yields:</p>
+<ul class="yield">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>filename</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="" title="Dir (class)">Dir</a></span></tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div>
+      </li>
+    
+      
+  </ul>
+
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+832
+833
+834
+835
+836
+837</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'dir.c', line 832</span>
+
+static VALUE
+dir_each(VALUE dir)
+{
+    RETURN_ENUMERATOR(dir, 0, 0);
+    return dir_each_entry(dir, dir_yield, Qnil, FALSE);
+}</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="each_child-instance_method">
+  
+    
+      <span class="overload">#<strong>each_child</strong> {|filename| ... } &#x21d2; <tt>nil</tt> </span>
+    
+      <span class="overload">#<strong>each_child</strong>  &#x21d2; <tt><span class='object_link'><a href="Object.html" title="Object (class)">Object</a></span></tt> </span>
+    
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Calls the block once for each entry except for “.” and “..” in this
+directory, passing the filename of each entry as a parameter to the block.</p>
+
+<p>If no block is given, an enumerator is returned instead.</p>
+
+<pre class="code"><code class=""><span class='id identifier rubyid_d'>d</span> <span class='op'>=</span> <span class='const'><span class='object_link'><a href="" title="Dir (class)">Dir</a></span></span><span class='period'>.</span><span class='id identifier rubyid_new'><span class='object_link'><a href="#initialize-instance_method" title="Dir#initialize (method)">new</a></span></span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>testdir</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
+<span class='id identifier rubyid_d'>d</span><span class='period'>.</span><span class='id identifier rubyid_each_child'>each_child</span>  <span class='lbrace'>{</span><span class='op'>|</span><span class='id identifier rubyid_x'>x</span><span class='op'>|</span> <span class='id identifier rubyid_puts'>puts</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Got </span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_x'>x</span><span class='embexpr_end'>}</span><span class='tstring_end'>&quot;</span></span> <span class='rbrace'>}</span>
+</code></pre>
+
+<p><em>produces:</em></p>
+
+<pre class="code"><code class=""><span class='const'>Got</span> <span class='id identifier rubyid_config'>config</span><span class='period'>.</span><span class='id identifier rubyid_h'>h</span>
+<span class='const'>Got</span> <span class='id identifier rubyid_main'>main</span><span class='period'>.</span><span class='id identifier rubyid_rb'>rb</span>
+</code></pre>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+  <p class="tag_title">Overloads:</p>
+  <ul class="overload">
+    
+      
+      <li class="overload_item">
+        <span class="signature">#<strong>each_child</strong> {|filename| ... } &#x21d2; <tt>nil</tt> </span>
+        <div class="docstring">
+  <div class="discussion">
+    
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Yields:</p>
+<ul class="yield">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>filename</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>nil</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div>
+      </li>
+    
+      
+  </ul>
+
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+2882
+2883
+2884
+2885
+2886
+2887</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'dir.c', line 2882</span>
+
+static VALUE
+dir_each_child_m(VALUE dir)
+{
+    RETURN_ENUMERATOR(dir, 0, 0);
+    return dir_each_entry(dir, dir_yield, Qnil, TRUE);
+}</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="fileno-instance_method">
+  
+    #<strong>fileno</strong>  &#x21d2; <tt><span class='object_link'><a href="Integer.html" title="Integer (class)">Integer</a></span></tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Returns the file descriptor used in <em>dir</em>.</p>
+
+<pre class="code"><code class=""><span class='id identifier rubyid_d'>d</span> <span class='op'>=</span> <span class='const'><span class='object_link'><a href="" title="Dir (class)">Dir</a></span></span><span class='period'>.</span><span class='id identifier rubyid_new'><span class='object_link'><a href="#initialize-instance_method" title="Dir#initialize (method)">new</a></span></span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>..</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
+<span class='id identifier rubyid_d'>d</span><span class='period'>.</span><span class='id identifier rubyid_fileno'>fileno</span>   <span class='comment'>#=&gt; 8
+</span></code></pre>
+
+<p>This method uses dirfd() function defined by POSIX 2008.
+NotImplementedError is raised on other platforms, such as Windows, which
+doesn&#39;t provide the function.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+  <div class="docstring">
+  <div class="discussion">
+    
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="Integer.html" title="Integer (class)">Integer</a></span></tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div>
+
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+697
+698
+699
+700
+701
+702
+703
+704
+705
+706
+707
+708</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'dir.c', line 697</span>
+
+static VALUE
+dir_fileno(VALUE dir)
+{
+    struct dir_data *dirp;
+    int fd;
+
+    GetDIR(dir, dirp);
+    fd = dirfd(dirp-&gt;dir);
+    if (fd == -1)
+	rb_sys_fail(&quot;dirfd&quot;);
+    return INT2NUM(fd);
+}</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="inspect-instance_method">
+  
+    #<strong>inspect</strong>  &#x21d2; <tt><span class='object_link'><a href="String.html" title="String (class)">String</a></span></tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Return a string describing this Dir object.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+  <div class="docstring">
+  <div class="discussion">
+    
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="String.html" title="String (class)">String</a></span></tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div>
+
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+652
+653
+654
+655
+656
+657
+658
+659
+660
+661
+662
+663
+664
+665
+666
+667</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'dir.c', line 652</span>
+
+static VALUE
+dir_inspect(VALUE dir)
+{
+    struct dir_data *dirp;
+
+    TypedData_Get_Struct(dir, struct dir_data, &amp;dir_data_type, dirp);
+    if (!NIL_P(dirp-&gt;path)) {
+	VALUE str = rb_str_new_cstr(&quot;#&lt;&quot;);
+	rb_str_append(str, rb_class_name(CLASS_OF(dir)));
+	rb_str_cat2(str, &quot;:&quot;);
+	rb_str_append(str, dirp-&gt;path);
+	rb_str_cat2(str, &quot;&gt;&quot;);
+	return str;
+    }
+    return rb_funcallv(dir, idTo_s, 0, 0);
+}</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="path-instance_method">
+  
+    
+      <span class="overload">#<strong>path</strong>  &#x21d2; <tt><span class='object_link'><a href="String.html" title="String (class)">String</a></span></tt><sup>?</sup> </span>
+    
+      <span class="overload">#<strong>to_path</strong>  &#x21d2; <tt><span class='object_link'><a href="String.html" title="String (class)">String</a></span></tt><sup>?</sup> </span>
+    
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Returns the path parameter passed to <em>dir</em>&#39;s constructor.</p>
+
+<pre class="code"><code class=""><span class='id identifier rubyid_d'>d</span> <span class='op'>=</span> <span class='const'><span class='object_link'><a href="" title="Dir (class)">Dir</a></span></span><span class='period'>.</span><span class='id identifier rubyid_new'><span class='object_link'><a href="#initialize-instance_method" title="Dir#initialize (method)">new</a></span></span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>..</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
+<span class='id identifier rubyid_d'>d</span><span class='period'>.</span><span class='id identifier rubyid_path'>path</span>   <span class='comment'>#=&gt; &quot;..&quot;
+</span></code></pre>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+  <p class="tag_title">Overloads:</p>
+  <ul class="overload">
+    
+      
+      <li class="overload_item">
+        <span class="signature">#<strong>path</strong>  &#x21d2; <tt><span class='object_link'><a href="String.html" title="String (class)">String</a></span></tt><sup>?</sup> </span>
+        <div class="docstring">
+  <div class="discussion">
+    
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="String.html" title="String (class)">String</a></span></tt>, <tt>nil</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div>
+      </li>
+    
+      
+      <li class="overload_item">
+        <span class="signature">#<strong>to_path</strong>  &#x21d2; <tt><span class='object_link'><a href="String.html" title="String (class)">String</a></span></tt><sup>?</sup> </span>
+        <div class="docstring">
+  <div class="discussion">
+    
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="String.html" title="String (class)">String</a></span></tt>, <tt>nil</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div>
+      </li>
+    
+  </ul>
+
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+723
+724
+725
+726
+727
+728
+729
+730
+731</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'dir.c', line 723</span>
+
+static VALUE
+dir_path(VALUE dir)
+{
+    struct dir_data *dirp;
+
+    TypedData_Get_Struct(dir, struct dir_data, &amp;dir_data_type, dirp);
+    if (NIL_P(dirp-&gt;path)) return Qnil;
+    return rb_str_dup(dirp-&gt;path);
+}</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="pos-instance_method">
+  
+    
+      <span class="overload">#<strong>pos</strong>  &#x21d2; <tt><span class='object_link'><a href="Integer.html" title="Integer (class)">Integer</a></span></tt> </span>
+    
+      <span class="overload">#<strong>tell</strong>  &#x21d2; <tt><span class='object_link'><a href="Integer.html" title="Integer (class)">Integer</a></span></tt> </span>
+    
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Returns the current position in <em>dir</em>. See also
+<code>Dir#seek</code>.</p>
+
+<pre class="code"><code class=""><span class='id identifier rubyid_d'>d</span> <span class='op'>=</span> <span class='const'><span class='object_link'><a href="" title="Dir (class)">Dir</a></span></span><span class='period'>.</span><span class='id identifier rubyid_new'><span class='object_link'><a href="#initialize-instance_method" title="Dir#initialize (method)">new</a></span></span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>testdir</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
+<span class='id identifier rubyid_d'>d</span><span class='period'>.</span><span class='id identifier rubyid_tell'>tell</span>   <span class='comment'>#=&gt; 0
+</span><span class='id identifier rubyid_d'>d</span><span class='period'>.</span><span class='id identifier rubyid_read'>read</span>   <span class='comment'>#=&gt; &quot;.&quot;
+</span><span class='id identifier rubyid_d'>d</span><span class='period'>.</span><span class='id identifier rubyid_tell'>tell</span>   <span class='comment'>#=&gt; 12
+</span></code></pre>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+  <p class="tag_title">Overloads:</p>
+  <ul class="overload">
+    
+      
+      <li class="overload_item">
+        <span class="signature">#<strong>pos</strong>  &#x21d2; <tt><span class='object_link'><a href="Integer.html" title="Integer (class)">Integer</a></span></tt> </span>
+        <div class="docstring">
+  <div class="discussion">
+    
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="Integer.html" title="Integer (class)">Integer</a></span></tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div>
+      </li>
+    
+      
+      <li class="overload_item">
+        <span class="signature">#<strong>tell</strong>  &#x21d2; <tt><span class='object_link'><a href="Integer.html" title="Integer (class)">Integer</a></span></tt> </span>
+        <div class="docstring">
+  <div class="discussion">
+    
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="Integer.html" title="Integer (class)">Integer</a></span></tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div>
+      </li>
+    
+  </ul>
+
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+886
+887
+888
+889
+890
+891
+892
+893
+894
+895</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'dir.c', line 886</span>
+
+static VALUE
+dir_tell(VALUE dir)
+{
+    struct dir_data *dirp;
+    long pos;
+
+    GetDIR(dir, dirp);
+    pos = telldir(dirp-&gt;dir);
+    return rb_int2inum(pos);
+}</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="pos=-instance_method">
+  
+    #<strong>pos=</strong>(integer)  &#x21d2; <tt><span class='object_link'><a href="Integer.html" title="Integer (class)">Integer</a></span></tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Synonym for <code>Dir#seek</code>, but returns the position parameter.</p>
+
+<pre class="code"><code class=""><span class='id identifier rubyid_d'>d</span> <span class='op'>=</span> <span class='const'><span class='object_link'><a href="" title="Dir (class)">Dir</a></span></span><span class='period'>.</span><span class='id identifier rubyid_new'><span class='object_link'><a href="#initialize-instance_method" title="Dir#initialize (method)">new</a></span></span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>testdir</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>   <span class='comment'>#=&gt; #&lt;Dir:0x401b3c40&gt;
+</span><span class='id identifier rubyid_d'>d</span><span class='period'>.</span><span class='id identifier rubyid_read'>read</span>                   <span class='comment'>#=&gt; &quot;.&quot;
+</span><span class='id identifier rubyid_i'>i</span> <span class='op'>=</span> <span class='id identifier rubyid_d'>d</span><span class='period'>.</span><span class='id identifier rubyid_pos'>pos</span>                <span class='comment'>#=&gt; 12
+</span><span class='id identifier rubyid_d'>d</span><span class='period'>.</span><span class='id identifier rubyid_read'>read</span>                   <span class='comment'>#=&gt; &quot;..&quot;
+</span><span class='id identifier rubyid_d'>d</span><span class='period'>.</span><span class='id identifier rubyid_pos'>pos</span> <span class='op'>=</span> <span class='id identifier rubyid_i'>i</span>                <span class='comment'>#=&gt; 12
+</span><span class='id identifier rubyid_d'>d</span><span class='period'>.</span><span class='id identifier rubyid_read'>read</span>                   <span class='comment'>#=&gt; &quot;..&quot;
+</span></code></pre>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+  <div class="docstring">
+  <div class="discussion">
+    
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="Integer.html" title="Integer (class)">Integer</a></span></tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div>
+
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+944
+945
+946
+947
+948
+949</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'dir.c', line 944</span>
+
+static VALUE
+dir_set_pos(VALUE dir, VALUE pos)
+{
+    dir_seek(dir, pos);
+    return pos;
+}</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="read-instance_method">
+  
+    #<strong>read</strong>  &#x21d2; <tt><span class='object_link'><a href="String.html" title="String (class)">String</a></span></tt><sup>?</sup> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Reads the next entry from <em>dir</em> and returns it as a string. Returns
+<code>nil</code> at the end of the stream.</p>
+
+<pre class="code"><code class=""><span class='id identifier rubyid_d'>d</span> <span class='op'>=</span> <span class='const'><span class='object_link'><a href="" title="Dir (class)">Dir</a></span></span><span class='period'>.</span><span class='id identifier rubyid_new'><span class='object_link'><a href="#initialize-instance_method" title="Dir#initialize (method)">new</a></span></span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>testdir</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
+<span class='id identifier rubyid_d'>d</span><span class='period'>.</span><span class='id identifier rubyid_read'>read</span>   <span class='comment'>#=&gt; &quot;.&quot;
+</span><span class='id identifier rubyid_d'>d</span><span class='period'>.</span><span class='id identifier rubyid_read'>read</span>   <span class='comment'>#=&gt; &quot;..&quot;
+</span><span class='id identifier rubyid_d'>d</span><span class='period'>.</span><span class='id identifier rubyid_read'>read</span>   <span class='comment'>#=&gt; &quot;config.h&quot;
+</span></code></pre>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+  <div class="docstring">
+  <div class="discussion">
+    
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="String.html" title="String (class)">String</a></span></tt>, <tt>nil</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div>
+
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+786
+787
+788
+789
+790
+791
+792
+793
+794
+795
+796
+797
+798
+799
+800
+801
+802</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'dir.c', line 786</span>
+
+static VALUE
+dir_read(VALUE dir)
+{
+    struct dir_data *dirp;
+    struct dirent *dp;
+
+    GetDIR(dir, dirp);
+    errno = 0;
+    if ((dp = READDIR(dirp-&gt;dir, dirp-&gt;enc)) != NULL) {
+	return rb_external_str_new_with_enc(dp-&gt;d_name, NAMLEN(dp), dirp-&gt;enc);
+    }
+    else {
+	int e = errno;
+	if (e != 0) rb_syserr_fail(e, 0);
+	return Qnil;		/* end of stream */
+    }
+}</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="rewind-instance_method">
+  
+    #<strong>rewind</strong>  &#x21d2; <tt><span class='object_link'><a href="" title="Dir (class)">Dir</a></span></tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Repositions <em>dir</em> to the first entry.</p>
+
+<pre class="code"><code class=""><span class='id identifier rubyid_d'>d</span> <span class='op'>=</span> <span class='const'><span class='object_link'><a href="" title="Dir (class)">Dir</a></span></span><span class='period'>.</span><span class='id identifier rubyid_new'><span class='object_link'><a href="#initialize-instance_method" title="Dir#initialize (method)">new</a></span></span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>testdir</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
+<span class='id identifier rubyid_d'>d</span><span class='period'>.</span><span class='id identifier rubyid_read'>read</span>     <span class='comment'>#=&gt; &quot;.&quot;
+</span><span class='id identifier rubyid_d'>d</span><span class='period'>.</span><span class='id identifier rubyid_rewind'>rewind</span>   <span class='comment'>#=&gt; #&lt;Dir:0x401b3fb0&gt;
+</span><span class='id identifier rubyid_d'>d</span><span class='period'>.</span><span class='id identifier rubyid_read'>read</span>     <span class='comment'>#=&gt; &quot;.&quot;
+</span></code></pre>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+  <div class="docstring">
+  <div class="discussion">
+    
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="" title="Dir (class)">Dir</a></span></tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div>
+
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+965
+966
+967
+968
+969
+970
+971
+972
+973</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'dir.c', line 965</span>
+
+static VALUE
+dir_rewind(VALUE dir)
+{
+    struct dir_data *dirp;
+
+    GetDIR(dir, dirp);
+    rewinddir(dirp-&gt;dir);
+    return dir;
+}</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="seek-instance_method">
+  
+    #<strong>seek</strong>(integer)  &#x21d2; <tt><span class='object_link'><a href="" title="Dir (class)">Dir</a></span></tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Seeks to a particular location in <em>dir</em>. <em>integer</em> must be a
+value returned by <code>Dir#tell</code>.</p>
+
+<pre class="code"><code class=""><span class='id identifier rubyid_d'>d</span> <span class='op'>=</span> <span class='const'><span class='object_link'><a href="" title="Dir (class)">Dir</a></span></span><span class='period'>.</span><span class='id identifier rubyid_new'><span class='object_link'><a href="#initialize-instance_method" title="Dir#initialize (method)">new</a></span></span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>testdir</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>   <span class='comment'>#=&gt; #&lt;Dir:0x401b3c40&gt;
+</span><span class='id identifier rubyid_d'>d</span><span class='period'>.</span><span class='id identifier rubyid_read'>read</span>                   <span class='comment'>#=&gt; &quot;.&quot;
+</span><span class='id identifier rubyid_i'>i</span> <span class='op'>=</span> <span class='id identifier rubyid_d'>d</span><span class='period'>.</span><span class='id identifier rubyid_tell'>tell</span>               <span class='comment'>#=&gt; 12
+</span><span class='id identifier rubyid_d'>d</span><span class='period'>.</span><span class='id identifier rubyid_read'>read</span>                   <span class='comment'>#=&gt; &quot;..&quot;
+</span><span class='id identifier rubyid_d'>d</span><span class='period'>.</span><span class='id identifier rubyid_seek'>seek</span><span class='lparen'>(</span><span class='id identifier rubyid_i'>i</span><span class='rparen'>)</span>                <span class='comment'>#=&gt; #&lt;Dir:0x401b3c40&gt;
+</span><span class='id identifier rubyid_d'>d</span><span class='period'>.</span><span class='id identifier rubyid_read'>read</span>                   <span class='comment'>#=&gt; &quot;..&quot;
+</span></code></pre>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+  <div class="docstring">
+  <div class="discussion">
+    
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="" title="Dir (class)">Dir</a></span></tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div>
+
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+915
+916
+917
+918
+919
+920
+921
+922
+923
+924</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'dir.c', line 915</span>
+
+static VALUE
+dir_seek(VALUE dir, VALUE pos)
+{
+    struct dir_data *dirp;
+    long p = NUM2LONG(pos);
+
+    GetDIR(dir, dirp);
+    seekdir(dirp-&gt;dir, p);
+    return dir;
+}</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="tell-instance_method">
+  
+    
+      <span class="overload">#<strong>pos</strong>  &#x21d2; <tt><span class='object_link'><a href="Integer.html" title="Integer (class)">Integer</a></span></tt> </span>
+    
+      <span class="overload">#<strong>tell</strong>  &#x21d2; <tt><span class='object_link'><a href="Integer.html" title="Integer (class)">Integer</a></span></tt> </span>
+    
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Returns the current position in <em>dir</em>. See also
+<code>Dir#seek</code>.</p>
+
+<pre class="code"><code class=""><span class='id identifier rubyid_d'>d</span> <span class='op'>=</span> <span class='const'><span class='object_link'><a href="" title="Dir (class)">Dir</a></span></span><span class='period'>.</span><span class='id identifier rubyid_new'><span class='object_link'><a href="#initialize-instance_method" title="Dir#initialize (method)">new</a></span></span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>testdir</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
+<span class='id identifier rubyid_d'>d</span><span class='period'>.</span><span class='id identifier rubyid_tell'>tell</span>   <span class='comment'>#=&gt; 0
+</span><span class='id identifier rubyid_d'>d</span><span class='period'>.</span><span class='id identifier rubyid_read'>read</span>   <span class='comment'>#=&gt; &quot;.&quot;
+</span><span class='id identifier rubyid_d'>d</span><span class='period'>.</span><span class='id identifier rubyid_tell'>tell</span>   <span class='comment'>#=&gt; 12
+</span></code></pre>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+  <p class="tag_title">Overloads:</p>
+  <ul class="overload">
+    
+      
+      <li class="overload_item">
+        <span class="signature">#<strong>pos</strong>  &#x21d2; <tt><span class='object_link'><a href="Integer.html" title="Integer (class)">Integer</a></span></tt> </span>
+        <div class="docstring">
+  <div class="discussion">
+    
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="Integer.html" title="Integer (class)">Integer</a></span></tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div>
+      </li>
+    
+      
+      <li class="overload_item">
+        <span class="signature">#<strong>tell</strong>  &#x21d2; <tt><span class='object_link'><a href="Integer.html" title="Integer (class)">Integer</a></span></tt> </span>
+        <div class="docstring">
+  <div class="discussion">
+    
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="Integer.html" title="Integer (class)">Integer</a></span></tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div>
+      </li>
+    
+  </ul>
+
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+886
+887
+888
+889
+890
+891
+892
+893
+894
+895</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'dir.c', line 886</span>
+
+static VALUE
+dir_tell(VALUE dir)
+{
+    struct dir_data *dirp;
+    long pos;
+
+    GetDIR(dir, dirp);
+    pos = telldir(dirp-&gt;dir);
+    return rb_int2inum(pos);
+}</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="to_path-instance_method">
+  
+    
+      <span class="overload">#<strong>path</strong>  &#x21d2; <tt><span class='object_link'><a href="String.html" title="String (class)">String</a></span></tt><sup>?</sup> </span>
+    
+      <span class="overload">#<strong>to_path</strong>  &#x21d2; <tt><span class='object_link'><a href="String.html" title="String (class)">String</a></span></tt><sup>?</sup> </span>
+    
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Returns the path parameter passed to <em>dir</em>&#39;s constructor.</p>
+
+<pre class="code"><code class=""><span class='id identifier rubyid_d'>d</span> <span class='op'>=</span> <span class='const'><span class='object_link'><a href="" title="Dir (class)">Dir</a></span></span><span class='period'>.</span><span class='id identifier rubyid_new'><span class='object_link'><a href="#initialize-instance_method" title="Dir#initialize (method)">new</a></span></span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>..</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
+<span class='id identifier rubyid_d'>d</span><span class='period'>.</span><span class='id identifier rubyid_path'>path</span>   <span class='comment'>#=&gt; &quot;..&quot;
+</span></code></pre>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+  <p class="tag_title">Overloads:</p>
+  <ul class="overload">
+    
+      
+      <li class="overload_item">
+        <span class="signature">#<strong>path</strong>  &#x21d2; <tt><span class='object_link'><a href="String.html" title="String (class)">String</a></span></tt><sup>?</sup> </span>
+        <div class="docstring">
+  <div class="discussion">
+    
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="String.html" title="String (class)">String</a></span></tt>, <tt>nil</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div>
+      </li>
+    
+      
+      <li class="overload_item">
+        <span class="signature">#<strong>to_path</strong>  &#x21d2; <tt><span class='object_link'><a href="String.html" title="String (class)">String</a></span></tt><sup>?</sup> </span>
+        <div class="docstring">
+  <div class="discussion">
+    
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="String.html" title="String (class)">String</a></span></tt>, <tt>nil</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div>
+      </li>
+    
+  </ul>
+
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+723
+724
+725
+726
+727
+728
+729
+730
+731</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'dir.c', line 723</span>
+
+static VALUE
+dir_path(VALUE dir)
+{
+    struct dir_data *dirp;
+
+    TypedData_Get_Struct(dir, struct dir_data, &amp;dir_data_type, dirp);
+    if (NIL_P(dirp-&gt;path)) return Qnil;
+    return rb_str_dup(dirp-&gt;path);
+}</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+  </div>
+
+</div>
+
+      <div id="footer">
+  Generated on Mon Feb 26 22:23:20 2018 by
+  <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
+  0.9.12 (ruby-2.4.2).
+</div>
+
+    </div>
+  </body>
+</html>

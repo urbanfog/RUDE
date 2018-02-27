@@ -1,0 +1,920 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>
+  Module: OpenSSL
+  
+    &mdash; Documentation by YARD 0.9.12
+  
+</title>
+
+  <link rel="stylesheet" href="css/style.css" type="text/css" charset="utf-8" />
+
+  <link rel="stylesheet" href="css/common.css" type="text/css" charset="utf-8" />
+
+<script type="text/javascript" charset="utf-8">
+  pathId = "OpenSSL";
+  relpath = '';
+</script>
+
+
+  <script type="text/javascript" charset="utf-8" src="js/jquery.js"></script>
+
+  <script type="text/javascript" charset="utf-8" src="js/app.js"></script>
+
+
+  </head>
+  <body>
+    <div class="nav_wrap">
+      <iframe id="nav" src="class_list.html?1"></iframe>
+      <div id="resizer"></div>
+    </div>
+
+    <div id="main" tabindex="-1">
+      <div id="header">
+        <div id="menu">
+  
+    <a href="_index.html">Index (O)</a> &raquo;
+    
+    
+    <span class="title">OpenSSL</span>
+  
+</div>
+
+        <div id="search">
+  
+    <a class="full_list_link" id="class_list_link"
+        href="class_list.html">
+
+        <svg width="24" height="24">
+          <rect x="0" y="4" width="24" height="4" rx="1" ry="1"></rect>
+          <rect x="0" y="12" width="24" height="4" rx="1" ry="1"></rect>
+          <rect x="0" y="20" width="24" height="4" rx="1" ry="1"></rect>
+        </svg>
+    </a>
+  
+</div>
+        <div class="clear"></div>
+      </div>
+
+      <div id="content"><h1>Module: OpenSSL
+  
+  
+  
+</h1>
+<div class="box_info">
+  
+
+  
+  
+  
+  
+  
+
+  
+  <dl>
+    <dt>Included in:</dt>
+    <dd><span class='object_link'><a href="Net/FTP.html" title="Net::FTP (class)">Net::FTP</a></span>, <span class='object_link'><a href="Net/IMAP.html" title="Net::IMAP (class)">Net::IMAP</a></span></dd>
+  </dl>
+  
+
+  
+  <dl>
+    <dt>Defined in:</dt>
+    <dd>ext/openssl/ossl.c<span class="defines">,<br />
+  ext/openssl/ossl_bn.c,<br /> ext/openssl/ossl_kdf.c,<br /> ext/openssl/ossl_ssl.c,<br /> ext/openssl/ossl_asn1.c,<br /> ext/openssl/ossl_hmac.c,<br /> ext/openssl/ossl_ocsp.c,<br /> ext/openssl/ossl_pkey.c,<br /> ext/openssl/ossl_rand.c,<br /> ext/openssl/ossl_x509.c,<br /> ext/openssl/ossl_pkcs7.c,<br /> ext/openssl/ossl_cipher.c,<br /> ext/openssl/ossl_config.c,<br /> ext/openssl/ossl_digest.c,<br /> ext/openssl/ossl_engine.c,<br /> ext/openssl/ossl_pkcs12.c,<br /> ext/openssl/ossl_x509crl.c,<br /> ext/openssl/ossl_x509ext.c,<br /> ext/openssl/ossl_x509req.c,<br /> ext/openssl/ossl_x509attr.c,<br /> ext/openssl/ossl_x509cert.c,<br /> ext/openssl/ossl_x509name.c,<br /> ext/openssl/ossl_x509store.c,<br /> ext/openssl/ossl_ssl_session.c,<br /> ext/openssl/ossl_x509revoked.c,<br /> ext/openssl/ossl_ns_spki.c</span>
+</dd>
+  </dl>
+  
+</div>
+
+<h2>Defined Under Namespace</h2>
+<p class="children">
+  
+    
+      <strong class="modules">Modules:</strong> <span class='object_link'><a href="OpenSSL/ASN1.html" title="OpenSSL::ASN1 (module)">ASN1</a></span>, <span class='object_link'><a href="OpenSSL/ExtConfig.html" title="OpenSSL::ExtConfig (module)">ExtConfig</a></span>, <span class='object_link'><a href="OpenSSL/KDF.html" title="OpenSSL::KDF (module)">KDF</a></span>, <span class='object_link'><a href="OpenSSL/Netscape.html" title="OpenSSL::Netscape (module)">Netscape</a></span>, <span class='object_link'><a href="OpenSSL/OCSP.html" title="OpenSSL::OCSP (module)">OCSP</a></span>, <span class='object_link'><a href="OpenSSL/PKey.html" title="OpenSSL::PKey (module)">PKey</a></span>, <span class='object_link'><a href="OpenSSL/Random.html" title="OpenSSL::Random (module)">Random</a></span>, <span class='object_link'><a href="OpenSSL/SSL.html" title="OpenSSL::SSL (module)">SSL</a></span>, <span class='object_link'><a href="OpenSSL/X509.html" title="OpenSSL::X509 (module)">X509</a></span>
+    
+  
+    
+      <strong class="classes">Classes:</strong> <span class='object_link'><a href="OpenSSL/BN.html" title="OpenSSL::BN (class)">BN</a></span>, <span class='object_link'><a href="OpenSSL/BNError.html" title="OpenSSL::BNError (class)">BNError</a></span>, <span class='object_link'><a href="OpenSSL/Cipher.html" title="OpenSSL::Cipher (class)">Cipher</a></span>, <span class='object_link'><a href="OpenSSL/Config.html" title="OpenSSL::Config (class)">Config</a></span>, <span class='object_link'><a href="OpenSSL/ConfigError.html" title="OpenSSL::ConfigError (class)">ConfigError</a></span>, <span class='object_link'><a href="OpenSSL/Digest.html" title="OpenSSL::Digest (class)">Digest</a></span>, <span class='object_link'><a href="OpenSSL/Engine.html" title="OpenSSL::Engine (class)">Engine</a></span>, <span class='object_link'><a href="OpenSSL/HMAC.html" title="OpenSSL::HMAC (class)">HMAC</a></span>, <span class='object_link'><a href="OpenSSL/HMACError.html" title="OpenSSL::HMACError (class)">HMACError</a></span>, <span class='object_link'><a href="OpenSSL/OpenSSLError.html" title="OpenSSL::OpenSSLError (class)">OpenSSLError</a></span>, <span class='object_link'><a href="OpenSSL/PKCS12.html" title="OpenSSL::PKCS12 (class)">PKCS12</a></span>, <span class='object_link'><a href="OpenSSL/PKCS7.html" title="OpenSSL::PKCS7 (class)">PKCS7</a></span>
+    
+  
+</p>
+
+  <h2>Constant Summary</h2>
+  <dl class="constants">
+    
+      <dt id="VERSION-constant" class="">VERSION =
+        <div class="docstring">
+  <div class="discussion">
+    
+<p>OpenSSL ruby extension version</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div>
+      </dt>
+      <dd><pre class="code"><span class='id identifier rubyid_rb_str_new2'>rb_str_new2</span><span class='lparen'>(</span><span class='const'>OSSL_VERSION</span><span class='rparen'>)</span></pre></dd>
+    
+      <dt id="OPENSSL_VERSION-constant" class="">OPENSSL_VERSION =
+        <div class="docstring">
+  <div class="discussion">
+    
+<p>Version of OpenSSL the ruby OpenSSL extension was built with</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div>
+      </dt>
+      <dd><pre class="code"><span class='id identifier rubyid_rb_str_new2'>rb_str_new2</span><span class='lparen'>(</span><span class='const'>OPENSSL_VERSION_TEXT</span><span class='rparen'>)</span></pre></dd>
+    
+      <dt id="OPENSSL_LIBRARY_VERSION-constant" class="">OPENSSL_LIBRARY_VERSION =
+        
+      </dt>
+      <dd><pre class="code"><span class='id identifier rubyid_rb_str_new2'>rb_str_new2</span><span class='lparen'>(</span><span class='const'>SSLeay_version</span><span class='lparen'>(</span><span class='const'>SSLEAY_VERSION</span><span class='rparen'>)</span><span class='rparen'>)</span></pre></dd>
+    
+      <dt id="OPENSSL_VERSION_NUMBER-constant" class="">OPENSSL_VERSION_NUMBER =
+        <div class="docstring">
+  <div class="discussion">
+    
+<p>Version number of OpenSSL the ruby OpenSSL extension was built with (base
+16)</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div>
+      </dt>
+      <dd><pre class="code"><span class='const'>INT2NUM</span><span class='lparen'>(</span><span class='const'><span class='object_link'><a href="#OPENSSL_VERSION_NUMBER-constant" title="OpenSSL::OPENSSL_VERSION_NUMBER (constant)">OPENSSL_VERSION_NUMBER</a></span></span><span class='rparen'>)</span></pre></dd>
+    
+      <dt id="OPENSSL_FIPS-constant" class="">OPENSSL_FIPS =
+        
+      </dt>
+      <dd><pre class="code"><span class='comment'>#ifdef OPENSSL_FIPS
+</span>		    <span class='const'>Qtrue</span>
+<span class='comment'>#else
+</span>		    <span class='const'>Qfalse</span>
+<span class='comment'>#endif</span></pre></dd>
+    
+  </dl>
+
+
+
+
+
+
+
+  
+    <h2>
+      Class Method Summary
+      <small><a href="#" class="summary_toggle">collapse</a></small>
+    </h2>
+
+    <ul class="summary">
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#debug-class_method" title="debug (class method)">.<strong>debug</strong>  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#debug=-class_method" title="debug= (class method)">.<strong>debug=</strong>(boolean)  &#x21d2; Boolean </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Turns on or off debug mode.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#errors-class_method" title="errors (class method)">.<strong>errors</strong>  &#x21d2; Array </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>See any remaining errors held in queue.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#fips_mode-class_method" title="fips_mode (class method)">.<strong>fips_mode</strong>  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>call-seq   OpenSSL.fips_mode -&gt; true | false.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#fips_mode=-class_method" title="fips_mode= (class method)">.<strong>fips_mode=</strong>(boolean)  &#x21d2; Boolean </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Turns FIPS mode on or off.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#mem_check_start-class_method" title="mem_check_start (class method)">.<strong>mem_check_start</strong>  &#x21d2; nil </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Calls CRYPTO_mem_ctrl(CRYPTO_MEM_CHECK_ON).</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#print_mem_leaks-class_method" title="print_mem_leaks (class method)">.<strong>print_mem_leaks</strong>  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>For debugging the Ruby/OpenSSL library.</p>
+</div></span>
+  
+</li>
+
+      
+    </ul>
+  
+
+
+
+  <div id="class_method_details" class="method_details_list">
+    <h2>Class Method Details</h2>
+
+    
+      <div class="method_details first">
+  <h3 class="signature first" id="debug-class_method">
+  
+    .<strong>debug</strong>  &#x21d2; <tt><span class='object_link'><a href="Object.html" title="Object (class)">Object</a></span></tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+
+  </div>
+</div>
+<div class="tags">
+  
+  
+
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+379
+380
+381
+382
+383</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'ext/openssl/ossl.c', line 379</span>
+
+static VALUE
+ossl_debug_get(VALUE self)
+{
+    return dOSSL;
+}</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="debug=-class_method">
+  
+    .<strong>debug=</strong>(boolean)  &#x21d2; <tt>Boolean</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Turns on or off debug mode. With debug mode, all erros added to the OpenSSL
+error queue will be printed to stderr.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+  <div class="docstring">
+  <div class="discussion">
+    
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Boolean</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div>
+
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+392
+393
+394
+395
+396
+397
+398</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'ext/openssl/ossl.c', line 392</span>
+
+static VALUE
+ossl_debug_set(VALUE self, VALUE val)
+{
+    dOSSL = RTEST(val) ? Qtrue : Qfalse;
+
+    return val;
+}</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="errors-class_method">
+  
+    .<strong>errors</strong>  &#x21d2; <tt><span class='object_link'><a href="Array.html" title="Array (class)">Array</a></span></tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>See any remaining errors held in queue.</p>
+
+<p>Any errors you see here are probably due to a bug in Ruby&#39;s OpenSSL
+implementation.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+  <div class="docstring">
+  <div class="discussion">
+    
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="Array.html" title="Array (class)">Array</a></span></tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div>
+
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+340
+341
+342
+343
+344
+345
+346
+347
+348
+349
+350
+351
+352</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'ext/openssl/ossl.c', line 340</span>
+
+VALUE
+ossl_get_errors(void)
+{
+    VALUE ary;
+    long e;
+
+    ary = rb_ary_new();
+    while ((e = ERR_get_error()) != 0){
+        rb_ary_push(ary, rb_str_new2(ERR_error_string(e, NULL)));
+    }
+
+    return ary;
+}</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="fips_mode-class_method">
+  
+    .<strong>fips_mode</strong>  &#x21d2; <tt><span class='object_link'><a href="Object.html" title="Object (class)">Object</a></span></tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>call-seq</p>
+
+<pre class="code"><code class="">OpenSSL.fips_mode -&gt; true | false</code></pre>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+404
+405
+406
+407
+408
+409
+410
+411
+412
+413
+414
+415</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'ext/openssl/ossl.c', line 404</span>
+
+static VALUE
+ossl_fips_mode_get(VALUE self)
+{
+
+#ifdef OPENSSL_FIPS
+    VALUE enabled;
+    enabled = FIPS_mode() ? Qtrue : Qfalse;
+    return enabled;
+#else
+    return Qfalse;
+#endif
+}</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="fips_mode=-class_method">
+  
+    .<strong>fips_mode=</strong>(boolean)  &#x21d2; <tt>Boolean</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Turns FIPS mode on or off. Turning on FIPS mode will obviously only have an
+effect for FIPS-capable installations of the OpenSSL library. Trying to do
+so otherwise will result in an error.</p>
+
+<h3 id="label-Examples">Examples</h3>
+
+<pre class="code"><code class=""><span class='const'><span class='object_link'><a href="" title="OpenSSL (module)">OpenSSL</a></span></span><span class='period'>.</span><span class='id identifier rubyid_fips_mode'><span class='object_link'><a href="#fips_mode-class_method" title="OpenSSL.fips_mode (method)">fips_mode</a></span></span> <span class='op'>=</span> <span class='kw'>true</span>   <span class='comment'># turn FIPS mode on
+</span><span class='const'><span class='object_link'><a href="" title="OpenSSL (module)">OpenSSL</a></span></span><span class='period'>.</span><span class='id identifier rubyid_fips_mode'><span class='object_link'><a href="#fips_mode-class_method" title="OpenSSL.fips_mode (method)">fips_mode</a></span></span> <span class='op'>=</span> <span class='kw'>false</span>  <span class='comment'># and off again
+</span></code></pre>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+  <div class="docstring">
+  <div class="discussion">
+    
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Boolean</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div>
+
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+429
+430
+431
+432
+433
+434
+435
+436
+437
+438
+439
+440
+441
+442
+443
+444
+445
+446
+447
+448</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'ext/openssl/ossl.c', line 429</span>
+
+static VALUE
+ossl_fips_mode_set(VALUE self, VALUE enabled)
+{
+
+#ifdef OPENSSL_FIPS
+    if (RTEST(enabled)) {
+	int mode = FIPS_mode();
+	if(!mode &amp;&amp; !FIPS_mode_set(1)) /* turning on twice leads to an error */
+	    ossl_raise(eOSSLError, &quot;Turning on FIPS mode failed&quot;);
+    } else {
+	if(!FIPS_mode_set(0)) /* turning off twice is OK */
+	    ossl_raise(eOSSLError, &quot;Turning off FIPS mode failed&quot;);
+    }
+    return enabled;
+#else
+    if (RTEST(enabled))
+	ossl_raise(eOSSLError, &quot;This version of OpenSSL does not support FIPS mode&quot;);
+    return enabled;
+#endif
+}</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="mem_check_start-class_method">
+  
+    .<strong>mem_check_start</strong>  &#x21d2; <tt>nil</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Calls CRYPTO_mem_ctrl(CRYPTO_MEM_CHECK_ON). Starts tracking memory
+allocations. See also OpenSSL.print_mem_leaks.</p>
+
+<p>This is available only when built with a capable OpenSSL and –enable-debug
+configure option.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+  <div class="docstring">
+  <div class="discussion">
+    
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>nil</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div>
+
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+464
+465
+466
+467
+468
+469</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'ext/openssl/ossl.c', line 464</span>
+
+static VALUE
+mem_check_start(VALUE self)
+{
+	CRYPTO_mem_ctrl(CRYPTO_MEM_CHECK_ON);
+	return Qnil;
+}</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="print_mem_leaks-class_method">
+  
+    .<strong>print_mem_leaks</strong>  &#x21d2; <tt><span class='object_link'><a href="Object.html" title="Object (class)">Object</a></span></tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>For debugging the Ruby/OpenSSL library. Calls CRYPTO_mem_leaks_fp(stderr).
+Prints detected memory leaks to standard error. This cleans the global
+state up thus you cannot use any methods of the library after calling this.</p>
+
+<p>Returns <code>true</code> if leaks detected, <code>false</code> otherwise.</p>
+
+<p>This is available only when built with a capable OpenSSL and –enable-debug
+configure option.</p>
+
+<h3 id="label-Example">Example</h3>
+
+<pre class="code"><code class=""><span class='const'><span class='object_link'><a href="" title="OpenSSL (module)">OpenSSL</a></span></span><span class='period'>.</span><span class='id identifier rubyid_mem_check_start'><span class='object_link'><a href="#mem_check_start-class_method" title="OpenSSL.mem_check_start (method)">mem_check_start</a></span></span>
+<span class='const'>NOT_GCED</span> <span class='op'>=</span> <span class='const'><span class='object_link'><a href="" title="OpenSSL (module)">OpenSSL</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="OpenSSL/PKey.html" title="OpenSSL::PKey (module)">PKey</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="OpenSSL/PKey/RSA.html" title="OpenSSL::PKey::RSA (class)">RSA</a></span></span><span class='period'>.</span><span class='id identifier rubyid_new'><span class='object_link'><a href="OpenSSL/PKey/RSA.html#initialize-instance_method" title="OpenSSL::PKey::RSA#initialize (method)">new</a></span></span><span class='lparen'>(</span><span class='int'>256</span><span class='rparen'>)</span>
+
+<span class='kw'>END</span> <span class='lbrace'>{</span>
+  <span class='const'>GC</span><span class='period'>.</span><span class='id identifier rubyid_start'>start</span>
+  <span class='const'><span class='object_link'><a href="" title="OpenSSL (module)">OpenSSL</a></span></span><span class='period'>.</span><span class='id identifier rubyid_print_mem_leaks'>print_mem_leaks</span> <span class='comment'># will print the leakage
+</span><span class='rbrace'>}</span>
+</code></pre>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+  
+
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+493
+494
+495
+496
+497
+498
+499
+500
+501
+502
+503
+504
+505
+506
+507
+508
+509
+510
+511
+512</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'ext/openssl/ossl.c', line 493</span>
+
+static VALUE
+print_mem_leaks(VALUE self)
+{
+#if OPENSSL_VERSION_NUMBER &gt;= 0x10100000
+    int ret;
+#endif
+
+    BN_CTX_free(ossl_bn_ctx);
+    ossl_bn_ctx = NULL;
+
+#if OPENSSL_VERSION_NUMBER &gt;= 0x10100000
+    ret = CRYPTO_mem_leaks_fp(stderr);
+    if (ret &lt; 0)
+	ossl_raise(eOSSLError, &quot;CRYPTO_mem_leaks_fp&quot;);
+    return ret ? Qfalse : Qtrue;
+#else
+    CRYPTO_mem_leaks_fp(stderr);
+    return Qnil;
+#endif
+}</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+  </div>
+
+</div>
+
+      <div id="footer">
+  Generated on Mon Feb 26 22:17:41 2018 by
+  <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
+  0.9.12 (ruby-2.4.2).
+</div>
+
+    </div>
+  </body>
+</html>

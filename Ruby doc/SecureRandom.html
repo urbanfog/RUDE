@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>
+  Module: SecureRandom
+  
+    &mdash; Documentation by YARD 0.9.12
+  
+</title>
+
+  <link rel="stylesheet" href="css/style.css" type="text/css" charset="utf-8" />
+
+  <link rel="stylesheet" href="css/common.css" type="text/css" charset="utf-8" />
+
+<script type="text/javascript" charset="utf-8">
+  pathId = "SecureRandom";
+  relpath = '';
+</script>
+
+
+  <script type="text/javascript" charset="utf-8" src="js/jquery.js"></script>
+
+  <script type="text/javascript" charset="utf-8" src="js/app.js"></script>
+
+
+  </head>
+  <body>
+    <div class="nav_wrap">
+      <iframe id="nav" src="class_list.html?1"></iframe>
+      <div id="resizer"></div>
+    </div>
+
+    <div id="main" tabindex="-1">
+      <div id="header">
+        <div id="menu">
+  
+    <a href="_index.html">Index (S)</a> &raquo;
+    
+    
+    <span class="title">SecureRandom</span>
+  
+</div>
+
+        <div id="search">
+  
+    <a class="full_list_link" id="class_list_link"
+        href="class_list.html">
+
+        <svg width="24" height="24">
+          <rect x="0" y="4" width="24" height="4" rx="1" ry="1"></rect>
+          <rect x="0" y="12" width="24" height="4" rx="1" ry="1"></rect>
+          <rect x="0" y="20" width="24" height="4" rx="1" ry="1"></rect>
+        </svg>
+    </a>
+  
+</div>
+        <div class="clear"></div>
+      </div>
+
+      <div id="content"><h1>Module: SecureRandom
+  
+  
+  
+</h1>
+<div class="box_info">
+  
+
+  
+  
+  
+  
+  
+
+  
+
+  
+  <dl>
+    <dt>Defined in:</dt>
+    <dd>lib/securerandom.rb</dd>
+  </dl>
+  
+</div>
+
+<h2>Overview</h2><div class="docstring">
+  <div class="discussion">
+    
+<h2 id="label-Secure+random+number+generator+interface.">Secure random number generator interface.</h2>
+
+<p>This library is an interface to secure random number generators which are
+suitable for generating session keys in HTTP cookies, etc.</p>
+
+<p>You can use this library in your application by requiring it:</p>
+
+<pre class="code ruby"><code class="ruby"><span class='id identifier rubyid_require'>require</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>securerandom</span><span class='tstring_end'>&#39;</span></span>
+</code></pre>
+
+<p>It supports the following secure random number generators:</p>
+<ul><li>
+<p>openssl</p>
+</li><li>
+<p>/dev/urandom</p>
+</li><li>
+<p>Win32</p>
+</li></ul>
+
+<h3 id="label-Examples">Examples</h3>
+
+<p>Generate random hexadecimal strings:</p>
+
+<pre class="code ruby"><code class="ruby"><span class='id identifier rubyid_require'>require</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>securerandom</span><span class='tstring_end'>&#39;</span></span>
+
+<span class='id identifier rubyid_p'>p</span> <span class='const'>SecureRandom</span><span class='period'>.</span><span class='id identifier rubyid_hex'>hex</span><span class='lparen'>(</span><span class='int'>10</span><span class='rparen'>)</span> <span class='comment'>#=&gt; &quot;52750b30ffbc7de3b362&quot;
+</span><span class='id identifier rubyid_p'>p</span> <span class='const'>SecureRandom</span><span class='period'>.</span><span class='id identifier rubyid_hex'>hex</span><span class='lparen'>(</span><span class='int'>10</span><span class='rparen'>)</span> <span class='comment'>#=&gt; &quot;92b15d6c8dc4beb5f559&quot;
+</span><span class='id identifier rubyid_p'>p</span> <span class='const'>SecureRandom</span><span class='period'>.</span><span class='id identifier rubyid_hex'>hex</span><span class='lparen'>(</span><span class='int'>13</span><span class='rparen'>)</span> <span class='comment'>#=&gt; &quot;39b290146bea6ce975c37cfc23&quot;
+</span></code></pre>
+
+<p>Generate random base64 strings:</p>
+
+<pre class="code ruby"><code class="ruby"><span class='id identifier rubyid_p'>p</span> <span class='const'>SecureRandom</span><span class='period'>.</span><span class='id identifier rubyid_base64'>base64</span><span class='lparen'>(</span><span class='int'>10</span><span class='rparen'>)</span> <span class='comment'>#=&gt; &quot;EcmTPZwWRAozdA==&quot;
+</span><span class='id identifier rubyid_p'>p</span> <span class='const'>SecureRandom</span><span class='period'>.</span><span class='id identifier rubyid_base64'>base64</span><span class='lparen'>(</span><span class='int'>10</span><span class='rparen'>)</span> <span class='comment'>#=&gt; &quot;KO1nIU+p9DKxGg==&quot;
+</span><span class='id identifier rubyid_p'>p</span> <span class='const'>SecureRandom</span><span class='period'>.</span><span class='id identifier rubyid_base64'>base64</span><span class='lparen'>(</span><span class='int'>12</span><span class='rparen'>)</span> <span class='comment'>#=&gt; &quot;7kJSM/MzBJI+75j8&quot;
+</span></code></pre>
+
+<p>Generate random binary strings:</p>
+
+<pre class="code ruby"><code class="ruby"><span class='id identifier rubyid_p'>p</span> <span class='const'>SecureRandom</span><span class='period'>.</span><span class='id identifier rubyid_random_bytes'>random_bytes</span><span class='lparen'>(</span><span class='int'>10</span><span class='rparen'>)</span> <span class='comment'>#=&gt; &quot;\016\t{\370g\310pbr\301&quot;
+</span><span class='id identifier rubyid_p'>p</span> <span class='const'>SecureRandom</span><span class='period'>.</span><span class='id identifier rubyid_random_bytes'>random_bytes</span><span class='lparen'>(</span><span class='int'>10</span><span class='rparen'>)</span> <span class='comment'>#=&gt; &quot;\323U\030TO\234\357\020\a\337&quot;
+</span></code></pre>
+
+<p>Generate UUIDs:</p>
+
+<pre class="code ruby"><code class="ruby"><span class='id identifier rubyid_p'>p</span> <span class='const'>SecureRandom</span><span class='period'>.</span><span class='id identifier rubyid_uuid'>uuid</span> <span class='comment'>#=&gt; &quot;2d931510-d99f-494a-8c67-87feb05e1594&quot;
+</span><span class='id identifier rubyid_p'>p</span> <span class='const'>SecureRandom</span><span class='period'>.</span><span class='id identifier rubyid_uuid'>uuid</span> <span class='comment'>#=&gt; &quot;bad85eb9-0713-4da7-8d36-07a8e4b00eab&quot;
+</span></code></pre>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div>
+
+
+
+
+
+
+  
+    <h2>
+      Class Method Summary
+      <small><a href="#" class="summary_toggle">collapse</a></small>
+    </h2>
+
+    <ul class="summary">
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#bytes-class_method" title="bytes (class method)">.<strong>bytes</strong>(n)  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#gen_random-class_method" title="gen_random (class method)">.<strong>gen_random</strong>(n)  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+    </ul>
+  
+
+
+
+  <div id="class_method_details" class="method_details_list">
+    <h2>Class Method Details</h2>
+
+    
+      <div class="method_details first">
+  <h3 class="signature first" id="bytes-class_method">
+  
+    .<strong>bytes</strong>(n)  &#x21d2; <tt><span class='object_link'><a href="Object.html" title="Object (class)">Object</a></span></tt> 
+  
+
+  
+
+  
+</h3><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+50
+51
+52</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/securerandom.rb', line 50</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_bytes'>bytes</span><span class='lparen'>(</span><span class='id identifier rubyid_n'>n</span><span class='rparen'>)</span>
+  <span class='kw'>return</span> <span class='id identifier rubyid_gen_random'>gen_random</span><span class='lparen'>(</span><span class='id identifier rubyid_n'>n</span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="gen_random-class_method">
+  
+    .<strong>gen_random</strong>(n)  &#x21d2; <tt><span class='object_link'><a href="Object.html" title="Object (class)">Object</a></span></tt> 
+  
+
+  
+
+  
+</h3><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/securerandom.rb', line 54</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_gen_random'>gen_random</span><span class='lparen'>(</span><span class='id identifier rubyid_n'>n</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_ret'>ret</span> <span class='op'>=</span> <span class='const'>Random</span><span class='period'>.</span><span class='id identifier rubyid_urandom'>urandom</span><span class='lparen'>(</span><span class='int'>1</span><span class='rparen'>)</span>
+  <span class='kw'>if</span> <span class='id identifier rubyid_ret'>ret</span><span class='period'>.</span><span class='id identifier rubyid_nil?'>nil?</span>
+    <span class='kw'>begin</span>
+      <span class='id identifier rubyid_require'>require</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>openssl</span><span class='tstring_end'>&#39;</span></span>
+    <span class='kw'>rescue</span> <span class='const'>NoMethodError</span>
+      <span class='id identifier rubyid_raise'>raise</span> <span class='const'>NotImplementedError</span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>No random device</span><span class='tstring_end'>&quot;</span></span>
+    <span class='kw'>else</span>
+      <span class='ivar'>@rng_chooser</span><span class='period'>.</span><span class='id identifier rubyid_synchronize'>synchronize</span> <span class='kw'>do</span>
+        <span class='kw'>class</span> <span class='op'>&lt;&lt;</span> <span class='kw'>self</span>
+          <span class='id identifier rubyid_remove_method'>remove_method</span> <span class='symbol'>:gen_random</span>
+          <span class='kw'>alias</span> <span class='id identifier rubyid_gen_random'>gen_random</span> <span class='id identifier rubyid_gen_random_openssl'>gen_random_openssl</span>
+        <span class='kw'>end</span>
+      <span class='kw'>end</span>
+      <span class='kw'>return</span> <span class='id identifier rubyid_gen_random'>gen_random</span><span class='lparen'>(</span><span class='id identifier rubyid_n'>n</span><span class='rparen'>)</span>
+    <span class='kw'>end</span>
+  <span class='kw'>else</span>
+    <span class='ivar'>@rng_chooser</span><span class='period'>.</span><span class='id identifier rubyid_synchronize'>synchronize</span> <span class='kw'>do</span>
+      <span class='kw'>class</span> <span class='op'>&lt;&lt;</span> <span class='kw'>self</span>
+        <span class='id identifier rubyid_remove_method'>remove_method</span> <span class='symbol'>:gen_random</span>
+        <span class='kw'>alias</span> <span class='id identifier rubyid_gen_random'>gen_random</span> <span class='id identifier rubyid_gen_random_urandom'>gen_random_urandom</span>
+      <span class='kw'>end</span>
+    <span class='kw'>end</span>
+    <span class='kw'>return</span> <span class='id identifier rubyid_gen_random'>gen_random</span><span class='lparen'>(</span><span class='id identifier rubyid_n'>n</span><span class='rparen'>)</span>
+  <span class='kw'>end</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+  </div>
+
+</div>
+
+      <div id="footer">
+  Generated on Mon Feb 26 22:17:36 2018 by
+  <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
+  0.9.12 (ruby-2.4.2).
+</div>
+
+    </div>
+  </body>
+</html>

@@ -1,0 +1,4772 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>
+  Class: Socket
+  
+    &mdash; Documentation by YARD 0.9.12
+  
+</title>
+
+  <link rel="stylesheet" href="css/style.css" type="text/css" charset="utf-8" />
+
+  <link rel="stylesheet" href="css/common.css" type="text/css" charset="utf-8" />
+
+<script type="text/javascript" charset="utf-8">
+  pathId = "Socket";
+  relpath = '';
+</script>
+
+
+  <script type="text/javascript" charset="utf-8" src="js/jquery.js"></script>
+
+  <script type="text/javascript" charset="utf-8" src="js/app.js"></script>
+
+
+  </head>
+  <body>
+    <div class="nav_wrap">
+      <iframe id="nav" src="class_list.html?1"></iframe>
+      <div id="resizer"></div>
+    </div>
+
+    <div id="main" tabindex="-1">
+      <div id="header">
+        <div id="menu">
+  
+    <a href="_index.html">Index (S)</a> &raquo;
+    
+    
+    <span class="title">Socket</span>
+  
+</div>
+
+        <div id="search">
+  
+    <a class="full_list_link" id="class_list_link"
+        href="class_list.html">
+
+        <svg width="24" height="24">
+          <rect x="0" y="4" width="24" height="4" rx="1" ry="1"></rect>
+          <rect x="0" y="12" width="24" height="4" rx="1" ry="1"></rect>
+          <rect x="0" y="20" width="24" height="4" rx="1" ry="1"></rect>
+        </svg>
+    </a>
+  
+</div>
+        <div class="clear"></div>
+      </div>
+
+      <div id="content"><h1>Class: Socket
+  
+  
+  
+</h1>
+<div class="box_info">
+  
+  <dl>
+    <dt>Inherits:</dt>
+    <dd>
+      <span class="inheritName"><span class='object_link'><a href="BasicSocket.html" title="BasicSocket (class)">BasicSocket</a></span></span>
+      
+        <ul class="fullTree">
+          <li><span class='object_link'><a href="Object.html" title="Object (class)">Object</a></span></li>
+          
+            <li class="next"><span class='object_link'><a href="IO.html" title="IO (class)">IO</a></span></li>
+          
+            <li class="next"><span class='object_link'><a href="BasicSocket.html" title="BasicSocket (class)">BasicSocket</a></span></li>
+          
+            <li class="next">Socket</li>
+          
+        </ul>
+        <a href="#" class="inheritanceTree">show all</a>
+      
+    </dd>
+  </dl>
+  
+
+  
+  
+  
+  
+  
+
+  
+
+  
+  <dl>
+    <dt>Defined in:</dt>
+    <dd>ext/socket/socket.c<span class="defines">,<br />
+  lib/ipaddr.rb,<br /> ext/socket/socket.c</span>
+</dd>
+  </dl>
+  
+</div>
+
+<h2>Overview</h2><div class="docstring">
+  <div class="discussion">
+    
+<p>Class <code>Socket</code> provides access to the underlying operating
+system socket implementations.  It can be used to provide more operating
+system specific functionality than the protocol-specific socket classes.</p>
+
+<p>The constants defined under Socket::Constants are also defined under
+Socket.  For example, Socket::AF_INET is usable as well as
+Socket::Constants::AF_INET.  See Socket::Constants for the list of
+constants.</p>
+
+<h3 id="label-What-27s+a+socket-3F">What&#39;s a socket?</h3>
+
+<p>Sockets are endpoints of a bidirectional communication channel. Sockets can
+communicate within a process, between processes on the same machine or
+between different machines.  There are many types of socket: TCPSocket,
+UDPSocket or UNIXSocket for example.</p>
+
+<p>Sockets have their own vocabulary:</p>
+
+<p><strong>domain:</strong> The family of protocols:</p>
+<ul><li>
+<p>Socket::PF_INET</p>
+</li><li>
+<p>Socket::PF_INET6</p>
+</li><li>
+<p>Socket::PF_UNIX</p>
+</li><li>
+<p>etc.</p>
+</li></ul>
+
+<p><strong>type:</strong> The type of communications between the two
+endpoints, typically</p>
+<ul><li>
+<p>Socket::SOCK_STREAM</p>
+</li><li>
+<p>Socket::SOCK_DGRAM.</p>
+</li></ul>
+
+<p><strong>protocol:</strong> Typically <em>zero</em>. This may be used to
+identify a variant of a protocol.</p>
+
+<p><strong>hostname:</strong> The identifier of a network interface:</p>
+<ul><li>
+<p>a string (hostname, IPv4 or IPv6 address or <code>broadcast</code></p>
+</li></ul>
+
+<pre class="code ruby"><code class="ruby">which specifies a broadcast address)</code></pre>
+<ul><li>
+<p>a zero-length string which specifies INADDR_ANY</p>
+</li><li>
+<p>an integer (interpreted as binary address in host byte order).</p>
+</li></ul>
+
+<h3 id="label-Quick+start">Quick start</h3>
+
+<p>Many of the classes, such as TCPSocket, UDPSocket or UNIXSocket, ease the
+use of sockets comparatively to the equivalent C programming interface.</p>
+
+<p>Let&#39;s create an internet socket using the IPv4 protocol in a C-like
+manner:</p>
+
+<pre class="code ruby"><code class="ruby"><span class='id identifier rubyid_require'>require</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>socket</span><span class='tstring_end'>&#39;</span></span>
+
+<span class='id identifier rubyid_s'>s</span> <span class='op'>=</span> <span class='const'>Socket</span><span class='period'>.</span><span class='id identifier rubyid_new'><span class='object_link'><a href="#initialize-instance_method" title="Socket#initialize (method)">new</a></span></span> <span class='const'>Socket</span><span class='op'>::</span><span class='const'>AF_INET</span><span class='comma'>,</span> <span class='const'>Socket</span><span class='op'>::</span><span class='const'>SOCK_STREAM</span>
+<span class='id identifier rubyid_s'>s</span><span class='period'>.</span><span class='id identifier rubyid_connect'>connect</span> <span class='const'>Socket</span><span class='period'>.</span><span class='id identifier rubyid_pack_sockaddr_in'><span class='object_link'><a href="#pack_sockaddr_in-class_method" title="Socket.pack_sockaddr_in (method)">pack_sockaddr_in</a></span></span><span class='lparen'>(</span><span class='int'>80</span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>example.com</span><span class='tstring_end'>&#39;</span></span><span class='rparen'>)</span>
+</code></pre>
+
+<p>You could also use the TCPSocket class:</p>
+
+<pre class="code ruby"><code class="ruby"><span class='id identifier rubyid_s'>s</span> <span class='op'>=</span> <span class='const'><span class='object_link'><a href="TCPSocket.html" title="TCPSocket (class)">TCPSocket</a></span></span><span class='period'>.</span><span class='id identifier rubyid_new'><span class='object_link'><a href="TCPSocket.html#initialize-instance_method" title="TCPSocket#initialize (method)">new</a></span></span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>example.com</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span> <span class='int'>80</span>
+</code></pre>
+
+<p>A simple server might look like this:</p>
+
+<pre class="code ruby"><code class="ruby"><span class='id identifier rubyid_require'>require</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>socket</span><span class='tstring_end'>&#39;</span></span>
+
+<span class='id identifier rubyid_server'>server</span> <span class='op'>=</span> <span class='const'><span class='object_link'><a href="TCPServer.html" title="TCPServer (class)">TCPServer</a></span></span><span class='period'>.</span><span class='id identifier rubyid_new'><span class='object_link'><a href="TCPServer.html#initialize-instance_method" title="TCPServer#initialize (method)">new</a></span></span> <span class='int'>2000</span> <span class='comment'># Server bound to port 2000
+</span>
+<span class='id identifier rubyid_loop'>loop</span> <span class='kw'>do</span>
+  <span class='id identifier rubyid_client'>client</span> <span class='op'>=</span> <span class='id identifier rubyid_server'>server</span><span class='period'>.</span><span class='id identifier rubyid_accept'>accept</span>    <span class='comment'># Wait for a client to connect
+</span>  <span class='id identifier rubyid_client'>client</span><span class='period'>.</span><span class='id identifier rubyid_puts'>puts</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Hello !</span><span class='tstring_end'>&quot;</span></span>
+  <span class='id identifier rubyid_client'>client</span><span class='period'>.</span><span class='id identifier rubyid_puts'>puts</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Time is </span><span class='embexpr_beg'>#{</span><span class='const'><span class='object_link'><a href="Time.html" title="Time (class)">Time</a></span></span><span class='period'>.</span><span class='id identifier rubyid_now'>now</span><span class='embexpr_end'>}</span><span class='tstring_end'>&quot;</span></span>
+  <span class='id identifier rubyid_client'>client</span><span class='period'>.</span><span class='id identifier rubyid_close'>close</span>
+<span class='kw'>end</span>
+</code></pre>
+
+<p>A simple client may look like this:</p>
+
+<pre class="code ruby"><code class="ruby"><span class='id identifier rubyid_require'>require</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>socket</span><span class='tstring_end'>&#39;</span></span>
+
+<span class='id identifier rubyid_s'>s</span> <span class='op'>=</span> <span class='const'><span class='object_link'><a href="TCPSocket.html" title="TCPSocket (class)">TCPSocket</a></span></span><span class='period'>.</span><span class='id identifier rubyid_new'><span class='object_link'><a href="TCPSocket.html#initialize-instance_method" title="TCPSocket#initialize (method)">new</a></span></span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>localhost</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span> <span class='int'>2000</span>
+
+<span class='kw'>while</span> <span class='id identifier rubyid_line'>line</span> <span class='op'>=</span> <span class='id identifier rubyid_s'>s</span><span class='period'>.</span><span class='id identifier rubyid_gets'>gets</span> <span class='comment'># Read lines from socket
+</span>  <span class='id identifier rubyid_puts'>puts</span> <span class='id identifier rubyid_line'>line</span>         <span class='comment'># and print them
+</span><span class='kw'>end</span>
+
+<span class='id identifier rubyid_s'>s</span><span class='period'>.</span><span class='id identifier rubyid_close'>close</span>             <span class='comment'># close socket when done
+</span></code></pre>
+
+<h3 id="label-Exception+Handling">Exception Handling</h3>
+
+<p>Ruby&#39;s Socket implementation raises exceptions based on the error
+generated by the system dependent implementation.  This is why the methods
+are documented in a way that isolate Unix-based system exceptions from
+Windows based exceptions. If more information on a particular exception is
+needed, please refer to the Unix manual pages or the Windows WinSock
+reference.</p>
+
+<h3 id="label-Convenience+methods">Convenience methods</h3>
+
+<p>Although the general way to create socket is Socket.new, there are several
+methods of socket creation for most cases.</p>
+<dl class="rdoc-list note-list"><dt>TCP client socket
+<dd>
+<p>Socket.tcp, TCPSocket.open</p>
+</dd><dt>TCP server socket
+<dd>
+<p>Socket.tcp_server_loop, TCPServer.open</p>
+</dd><dt>UNIX client socket
+<dd>
+<p>Socket.unix, UNIXSocket.open</p>
+</dd><dt>UNIX server socket
+<dd>
+<p>Socket.unix_server_loop, UNIXServer.open</p>
+</dd></dl>
+
+<h3 id="label-Documentation+by">Documentation by</h3>
+<ul><li>
+<p>Zach Dennis</p>
+</li><li>
+<p>Sam Roberts</p>
+</li><li>
+<p><em>Programming Ruby</em> from The Pragmatic Bookshelf.</p>
+</li></ul>
+
+<p>Much material in this documentation is taken with permission from
+<em>Programming Ruby</em> from The Pragmatic Bookshelf.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><h2>Defined Under Namespace</h2>
+<p class="children">
+  
+    
+  
+    
+      <strong class="classes">Classes:</strong> <span class='object_link'><a href="Socket/AncillaryData.html" title="Socket::AncillaryData (class)">AncillaryData</a></span>, <span class='object_link'><a href="Socket/Ifaddr.html" title="Socket::Ifaddr (class)">Ifaddr</a></span>, <span class='object_link'><a href="Socket/Option.html" title="Socket::Option (class)">Option</a></span>
+    
+  
+</p>
+
+  <h2>Constant Summary</h2>
+  <dl class="constants">
+    
+      <dt id="AF_INET6-constant" class="">AF_INET6 =
+        <div class="docstring">
+  <div class="discussion">
+    
+<p>IPv6 protocol family</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div>
+      </dt>
+      <dd><pre class="code"><span class='const'><span class='object_link'><a href="Object.html" title="Object (class)">Object</a></span></span><span class='period'>.</span><span class='id identifier rubyid_new'><span class='object_link'><a href="OptionParser/Arguable.html#initialize-instance_method" title="OptionParser::Arguable#initialize (method)">new</a></span></span></pre></dd>
+    
+  </dl>
+
+
+
+
+
+
+
+  
+    <h2>
+      Class Method Summary
+      <small><a href="#" class="summary_toggle">collapse</a></small>
+    </h2>
+
+    <ul class="summary">
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#getaddrinfo-class_method" title="getaddrinfo (class method)">.<strong>getaddrinfo</strong>(nodename, servname[, family[, socktype[, protocol[, flags[, reverse_lookup]]]]])  &#x21d2; Array </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Obtains address information for <em>nodename</em>:<em>servname</em>.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#gethostbyaddr-class_method" title="gethostbyaddr (class method)">.<strong>gethostbyaddr</strong>(address_string[, address_family])  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Use Addrinfo#getnameinfo instead.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#gethostbyname-class_method" title="gethostbyname (class method)">.<strong>gethostbyname</strong>(hostname)  &#x21d2; Array </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Use Addrinfo.getaddrinfo instead.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#gethostname-class_method" title="gethostname (class method)">.<strong>gethostname</strong>  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#getifaddrs-class_method" title="getifaddrs (class method)">.<strong>getifaddrs</strong>  &#x21d2; Array </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Returns an array of interface addresses.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#getnameinfo-class_method" title="getnameinfo (class method)">.<strong>getnameinfo</strong>(sockaddr[, flags])  &#x21d2; Array </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Obtains name information for <em>sockaddr</em>.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#getservbyname-class_method" title="getservbyname (class method)">.<strong>getservbyname</strong>(*args)  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Obtains the port number for <em>service_name</em>.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#getservbyport-class_method" title="getservbyport (class method)">.<strong>getservbyport</strong>(port[, protocol_name])  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Obtains the port number for <em>port</em>.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#ip_address_list-class_method" title="ip_address_list (class method)">.<strong>ip_address_list</strong>  &#x21d2; Array </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Returns local IP addresses as an array.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#pack_sockaddr_in-class_method" title="pack_sockaddr_in (class method)">.<strong>pack_sockaddr_in</strong>(port, host)  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Packs <em>port</em> and <em>host</em> as an AF_INET/AF_INET6 sockaddr
+string.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#pack_sockaddr_un-class_method" title="pack_sockaddr_un (class method)">.<strong>pack_sockaddr_un</strong>(path)  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Packs <em>path</em> as an AF_UNIX sockaddr string.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#pair-class_method" title="pair (class method)">.<strong>pair</strong>(*args)  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Creates a pair of sockets connected each other.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#sockaddr_in-class_method" title="sockaddr_in (class method)">.<strong>sockaddr_in</strong>(port, host)  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Packs <em>port</em> and <em>host</em> as an AF_INET/AF_INET6 sockaddr
+string.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#sockaddr_un-class_method" title="sockaddr_un (class method)">.<strong>sockaddr_un</strong>(path)  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Packs <em>path</em> as an AF_UNIX sockaddr string.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#socketpair-class_method" title="socketpair (class method)">.<strong>socketpair</strong>(*args)  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Creates a pair of sockets connected each other.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#unpack_sockaddr_in-class_method" title="unpack_sockaddr_in (class method)">.<strong>unpack_sockaddr_in</strong>(sockaddr)  &#x21d2; Array </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Unpacks <em>sockaddr</em> into port and ip_address.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#unpack_sockaddr_un-class_method" title="unpack_sockaddr_un (class method)">.<strong>unpack_sockaddr_un</strong>(sockaddr)  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Unpacks <em>sockaddr</em> into path.</p>
+</div></span>
+  
+</li>
+
+      
+    </ul>
+  
+    <h2>
+      Instance Method Summary
+      <small><a href="#" class="summary_toggle">collapse</a></small>
+    </h2>
+
+    <ul class="summary">
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#accept-instance_method" title="#accept (instance method)">#<strong>accept</strong>  &#x21d2; Array </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Accepts a next connection.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#bind-instance_method" title="#bind (instance method)">#<strong>bind</strong>(local_sockaddr)  &#x21d2; 0 </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Binds to the given local address.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#connect-instance_method" title="#connect (instance method)">#<strong>connect</strong>(remote_sockaddr)  &#x21d2; 0 </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Requests a connection to be made on the given <code>remote_sockaddr</code>.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#initialize-instance_method" title="#new (instance method)">#<strong>new</strong>(domain, socktype[, protocol])  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+    <span class="note title constructor">constructor</span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Creates a new socket object.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#listen-instance_method" title="#listen (instance method)">#<strong>listen</strong>(int)  &#x21d2; 0 </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Listens for connections, using the specified <code>int</code> as the
+backlog.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#recvfrom-instance_method" title="#recvfrom (instance method)">#<strong>recvfrom</strong>(*args)  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Receives up to <em>maxlen</em> bytes from <code>socket</code>.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#sysaccept-instance_method" title="#sysaccept (instance method)">#<strong>sysaccept</strong>  &#x21d2; Array </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Accepts an incoming connection returning an array containing the (integer)
+file descriptor for the incoming connection, <em>client_socket_fd</em>, and
+an Addrinfo, <em>client_addrinfo</em>.</p>
+</div></span>
+  
+</li>
+
+      
+    </ul>
+  
+
+
+  
+  
+  
+  
+  
+  
+  
+  
+  <h3 class="inherited">Methods inherited from <span class='object_link'><a href="BasicSocket.html" title="BasicSocket (class)">BasicSocket</a></span></h3>
+  <p class="inherited"><span class='object_link'><a href="BasicSocket.html#close_read-instance_method" title="BasicSocket#close_read (method)">#close_read</a></span>, <span class='object_link'><a href="BasicSocket.html#close_write-instance_method" title="BasicSocket#close_write (method)">#close_write</a></span>, <span class='object_link'><a href="BasicSocket.html#do_not_reverse_lookup-instance_method" title="BasicSocket#do_not_reverse_lookup (method)">#do_not_reverse_lookup</a></span>, <span class='object_link'><a href="BasicSocket.html#do_not_reverse_lookup-class_method" title="BasicSocket.do_not_reverse_lookup (method)">do_not_reverse_lookup</a></span>, <span class='object_link'><a href="BasicSocket.html#do_not_reverse_lookup=-instance_method" title="BasicSocket#do_not_reverse_lookup= (method)">#do_not_reverse_lookup=</a></span>, <span class='object_link'><a href="BasicSocket.html#do_not_reverse_lookup=-class_method" title="BasicSocket.do_not_reverse_lookup= (method)">do_not_reverse_lookup=</a></span>, <span class='object_link'><a href="BasicSocket.html#for_fd-class_method" title="BasicSocket.for_fd (method)">for_fd</a></span>, <span class='object_link'><a href="BasicSocket.html#getpeereid-instance_method" title="BasicSocket#getpeereid (method)">#getpeereid</a></span>, <span class='object_link'><a href="BasicSocket.html#getpeername-instance_method" title="BasicSocket#getpeername (method)">#getpeername</a></span>, <span class='object_link'><a href="BasicSocket.html#getsockname-instance_method" title="BasicSocket#getsockname (method)">#getsockname</a></span>, <span class='object_link'><a href="BasicSocket.html#getsockopt-instance_method" title="BasicSocket#getsockopt (method)">#getsockopt</a></span>, <span class='object_link'><a href="BasicSocket.html#local_address-instance_method" title="BasicSocket#local_address (method)">#local_address</a></span>, <span class='object_link'><a href="BasicSocket.html#recv-instance_method" title="BasicSocket#recv (method)">#recv</a></span>, <span class='object_link'><a href="BasicSocket.html#remote_address-instance_method" title="BasicSocket#remote_address (method)">#remote_address</a></span>, <span class='object_link'><a href="BasicSocket.html#send-instance_method" title="BasicSocket#send (method)">#send</a></span>, <span class='object_link'><a href="BasicSocket.html#setsockopt-instance_method" title="BasicSocket#setsockopt (method)">#setsockopt</a></span>, <span class='object_link'><a href="BasicSocket.html#shutdown-instance_method" title="BasicSocket#shutdown (method)">#shutdown</a></span></p>
+
+  
+  
+  
+  
+  
+  
+  
+  
+  <h3 class="inherited">Methods inherited from <span class='object_link'><a href="IO.html" title="IO (class)">IO</a></span></h3>
+  <p class="inherited"><span class='object_link'><a href="IO.html#beep-instance_method" title="IO#beep (method)">#beep</a></span>, <span class='object_link'><a href="IO.html#console-class_method" title="IO.console (method)">console</a></span>, <span class='object_link'><a href="IO.html#console_attribute-instance_method" title="IO#console_attribute (method)">#console_attribute</a></span>, <span class='object_link'><a href="IO.html#console_info-instance_method" title="IO#console_info (method)">#console_info</a></span>, <span class='object_link'><a href="IO.html#cooked-instance_method" title="IO#cooked (method)">#cooked</a></span>, <span class='object_link'><a href="IO.html#cooked!-instance_method" title="IO#cooked! (method)">#cooked!</a></span>, <span class='object_link'><a href="IO.html#cursor-instance_method" title="IO#cursor (method)">#cursor</a></span>, <span class='object_link'><a href="IO.html#cursor=-instance_method" title="IO#cursor= (method)">#cursor=</a></span>, <span class='object_link'><a href="IO.html#echo=-instance_method" title="IO#echo= (method)">#echo=</a></span>, <span class='object_link'><a href="IO.html#echo%3F-instance_method" title="IO#echo? (method)">#echo?</a></span>, <span class='object_link'><a href="IO.html#getch-instance_method" title="IO#getch (method)">#getch</a></span>, <span class='object_link'><a href="IO.html#getpass-instance_method" title="IO#getpass (method)">#getpass</a></span>, <span class='object_link'><a href="IO.html#goto-instance_method" title="IO#goto (method)">#goto</a></span>, <span class='object_link'><a href="IO.html#iflush-instance_method" title="IO#iflush (method)">#iflush</a></span>, <span class='object_link'><a href="IO.html#ioflush-instance_method" title="IO#ioflush (method)">#ioflush</a></span>, <span class='object_link'><a href="IO.html#noecho-instance_method" title="IO#noecho (method)">#noecho</a></span>, <span class='object_link'><a href="IO.html#nonblock-instance_method" title="IO#nonblock (method)">#nonblock</a></span>, <span class='object_link'><a href="IO.html#nonblock=-instance_method" title="IO#nonblock= (method)">#nonblock=</a></span>, <span class='object_link'><a href="IO.html#nonblock%3F-instance_method" title="IO#nonblock? (method)">#nonblock?</a></span>, <span class='object_link'><a href="IO.html#nread-instance_method" title="IO#nread (method)">#nread</a></span>, <span class='object_link'><a href="IO.html#oflush-instance_method" title="IO#oflush (method)">#oflush</a></span>, <span class='object_link'><a href="IO.html#pathconf-instance_method" title="IO#pathconf (method)">#pathconf</a></span>, <span class='object_link'><a href="IO.html#pressed%3F-instance_method" title="IO#pressed? (method)">#pressed?</a></span>, <span class='object_link'><a href="IO.html#raw-instance_method" title="IO#raw (method)">#raw</a></span>, <span class='object_link'><a href="IO.html#raw!-instance_method" title="IO#raw! (method)">#raw!</a></span>, <span class='object_link'><a href="IO.html#ready%3F-instance_method" title="IO#ready? (method)">#ready?</a></span>, <span class='object_link'><a href="IO.html#scanf-instance_method" title="IO#scanf (method)">#scanf</a></span>, <span class='object_link'><a href="IO.html#thread_fd_close-class_method" title="IO.thread_fd_close (method)">thread_fd_close</a></span>, <span class='object_link'><a href="IO.html#wait-instance_method" title="IO#wait (method)">#wait</a></span>, <span class='object_link'><a href="IO.html#wait_for_single_fd-class_method" title="IO.wait_for_single_fd (method)">wait_for_single_fd</a></span>, <span class='object_link'><a href="IO.html#wait_readable-instance_method" title="IO#wait_readable (method)">#wait_readable</a></span>, <span class='object_link'><a href="IO.html#wait_writable-instance_method" title="IO#wait_writable (method)">#wait_writable</a></span>, <span class='object_link'><a href="IO.html#winsize-instance_method" title="IO#winsize (method)">#winsize</a></span>, <span class='object_link'><a href="IO.html#winsize=-instance_method" title="IO#winsize= (method)">#winsize=</a></span></p>
+<div id="constructor_details" class="method_details_list">
+  <h2>Constructor Details</h2>
+  
+    <div class="method_details first">
+  <h3 class="signature first" id="initialize-instance_method">
+  
+    #<strong>new</strong>(domain, socktype[, protocol])  &#x21d2; <tt><span class='object_link'><a href="Object.html" title="Object (class)">Object</a></span></tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Creates a new socket object.</p>
+
+<p><em>domain</em> should be a communications domain such as: :INET, :INET6,
+:UNIX, etc.</p>
+
+<p><em>socktype</em> should be a socket type such as: :STREAM, :DGRAM, :RAW,
+etc.</p>
+
+<p><em>protocol</em> is optional and should be a protocol defined in the
+domain. If protocol is not given, 0 is used internally.</p>
+
+<pre class="code"><code class=""><span class='const'><span class='object_link'><a href="" title="Socket (class)">Socket</a></span></span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='symbol'>:INET</span><span class='comma'>,</span> <span class='symbol'>:STREAM</span><span class='rparen'>)</span> <span class='comment'># TCP socket
+</span><span class='const'><span class='object_link'><a href="" title="Socket (class)">Socket</a></span></span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='symbol'>:INET</span><span class='comma'>,</span> <span class='symbol'>:DGRAM</span><span class='rparen'>)</span>  <span class='comment'># UDP socket
+</span><span class='const'><span class='object_link'><a href="" title="Socket (class)">Socket</a></span></span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='symbol'>:UNIX</span><span class='comma'>,</span> <span class='symbol'>:STREAM</span><span class='rparen'>)</span> <span class='comment'># UNIX stream socket
+</span><span class='const'><span class='object_link'><a href="" title="Socket (class)">Socket</a></span></span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='symbol'>:UNIX</span><span class='comma'>,</span> <span class='symbol'>:DGRAM</span><span class='rparen'>)</span>  <span class='comment'># UNIX datagram socket
+</span></code></pre>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+  
+
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+132
+133
+134
+135
+136
+137
+138
+139
+140
+141
+142
+143
+144
+145
+146
+147
+148</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'ext/socket/socket.c', line 132</span>
+
+static VALUE
+sock_initialize(int argc, VALUE *argv, VALUE sock)
+{
+    VALUE domain, type, protocol;
+    int fd;
+    int d, t;
+
+    rb_scan_args(argc, argv, &quot;21&quot;, &amp;domain, &amp;type, &amp;protocol);
+    if (NIL_P(protocol))
+        protocol = INT2FIX(0);
+
+    setup_domain_and_type(domain, &amp;d, type, &amp;t);
+    fd = rsock_socket(d, t, NUM2INT(protocol));
+    if (fd &lt; 0) rb_sys_fail(&quot;socket(2)&quot;);
+
+    return rsock_init_sock(sock, fd);
+}</pre>
+    </td>
+  </tr>
+</table>
+</div>
+  
+</div>
+
+
+  <div id="class_method_details" class="method_details_list">
+    <h2>Class Method Details</h2>
+
+    
+      <div class="method_details first">
+  <h3 class="signature first" id="getaddrinfo-class_method">
+  
+    .<strong>getaddrinfo</strong>(nodename, servname[, family[, socktype[, protocol[, flags[, reverse_lookup]]]]])  &#x21d2; <tt><span class='object_link'><a href="Array.html" title="Array (class)">Array</a></span></tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Obtains address information for <em>nodename</em>:<em>servname</em>.</p>
+
+<p>Note that Addrinfo.getaddrinfo provides the same functionality in an object
+oriented style.</p>
+
+<p><em>family</em> should be an address family such as: :INET, :INET6, etc.</p>
+
+<p><em>socktype</em> should be a socket type such as: :STREAM, :DGRAM, :RAW,
+etc.</p>
+
+<p><em>protocol</em> should be a protocol defined in the family, and defaults
+to 0 for the family.</p>
+
+<p><em>flags</em> should be bitwise OR of Socket::AI_* constants.</p>
+
+<pre class="code"><code class=""><span class='const'><span class='object_link'><a href="" title="Socket (class)">Socket</a></span></span><span class='period'>.</span><span class='id identifier rubyid_getaddrinfo'>getaddrinfo</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>www.ruby-lang.org</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>http</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='kw'>nil</span><span class='comma'>,</span> <span class='symbol'>:STREAM</span><span class='rparen'>)</span>
+<span class='comment'>#=&gt; [[&quot;AF_INET&quot;, 80, &quot;carbon.ruby-lang.org&quot;, &quot;221.186.184.68&quot;, 2, 1, 6]] # PF_INET/SOCK_STREAM/IPPROTO_TCP
+</span>
+<span class='const'><span class='object_link'><a href="" title="Socket (class)">Socket</a></span></span><span class='period'>.</span><span class='id identifier rubyid_getaddrinfo'>getaddrinfo</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>localhost</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='kw'>nil</span><span class='rparen'>)</span>
+<span class='comment'>#=&gt; [[&quot;AF_INET&quot;, 0, &quot;localhost&quot;, &quot;127.0.0.1&quot;, 2, 1, 6],  # PF_INET/SOCK_STREAM/IPPROTO_TCP
+</span><span class='comment'>#    [&quot;AF_INET&quot;, 0, &quot;localhost&quot;, &quot;127.0.0.1&quot;, 2, 2, 17], # PF_INET/SOCK_DGRAM/IPPROTO_UDP
+</span><span class='comment'>#    [&quot;AF_INET&quot;, 0, &quot;localhost&quot;, &quot;127.0.0.1&quot;, 2, 3, 0]]  # PF_INET/SOCK_RAW/IPPROTO_IP
+</span></code></pre>
+
+<p><em>reverse_lookup</em> directs the form of the third element, and has to
+be one of below.  If <em>reverse_lookup</em> is omitted, the default value
+is <code>nil</code>.</p>
+
+<pre class="code"><code class="">+true+, +:hostname+:  hostname is obtained from numeric address using reverse lookup, which may take a time.
++false+, +:numeric+:  hostname is same as numeric address.
++nil+:              obey to the current +do_not_reverse_lookup+ flag.</code></pre>
+
+<p>If Addrinfo object is preferred, use Addrinfo.getaddrinfo.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+  <div class="docstring">
+  <div class="discussion">
+    
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="Array.html" title="Array (class)">Array</a></span></tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div>
+
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+1196
+1197
+1198
+1199
+1200
+1201
+1202
+1203
+1204
+1205
+1206
+1207
+1208
+1209
+1210
+1211
+1212
+1213
+1214
+1215
+1216
+1217
+1218
+1219
+1220
+1221
+1222
+1223
+1224
+1225
+1226</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'ext/socket/socket.c', line 1196</span>
+
+static VALUE
+sock_s_getaddrinfo(int argc, VALUE *argv)
+{
+    VALUE host, port, family, socktype, protocol, flags, ret, revlookup;
+    struct addrinfo hints;
+    struct rb_addrinfo *res;
+    int norevlookup;
+
+    rb_scan_args(argc, argv, &quot;25&quot;, &amp;host, &amp;port, &amp;family, &amp;socktype, &amp;protocol, &amp;flags, &amp;revlookup);
+
+    MEMZERO(&amp;hints, struct addrinfo, 1);
+    hints.ai_family = NIL_P(family) ? PF_UNSPEC : rsock_family_arg(family);
+
+    if (!NIL_P(socktype)) {
+	hints.ai_socktype = rsock_socktype_arg(socktype);
+    }
+    if (!NIL_P(protocol)) {
+	hints.ai_protocol = NUM2INT(protocol);
+    }
+    if (!NIL_P(flags)) {
+	hints.ai_flags = NUM2INT(flags);
+    }
+    if (NIL_P(revlookup) || !rsock_revlookup_flag(revlookup, &amp;norevlookup)) {
+	norevlookup = rsock_do_not_reverse_lookup;
+    }
+    res = rsock_getaddrinfo(host, port, &amp;hints, 0);
+
+    ret = make_addrinfo(res, norevlookup);
+    rb_freeaddrinfo(res);
+    return ret;
+}</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="gethostbyaddr-class_method">
+  
+    .<strong>gethostbyaddr</strong>(address_string[, address_family])  &#x21d2; <tt><span class='object_link'><a href="Object.html" title="Object (class)">Object</a></span></tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Use Addrinfo#getnameinfo instead. This method is deprecated for the
+following reasons:</p>
+<ul><li>
+<p>Uncommon address representation: 4/16-bytes binary string to represent
+IPv4/IPv6 address.</p>
+</li><li>
+<p>gethostbyaddr() may take a long time and it may block other threads. (GVL
+cannot be released since gethostbyname() is not thread safe.)</p>
+</li><li>
+<p>This method uses gethostbyname() function already removed from POSIX.</p>
+</li></ul>
+
+<p>This method obtains the host information for <em>address</em>.</p>
+
+<pre class="code"><code class="">p Socket.gethostbyaddr([221,186,184,68].pack(&quot;CCCC&quot;))
+#=&gt; [&quot;carbon.ruby-lang.org&quot;, [], 2, &quot;\xDD\xBA\xB8D&quot;]
+
+p Socket.gethostbyaddr([127,0,0,1].pack(&quot;CCCC&quot;))
+[&quot;localhost&quot;, [], 2, &quot;\x7F\x00\x00\x01&quot;]
+p Socket.gethostbyaddr(([0]*15+[1]).pack(&quot;C&quot;*16))
+#=&gt; [&quot;localhost&quot;, [&quot;ip6-localhost&quot;, &quot;ip6-loopback&quot;], 10,
+     &quot;\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x01&quot;]</code></pre>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+  
+
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+1035
+1036
+1037
+1038
+1039
+1040
+1041
+1042
+1043
+1044
+1045
+1046
+1047
+1048
+1049
+1050
+1051
+1052
+1053
+1054
+1055
+1056
+1057
+1058
+1059
+1060
+1061
+1062
+1063
+1064
+1065
+1066
+1067
+1068
+1069
+1070
+1071
+1072
+1073
+1074
+1075
+1076
+1077
+1078
+1079
+1080
+1081
+1082</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'ext/socket/socket.c', line 1035</span>
+
+static VALUE
+sock_s_gethostbyaddr(int argc, VALUE *argv)
+{
+    VALUE addr, family;
+    struct hostent *h;
+    char **pch;
+    VALUE ary, names;
+    int t = AF_INET;
+
+    rb_scan_args(argc, argv, &quot;11&quot;, &amp;addr, &amp;family);
+    StringValue(addr);
+    if (!NIL_P(family)) {
+	t = rsock_family_arg(family);
+    }
+#ifdef AF_INET6
+    else if (RSTRING_LEN(addr) == 16) {
+	t = AF_INET6;
+    }
+#endif
+    h = gethostbyaddr(RSTRING_PTR(addr), RSTRING_SOCKLEN(addr), t);
+    if (h == NULL) {
+#ifdef HAVE_HSTRERROR
+	extern int h_errno;
+	rb_raise(rb_eSocket, &quot;%s&quot;, (char*)hstrerror(h_errno));
+#else
+	rb_raise(rb_eSocket, &quot;host not found&quot;);
+#endif
+    }
+    ary = rb_ary_new();
+    rb_ary_push(ary, rb_str_new2(h-&gt;h_name));
+    names = rb_ary_new();
+    rb_ary_push(ary, names);
+    if (h-&gt;h_aliases != NULL) {
+	for (pch = h-&gt;h_aliases; *pch; pch++) {
+	    rb_ary_push(names, rb_str_new2(*pch));
+	}
+    }
+    rb_ary_push(ary, INT2NUM(h-&gt;h_addrtype));
+#ifdef h_addr
+    for (pch = h-&gt;h_addr_list; *pch; pch++) {
+	rb_ary_push(ary, rb_str_new(*pch, h-&gt;h_length));
+    }
+#else
+    rb_ary_push(ary, rb_str_new(h-&gt;h_addr, h-&gt;h_length));
+#endif
+
+    return ary;
+}</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="gethostbyname-class_method">
+  
+    .<strong>gethostbyname</strong>(hostname)  &#x21d2; <tt><span class='object_link'><a href="Array.html" title="Array (class)">Array</a></span></tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Use Addrinfo.getaddrinfo instead. This method is deprecated for the
+following reasons:</p>
+<ul><li>
+<p>The 3rd element of the result is the address family of the first address.
+The address families of the rest of the addresses are not returned.</p>
+</li><li>
+<p>Uncommon address representation: 4/16-bytes binary string to represent
+IPv4/IPv6 address.</p>
+</li><li>
+<p>gethostbyname() may take a long time and it may block other threads. (GVL
+cannot be released since gethostbyname() is not thread safe.)</p>
+</li><li>
+<p>This method uses gethostbyname() function already removed from POSIX.</p>
+</li></ul>
+
+<p>This method obtains the host information for <em>hostname</em>.</p>
+
+<pre class="code"><code class=""><span class='id identifier rubyid_p'>p</span> <span class='const'><span class='object_link'><a href="" title="Socket (class)">Socket</a></span></span><span class='period'>.</span><span class='id identifier rubyid_gethostbyname'>gethostbyname</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>hal</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span> <span class='comment'>#=&gt; [&quot;localhost&quot;, [&quot;hal&quot;], 2, &quot;\x7F\x00\x00\x01&quot;]
+</span></code></pre>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+  <div class="docstring">
+  <div class="discussion">
+    
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="Array.html" title="Array (class)">Array</a></span></tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div>
+
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+1002
+1003
+1004
+1005
+1006
+1007
+1008</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'ext/socket/socket.c', line 1002</span>
+
+static VALUE
+sock_s_gethostbyname(VALUE obj, VALUE host)
+{
+    struct rb_addrinfo *res =
+	rsock_addrinfo(host, Qnil, AF_UNSPEC, SOCK_STREAM, AI_CANONNAME);
+    return rsock_make_hostent(host, res, sock_sockaddr);
+}</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="gethostname-class_method">
+  
+    .<strong>gethostname</strong>  &#x21d2; <tt><span class='object_link'><a href="Object.html" title="Object (class)">Object</a></span></tt> 
+  
+
+  
+
+  
+</h3><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+923
+924
+925
+926
+927
+928
+929
+930</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'ext/socket/socket.c', line 923</span>
+
+static VALUE
+sock_gethostname(VALUE obj)
+{
+    struct utsname un;
+
+    uname(&amp;un);
+    return rb_str_new2(un.nodename);
+}</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="getifaddrs-class_method">
+  
+    .<strong>getifaddrs</strong>  &#x21d2; <tt><span class='object_link'><a href="Array.html" title="Array (class)">Array</a></span></tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Returns an array of interface addresses. An element of the array is an
+instance of Socket::Ifaddr.</p>
+
+<p>This method can be used to find multicast-enabled interfaces:</p>
+
+<pre class="code"><code class=""><span class='id identifier rubyid_pp'>pp</span> <span class='const'><span class='object_link'><a href="" title="Socket (class)">Socket</a></span></span><span class='period'>.</span><span class='id identifier rubyid_getifaddrs'>getifaddrs</span><span class='period'>.</span><span class='id identifier rubyid_reject'>reject</span> <span class='lbrace'>{</span><span class='op'>|</span><span class='id identifier rubyid_ifaddr'>ifaddr</span><span class='op'>|</span>
+  <span class='op'>!</span><span class='id identifier rubyid_ifaddr'>ifaddr</span><span class='period'>.</span><span class='id identifier rubyid_addr'>addr</span><span class='period'>.</span><span class='id identifier rubyid_ip?'>ip?</span> <span class='op'>||</span> <span class='lparen'>(</span><span class='id identifier rubyid_ifaddr'>ifaddr</span><span class='period'>.</span><span class='id identifier rubyid_flags'>flags</span> <span class='op'>&amp;</span> <span class='const'><span class='object_link'><a href="" title="Socket (class)">Socket</a></span></span><span class='op'>::</span><span class='const'>IFF_MULTICAST</span> <span class='op'>==</span> <span class='int'>0</span><span class='rparen'>)</span>
+<span class='rbrace'>}</span><span class='period'>.</span><span class='id identifier rubyid_map'>map</span> <span class='lbrace'>{</span><span class='op'>|</span><span class='id identifier rubyid_ifaddr'>ifaddr</span><span class='op'>|</span> <span class='lbracket'>[</span><span class='id identifier rubyid_ifaddr'>ifaddr</span><span class='period'>.</span><span class='id identifier rubyid_name'>name</span><span class='comma'>,</span> <span class='id identifier rubyid_ifaddr'>ifaddr</span><span class='period'>.</span><span class='id identifier rubyid_ifindex'>ifindex</span><span class='comma'>,</span> <span class='id identifier rubyid_ifaddr'>ifaddr</span><span class='period'>.</span><span class='id identifier rubyid_addr'>addr</span><span class='rbracket'>]</span> <span class='rbrace'>}</span>
+<span class='comment'>#=&gt; [[&quot;eth0&quot;, 2, #&lt;Addrinfo: 221.186.184.67&gt;],
+</span><span class='comment'>#    [&quot;eth0&quot;, 2, #&lt;Addrinfo: fe80::216:3eff:fe95:88bb%eth0&gt;]]
+</span></code></pre>
+
+<p>Example result on GNU/Linux:</p>
+
+<pre class="code"><code class=""><span class='id identifier rubyid_pp'>pp</span> <span class='const'><span class='object_link'><a href="" title="Socket (class)">Socket</a></span></span><span class='period'>.</span><span class='id identifier rubyid_getifaddrs'>getifaddrs</span>
+<span class='comment'>#=&gt; [#&lt;Socket::Ifaddr lo UP,LOOPBACK,RUNNING,0x10000 PACKET[protocol=0 lo hatype=772 HOST hwaddr=00:00:00:00:00:00]&gt;,
+</span><span class='comment'>#    #&lt;Socket::Ifaddr eth0 UP,BROADCAST,RUNNING,MULTICAST,0x10000 PACKET[protocol=0 eth0 hatype=1 HOST hwaddr=00:16:3e:95:88:bb] broadcast=PACKET[protocol=0 eth0 hatype=1 HOST hwaddr=ff:ff:ff:ff:ff:ff]&gt;,
+</span><span class='comment'>#    #&lt;Socket::Ifaddr sit0 NOARP PACKET[protocol=0 sit0 hatype=776 HOST hwaddr=00:00:00:00]&gt;,
+</span><span class='comment'>#    #&lt;Socket::Ifaddr lo UP,LOOPBACK,RUNNING,0x10000 127.0.0.1 netmask=255.0.0.0&gt;,
+</span><span class='comment'>#    #&lt;Socket::Ifaddr eth0 UP,BROADCAST,RUNNING,MULTICAST,0x10000 221.186.184.67 netmask=255.255.255.240 broadcast=221.186.184.79&gt;,
+</span><span class='comment'>#    #&lt;Socket::Ifaddr lo UP,LOOPBACK,RUNNING,0x10000 ::1 netmask=ffff:ffff:ffff:ffff:ffff:ffff:ffff:ffff&gt;,
+</span><span class='comment'>#    #&lt;Socket::Ifaddr eth0 UP,BROADCAST,RUNNING,MULTICAST,0x10000 fe80::216:3eff:fe95:88bb%eth0 netmask=ffff:ffff:ffff:ffff::&gt;]
+</span></code></pre>
+
+<p>Example result on FreeBSD:</p>
+
+<pre class="code"><code class=""><span class='id identifier rubyid_pp'>pp</span> <span class='const'><span class='object_link'><a href="" title="Socket (class)">Socket</a></span></span><span class='period'>.</span><span class='id identifier rubyid_getifaddrs'>getifaddrs</span>
+<span class='comment'>#=&gt; [#&lt;Socket::Ifaddr usbus0 UP,0x10000 LINK[usbus0]&gt;,
+</span><span class='comment'>#    #&lt;Socket::Ifaddr re0 UP,BROADCAST,RUNNING,MULTICAST,0x800 LINK[re0 3a:d0:40:9a:fe:e8]&gt;,
+</span><span class='comment'>#    #&lt;Socket::Ifaddr re0 UP,BROADCAST,RUNNING,MULTICAST,0x800 10.250.10.18 netmask=255.255.255.? (7 bytes for 16 bytes sockaddr_in) broadcast=10.250.10.255&gt;,
+</span><span class='comment'>#    #&lt;Socket::Ifaddr re0 UP,BROADCAST,RUNNING,MULTICAST,0x800 fe80:2::38d0:40ff:fe9a:fee8 netmask=ffff:ffff:ffff:ffff::&gt;,
+</span><span class='comment'>#    #&lt;Socket::Ifaddr re0 UP,BROADCAST,RUNNING,MULTICAST,0x800 2001:2e8:408:10::12 netmask=UNSPEC&gt;,
+</span><span class='comment'>#    #&lt;Socket::Ifaddr plip0 POINTOPOINT,MULTICAST,0x800 LINK[plip0]&gt;,
+</span><span class='comment'>#    #&lt;Socket::Ifaddr lo0 UP,LOOPBACK,RUNNING,MULTICAST LINK[lo0]&gt;,
+</span><span class='comment'>#    #&lt;Socket::Ifaddr lo0 UP,LOOPBACK,RUNNING,MULTICAST ::1 netmask=ffff:ffff:ffff:ffff:ffff:ffff:ffff:ffff&gt;,
+</span><span class='comment'>#    #&lt;Socket::Ifaddr lo0 UP,LOOPBACK,RUNNING,MULTICAST fe80:4::1 netmask=ffff:ffff:ffff:ffff::&gt;,
+</span><span class='comment'>#    #&lt;Socket::Ifaddr lo0 UP,LOOPBACK,RUNNING,MULTICAST 127.0.0.1 netmask=255.?.?.? (5 bytes for 16 bytes sockaddr_in)&gt;]
+</span></code></pre>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+  <div class="docstring">
+  <div class="discussion">
+    
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="Array.html" title="Array (class)">Array</a></span></tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div>
+
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+444
+445
+446
+447
+448</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'ext/socket/ifaddr.c', line 444</span>
+
+static VALUE
+socket_s_getifaddrs(VALUE self)
+{
+    return rsock_getifaddrs();
+}</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="getnameinfo-class_method">
+  
+    .<strong>getnameinfo</strong>(sockaddr[, flags])  &#x21d2; <tt><span class='object_link'><a href="Array.html" title="Array (class)">Array</a></span></tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Obtains name information for <em>sockaddr</em>.</p>
+
+<p><em>sockaddr</em> should be one of follows.</p>
+<ul><li>
+<p>packed sockaddr string such as Socket.sockaddr_in(80, “127.0.0.1”)</p>
+</li><li>
+<p>3-elements array such as [“AF_INET”, 80, “127.0.0.1”]</p>
+</li><li>
+<p>4-elements array such as [“AF_INET”, 80, ignored, “127.0.0.1”]</p>
+</li></ul>
+
+<p><em>flags</em> should be bitwise OR of Socket::NI_* constants.</p>
+
+<p>Note: The last form is compatible with IPSocket#addr and IPSocket#peeraddr.</p>
+
+<pre class="code"><code class=""><span class='const'><span class='object_link'><a href="" title="Socket (class)">Socket</a></span></span><span class='period'>.</span><span class='id identifier rubyid_getnameinfo'>getnameinfo</span><span class='lparen'>(</span><span class='const'><span class='object_link'><a href="" title="Socket (class)">Socket</a></span></span><span class='period'>.</span><span class='id identifier rubyid_sockaddr_in'><span class='object_link'><a href="#sockaddr_in-class_method" title="Socket.sockaddr_in (method)">sockaddr_in</a></span></span><span class='lparen'>(</span><span class='int'>80</span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>127.0.0.1</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span><span class='rparen'>)</span>       <span class='comment'>#=&gt; [&quot;localhost&quot;, &quot;www&quot;]
+</span><span class='const'><span class='object_link'><a href="" title="Socket (class)">Socket</a></span></span><span class='period'>.</span><span class='id identifier rubyid_getnameinfo'>getnameinfo</span><span class='lparen'>(</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>AF_INET</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='int'>80</span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>127.0.0.1</span><span class='tstring_end'>&quot;</span></span><span class='rbracket'>]</span><span class='rparen'>)</span>              <span class='comment'>#=&gt; [&quot;localhost&quot;, &quot;www&quot;]
+</span><span class='const'><span class='object_link'><a href="" title="Socket (class)">Socket</a></span></span><span class='period'>.</span><span class='id identifier rubyid_getnameinfo'>getnameinfo</span><span class='lparen'>(</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>AF_INET</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='int'>80</span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>localhost</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>127.0.0.1</span><span class='tstring_end'>&quot;</span></span><span class='rbracket'>]</span><span class='rparen'>)</span> <span class='comment'>#=&gt; [&quot;localhost&quot;, &quot;www&quot;]
+</span></code></pre>
+
+<p>If Addrinfo object is preferred, use Addrinfo#getnameinfo.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+  <div class="docstring">
+  <div class="discussion">
+    
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="Array.html" title="Array (class)">Array</a></span></tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div>
+
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+1250
+1251
+1252
+1253
+1254
+1255
+1256
+1257
+1258
+1259
+1260
+1261
+1262
+1263
+1264
+1265
+1266
+1267
+1268
+1269
+1270
+1271
+1272
+1273
+1274
+1275
+1276
+1277
+1278
+1279
+1280
+1281
+1282
+1283
+1284
+1285
+1286
+1287
+1288
+1289
+1290
+1291
+1292
+1293
+1294
+1295
+1296
+1297
+1298
+1299
+1300
+1301
+1302
+1303
+1304
+1305
+1306
+1307
+1308
+1309
+1310
+1311
+1312
+1313
+1314
+1315
+1316
+1317
+1318
+1319
+1320
+1321
+1322
+1323
+1324
+1325
+1326
+1327
+1328
+1329
+1330
+1331
+1332
+1333
+1334
+1335
+1336
+1337
+1338
+1339
+1340
+1341
+1342
+1343
+1344
+1345
+1346
+1347
+1348
+1349
+1350
+1351
+1352
+1353
+1354
+1355
+1356
+1357
+1358
+1359
+1360
+1361
+1362
+1363
+1364
+1365
+1366
+1367
+1368
+1369
+1370
+1371
+1372
+1373
+1374
+1375
+1376
+1377
+1378
+1379
+1380
+1381
+1382
+1383
+1384
+1385</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'ext/socket/socket.c', line 1250</span>
+
+static VALUE
+sock_s_getnameinfo(int argc, VALUE *argv)
+{
+    VALUE sa, af = Qnil, host = Qnil, port = Qnil, flags, tmp;
+    char *hptr, *pptr;
+    char hbuf[1024], pbuf[1024];
+    int fl;
+    struct rb_addrinfo *res = NULL;
+    struct addrinfo hints, *r;
+    int error, saved_errno;
+    union_sockaddr ss;
+    struct sockaddr *sap;
+    socklen_t salen;
+
+    sa = flags = Qnil;
+    rb_scan_args(argc, argv, &quot;11&quot;, &amp;sa, &amp;flags);
+
+    fl = 0;
+    if (!NIL_P(flags)) {
+	fl = NUM2INT(flags);
+    }
+    tmp = rb_check_sockaddr_string_type(sa);
+    if (!NIL_P(tmp)) {
+	sa = tmp;
+	if (sizeof(ss) &lt; (size_t)RSTRING_LEN(sa)) {
+	    rb_raise(rb_eTypeError, &quot;sockaddr length too big&quot;);
+	}
+	memcpy(&amp;ss, RSTRING_PTR(sa), RSTRING_LEN(sa));
+        if (!VALIDATE_SOCKLEN(&amp;ss.addr, RSTRING_LEN(sa))) {
+	    rb_raise(rb_eTypeError, &quot;sockaddr size differs - should not happen&quot;);
+	}
+	sap = &amp;ss.addr;
+        salen = RSTRING_SOCKLEN(sa);
+	goto call_nameinfo;
+    }
+    tmp = rb_check_array_type(sa);
+    if (!NIL_P(tmp)) {
+	sa = tmp;
+	MEMZERO(&amp;hints, struct addrinfo, 1);
+	if (RARRAY_LEN(sa) == 3) {
+	    af = RARRAY_AREF(sa, 0);
+	    port = RARRAY_AREF(sa, 1);
+	    host = RARRAY_AREF(sa, 2);
+	}
+	else if (RARRAY_LEN(sa) &gt;= 4) {
+	    af = RARRAY_AREF(sa, 0);
+	    port = RARRAY_AREF(sa, 1);
+	    host = RARRAY_AREF(sa, 3);
+	    if (NIL_P(host)) {
+		host = RARRAY_AREF(sa, 2);
+	    }
+	    else {
+		/*
+		 * 4th element holds numeric form, don&#39;t resolve.
+		 * see rsock_ipaddr().
+		 */
+#ifdef AI_NUMERICHOST /* AIX 4.3.3 doesn&#39;t have AI_NUMERICHOST. */
+		hints.ai_flags |= AI_NUMERICHOST;
+#endif
+	    }
+	}
+	else {
+	    rb_raise(rb_eArgError, &quot;array size should be 3 or 4, %ld given&quot;,
+		     RARRAY_LEN(sa));
+	}
+	/* host */
+	if (NIL_P(host)) {
+	    hptr = NULL;
+	}
+	else {
+	    strncpy(hbuf, StringValueCStr(host), sizeof(hbuf));
+	    hbuf[sizeof(hbuf) - 1] = &#39;\0&#39;;
+	    hptr = hbuf;
+	}
+	/* port */
+	if (NIL_P(port)) {
+	    strcpy(pbuf, &quot;0&quot;);
+	    pptr = NULL;
+	}
+	else if (FIXNUM_P(port)) {
+	    snprintf(pbuf, sizeof(pbuf), &quot;%ld&quot;, NUM2LONG(port));
+	    pptr = pbuf;
+	}
+	else {
+	    strncpy(pbuf, StringValueCStr(port), sizeof(pbuf));
+	    pbuf[sizeof(pbuf) - 1] = &#39;\0&#39;;
+	    pptr = pbuf;
+	}
+	hints.ai_socktype = (fl &amp; NI_DGRAM) ? SOCK_DGRAM : SOCK_STREAM;
+	/* af */
+        hints.ai_family = NIL_P(af) ? PF_UNSPEC : rsock_family_arg(af);
+	error = rb_getaddrinfo(hptr, pptr, &amp;hints, &amp;res);
+	if (error) goto error_exit_addr;
+	sap = res-&gt;ai-&gt;ai_addr;
+        salen = res-&gt;ai-&gt;ai_addrlen;
+    }
+    else {
+	rb_raise(rb_eTypeError, &quot;expecting String or Array&quot;);
+    }
+
+  call_nameinfo:
+    error = rb_getnameinfo(sap, salen, hbuf, sizeof(hbuf),
+			   pbuf, sizeof(pbuf), fl);
+    if (error) goto error_exit_name;
+    if (res) {
+	for (r = res-&gt;ai-&gt;ai_next; r; r = r-&gt;ai_next) {
+	    char hbuf2[1024], pbuf2[1024];
+
+	    sap = r-&gt;ai_addr;
+            salen = r-&gt;ai_addrlen;
+	    error = rb_getnameinfo(sap, salen, hbuf2, sizeof(hbuf2),
+				   pbuf2, sizeof(pbuf2), fl);
+	    if (error) goto error_exit_name;
+	    if (strcmp(hbuf, hbuf2) != 0|| strcmp(pbuf, pbuf2) != 0) {
+		rb_freeaddrinfo(res);
+		rb_raise(rb_eSocket, &quot;sockaddr resolved to multiple nodename&quot;);
+	    }
+	}
+	rb_freeaddrinfo(res);
+    }
+    return rb_assoc_new(rb_str_new2(hbuf), rb_str_new2(pbuf));
+
+  error_exit_addr:
+    saved_errno = errno;
+    if (res) rb_freeaddrinfo(res);
+    errno = saved_errno;
+    rsock_raise_socket_error(&quot;getaddrinfo&quot;, error);
+
+  error_exit_name:
+    saved_errno = errno;
+    if (res) rb_freeaddrinfo(res);
+    errno = saved_errno;
+    rsock_raise_socket_error(&quot;getnameinfo&quot;, error);
+
+    UNREACHABLE;
+}</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="getservbyname-class_method">
+  
+    
+      <span class="overload">.<strong>getservbyname</strong>(service_name)  &#x21d2; <tt><span class='object_link'><a href="Object.html" title="Object (class)">Object</a></span></tt> </span>
+    
+      <span class="overload">.<strong>getservbyname</strong>(service_name, protocol_name)  &#x21d2; <tt><span class='object_link'><a href="Object.html" title="Object (class)">Object</a></span></tt> </span>
+    
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Obtains the port number for <em>service_name</em>.</p>
+
+<p>If <em>protocol_name</em> is not given, “tcp” is assumed.</p>
+
+<pre class="code"><code class=""><span class='const'><span class='object_link'><a href="" title="Socket (class)">Socket</a></span></span><span class='period'>.</span><span class='id identifier rubyid_getservbyname'>getservbyname</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>smtp</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>          <span class='comment'>#=&gt; 25
+</span><span class='const'><span class='object_link'><a href="" title="Socket (class)">Socket</a></span></span><span class='period'>.</span><span class='id identifier rubyid_getservbyname'>getservbyname</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>shell</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>         <span class='comment'>#=&gt; 514
+</span><span class='const'><span class='object_link'><a href="" title="Socket (class)">Socket</a></span></span><span class='period'>.</span><span class='id identifier rubyid_getservbyname'>getservbyname</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>syslog</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>udp</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span> <span class='comment'>#=&gt; 514
+</span></code></pre>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+1097
+1098
+1099
+1100
+1101
+1102
+1103
+1104
+1105
+1106
+1107
+1108
+1109
+1110
+1111
+1112
+1113
+1114
+1115
+1116
+1117
+1118
+1119
+1120
+1121
+1122
+1123</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'ext/socket/socket.c', line 1097</span>
+
+static VALUE
+sock_s_getservbyname(int argc, VALUE *argv)
+{
+    VALUE service, proto;
+    struct servent *sp;
+    long port;
+    const char *servicename, *protoname = &quot;tcp&quot;;
+
+    rb_scan_args(argc, argv, &quot;11&quot;, &amp;service, &amp;proto);
+    StringValue(service);
+    if (!NIL_P(proto)) StringValue(proto);
+    servicename = StringValueCStr(service);
+    if (!NIL_P(proto)) protoname = StringValueCStr(proto);
+    sp = getservbyname(servicename, protoname);
+    if (sp) {
+	port = ntohs(sp-&gt;s_port);
+    }
+    else {
+	char *end;
+
+	port = STRTOUL(servicename, &amp;end, 0);
+	if (*end != &#39;\0&#39;) {
+	    rb_raise(rb_eSocket, &quot;no such service %s/%s&quot;, servicename, protoname);
+	}
+    }
+    return INT2FIX(port);
+}</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="getservbyport-class_method">
+  
+    .<strong>getservbyport</strong>(port[, protocol_name])  &#x21d2; <tt><span class='object_link'><a href="Object.html" title="Object (class)">Object</a></span></tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Obtains the port number for <em>port</em>.</p>
+
+<p>If <em>protocol_name</em> is not given, “tcp” is assumed.</p>
+
+<pre class="code"><code class=""><span class='const'><span class='object_link'><a href="" title="Socket (class)">Socket</a></span></span><span class='period'>.</span><span class='id identifier rubyid_getservbyport'>getservbyport</span><span class='lparen'>(</span><span class='int'>80</span><span class='rparen'>)</span>         <span class='comment'>#=&gt; &quot;www&quot;
+</span><span class='const'><span class='object_link'><a href="" title="Socket (class)">Socket</a></span></span><span class='period'>.</span><span class='id identifier rubyid_getservbyport'>getservbyport</span><span class='lparen'>(</span><span class='int'>514</span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>tcp</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span> <span class='comment'>#=&gt; &quot;shell&quot;
+</span><span class='const'><span class='object_link'><a href="" title="Socket (class)">Socket</a></span></span><span class='period'>.</span><span class='id identifier rubyid_getservbyport'>getservbyport</span><span class='lparen'>(</span><span class='int'>514</span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>udp</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span> <span class='comment'>#=&gt; &quot;syslog&quot;
+</span></code></pre>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+  
+
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+1138
+1139
+1140
+1141
+1142
+1143
+1144
+1145
+1146
+1147
+1148
+1149
+1150
+1151
+1152
+1153
+1154
+1155
+1156
+1157
+1158
+1159</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'ext/socket/socket.c', line 1138</span>
+
+static VALUE
+sock_s_getservbyport(int argc, VALUE *argv)
+{
+    VALUE port, proto;
+    struct servent *sp;
+    long portnum;
+    const char *protoname = &quot;tcp&quot;;
+
+    rb_scan_args(argc, argv, &quot;11&quot;, &amp;port, &amp;proto);
+    portnum = NUM2LONG(port);
+    if (portnum != (uint16_t)portnum) {
+	const char *s = portnum &gt; 0 ? &quot;big&quot; : &quot;small&quot;;
+	rb_raise(rb_eRangeError, &quot;integer %ld too %s to convert into `int16_t&#39;&quot;, portnum, s);
+    }
+    if (!NIL_P(proto)) protoname = StringValueCStr(proto);
+
+    sp = getservbyport((int)htons((uint16_t)portnum), protoname);
+    if (!sp) {
+	rb_raise(rb_eSocket, &quot;no such service for port %d/%s&quot;, (int)portnum, protoname);
+    }
+    return rb_tainted_str_new2(sp-&gt;s_name);
+}</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="ip_address_list-class_method">
+  
+    .<strong>ip_address_list</strong>  &#x21d2; <tt><span class='object_link'><a href="Array.html" title="Array (class)">Array</a></span></tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Returns local IP addresses as an array.</p>
+
+<p>The array contains Addrinfo objects.</p>
+
+<pre class="code"><code class="">pp Socket.ip_address_list
+#=&gt; [#&lt;Addrinfo: 127.0.0.1&gt;,
+     #&lt;Addrinfo: 192.168.0.128&gt;,
+     #&lt;Addrinfo: ::1&gt;,
+     ...]</code></pre>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+  <div class="docstring">
+  <div class="discussion">
+    
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="Array.html" title="Array (class)">Array</a></span></tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div>
+
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+1623
+1624
+1625
+1626
+1627
+1628
+1629
+1630
+1631
+1632
+1633
+1634
+1635
+1636
+1637
+1638
+1639
+1640
+1641
+1642
+1643
+1644
+1645
+1646
+1647
+1648
+1649
+1650
+1651
+1652
+1653
+1654
+1655
+1656
+1657
+1658
+1659
+1660
+1661
+1662
+1663
+1664
+1665
+1666
+1667
+1668
+1669
+1670
+1671
+1672
+1673
+1674
+1675
+1676
+1677
+1678
+1679
+1680
+1681
+1682
+1683
+1684
+1685
+1686
+1687
+1688
+1689
+1690
+1691
+1692
+1693
+1694
+1695
+1696
+1697
+1698
+1699
+1700
+1701
+1702
+1703
+1704
+1705
+1706
+1707
+1708
+1709
+1710
+1711
+1712
+1713
+1714
+1715
+1716
+1717
+1718
+1719
+1720
+1721
+1722
+1723
+1724
+1725
+1726
+1727
+1728
+1729
+1730
+1731
+1732
+1733
+1734
+1735
+1736
+1737
+1738
+1739
+1740
+1741
+1742
+1743
+1744
+1745
+1746
+1747
+1748
+1749
+1750
+1751
+1752
+1753
+1754
+1755
+1756
+1757
+1758
+1759
+1760
+1761
+1762
+1763
+1764
+1765
+1766
+1767
+1768
+1769
+1770
+1771
+1772
+1773
+1774
+1775
+1776
+1777
+1778
+1779
+1780
+1781
+1782
+1783
+1784
+1785
+1786
+1787
+1788
+1789
+1790
+1791
+1792
+1793
+1794
+1795
+1796
+1797
+1798
+1799
+1800
+1801
+1802
+1803
+1804
+1805
+1806
+1807
+1808
+1809
+1810
+1811
+1812
+1813
+1814
+1815
+1816
+1817
+1818
+1819
+1820
+1821
+1822
+1823
+1824
+1825
+1826
+1827
+1828
+1829
+1830
+1831
+1832
+1833
+1834
+1835
+1836
+1837
+1838
+1839
+1840
+1841
+1842
+1843
+1844
+1845
+1846
+1847
+1848
+1849
+1850
+1851
+1852
+1853
+1854
+1855
+1856
+1857
+1858
+1859
+1860
+1861
+1862
+1863
+1864
+1865
+1866
+1867
+1868
+1869
+1870
+1871
+1872
+1873
+1874
+1875
+1876
+1877
+1878
+1879
+1880
+1881
+1882
+1883
+1884
+1885
+1886
+1887
+1888
+1889
+1890
+1891
+1892
+1893
+1894
+1895
+1896
+1897
+1898
+1899
+1900
+1901
+1902
+1903
+1904
+1905
+1906
+1907
+1908
+1909
+1910
+1911
+1912
+1913
+1914
+1915
+1916
+1917
+1918
+1919
+1920
+1921
+1922
+1923
+1924
+1925
+1926
+1927</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'ext/socket/socket.c', line 1623</span>
+
+static VALUE
+socket_s_ip_address_list(VALUE self)
+{
+#if defined(HAVE_GETIFADDRS)
+    struct ifaddrs *ifp = NULL;
+    struct ifaddrs *p;
+    int ret;
+    VALUE list;
+
+    ret = getifaddrs(&amp;ifp);
+    if (ret == -1) {
+        rb_sys_fail(&quot;getifaddrs&quot;);
+    }
+
+    list = rb_ary_new();
+    for (p = ifp; p; p = p-&gt;ifa_next) {
+        if (p-&gt;ifa_addr != NULL &amp;&amp; IS_IP_FAMILY(p-&gt;ifa_addr-&gt;sa_family)) {
+            struct sockaddr *addr = p-&gt;ifa_addr;
+#if defined(AF_INET6) &amp;&amp; defined(__sun)
+            /*
+             * OpenIndiana SunOS 5.11 getifaddrs() returns IPv6 link local
+             * address with sin6_scope_id == 0.
+             * So fill it from the interface name (ifa_name).
+             */
+            struct sockaddr_in6 addr6;
+            if (addr-&gt;sa_family == AF_INET6) {
+                socklen_t len = (socklen_t)sizeof(struct sockaddr_in6);
+                memcpy(&amp;addr6, addr, len);
+                addr = (struct sockaddr *)&amp;addr6;
+                if (IN6_IS_ADDR_LINKLOCAL(&amp;addr6.sin6_addr) &amp;&amp;
+                    addr6.sin6_scope_id == 0) {
+                    unsigned int ifindex = if_nametoindex(p-&gt;ifa_name);
+                    if (ifindex != 0) {
+                        addr6.sin6_scope_id = ifindex;
+                    }
+                }
+            }
+#endif
+            rb_ary_push(list, sockaddr_obj(addr, sockaddr_len(addr)));
+        }
+    }
+
+    freeifaddrs(ifp);
+
+    return list;
+#elif defined(SIOCGLIFCONF) &amp;&amp; defined(SIOCGLIFNUM) &amp;&amp; !defined(__hpux)
+    /* Solaris if_tcp(7P) */
+    /* HP-UX has SIOCGLIFCONF too.  But it uses different struct */
+    int fd = -1;
+    int ret;
+    struct lifnum ln;
+    struct lifconf lc;
+    const char *reason = NULL;
+    int save_errno;
+    int i;
+    VALUE list = Qnil;
+
+    lc.lifc_buf = NULL;
+
+    fd = socket(AF_INET, SOCK_DGRAM, 0);
+    if (fd == -1)
+        rb_sys_fail(&quot;socket(2)&quot;);
+
+    memset(&amp;ln, 0, sizeof(ln));
+    ln.lifn_family = AF_UNSPEC;
+
+    ret = ioctl(fd, SIOCGLIFNUM, &amp;ln);
+    if (ret == -1) {
+	reason = &quot;SIOCGLIFNUM&quot;;
+	goto finish;
+    }
+
+    memset(&amp;lc, 0, sizeof(lc));
+    lc.lifc_family = AF_UNSPEC;
+    lc.lifc_flags = 0;
+    lc.lifc_len = sizeof(struct lifreq) * ln.lifn_count;
+    lc.lifc_req = xmalloc(lc.lifc_len);
+
+    ret = ioctl(fd, SIOCGLIFCONF, &amp;lc);
+    if (ret == -1) {
+	reason = &quot;SIOCGLIFCONF&quot;;
+	goto finish;
+    }
+
+    list = rb_ary_new();
+    for (i = 0; i &lt; ln.lifn_count; i++) {
+	struct lifreq *req = &amp;lc.lifc_req[i];
+        if (IS_IP_FAMILY(req-&gt;lifr_addr.ss_family)) {
+            if (req-&gt;lifr_addr.ss_family == AF_INET6 &amp;&amp;
+                IN6_IS_ADDR_LINKLOCAL(&amp;((struct sockaddr_in6 *)(&amp;req-&gt;lifr_addr))-&gt;sin6_addr) &amp;&amp;
+                ((struct sockaddr_in6 *)(&amp;req-&gt;lifr_addr))-&gt;sin6_scope_id == 0) {
+                struct lifreq req2;
+                memcpy(req2.lifr_name, req-&gt;lifr_name, LIFNAMSIZ);
+                ret = ioctl(fd, SIOCGLIFINDEX, &amp;req2);
+                if (ret == -1) {
+                    reason = &quot;SIOCGLIFINDEX&quot;;
+                    goto finish;
+                }
+                ((struct sockaddr_in6 *)(&amp;req-&gt;lifr_addr))-&gt;sin6_scope_id = req2.lifr_index;
+            }
+            rb_ary_push(list, sockaddr_obj((struct sockaddr *)&amp;req-&gt;lifr_addr, req-&gt;lifr_addrlen));
+        }
+    }
+
+  finish:
+    save_errno = errno;
+    if (lc.lifc_buf != NULL)
+	xfree(lc.lifc_req);
+    if (fd != -1)
+	close(fd);
+    errno = save_errno;
+
+    if (reason)
+	rb_syserr_fail(save_errno, reason);
+    return list;
+
+#elif defined(SIOCGIFCONF)
+    int fd = -1;
+    int ret;
+#define EXTRA_SPACE ((int)(sizeof(struct ifconf) + sizeof(union_sockaddr)))
+    char initbuf[4096+EXTRA_SPACE];
+    char *buf = initbuf;
+    int bufsize;
+    struct ifconf conf;
+    struct ifreq *req;
+    VALUE list = Qnil;
+    const char *reason = NULL;
+    int save_errno;
+
+    fd = socket(AF_INET, SOCK_DGRAM, 0);
+    if (fd == -1)
+        rb_sys_fail(&quot;socket(2)&quot;);
+
+    bufsize = sizeof(initbuf);
+    buf = initbuf;
+
+  retry:
+    conf.ifc_len = bufsize;
+    conf.ifc_req = (struct ifreq *)buf;
+
+    /* fprintf(stderr, &quot;bufsize: %d\n&quot;, bufsize); */
+
+    ret = ioctl(fd, SIOCGIFCONF, &amp;conf);
+    if (ret == -1) {
+        reason = &quot;SIOCGIFCONF&quot;;
+        goto finish;
+    }
+
+    /* fprintf(stderr, &quot;conf.ifc_len: %d\n&quot;, conf.ifc_len); */
+
+    if (bufsize - EXTRA_SPACE &lt; conf.ifc_len) {
+	if (bufsize &lt; conf.ifc_len) {
+	    /* NetBSD returns required size for all interfaces. */
+	    bufsize = conf.ifc_len + EXTRA_SPACE;
+	}
+	else {
+	    bufsize = bufsize &lt;&lt; 1;
+	}
+	if (buf == initbuf)
+	    buf = NULL;
+	buf = xrealloc(buf, bufsize);
+	goto retry;
+    }
+
+    close(fd);
+    fd = -1;
+
+    list = rb_ary_new();
+    req = conf.ifc_req;
+    while ((char*)req &lt; (char*)conf.ifc_req + conf.ifc_len) {
+	struct sockaddr *addr = &amp;req-&gt;ifr_addr;
+        if (IS_IP_FAMILY(addr-&gt;sa_family)) {
+	    rb_ary_push(list, sockaddr_obj(addr, sockaddr_len(addr)));
+	}
+#ifdef HAVE_STRUCT_SOCKADDR_SA_LEN
+# ifndef _SIZEOF_ADDR_IFREQ
+#  define _SIZEOF_ADDR_IFREQ(r) \
+          (sizeof(struct ifreq) + \
+           (sizeof(struct sockaddr) &lt; (r).ifr_addr.sa_len ? \
+            (r).ifr_addr.sa_len - sizeof(struct sockaddr) : \
+            0))
+# endif
+	req = (struct ifreq *)((char*)req + _SIZEOF_ADDR_IFREQ(*req));
+#else
+	req = (struct ifreq *)((char*)req + sizeof(struct ifreq));
+#endif
+    }
+
+  finish:
+
+    save_errno = errno;
+    if (buf != initbuf)
+        xfree(buf);
+    if (fd != -1)
+	close(fd);
+    errno = save_errno;
+
+    if (reason)
+	rb_syserr_fail(save_errno, reason);
+    return list;
+
+#undef EXTRA_SPACE
+#elif defined(_WIN32)
+    typedef struct ip_adapter_unicast_address_st {
+	unsigned LONG_LONG dummy0;
+	struct ip_adapter_unicast_address_st *Next;
+	struct {
+	    struct sockaddr *lpSockaddr;
+	    int iSockaddrLength;
+	} Address;
+	int dummy1;
+	int dummy2;
+	int dummy3;
+	long dummy4;
+	long dummy5;
+	long dummy6;
+    } ip_adapter_unicast_address_t;
+    typedef struct ip_adapter_anycast_address_st {
+	unsigned LONG_LONG dummy0;
+	struct ip_adapter_anycast_address_st *Next;
+	struct {
+	    struct sockaddr *lpSockaddr;
+	    int iSockaddrLength;
+	} Address;
+    } ip_adapter_anycast_address_t;
+    typedef struct ip_adapter_addresses_st {
+	unsigned LONG_LONG dummy0;
+	struct ip_adapter_addresses_st *Next;
+	void *dummy1;
+	ip_adapter_unicast_address_t *FirstUnicastAddress;
+	ip_adapter_anycast_address_t *FirstAnycastAddress;
+	void *dummy2;
+	void *dummy3;
+	void *dummy4;
+	void *dummy5;
+	void *dummy6;
+	BYTE dummy7[8];
+	DWORD dummy8;
+	DWORD dummy9;
+	DWORD dummy10;
+	DWORD IfType;
+	int OperStatus;
+	DWORD dummy12;
+	DWORD dummy13[16];
+	void *dummy14;
+    } ip_adapter_addresses_t;
+    typedef ULONG (WINAPI *GetAdaptersAddresses_t)(ULONG, ULONG, PVOID, ip_adapter_addresses_t *, PULONG);
+    HMODULE h;
+    GetAdaptersAddresses_t pGetAdaptersAddresses;
+    ULONG len;
+    DWORD ret;
+    ip_adapter_addresses_t *adapters;
+    VALUE list;
+
+    h = LoadLibrary(&quot;iphlpapi.dll&quot;);
+    if (!h)
+	rb_notimplement();
+    pGetAdaptersAddresses = (GetAdaptersAddresses_t)GetProcAddress(h, &quot;GetAdaptersAddresses&quot;);
+    if (!pGetAdaptersAddresses) {
+	FreeLibrary(h);
+	rb_notimplement();
+    }
+
+    ret = pGetAdaptersAddresses(AF_UNSPEC, 0, NULL, NULL, &amp;len);
+    if (ret != ERROR_SUCCESS &amp;&amp; ret != ERROR_BUFFER_OVERFLOW) {
+	errno = rb_w32_map_errno(ret);
+	FreeLibrary(h);
+	rb_sys_fail(&quot;GetAdaptersAddresses&quot;);
+    }
+    adapters = (ip_adapter_addresses_t *)ALLOCA_N(BYTE, len);
+    ret = pGetAdaptersAddresses(AF_UNSPEC, 0, NULL, adapters, &amp;len);
+    if (ret != ERROR_SUCCESS) {
+	errno = rb_w32_map_errno(ret);
+	FreeLibrary(h);
+	rb_sys_fail(&quot;GetAdaptersAddresses&quot;);
+    }
+
+    list = rb_ary_new();
+    for (; adapters; adapters = adapters-&gt;Next) {
+	ip_adapter_unicast_address_t *uni;
+	ip_adapter_anycast_address_t *any;
+	if (adapters-&gt;OperStatus != 1)	/* 1 means IfOperStatusUp */
+	    continue;
+	for (uni = adapters-&gt;FirstUnicastAddress; uni; uni = uni-&gt;Next) {
+#ifndef INET6
+	    if (uni-&gt;Address.lpSockaddr-&gt;sa_family == AF_INET)
+#else
+	    if (IS_IP_FAMILY(uni-&gt;Address.lpSockaddr-&gt;sa_family))
+#endif
+		rb_ary_push(list, sockaddr_obj(uni-&gt;Address.lpSockaddr, uni-&gt;Address.iSockaddrLength));
+	}
+	for (any = adapters-&gt;FirstAnycastAddress; any; any = any-&gt;Next) {
+#ifndef INET6
+	    if (any-&gt;Address.lpSockaddr-&gt;sa_family == AF_INET)
+#else
+	    if (IS_IP_FAMILY(any-&gt;Address.lpSockaddr-&gt;sa_family))
+#endif
+		rb_ary_push(list, sockaddr_obj(any-&gt;Address.lpSockaddr, any-&gt;Address.iSockaddrLength));
+	}
+    }
+
+    FreeLibrary(h);
+    return list;
+#endif
+}</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="pack_sockaddr_in-class_method">
+  
+    
+      <span class="overload">.<strong>sockaddr_in</strong>(port, host)  &#x21d2; <tt><span class='object_link'><a href="Object.html" title="Object (class)">Object</a></span></tt> </span>
+    
+      <span class="overload">.<strong>pack_sockaddr_in</strong>(port, host)  &#x21d2; <tt><span class='object_link'><a href="Object.html" title="Object (class)">Object</a></span></tt> </span>
+    
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Packs <em>port</em> and <em>host</em> as an AF_INET/AF_INET6 sockaddr
+string.</p>
+
+<pre class="code"><code class=""><span class='const'><span class='object_link'><a href="" title="Socket (class)">Socket</a></span></span><span class='period'>.</span><span class='id identifier rubyid_sockaddr_in'><span class='object_link'><a href="#sockaddr_in-class_method" title="Socket.sockaddr_in (method)">sockaddr_in</a></span></span><span class='lparen'>(</span><span class='int'>80</span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>127.0.0.1</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
+<span class='comment'>#=&gt; &quot;\x02\x00\x00P\x7F\x00\x00\x01\x00\x00\x00\x00\x00\x00\x00\x00&quot;
+</span>
+<span class='const'><span class='object_link'><a href="" title="Socket (class)">Socket</a></span></span><span class='period'>.</span><span class='id identifier rubyid_sockaddr_in'><span class='object_link'><a href="#sockaddr_in-class_method" title="Socket.sockaddr_in (method)">sockaddr_in</a></span></span><span class='lparen'>(</span><span class='int'>80</span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>::1</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
+<span class='comment'>#=&gt; &quot;\n\x00\x00P\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x01\x00\x00\x00\x00&quot;
+</span></code></pre>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+1401
+1402
+1403
+1404
+1405
+1406
+1407
+1408
+1409
+1410
+1411
+1412</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'ext/socket/socket.c', line 1401</span>
+
+static VALUE
+sock_s_pack_sockaddr_in(VALUE self, VALUE port, VALUE host)
+{
+    struct rb_addrinfo *res = rsock_addrinfo(host, port, AF_UNSPEC, 0, 0);
+    VALUE addr = rb_str_new((char*)res-&gt;ai-&gt;ai_addr, res-&gt;ai-&gt;ai_addrlen);
+
+    rb_freeaddrinfo(res);
+    OBJ_INFECT(addr, port);
+    OBJ_INFECT(addr, host);
+
+    return addr;
+}</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="pack_sockaddr_un-class_method">
+  
+    
+      <span class="overload">.<strong>sockaddr_un</strong>(path)  &#x21d2; <tt><span class='object_link'><a href="Object.html" title="Object (class)">Object</a></span></tt> </span>
+    
+      <span class="overload">.<strong>pack_sockaddr_un</strong>(path)  &#x21d2; <tt><span class='object_link'><a href="Object.html" title="Object (class)">Object</a></span></tt> </span>
+    
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Packs <em>path</em> as an AF_UNIX sockaddr string.</p>
+
+<pre class="code"><code class=""><span class='const'><span class='object_link'><a href="" title="Socket (class)">Socket</a></span></span><span class='period'>.</span><span class='id identifier rubyid_sockaddr_un'><span class='object_link'><a href="#sockaddr_un-class_method" title="Socket.sockaddr_un (method)">sockaddr_un</a></span></span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>/tmp/sock</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span> <span class='comment'>#=&gt; &quot;\x01\x00/tmp/sock\x00\x00...&quot;
+</span></code></pre>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+1467
+1468
+1469
+1470
+1471
+1472
+1473
+1474
+1475
+1476
+1477
+1478
+1479
+1480
+1481
+1482
+1483
+1484</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'ext/socket/socket.c', line 1467</span>
+
+static VALUE
+sock_s_pack_sockaddr_un(VALUE self, VALUE path)
+{
+    struct sockaddr_un sockaddr;
+    VALUE addr;
+
+    StringValue(path);
+    INIT_SOCKADDR_UN(&amp;sockaddr, sizeof(struct sockaddr_un));
+    if (sizeof(sockaddr.sun_path) &lt; (size_t)RSTRING_LEN(path)) {
+        rb_raise(rb_eArgError, &quot;too long unix socket path (%&quot;PRIuSIZE&quot; bytes given but %&quot;PRIuSIZE&quot; bytes max)&quot;,
+            (size_t)RSTRING_LEN(path), sizeof(sockaddr.sun_path));
+    }
+    memcpy(sockaddr.sun_path, RSTRING_PTR(path), RSTRING_LEN(path));
+    addr = rb_str_new((char*)&amp;sockaddr, rsock_unix_sockaddr_len(path));
+    OBJ_INFECT(addr, path);
+
+    return addr;
+}</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="pair-class_method">
+  
+    
+      <span class="overload">.<strong>pair</strong>(domain, type, protocol)  &#x21d2; <tt><span class='object_link'><a href="Array.html" title="Array (class)">Array</a></span></tt> </span>
+    
+      <span class="overload">.<strong>socketpair</strong>(domain, type, protocol)  &#x21d2; <tt><span class='object_link'><a href="Array.html" title="Array (class)">Array</a></span></tt> </span>
+    
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Creates a pair of sockets connected each other.</p>
+
+<p><em>domain</em> should be a communications domain such as: :INET, :INET6,
+:UNIX, etc.</p>
+
+<p><em>socktype</em> should be a socket type such as: :STREAM, :DGRAM, :RAW,
+etc.</p>
+
+<p><em>protocol</em> should be a protocol defined in the domain, defaults to 0
+for the domain.</p>
+
+<pre class="code"><code class=""><span class='id identifier rubyid_s1'>s1</span><span class='comma'>,</span> <span class='id identifier rubyid_s2'>s2</span> <span class='op'>=</span> <span class='const'><span class='object_link'><a href="" title="Socket (class)">Socket</a></span></span><span class='period'>.</span><span class='id identifier rubyid_pair'>pair</span><span class='lparen'>(</span><span class='symbol'>:UNIX</span><span class='comma'>,</span> <span class='symbol'>:STREAM</span><span class='comma'>,</span> <span class='int'>0</span><span class='rparen'>)</span>
+<span class='id identifier rubyid_s1'>s1</span><span class='period'>.</span><span class='id identifier rubyid_send'>send</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>a</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='int'>0</span>
+<span class='id identifier rubyid_s1'>s1</span><span class='period'>.</span><span class='id identifier rubyid_send'>send</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>b</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='int'>0</span>
+<span class='id identifier rubyid_s1'>s1</span><span class='period'>.</span><span class='id identifier rubyid_close'>close</span>
+<span class='id identifier rubyid_p'>p</span> <span class='id identifier rubyid_s2'>s2</span><span class='period'>.</span><span class='id identifier rubyid_recv'>recv</span><span class='lparen'>(</span><span class='int'>10</span><span class='rparen'>)</span> <span class='comment'>#=&gt; &quot;ab&quot;
+</span><span class='id identifier rubyid_p'>p</span> <span class='id identifier rubyid_s2'>s2</span><span class='period'>.</span><span class='id identifier rubyid_recv'>recv</span><span class='lparen'>(</span><span class='int'>10</span><span class='rparen'>)</span> <span class='comment'>#=&gt; &quot;&quot;
+</span><span class='id identifier rubyid_p'>p</span> <span class='id identifier rubyid_s2'>s2</span><span class='period'>.</span><span class='id identifier rubyid_recv'>recv</span><span class='lparen'>(</span><span class='int'>10</span><span class='rparen'>)</span> <span class='comment'>#=&gt; &quot;&quot;
+</span>
+<span class='id identifier rubyid_s1'>s1</span><span class='comma'>,</span> <span class='id identifier rubyid_s2'>s2</span> <span class='op'>=</span> <span class='const'><span class='object_link'><a href="" title="Socket (class)">Socket</a></span></span><span class='period'>.</span><span class='id identifier rubyid_pair'>pair</span><span class='lparen'>(</span><span class='symbol'>:UNIX</span><span class='comma'>,</span> <span class='symbol'>:DGRAM</span><span class='comma'>,</span> <span class='int'>0</span><span class='rparen'>)</span>
+<span class='id identifier rubyid_s1'>s1</span><span class='period'>.</span><span class='id identifier rubyid_send'>send</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>a</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='int'>0</span>
+<span class='id identifier rubyid_s1'>s1</span><span class='period'>.</span><span class='id identifier rubyid_send'>send</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>b</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='int'>0</span>
+<span class='id identifier rubyid_p'>p</span> <span class='id identifier rubyid_s2'>s2</span><span class='period'>.</span><span class='id identifier rubyid_recv'>recv</span><span class='lparen'>(</span><span class='int'>10</span><span class='rparen'>)</span> <span class='comment'>#=&gt; &quot;a&quot;
+</span><span class='id identifier rubyid_p'>p</span> <span class='id identifier rubyid_s2'>s2</span><span class='period'>.</span><span class='id identifier rubyid_recv'>recv</span><span class='lparen'>(</span><span class='int'>10</span><span class='rparen'>)</span> <span class='comment'>#=&gt; &quot;b&quot;
+</span></code></pre>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+  <p class="tag_title">Overloads:</p>
+  <ul class="overload">
+    
+      
+      <li class="overload_item">
+        <span class="signature">.<strong>pair</strong>(domain, type, protocol)  &#x21d2; <tt><span class='object_link'><a href="Array.html" title="Array (class)">Array</a></span></tt> </span>
+        <div class="docstring">
+  <div class="discussion">
+    
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="Array.html" title="Array (class)">Array</a></span></tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div>
+      </li>
+    
+      
+      <li class="overload_item">
+        <span class="signature">.<strong>socketpair</strong>(domain, type, protocol)  &#x21d2; <tt><span class='object_link'><a href="Array.html" title="Array (class)">Array</a></span></tt> </span>
+        <div class="docstring">
+  <div class="discussion">
+    
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="Array.html" title="Array (class)">Array</a></span></tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div>
+      </li>
+    
+  </ul>
+
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+280
+281
+282
+283
+284
+285
+286
+287
+288
+289
+290
+291
+292
+293
+294
+295
+296
+297
+298
+299
+300
+301
+302
+303
+304
+305
+306</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'ext/socket/socket.c', line 280</span>
+
+VALUE
+rsock_sock_s_socketpair(int argc, VALUE *argv, VALUE klass)
+{
+    VALUE domain, type, protocol;
+    int d, t, p, sp[2];
+    int ret;
+    VALUE s1, s2, r;
+
+    rb_scan_args(argc, argv, &quot;21&quot;, &amp;domain, &amp;type, &amp;protocol);
+    if (NIL_P(protocol))
+        protocol = INT2FIX(0);
+
+    setup_domain_and_type(domain, &amp;d, type, &amp;t);
+    p = NUM2INT(protocol);
+    ret = rsock_socketpair(d, t, p, sp);
+    if (ret &lt; 0) {
+	rb_sys_fail(&quot;socketpair(2)&quot;);
+    }
+
+    s1 = rsock_init_sock(rb_obj_alloc(klass), sp[0]);
+    s2 = rsock_init_sock(rb_obj_alloc(klass), sp[1]);
+    r = rb_assoc_new(s1, s2);
+    if (rb_block_given_p()) {
+        return rb_ensure(pair_yield, r, io_close, s1);
+    }
+    return r;
+}</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="sockaddr_in-class_method">
+  
+    
+      <span class="overload">.<strong>sockaddr_in</strong>(port, host)  &#x21d2; <tt><span class='object_link'><a href="Object.html" title="Object (class)">Object</a></span></tt> </span>
+    
+      <span class="overload">.<strong>pack_sockaddr_in</strong>(port, host)  &#x21d2; <tt><span class='object_link'><a href="Object.html" title="Object (class)">Object</a></span></tt> </span>
+    
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Packs <em>port</em> and <em>host</em> as an AF_INET/AF_INET6 sockaddr
+string.</p>
+
+<pre class="code"><code class=""><span class='const'><span class='object_link'><a href="" title="Socket (class)">Socket</a></span></span><span class='period'>.</span><span class='id identifier rubyid_sockaddr_in'>sockaddr_in</span><span class='lparen'>(</span><span class='int'>80</span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>127.0.0.1</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
+<span class='comment'>#=&gt; &quot;\x02\x00\x00P\x7F\x00\x00\x01\x00\x00\x00\x00\x00\x00\x00\x00&quot;
+</span>
+<span class='const'><span class='object_link'><a href="" title="Socket (class)">Socket</a></span></span><span class='period'>.</span><span class='id identifier rubyid_sockaddr_in'>sockaddr_in</span><span class='lparen'>(</span><span class='int'>80</span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>::1</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
+<span class='comment'>#=&gt; &quot;\n\x00\x00P\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x01\x00\x00\x00\x00&quot;
+</span></code></pre>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+1401
+1402
+1403
+1404
+1405
+1406
+1407
+1408
+1409
+1410
+1411
+1412</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'ext/socket/socket.c', line 1401</span>
+
+static VALUE
+sock_s_pack_sockaddr_in(VALUE self, VALUE port, VALUE host)
+{
+    struct rb_addrinfo *res = rsock_addrinfo(host, port, AF_UNSPEC, 0, 0);
+    VALUE addr = rb_str_new((char*)res-&gt;ai-&gt;ai_addr, res-&gt;ai-&gt;ai_addrlen);
+
+    rb_freeaddrinfo(res);
+    OBJ_INFECT(addr, port);
+    OBJ_INFECT(addr, host);
+
+    return addr;
+}</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="sockaddr_un-class_method">
+  
+    
+      <span class="overload">.<strong>sockaddr_un</strong>(path)  &#x21d2; <tt><span class='object_link'><a href="Object.html" title="Object (class)">Object</a></span></tt> </span>
+    
+      <span class="overload">.<strong>pack_sockaddr_un</strong>(path)  &#x21d2; <tt><span class='object_link'><a href="Object.html" title="Object (class)">Object</a></span></tt> </span>
+    
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Packs <em>path</em> as an AF_UNIX sockaddr string.</p>
+
+<pre class="code"><code class=""><span class='const'><span class='object_link'><a href="" title="Socket (class)">Socket</a></span></span><span class='period'>.</span><span class='id identifier rubyid_sockaddr_un'>sockaddr_un</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>/tmp/sock</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span> <span class='comment'>#=&gt; &quot;\x01\x00/tmp/sock\x00\x00...&quot;
+</span></code></pre>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+1467
+1468
+1469
+1470
+1471
+1472
+1473
+1474
+1475
+1476
+1477
+1478
+1479
+1480
+1481
+1482
+1483
+1484</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'ext/socket/socket.c', line 1467</span>
+
+static VALUE
+sock_s_pack_sockaddr_un(VALUE self, VALUE path)
+{
+    struct sockaddr_un sockaddr;
+    VALUE addr;
+
+    StringValue(path);
+    INIT_SOCKADDR_UN(&amp;sockaddr, sizeof(struct sockaddr_un));
+    if (sizeof(sockaddr.sun_path) &lt; (size_t)RSTRING_LEN(path)) {
+        rb_raise(rb_eArgError, &quot;too long unix socket path (%&quot;PRIuSIZE&quot; bytes given but %&quot;PRIuSIZE&quot; bytes max)&quot;,
+            (size_t)RSTRING_LEN(path), sizeof(sockaddr.sun_path));
+    }
+    memcpy(sockaddr.sun_path, RSTRING_PTR(path), RSTRING_LEN(path));
+    addr = rb_str_new((char*)&amp;sockaddr, rsock_unix_sockaddr_len(path));
+    OBJ_INFECT(addr, path);
+
+    return addr;
+}</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="socketpair-class_method">
+  
+    
+      <span class="overload">.<strong>pair</strong>(domain, type, protocol)  &#x21d2; <tt><span class='object_link'><a href="Array.html" title="Array (class)">Array</a></span></tt> </span>
+    
+      <span class="overload">.<strong>socketpair</strong>(domain, type, protocol)  &#x21d2; <tt><span class='object_link'><a href="Array.html" title="Array (class)">Array</a></span></tt> </span>
+    
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Creates a pair of sockets connected each other.</p>
+
+<p><em>domain</em> should be a communications domain such as: :INET, :INET6,
+:UNIX, etc.</p>
+
+<p><em>socktype</em> should be a socket type such as: :STREAM, :DGRAM, :RAW,
+etc.</p>
+
+<p><em>protocol</em> should be a protocol defined in the domain, defaults to 0
+for the domain.</p>
+
+<pre class="code"><code class=""><span class='id identifier rubyid_s1'>s1</span><span class='comma'>,</span> <span class='id identifier rubyid_s2'>s2</span> <span class='op'>=</span> <span class='const'><span class='object_link'><a href="" title="Socket (class)">Socket</a></span></span><span class='period'>.</span><span class='id identifier rubyid_pair'><span class='object_link'><a href="#pair-class_method" title="Socket.pair (method)">pair</a></span></span><span class='lparen'>(</span><span class='symbol'>:UNIX</span><span class='comma'>,</span> <span class='symbol'>:STREAM</span><span class='comma'>,</span> <span class='int'>0</span><span class='rparen'>)</span>
+<span class='id identifier rubyid_s1'>s1</span><span class='period'>.</span><span class='id identifier rubyid_send'>send</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>a</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='int'>0</span>
+<span class='id identifier rubyid_s1'>s1</span><span class='period'>.</span><span class='id identifier rubyid_send'>send</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>b</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='int'>0</span>
+<span class='id identifier rubyid_s1'>s1</span><span class='period'>.</span><span class='id identifier rubyid_close'>close</span>
+<span class='id identifier rubyid_p'>p</span> <span class='id identifier rubyid_s2'>s2</span><span class='period'>.</span><span class='id identifier rubyid_recv'>recv</span><span class='lparen'>(</span><span class='int'>10</span><span class='rparen'>)</span> <span class='comment'>#=&gt; &quot;ab&quot;
+</span><span class='id identifier rubyid_p'>p</span> <span class='id identifier rubyid_s2'>s2</span><span class='period'>.</span><span class='id identifier rubyid_recv'>recv</span><span class='lparen'>(</span><span class='int'>10</span><span class='rparen'>)</span> <span class='comment'>#=&gt; &quot;&quot;
+</span><span class='id identifier rubyid_p'>p</span> <span class='id identifier rubyid_s2'>s2</span><span class='period'>.</span><span class='id identifier rubyid_recv'>recv</span><span class='lparen'>(</span><span class='int'>10</span><span class='rparen'>)</span> <span class='comment'>#=&gt; &quot;&quot;
+</span>
+<span class='id identifier rubyid_s1'>s1</span><span class='comma'>,</span> <span class='id identifier rubyid_s2'>s2</span> <span class='op'>=</span> <span class='const'><span class='object_link'><a href="" title="Socket (class)">Socket</a></span></span><span class='period'>.</span><span class='id identifier rubyid_pair'><span class='object_link'><a href="#pair-class_method" title="Socket.pair (method)">pair</a></span></span><span class='lparen'>(</span><span class='symbol'>:UNIX</span><span class='comma'>,</span> <span class='symbol'>:DGRAM</span><span class='comma'>,</span> <span class='int'>0</span><span class='rparen'>)</span>
+<span class='id identifier rubyid_s1'>s1</span><span class='period'>.</span><span class='id identifier rubyid_send'>send</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>a</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='int'>0</span>
+<span class='id identifier rubyid_s1'>s1</span><span class='period'>.</span><span class='id identifier rubyid_send'>send</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>b</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='int'>0</span>
+<span class='id identifier rubyid_p'>p</span> <span class='id identifier rubyid_s2'>s2</span><span class='period'>.</span><span class='id identifier rubyid_recv'>recv</span><span class='lparen'>(</span><span class='int'>10</span><span class='rparen'>)</span> <span class='comment'>#=&gt; &quot;a&quot;
+</span><span class='id identifier rubyid_p'>p</span> <span class='id identifier rubyid_s2'>s2</span><span class='period'>.</span><span class='id identifier rubyid_recv'>recv</span><span class='lparen'>(</span><span class='int'>10</span><span class='rparen'>)</span> <span class='comment'>#=&gt; &quot;b&quot;
+</span></code></pre>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+  <p class="tag_title">Overloads:</p>
+  <ul class="overload">
+    
+      
+      <li class="overload_item">
+        <span class="signature">.<strong>pair</strong>(domain, type, protocol)  &#x21d2; <tt><span class='object_link'><a href="Array.html" title="Array (class)">Array</a></span></tt> </span>
+        <div class="docstring">
+  <div class="discussion">
+    
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="Array.html" title="Array (class)">Array</a></span></tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div>
+      </li>
+    
+      
+      <li class="overload_item">
+        <span class="signature">.<strong>socketpair</strong>(domain, type, protocol)  &#x21d2; <tt><span class='object_link'><a href="Array.html" title="Array (class)">Array</a></span></tt> </span>
+        <div class="docstring">
+  <div class="discussion">
+    
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="Array.html" title="Array (class)">Array</a></span></tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div>
+      </li>
+    
+  </ul>
+
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+280
+281
+282
+283
+284
+285
+286
+287
+288
+289
+290
+291
+292
+293
+294
+295
+296
+297
+298
+299
+300
+301
+302
+303
+304
+305
+306</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'ext/socket/socket.c', line 280</span>
+
+VALUE
+rsock_sock_s_socketpair(int argc, VALUE *argv, VALUE klass)
+{
+    VALUE domain, type, protocol;
+    int d, t, p, sp[2];
+    int ret;
+    VALUE s1, s2, r;
+
+    rb_scan_args(argc, argv, &quot;21&quot;, &amp;domain, &amp;type, &amp;protocol);
+    if (NIL_P(protocol))
+        protocol = INT2FIX(0);
+
+    setup_domain_and_type(domain, &amp;d, type, &amp;t);
+    p = NUM2INT(protocol);
+    ret = rsock_socketpair(d, t, p, sp);
+    if (ret &lt; 0) {
+	rb_sys_fail(&quot;socketpair(2)&quot;);
+    }
+
+    s1 = rsock_init_sock(rb_obj_alloc(klass), sp[0]);
+    s2 = rsock_init_sock(rb_obj_alloc(klass), sp[1]);
+    r = rb_assoc_new(s1, s2);
+    if (rb_block_given_p()) {
+        return rb_ensure(pair_yield, r, io_close, s1);
+    }
+    return r;
+}</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="unpack_sockaddr_in-class_method">
+  
+    .<strong>unpack_sockaddr_in</strong>(sockaddr)  &#x21d2; <tt><span class='object_link'><a href="Array.html" title="Array (class)">Array</a></span></tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Unpacks <em>sockaddr</em> into port and ip_address.</p>
+
+<p><em>sockaddr</em> should be a string or an addrinfo for AF_INET/AF_INET6.</p>
+
+<pre class="code"><code class=""><span class='id identifier rubyid_sockaddr'>sockaddr</span> <span class='op'>=</span> <span class='const'><span class='object_link'><a href="" title="Socket (class)">Socket</a></span></span><span class='period'>.</span><span class='id identifier rubyid_sockaddr_in'><span class='object_link'><a href="#sockaddr_in-class_method" title="Socket.sockaddr_in (method)">sockaddr_in</a></span></span><span class='lparen'>(</span><span class='int'>80</span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>127.0.0.1</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
+<span class='id identifier rubyid_p'>p</span> <span class='id identifier rubyid_sockaddr'>sockaddr</span> <span class='comment'>#=&gt; &quot;\x02\x00\x00P\x7F\x00\x00\x01\x00\x00\x00\x00\x00\x00\x00\x00&quot;
+</span><span class='id identifier rubyid_p'>p</span> <span class='const'><span class='object_link'><a href="" title="Socket (class)">Socket</a></span></span><span class='period'>.</span><span class='id identifier rubyid_unpack_sockaddr_in'>unpack_sockaddr_in</span><span class='lparen'>(</span><span class='id identifier rubyid_sockaddr'>sockaddr</span><span class='rparen'>)</span> <span class='comment'>#=&gt; [80, &quot;127.0.0.1&quot;]
+</span></code></pre>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+  <div class="docstring">
+  <div class="discussion">
+    
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="Array.html" title="Array (class)">Array</a></span></tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div>
+
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+1427
+1428
+1429
+1430
+1431
+1432
+1433
+1434
+1435
+1436
+1437
+1438
+1439
+1440
+1441
+1442
+1443
+1444
+1445
+1446
+1447
+1448
+1449
+1450
+1451
+1452
+1453</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'ext/socket/socket.c', line 1427</span>
+
+static VALUE
+sock_s_unpack_sockaddr_in(VALUE self, VALUE addr)
+{
+    struct sockaddr_in * sockaddr;
+    VALUE host;
+
+    sockaddr = (struct sockaddr_in*)SockAddrStringValuePtr(addr);
+    if (RSTRING_LEN(addr) &lt;
+        (char*)&amp;((struct sockaddr *)sockaddr)-&gt;sa_family +
+        sizeof(((struct sockaddr *)sockaddr)-&gt;sa_family) -
+        (char*)sockaddr)
+        rb_raise(rb_eArgError, &quot;too short sockaddr&quot;);
+    if (((struct sockaddr *)sockaddr)-&gt;sa_family != AF_INET
+#ifdef INET6
+        &amp;&amp; ((struct sockaddr *)sockaddr)-&gt;sa_family != AF_INET6
+#endif
+        ) {
+#ifdef INET6
+        rb_raise(rb_eArgError, &quot;not an AF_INET/AF_INET6 sockaddr&quot;);
+#else
+        rb_raise(rb_eArgError, &quot;not an AF_INET sockaddr&quot;);
+#endif
+    }
+    host = rsock_make_ipaddr((struct sockaddr*)sockaddr, RSTRING_SOCKLEN(addr));
+    OBJ_INFECT(host, addr);
+    return rb_assoc_new(INT2NUM(ntohs(sockaddr-&gt;sin_port)), host);
+}</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="unpack_sockaddr_un-class_method">
+  
+    .<strong>unpack_sockaddr_un</strong>(sockaddr)  &#x21d2; <tt><span class='object_link'><a href="Object.html" title="Object (class)">Object</a></span></tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Unpacks <em>sockaddr</em> into path.</p>
+
+<p><em>sockaddr</em> should be a string or an addrinfo for AF_UNIX.</p>
+
+<pre class="code"><code class=""><span class='id identifier rubyid_sockaddr'>sockaddr</span> <span class='op'>=</span> <span class='const'><span class='object_link'><a href="" title="Socket (class)">Socket</a></span></span><span class='period'>.</span><span class='id identifier rubyid_sockaddr_un'><span class='object_link'><a href="#sockaddr_un-class_method" title="Socket.sockaddr_un (method)">sockaddr_un</a></span></span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>/tmp/sock</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
+<span class='id identifier rubyid_p'>p</span> <span class='const'><span class='object_link'><a href="" title="Socket (class)">Socket</a></span></span><span class='period'>.</span><span class='id identifier rubyid_unpack_sockaddr_un'>unpack_sockaddr_un</span><span class='lparen'>(</span><span class='id identifier rubyid_sockaddr'>sockaddr</span><span class='rparen'>)</span> <span class='comment'>#=&gt; &quot;/tmp/sock&quot;
+</span></code></pre>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+  
+
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+1498
+1499
+1500
+1501
+1502
+1503
+1504
+1505
+1506
+1507
+1508
+1509
+1510
+1511
+1512
+1513
+1514
+1515
+1516
+1517
+1518
+1519
+1520</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'ext/socket/socket.c', line 1498</span>
+
+static VALUE
+sock_s_unpack_sockaddr_un(VALUE self, VALUE addr)
+{
+    struct sockaddr_un * sockaddr;
+    VALUE path;
+
+    sockaddr = (struct sockaddr_un*)SockAddrStringValuePtr(addr);
+    if (RSTRING_LEN(addr) &lt;
+        (char*)&amp;((struct sockaddr *)sockaddr)-&gt;sa_family +
+        sizeof(((struct sockaddr *)sockaddr)-&gt;sa_family) -
+        (char*)sockaddr)
+        rb_raise(rb_eArgError, &quot;too short sockaddr&quot;);
+    if (((struct sockaddr *)sockaddr)-&gt;sa_family != AF_UNIX) {
+        rb_raise(rb_eArgError, &quot;not an AF_UNIX sockaddr&quot;);
+    }
+    if (sizeof(struct sockaddr_un) &lt; (size_t)RSTRING_LEN(addr)) {
+	rb_raise(rb_eTypeError, &quot;too long sockaddr_un - %ld longer than %d&quot;,
+		 RSTRING_LEN(addr), (int)sizeof(struct sockaddr_un));
+    }
+    path = rsock_unixpath_str(sockaddr, RSTRING_SOCKLEN(addr));
+    OBJ_INFECT(path, addr);
+    return path;
+}</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+  </div>
+
+  <div id="instance_method_details" class="method_details_list">
+    <h2>Instance Method Details</h2>
+
+    
+      <div class="method_details first">
+  <h3 class="signature first" id="accept-instance_method">
+  
+    #<strong>accept</strong>  &#x21d2; <tt><span class='object_link'><a href="Array.html" title="Array (class)">Array</a></span></tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Accepts a next connection. Returns a new Socket object and Addrinfo object.</p>
+
+<pre class="code"><code class=""><span class='id identifier rubyid_serv'>serv</span> <span class='op'>=</span> <span class='const'><span class='object_link'><a href="" title="Socket (class)">Socket</a></span></span><span class='period'>.</span><span class='id identifier rubyid_new'><span class='object_link'><a href="#initialize-instance_method" title="Socket#initialize (method)">new</a></span></span><span class='lparen'>(</span><span class='symbol'>:INET</span><span class='comma'>,</span> <span class='symbol'>:STREAM</span><span class='comma'>,</span> <span class='int'>0</span><span class='rparen'>)</span>
+<span class='id identifier rubyid_serv'>serv</span><span class='period'>.</span><span class='id identifier rubyid_listen'>listen</span><span class='lparen'>(</span><span class='int'>5</span><span class='rparen'>)</span>
+<span class='id identifier rubyid_c'>c</span> <span class='op'>=</span> <span class='const'><span class='object_link'><a href="" title="Socket (class)">Socket</a></span></span><span class='period'>.</span><span class='id identifier rubyid_new'><span class='object_link'><a href="#initialize-instance_method" title="Socket#initialize (method)">new</a></span></span><span class='lparen'>(</span><span class='symbol'>:INET</span><span class='comma'>,</span> <span class='symbol'>:STREAM</span><span class='comma'>,</span> <span class='int'>0</span><span class='rparen'>)</span>
+<span class='id identifier rubyid_c'>c</span><span class='period'>.</span><span class='id identifier rubyid_connect'>connect</span><span class='lparen'>(</span><span class='id identifier rubyid_serv'>serv</span><span class='period'>.</span><span class='id identifier rubyid_connect_address'>connect_address</span><span class='rparen'>)</span>
+<span class='id identifier rubyid_p'>p</span> <span class='id identifier rubyid_serv'>serv</span><span class='period'>.</span><span class='id identifier rubyid_accept'>accept</span> <span class='comment'>#=&gt; [#&lt;Socket:fd 6&gt;, #&lt;Addrinfo: 127.0.0.1:48555 TCP&gt;]
+</span></code></pre>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+  <div class="docstring">
+  <div class="discussion">
+    
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="Array.html" title="Array (class)">Array</a></span></tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div>
+
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+789
+790
+791
+792
+793
+794
+795
+796
+797
+798
+799
+800
+801</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'ext/socket/socket.c', line 789</span>
+
+static VALUE
+sock_accept(VALUE sock)
+{
+    rb_io_t *fptr;
+    VALUE sock2;
+    union_sockaddr buf;
+    socklen_t len = (socklen_t)sizeof buf;
+
+    GetOpenFile(sock, fptr);
+    sock2 = rsock_s_accept(rb_cSocket,fptr-&gt;fd,&amp;buf.addr,&amp;len);
+
+    return rb_assoc_new(sock2, rsock_io_socket_addrinfo(sock2, &amp;buf.addr, len));
+}</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="bind-instance_method">
+  
+    #<strong>bind</strong>(local_sockaddr)  &#x21d2; <tt>0</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Binds to the given local address.</p>
+
+<h3 id="label-Parameter">Parameter</h3>
+<ul><li>
+<p><code>local_sockaddr</code> - the <code>struct</code> sockaddr contained in
+a string or an Addrinfo object</p>
+</li></ul>
+
+<h3 id="label-Example">Example</h3>
+
+<pre class="code"><code class=""><span class='id identifier rubyid_require'>require</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>socket</span><span class='tstring_end'>&#39;</span></span>
+
+<span class='comment'># use Addrinfo
+</span><span class='id identifier rubyid_socket'>socket</span> <span class='op'>=</span> <span class='const'><span class='object_link'><a href="" title="Socket (class)">Socket</a></span></span><span class='period'>.</span><span class='id identifier rubyid_new'><span class='object_link'><a href="#initialize-instance_method" title="Socket#initialize (method)">new</a></span></span><span class='lparen'>(</span><span class='symbol'>:INET</span><span class='comma'>,</span> <span class='symbol'>:STREAM</span><span class='comma'>,</span> <span class='int'>0</span><span class='rparen'>)</span>
+<span class='id identifier rubyid_socket'>socket</span><span class='period'>.</span><span class='id identifier rubyid_bind'>bind</span><span class='lparen'>(</span><span class='const'><span class='object_link'><a href="Addrinfo.html" title="Addrinfo (class)">Addrinfo</a></span></span><span class='period'>.</span><span class='id identifier rubyid_tcp'><span class='object_link'><a href="Addrinfo.html#tcp-class_method" title="Addrinfo.tcp (method)">tcp</a></span></span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>127.0.0.1</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='int'>2222</span><span class='rparen'>)</span><span class='rparen'>)</span>
+<span class='id identifier rubyid_p'>p</span> <span class='id identifier rubyid_socket'>socket</span><span class='period'>.</span><span class='id identifier rubyid_local_address'>local_address</span> <span class='comment'>#=&gt; #&lt;Addrinfo: 127.0.0.1:2222 TCP&gt;
+</span>
+<span class='comment'># use struct sockaddr
+</span><span class='id identifier rubyid_include'>include</span> <span class='const'><span class='object_link'><a href="" title="Socket (class)">Socket</a></span></span><span class='op'>::</span><span class='const'>Constants</span>
+<span class='id identifier rubyid_socket'>socket</span> <span class='op'>=</span> <span class='const'><span class='object_link'><a href="" title="Socket (class)">Socket</a></span></span><span class='period'>.</span><span class='id identifier rubyid_new'><span class='object_link'><a href="#initialize-instance_method" title="Socket#initialize (method)">new</a></span></span><span class='lparen'>(</span> <span class='const'>AF_INET</span><span class='comma'>,</span> <span class='const'>SOCK_STREAM</span><span class='comma'>,</span> <span class='int'>0</span> <span class='rparen'>)</span>
+<span class='id identifier rubyid_sockaddr'>sockaddr</span> <span class='op'>=</span> <span class='const'><span class='object_link'><a href="" title="Socket (class)">Socket</a></span></span><span class='period'>.</span><span class='id identifier rubyid_pack_sockaddr_in'><span class='object_link'><a href="#pack_sockaddr_in-class_method" title="Socket.pack_sockaddr_in (method)">pack_sockaddr_in</a></span></span><span class='lparen'>(</span> <span class='int'>2200</span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>localhost</span><span class='tstring_end'>&#39;</span></span> <span class='rparen'>)</span>
+<span class='id identifier rubyid_socket'>socket</span><span class='period'>.</span><span class='id identifier rubyid_bind'>bind</span><span class='lparen'>(</span> <span class='id identifier rubyid_sockaddr'>sockaddr</span> <span class='rparen'>)</span>
+</code></pre>
+
+<h3 id="label-Unix-based+Exceptions">Unix-based Exceptions</h3>
+
+<p>On unix-based based systems the following system exceptions may be raised
+if the call to <em>bind</em> fails:</p>
+<ul><li>
+<p>Errno::EACCES - the specified <em>sockaddr</em> is protected and the
+current user does not have permission to bind to it</p>
+</li><li>
+<p>Errno::EADDRINUSE - the specified <em>sockaddr</em> is already in use</p>
+</li><li>
+<p>Errno::EADDRNOTAVAIL - the specified <em>sockaddr</em> is not available
+from the local machine</p>
+</li><li>
+<p>Errno::EAFNOSUPPORT - the specified <em>sockaddr</em> is not a valid
+address for the family of the calling <code>socket</code></p>
+</li><li>
+<p>Errno::EBADF - the <em>sockaddr</em> specified is not a valid file
+descriptor</p>
+</li><li>
+<p>Errno::EFAULT - the <em>sockaddr</em> argument cannot be accessed</p>
+</li><li>
+<p>Errno::EINVAL - the <code>socket</code> is already bound to an address, and
+the protocol does not support binding to the new <em>sockaddr</em> or the
+<code>socket</code> has been shut down.</p>
+</li><li>
+<p>Errno::EINVAL - the address length is not a valid length for the address
+family</p>
+</li><li>
+<p>Errno::ENAMETOOLONG - the pathname resolved had a length which exceeded
+PATH_MAX</p>
+</li><li>
+<p>Errno::ENOBUFS - no buffer space is available</p>
+</li><li>
+<p>Errno::ENOSR - there were insufficient STREAMS resources available to
+complete the operation</p>
+</li><li>
+<p>Errno::ENOTSOCK - the <code>socket</code> does not refer to a socket</p>
+</li><li>
+<p>Errno::EOPNOTSUPP - the socket type of the <code>socket</code> does not
+support binding to an address</p>
+</li></ul>
+
+<p>On unix-based based systems if the address family of the calling
+<code>socket</code> is Socket::AF_UNIX the follow exceptions may be raised
+if the call to <em>bind</em> fails:</p>
+<ul><li>
+<p>Errno::EACCES - search permission is denied for a component of the prefix
+path or write access to the <code>socket</code> is denied</p>
+</li><li>
+<p>Errno::EDESTADDRREQ - the <em>sockaddr</em> argument is a null pointer</p>
+</li><li>
+<p>Errno::EISDIR - same as Errno::EDESTADDRREQ</p>
+</li><li>
+<p>Errno::EIO - an i/o error occurred</p>
+</li><li>
+<p>Errno::ELOOP - too many symbolic links were encountered in translating the
+pathname in <em>sockaddr</em></p>
+</li><li>
+<p>Errno::ENAMETOOLLONG - a component of a pathname exceeded NAME_MAX
+characters, or an entire pathname exceeded PATH_MAX characters</p>
+</li><li>
+<p>Errno::ENOENT - a component of the pathname does not name an existing file
+or the pathname is an empty string</p>
+</li><li>
+<p>Errno::ENOTDIR - a component of the path prefix of the pathname in
+<em>sockaddr</em> is not a directory</p>
+</li><li>
+<p>Errno::EROFS - the name would reside on a read only filesystem</p>
+</li></ul>
+
+<h3 id="label-Windows+Exceptions">Windows Exceptions</h3>
+
+<p>On Windows systems the following system exceptions may be raised if the
+call to <em>bind</em> fails:</p>
+<ul><li>
+<p>Errno::ENETDOWN– the network is down</p>
+</li><li>
+<p>Errno::EACCES - the attempt to connect the datagram socket to the broadcast
+address failed</p>
+</li><li>
+<p>Errno::EADDRINUSE - the socket&#39;s local address is already in use</p>
+</li><li>
+<p>Errno::EADDRNOTAVAIL - the specified address is not a valid address for
+this computer</p>
+</li><li>
+<p>Errno::EFAULT - the socket&#39;s internal address or address length
+parameter is too small or is not a valid part of the user space addressed</p>
+</li><li>
+<p>Errno::EINVAL - the <code>socket</code> is already bound to an address</p>
+</li><li>
+<p>Errno::ENOBUFS - no buffer space is available</p>
+</li><li>
+<p>Errno::ENOTSOCK - the <code>socket</code> argument does not refer to a
+socket</p>
+</li></ul>
+
+<h3 id="label-See">See</h3>
+<ul><li>
+<p>bind manual pages on unix-based systems</p>
+</li><li>
+<p>bind function in Microsoft&#39;s Winsock functions reference</p>
+</li></ul>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+  <div class="docstring">
+  <div class="discussion">
+    
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>0</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div>
+
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+559
+560
+561
+562
+563
+564
+565
+566
+567
+568
+569
+570
+571</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'ext/socket/socket.c', line 559</span>
+
+static VALUE
+sock_bind(VALUE sock, VALUE addr)
+{
+    VALUE rai;
+    rb_io_t *fptr;
+
+    SockAddrStringValueWithAddrinfo(addr, rai);
+    GetOpenFile(sock, fptr);
+    if (bind(fptr-&gt;fd, (struct sockaddr*)RSTRING_PTR(addr), RSTRING_SOCKLEN(addr)) &lt; 0)
+	rsock_sys_fail_raddrinfo_or_sockaddr(&quot;bind(2)&quot;, addr, rai);
+
+    return INT2FIX(0);
+}</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="connect-instance_method">
+  
+    #<strong>connect</strong>(remote_sockaddr)  &#x21d2; <tt>0</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Requests a connection to be made on the given <code>remote_sockaddr</code>.
+Returns 0 if successful, otherwise an exception is raised.</p>
+
+<h3 id="label-Parameter">Parameter</h3>
+<ul><li>
+<p><code>remote_sockaddr</code> - the <code>struct</code> sockaddr contained
+in a string or Addrinfo object</p>
+</li></ul>
+
+<h3 id="label-Example-3A">Example:</h3>
+
+<pre class="code"><code class=""><span class='comment'># Pull down Google&#39;s web page
+</span><span class='id identifier rubyid_require'>require</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>socket</span><span class='tstring_end'>&#39;</span></span>
+<span class='id identifier rubyid_include'>include</span> <span class='const'><span class='object_link'><a href="" title="Socket (class)">Socket</a></span></span><span class='op'>::</span><span class='const'>Constants</span>
+<span class='id identifier rubyid_socket'>socket</span> <span class='op'>=</span> <span class='const'><span class='object_link'><a href="" title="Socket (class)">Socket</a></span></span><span class='period'>.</span><span class='id identifier rubyid_new'><span class='object_link'><a href="#initialize-instance_method" title="Socket#initialize (method)">new</a></span></span><span class='lparen'>(</span> <span class='const'>AF_INET</span><span class='comma'>,</span> <span class='const'>SOCK_STREAM</span><span class='comma'>,</span> <span class='int'>0</span> <span class='rparen'>)</span>
+<span class='id identifier rubyid_sockaddr'>sockaddr</span> <span class='op'>=</span> <span class='const'><span class='object_link'><a href="" title="Socket (class)">Socket</a></span></span><span class='period'>.</span><span class='id identifier rubyid_pack_sockaddr_in'><span class='object_link'><a href="#pack_sockaddr_in-class_method" title="Socket.pack_sockaddr_in (method)">pack_sockaddr_in</a></span></span><span class='lparen'>(</span> <span class='int'>80</span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>www.google.com</span><span class='tstring_end'>&#39;</span></span> <span class='rparen'>)</span>
+<span class='id identifier rubyid_socket'>socket</span><span class='period'>.</span><span class='id identifier rubyid_connect'>connect</span><span class='lparen'>(</span> <span class='id identifier rubyid_sockaddr'>sockaddr</span> <span class='rparen'>)</span>
+<span class='id identifier rubyid_socket'>socket</span><span class='period'>.</span><span class='id identifier rubyid_write'>write</span><span class='lparen'>(</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>GET / HTTP/1.0\r\n\r\n</span><span class='tstring_end'>&quot;</span></span> <span class='rparen'>)</span>
+<span class='id identifier rubyid_results'>results</span> <span class='op'>=</span> <span class='id identifier rubyid_socket'>socket</span><span class='period'>.</span><span class='id identifier rubyid_read'>read</span>
+</code></pre>
+
+<h3 id="label-Unix-based+Exceptions">Unix-based Exceptions</h3>
+
+<p>On unix-based systems the following system exceptions may be raised if the
+call to <em>connect</em> fails:</p>
+<ul><li>
+<p>Errno::EACCES - search permission is denied for a component of the prefix
+path or write access to the <code>socket</code> is denied</p>
+</li><li>
+<p>Errno::EADDRINUSE - the <em>sockaddr</em> is already in use</p>
+</li><li>
+<p>Errno::EADDRNOTAVAIL - the specified <em>sockaddr</em> is not available
+from the local machine</p>
+</li><li>
+<p>Errno::EAFNOSUPPORT - the specified <em>sockaddr</em> is not a valid
+address for the address family of the specified <code>socket</code></p>
+</li><li>
+<p>Errno::EALREADY - a connection is already in progress for the specified
+socket</p>
+</li><li>
+<p>Errno::EBADF - the <code>socket</code> is not a valid file descriptor</p>
+</li><li>
+<p>Errno::ECONNREFUSED - the target <em>sockaddr</em> was not listening for
+connections refused the connection request</p>
+</li><li>
+<p>Errno::ECONNRESET - the remote host reset the connection request</p>
+</li><li>
+<p>Errno::EFAULT - the <em>sockaddr</em> cannot be accessed</p>
+</li><li>
+<p>Errno::EHOSTUNREACH - the destination host cannot be reached (probably
+because the host is down or a remote router cannot reach it)</p>
+</li><li>
+<p>Errno::EINPROGRESS - the O_NONBLOCK is set for the <code>socket</code> and
+the connection cannot be immediately established; the connection will be
+established asynchronously</p>
+</li><li>
+<p>Errno::EINTR - the attempt to establish the connection was interrupted by
+delivery of a signal that was caught; the connection will be established
+asynchronously</p>
+</li><li>
+<p>Errno::EISCONN - the specified <code>socket</code> is already connected</p>
+</li><li>
+<p>Errno::EINVAL - the address length used for the <em>sockaddr</em> is not a
+valid length for the address family or there is an invalid family in
+<em>sockaddr</em></p>
+</li><li>
+<p>Errno::ENAMETOOLONG - the pathname resolved had a length which exceeded
+PATH_MAX</p>
+</li><li>
+<p>Errno::ENETDOWN - the local interface used to reach the destination is down</p>
+</li><li>
+<p>Errno::ENETUNREACH - no route to the network is present</p>
+</li><li>
+<p>Errno::ENOBUFS - no buffer space is available</p>
+</li><li>
+<p>Errno::ENOSR - there were insufficient STREAMS resources available to
+complete the operation</p>
+</li><li>
+<p>Errno::ENOTSOCK - the <code>socket</code> argument does not refer to a
+socket</p>
+</li><li>
+<p>Errno::EOPNOTSUPP - the calling <code>socket</code> is listening and cannot
+be connected</p>
+</li><li>
+<p>Errno::EPROTOTYPE - the <em>sockaddr</em> has a different type than the
+socket bound to the specified peer address</p>
+</li><li>
+<p>Errno::ETIMEDOUT - the attempt to connect time out before a connection was
+made.</p>
+</li></ul>
+
+<p>On unix-based systems if the address family of the calling
+<code>socket</code> is AF_UNIX the follow exceptions may be raised if the
+call to <em>connect</em> fails:</p>
+<ul><li>
+<p>Errno::EIO - an i/o error occurred while reading from or writing to the
+file system</p>
+</li><li>
+<p>Errno::ELOOP - too many symbolic links were encountered in translating the
+pathname in <em>sockaddr</em></p>
+</li><li>
+<p>Errno::ENAMETOOLLONG - a component of a pathname exceeded NAME_MAX
+characters, or an entire pathname exceeded PATH_MAX characters</p>
+</li><li>
+<p>Errno::ENOENT - a component of the pathname does not name an existing file
+or the pathname is an empty string</p>
+</li><li>
+<p>Errno::ENOTDIR - a component of the path prefix of the pathname in
+<em>sockaddr</em> is not a directory</p>
+</li></ul>
+
+<h3 id="label-Windows+Exceptions">Windows Exceptions</h3>
+
+<p>On Windows systems the following system exceptions may be raised if the
+call to <em>connect</em> fails:</p>
+<ul><li>
+<p>Errno::ENETDOWN - the network is down</p>
+</li><li>
+<p>Errno::EADDRINUSE - the socket&#39;s local address is already in use</p>
+</li><li>
+<p>Errno::EINTR - the socket was cancelled</p>
+</li><li>
+<p>Errno::EINPROGRESS - a blocking socket is in progress or the service
+provider is still processing a callback function. Or a nonblocking connect
+call is in progress on the <code>socket</code>.</p>
+</li><li>
+<p>Errno::EALREADY - see Errno::EINVAL</p>
+</li><li>
+<p>Errno::EADDRNOTAVAIL - the remote address is not a valid address, such as
+ADDR_ANY TODO check ADDRANY TO INADDR_ANY</p>
+</li><li>
+<p>Errno::EAFNOSUPPORT - addresses in the specified family cannot be used with
+with this <code>socket</code></p>
+</li><li>
+<p>Errno::ECONNREFUSED - the target <em>sockaddr</em> was not listening for
+connections refused the connection request</p>
+</li><li>
+<p>Errno::EFAULT - the socket&#39;s internal address or address length
+parameter is too small or is not a valid part of the user space address</p>
+</li><li>
+<p>Errno::EINVAL - the <code>socket</code> is a listening socket</p>
+</li><li>
+<p>Errno::EISCONN - the <code>socket</code> is already connected</p>
+</li><li>
+<p>Errno::ENETUNREACH - the network cannot be reached from this host at this
+time</p>
+</li><li>
+<p>Errno::EHOSTUNREACH - no route to the network is present</p>
+</li><li>
+<p>Errno::ENOBUFS - no buffer space is available</p>
+</li><li>
+<p>Errno::ENOTSOCK - the <code>socket</code> argument does not refer to a
+socket</p>
+</li><li>
+<p>Errno::ETIMEDOUT - the attempt to connect time out before a connection was
+made.</p>
+</li><li>
+<p>Errno::EWOULDBLOCK - the socket is marked as nonblocking and the connection
+cannot be completed immediately</p>
+</li><li>
+<p>Errno::EACCES - the attempt to connect the datagram socket to the broadcast
+address failed</p>
+</li></ul>
+
+<h3 id="label-See">See</h3>
+<ul><li>
+<p>connect manual pages on unix-based systems</p>
+</li><li>
+<p>connect function in Microsoft&#39;s Winsock functions reference</p>
+</li></ul>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+  <div class="docstring">
+  <div class="discussion">
+    
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>0</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div>
+
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+422
+423
+424
+425
+426
+427
+428
+429
+430
+431
+432
+433
+434
+435
+436
+437
+438
+439</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'ext/socket/socket.c', line 422</span>
+
+static VALUE
+sock_connect(VALUE sock, VALUE addr)
+{
+    VALUE rai;
+    rb_io_t *fptr;
+    int fd, n;
+
+    SockAddrStringValueWithAddrinfo(addr, rai);
+    addr = rb_str_new4(addr);
+    GetOpenFile(sock, fptr);
+    fd = fptr-&gt;fd;
+    n = rsock_connect(fd, (struct sockaddr*)RSTRING_PTR(addr), RSTRING_SOCKLEN(addr), 0);
+    if (n &lt; 0) {
+	rsock_sys_fail_raddrinfo_or_sockaddr(&quot;connect(2)&quot;, addr, rai);
+    }
+
+    return INT2FIX(n);
+}</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="listen-instance_method">
+  
+    #<strong>listen</strong>(int)  &#x21d2; <tt>0</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Listens for connections, using the specified <code>int</code> as the
+backlog. A call to <em>listen</em> only applies if the <code>socket</code>
+is of type SOCK_STREAM or SOCK_SEQPACKET.</p>
+
+<h3 id="label-Parameter">Parameter</h3>
+<ul><li>
+<p><code>backlog</code> - the maximum length of the queue for pending
+connections.</p>
+</li></ul>
+
+<h3 id="label-Example+1">Example 1</h3>
+
+<pre class="code"><code class=""><span class='id identifier rubyid_require'>require</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>socket</span><span class='tstring_end'>&#39;</span></span>
+<span class='id identifier rubyid_include'>include</span> <span class='const'><span class='object_link'><a href="" title="Socket (class)">Socket</a></span></span><span class='op'>::</span><span class='const'>Constants</span>
+<span class='id identifier rubyid_socket'>socket</span> <span class='op'>=</span> <span class='const'><span class='object_link'><a href="" title="Socket (class)">Socket</a></span></span><span class='period'>.</span><span class='id identifier rubyid_new'><span class='object_link'><a href="#initialize-instance_method" title="Socket#initialize (method)">new</a></span></span><span class='lparen'>(</span> <span class='const'>AF_INET</span><span class='comma'>,</span> <span class='const'>SOCK_STREAM</span><span class='comma'>,</span> <span class='int'>0</span> <span class='rparen'>)</span>
+<span class='id identifier rubyid_sockaddr'>sockaddr</span> <span class='op'>=</span> <span class='const'><span class='object_link'><a href="" title="Socket (class)">Socket</a></span></span><span class='period'>.</span><span class='id identifier rubyid_pack_sockaddr_in'><span class='object_link'><a href="#pack_sockaddr_in-class_method" title="Socket.pack_sockaddr_in (method)">pack_sockaddr_in</a></span></span><span class='lparen'>(</span> <span class='int'>2200</span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>localhost</span><span class='tstring_end'>&#39;</span></span> <span class='rparen'>)</span>
+<span class='id identifier rubyid_socket'>socket</span><span class='period'>.</span><span class='id identifier rubyid_bind'>bind</span><span class='lparen'>(</span> <span class='id identifier rubyid_sockaddr'>sockaddr</span> <span class='rparen'>)</span>
+<span class='id identifier rubyid_socket'>socket</span><span class='period'>.</span><span class='id identifier rubyid_listen'>listen</span><span class='lparen'>(</span> <span class='int'>5</span> <span class='rparen'>)</span>
+</code></pre>
+
+<h3 id="label-Example+2+-28listening+on+an+arbitrary+port-2C+unix-based+systems+only-29-3A">Example 2 (listening on an arbitrary port, unix-based systems only):</h3>
+
+<pre class="code"><code class=""><span class='id identifier rubyid_require'>require</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>socket</span><span class='tstring_end'>&#39;</span></span>
+<span class='id identifier rubyid_include'>include</span> <span class='const'><span class='object_link'><a href="" title="Socket (class)">Socket</a></span></span><span class='op'>::</span><span class='const'>Constants</span>
+<span class='id identifier rubyid_socket'>socket</span> <span class='op'>=</span> <span class='const'><span class='object_link'><a href="" title="Socket (class)">Socket</a></span></span><span class='period'>.</span><span class='id identifier rubyid_new'><span class='object_link'><a href="#initialize-instance_method" title="Socket#initialize (method)">new</a></span></span><span class='lparen'>(</span> <span class='const'>AF_INET</span><span class='comma'>,</span> <span class='const'>SOCK_STREAM</span><span class='comma'>,</span> <span class='int'>0</span> <span class='rparen'>)</span>
+<span class='id identifier rubyid_socket'>socket</span><span class='period'>.</span><span class='id identifier rubyid_listen'>listen</span><span class='lparen'>(</span> <span class='int'>1</span> <span class='rparen'>)</span>
+</code></pre>
+
+<h3 id="label-Unix-based+Exceptions">Unix-based Exceptions</h3>
+
+<p>On unix based systems the above will work because a new
+<code>sockaddr</code> struct is created on the address ADDR_ANY, for an
+arbitrary port number as handed off by the kernel. It will not work on
+Windows, because Windows requires that the <code>socket</code> is bound by
+calling <em>bind</em> before it can <em>listen</em>.</p>
+
+<p>If the <em>backlog</em> amount exceeds the implementation-dependent maximum
+queue length, the implementation&#39;s maximum queue length will be used.</p>
+
+<p>On unix-based based systems the following system exceptions may be raised
+if the call to <em>listen</em> fails:</p>
+<ul><li>
+<p>Errno::EBADF - the <em>socket</em> argument is not a valid file descriptor</p>
+</li><li>
+<p>Errno::EDESTADDRREQ - the <em>socket</em> is not bound to a local address,
+and the protocol does not support listening on an unbound socket</p>
+</li><li>
+<p>Errno::EINVAL - the <em>socket</em> is already connected</p>
+</li><li>
+<p>Errno::ENOTSOCK - the <em>socket</em> argument does not refer to a socket</p>
+</li><li>
+<p>Errno::EOPNOTSUPP - the <em>socket</em> protocol does not support listen</p>
+</li><li>
+<p>Errno::EACCES - the calling process does not have appropriate privileges</p>
+</li><li>
+<p>Errno::EINVAL - the <em>socket</em> has been shut down</p>
+</li><li>
+<p>Errno::ENOBUFS - insufficient resources are available in the system to
+complete the call</p>
+</li></ul>
+
+<h3 id="label-Windows+Exceptions">Windows Exceptions</h3>
+
+<p>On Windows systems the following system exceptions may be raised if the
+call to <em>listen</em> fails:</p>
+<ul><li>
+<p>Errno::ENETDOWN - the network is down</p>
+</li><li>
+<p>Errno::EADDRINUSE - the socket&#39;s local address is already in use. This
+usually occurs during the execution of <em>bind</em> but could be delayed
+if the call to <em>bind</em> was to a partially wildcard address (involving
+ADDR_ANY) and if a specific address needs to be committed at the time of
+the call to <em>listen</em></p>
+</li><li>
+<p>Errno::EINPROGRESS - a Windows Sockets 1.1 call is in progress or the
+service provider is still processing a callback function</p>
+</li><li>
+<p>Errno::EINVAL - the <code>socket</code> has not been bound with a call to
+<em>bind</em>.</p>
+</li><li>
+<p>Errno::EISCONN - the <code>socket</code> is already connected</p>
+</li><li>
+<p>Errno::EMFILE - no more socket descriptors are available</p>
+</li><li>
+<p>Errno::ENOBUFS - no buffer space is available</p>
+</li><li>
+<p>Errno::ENOTSOC - <code>socket</code> is not a socket</p>
+</li><li>
+<p>Errno::EOPNOTSUPP - the referenced <code>socket</code> is not a type that
+supports the <em>listen</em> method</p>
+</li></ul>
+
+<h3 id="label-See">See</h3>
+<ul><li>
+<p>listen manual pages on unix-based systems</p>
+</li><li>
+<p>listen function in Microsoft&#39;s Winsock functions reference</p>
+</li></ul>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+  <div class="docstring">
+  <div class="discussion">
+    
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>0</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div>
+
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+643
+644
+645
+646
+647
+648
+649
+650
+651
+652
+653
+654
+655</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'ext/socket/socket.c', line 643</span>
+
+VALUE
+rsock_sock_listen(VALUE sock, VALUE log)
+{
+    rb_io_t *fptr;
+    int backlog;
+
+    backlog = NUM2INT(log);
+    GetOpenFile(sock, fptr);
+    if (listen(fptr-&gt;fd, backlog) &lt; 0)
+	rb_sys_fail(&quot;listen(2)&quot;);
+
+    return INT2FIX(0);
+}</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="recvfrom-instance_method">
+  
+    
+      <span class="overload">#<strong>recvfrom</strong>(maxlen)  &#x21d2; <tt><span class='object_link'><a href="Array.html" title="Array (class)">Array</a></span></tt> </span>
+    
+      <span class="overload">#<strong>recvfrom</strong>(maxlen, flags)  &#x21d2; <tt><span class='object_link'><a href="Array.html" title="Array (class)">Array</a></span></tt> </span>
+    
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Receives up to <em>maxlen</em> bytes from <code>socket</code>.
+<em>flags</em> is zero or more of the <code>MSG_</code> options. The first
+element of the results, <em>mesg</em>, is the data received. The second
+element, <em>sender_addrinfo</em>, contains protocol-specific address
+information of the sender.</p>
+
+<h3 id="label-Parameters">Parameters</h3>
+<ul><li>
+<p><code>maxlen</code> - the maximum number of bytes to receive from the
+socket</p>
+</li><li>
+<p><code>flags</code> - zero or more of the <code>MSG_</code> options</p>
+</li></ul>
+
+<h3 id="label-Example">Example</h3>
+
+<pre class="code"><code class=""><span class='comment'># In one file, start this first
+</span><span class='id identifier rubyid_require'>require</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>socket</span><span class='tstring_end'>&#39;</span></span>
+<span class='id identifier rubyid_include'>include</span> <span class='const'><span class='object_link'><a href="" title="Socket (class)">Socket</a></span></span><span class='op'>::</span><span class='const'>Constants</span>
+<span class='id identifier rubyid_socket'>socket</span> <span class='op'>=</span> <span class='const'><span class='object_link'><a href="" title="Socket (class)">Socket</a></span></span><span class='period'>.</span><span class='id identifier rubyid_new'><span class='object_link'><a href="#initialize-instance_method" title="Socket#initialize (method)">new</a></span></span><span class='lparen'>(</span> <span class='const'>AF_INET</span><span class='comma'>,</span> <span class='const'>SOCK_STREAM</span><span class='comma'>,</span> <span class='int'>0</span> <span class='rparen'>)</span>
+<span class='id identifier rubyid_sockaddr'>sockaddr</span> <span class='op'>=</span> <span class='const'><span class='object_link'><a href="" title="Socket (class)">Socket</a></span></span><span class='period'>.</span><span class='id identifier rubyid_pack_sockaddr_in'><span class='object_link'><a href="#pack_sockaddr_in-class_method" title="Socket.pack_sockaddr_in (method)">pack_sockaddr_in</a></span></span><span class='lparen'>(</span> <span class='int'>2200</span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>localhost</span><span class='tstring_end'>&#39;</span></span> <span class='rparen'>)</span>
+<span class='id identifier rubyid_socket'>socket</span><span class='period'>.</span><span class='id identifier rubyid_bind'>bind</span><span class='lparen'>(</span> <span class='id identifier rubyid_sockaddr'>sockaddr</span> <span class='rparen'>)</span>
+<span class='id identifier rubyid_socket'>socket</span><span class='period'>.</span><span class='id identifier rubyid_listen'>listen</span><span class='lparen'>(</span> <span class='int'>5</span> <span class='rparen'>)</span>
+<span class='id identifier rubyid_client'>client</span><span class='comma'>,</span> <span class='id identifier rubyid_client_addrinfo'>client_addrinfo</span> <span class='op'>=</span> <span class='id identifier rubyid_socket'>socket</span><span class='period'>.</span><span class='id identifier rubyid_accept'>accept</span>
+<span class='id identifier rubyid_data'>data</span> <span class='op'>=</span> <span class='id identifier rubyid_client'>client</span><span class='period'>.</span><span class='id identifier rubyid_recvfrom'>recvfrom</span><span class='lparen'>(</span> <span class='int'>20</span> <span class='rparen'>)</span><span class='lbracket'>[</span><span class='int'>0</span><span class='rbracket'>]</span><span class='period'>.</span><span class='id identifier rubyid_chomp'>chomp</span>
+<span class='id identifier rubyid_puts'>puts</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>I only received 20 bytes &#39;</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_data'>data</span><span class='embexpr_end'>}</span><span class='tstring_content'>&#39;</span><span class='tstring_end'>&quot;</span></span>
+<span class='id identifier rubyid_sleep'>sleep</span> <span class='int'>1</span>
+<span class='id identifier rubyid_socket'>socket</span><span class='period'>.</span><span class='id identifier rubyid_close'>close</span>
+
+<span class='comment'># In another file, start this second
+</span><span class='id identifier rubyid_require'>require</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>socket</span><span class='tstring_end'>&#39;</span></span>
+<span class='id identifier rubyid_include'>include</span> <span class='const'><span class='object_link'><a href="" title="Socket (class)">Socket</a></span></span><span class='op'>::</span><span class='const'>Constants</span>
+<span class='id identifier rubyid_socket'>socket</span> <span class='op'>=</span> <span class='const'><span class='object_link'><a href="" title="Socket (class)">Socket</a></span></span><span class='period'>.</span><span class='id identifier rubyid_new'><span class='object_link'><a href="#initialize-instance_method" title="Socket#initialize (method)">new</a></span></span><span class='lparen'>(</span> <span class='const'>AF_INET</span><span class='comma'>,</span> <span class='const'>SOCK_STREAM</span><span class='comma'>,</span> <span class='int'>0</span> <span class='rparen'>)</span>
+<span class='id identifier rubyid_sockaddr'>sockaddr</span> <span class='op'>=</span> <span class='const'><span class='object_link'><a href="" title="Socket (class)">Socket</a></span></span><span class='period'>.</span><span class='id identifier rubyid_pack_sockaddr_in'><span class='object_link'><a href="#pack_sockaddr_in-class_method" title="Socket.pack_sockaddr_in (method)">pack_sockaddr_in</a></span></span><span class='lparen'>(</span> <span class='int'>2200</span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>localhost</span><span class='tstring_end'>&#39;</span></span> <span class='rparen'>)</span>
+<span class='id identifier rubyid_socket'>socket</span><span class='period'>.</span><span class='id identifier rubyid_connect'>connect</span><span class='lparen'>(</span> <span class='id identifier rubyid_sockaddr'>sockaddr</span> <span class='rparen'>)</span>
+<span class='id identifier rubyid_socket'>socket</span><span class='period'>.</span><span class='id identifier rubyid_puts'>puts</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Watch this get cut short!</span><span class='tstring_end'>&quot;</span></span>
+<span class='id identifier rubyid_socket'>socket</span><span class='period'>.</span><span class='id identifier rubyid_close'>close</span>
+</code></pre>
+
+<h3 id="label-Unix-based+Exceptions">Unix-based Exceptions</h3>
+
+<p>On unix-based based systems the following system exceptions may be raised
+if the call to <em>recvfrom</em> fails:</p>
+<ul><li>
+<p>Errno::EAGAIN - the <code>socket</code> file descriptor is marked as
+O_NONBLOCK and no data is waiting to be received; or MSG_OOB is set and no
+out-of-band data is available and either the <code>socket</code> file
+descriptor is marked as O_NONBLOCK or the <code>socket</code> does not
+support blocking to wait for out-of-band-data</p>
+</li><li>
+<p>Errno::EWOULDBLOCK - see Errno::EAGAIN</p>
+</li><li>
+<p>Errno::EBADF - the <code>socket</code> is not a valid file descriptor</p>
+</li><li>
+<p>Errno::ECONNRESET - a connection was forcibly closed by a peer</p>
+</li><li>
+<p>Errno::EFAULT - the socket&#39;s internal buffer, address or address length
+cannot be accessed or written</p>
+</li><li>
+<p>Errno::EINTR - a signal interrupted <em>recvfrom</em> before any data was
+available</p>
+</li><li>
+<p>Errno::EINVAL - the MSG_OOB flag is set and no out-of-band data is
+available</p>
+</li><li>
+<p>Errno::EIO - an i/o error occurred while reading from or writing to the
+filesystem</p>
+</li><li>
+<p>Errno::ENOBUFS - insufficient resources were available in the system to
+perform the operation</p>
+</li><li>
+<p>Errno::ENOMEM - insufficient memory was available to fulfill the request</p>
+</li><li>
+<p>Errno::ENOSR - there were insufficient STREAMS resources available to
+complete the operation</p>
+</li><li>
+<p>Errno::ENOTCONN - a receive is attempted on a connection-mode socket that
+is not connected</p>
+</li><li>
+<p>Errno::ENOTSOCK - the <code>socket</code> does not refer to a socket</p>
+</li><li>
+<p>Errno::EOPNOTSUPP - the specified flags are not supported for this socket
+type</p>
+</li><li>
+<p>Errno::ETIMEDOUT - the connection timed out during connection establishment
+or due to a transmission timeout on an active connection</p>
+</li></ul>
+
+<h3 id="label-Windows+Exceptions">Windows Exceptions</h3>
+
+<p>On Windows systems the following system exceptions may be raised if the
+call to <em>recvfrom</em> fails:</p>
+<ul><li>
+<p>Errno::ENETDOWN - the network is down</p>
+</li><li>
+<p>Errno::EFAULT - the internal buffer and from parameters on
+<code>socket</code> are not part of the user address space, or the internal
+fromlen parameter is too small to accommodate the peer address</p>
+</li><li>
+<p>Errno::EINTR - the (blocking) call was cancelled by an internal call to the
+WinSock function WSACancelBlockingCall</p>
+</li><li>
+<p>Errno::EINPROGRESS - a blocking Windows Sockets 1.1 call is in progress or
+the service provider is still processing a callback function</p>
+</li><li>
+<p>Errno::EINVAL - <code>socket</code> has not been bound with a call to
+<em>bind</em>, or an unknown flag was specified, or MSG_OOB was specified
+for a socket with SO_OOBINLINE enabled, or (for byte stream-style sockets
+only) the internal len parameter on <code>socket</code> was zero or
+negative</p>
+</li><li>
+<p>Errno::EISCONN - <code>socket</code> is already connected. The call to
+<em>recvfrom</em> is not permitted with a connected socket on a socket that
+is connection oriented or connectionless.</p>
+</li><li>
+<p>Errno::ENETRESET - the connection has been broken due to the keep-alive
+activity detecting a failure while the operation was in progress.</p>
+</li><li>
+<p>Errno::EOPNOTSUPP - MSG_OOB was specified, but <code>socket</code> is not
+stream-style such as type SOCK_STREAM. OOB data is not supported in the
+communication domain associated with <code>socket</code>, or
+<code>socket</code> is unidirectional and supports only send operations</p>
+</li><li>
+<p>Errno::ESHUTDOWN - <code>socket</code> has been shutdown. It is not
+possible to call <em>recvfrom</em> on a socket after <em>shutdown</em> has
+been invoked.</p>
+</li><li>
+<p>Errno::EWOULDBLOCK - <code>socket</code> is marked as nonblocking and a 
+call to <em>recvfrom</em> would block.</p>
+</li><li>
+<p>Errno::EMSGSIZE - the message was too large to fit into the specified
+buffer and was truncated.</p>
+</li><li>
+<p>Errno::ETIMEDOUT - the connection has been dropped, because of a network
+failure or because the system on the other end went down without notice</p>
+</li><li>
+<p>Errno::ECONNRESET - the virtual circuit was reset by the remote side
+executing a hard or abortive close. The application should close the
+socket; it is no longer usable. On a UDP-datagram socket this error
+indicates a previous send operation resulted in an ICMP Port Unreachable
+message.</p>
+</li></ul>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+  <p class="tag_title">Overloads:</p>
+  <ul class="overload">
+    
+      
+      <li class="overload_item">
+        <span class="signature">#<strong>recvfrom</strong>(maxlen)  &#x21d2; <tt><span class='object_link'><a href="Array.html" title="Array (class)">Array</a></span></tt> </span>
+        <div class="docstring">
+  <div class="discussion">
+    
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="Array.html" title="Array (class)">Array</a></span></tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div>
+      </li>
+    
+      
+      <li class="overload_item">
+        <span class="signature">#<strong>recvfrom</strong>(maxlen, flags)  &#x21d2; <tt><span class='object_link'><a href="Array.html" title="Array (class)">Array</a></span></tt> </span>
+        <div class="docstring">
+  <div class="discussion">
+    
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="Array.html" title="Array (class)">Array</a></span></tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div>
+      </li>
+    
+  </ul>
+
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+762
+763
+764
+765
+766</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'ext/socket/socket.c', line 762</span>
+
+static VALUE
+sock_recvfrom(int argc, VALUE *argv, VALUE sock)
+{
+    return rsock_s_recvfrom(sock, argc, argv, RECV_SOCKET);
+}</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="sysaccept-instance_method">
+  
+    #<strong>sysaccept</strong>  &#x21d2; <tt><span class='object_link'><a href="Array.html" title="Array (class)">Array</a></span></tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Accepts an incoming connection returning an array containing the (integer)
+file descriptor for the incoming connection, <em>client_socket_fd</em>, and
+an Addrinfo, <em>client_addrinfo</em>.</p>
+
+<h3 id="label-Example">Example</h3>
+
+<pre class="code"><code class=""><span class='comment'># In one script, start this first
+</span><span class='id identifier rubyid_require'>require</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>socket</span><span class='tstring_end'>&#39;</span></span>
+<span class='id identifier rubyid_include'>include</span> <span class='const'><span class='object_link'><a href="" title="Socket (class)">Socket</a></span></span><span class='op'>::</span><span class='const'>Constants</span>
+<span class='id identifier rubyid_socket'>socket</span> <span class='op'>=</span> <span class='const'><span class='object_link'><a href="" title="Socket (class)">Socket</a></span></span><span class='period'>.</span><span class='id identifier rubyid_new'><span class='object_link'><a href="#initialize-instance_method" title="Socket#initialize (method)">new</a></span></span><span class='lparen'>(</span> <span class='const'>AF_INET</span><span class='comma'>,</span> <span class='const'>SOCK_STREAM</span><span class='comma'>,</span> <span class='int'>0</span> <span class='rparen'>)</span>
+<span class='id identifier rubyid_sockaddr'>sockaddr</span> <span class='op'>=</span> <span class='const'><span class='object_link'><a href="" title="Socket (class)">Socket</a></span></span><span class='period'>.</span><span class='id identifier rubyid_pack_sockaddr_in'><span class='object_link'><a href="#pack_sockaddr_in-class_method" title="Socket.pack_sockaddr_in (method)">pack_sockaddr_in</a></span></span><span class='lparen'>(</span> <span class='int'>2200</span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>localhost</span><span class='tstring_end'>&#39;</span></span> <span class='rparen'>)</span>
+<span class='id identifier rubyid_socket'>socket</span><span class='period'>.</span><span class='id identifier rubyid_bind'>bind</span><span class='lparen'>(</span> <span class='id identifier rubyid_sockaddr'>sockaddr</span> <span class='rparen'>)</span>
+<span class='id identifier rubyid_socket'>socket</span><span class='period'>.</span><span class='id identifier rubyid_listen'>listen</span><span class='lparen'>(</span> <span class='int'>5</span> <span class='rparen'>)</span>
+<span class='id identifier rubyid_client_fd'>client_fd</span><span class='comma'>,</span> <span class='id identifier rubyid_client_addrinfo'>client_addrinfo</span> <span class='op'>=</span> <span class='id identifier rubyid_socket'>socket</span><span class='period'>.</span><span class='id identifier rubyid_sysaccept'>sysaccept</span>
+<span class='id identifier rubyid_client_socket'>client_socket</span> <span class='op'>=</span> <span class='const'><span class='object_link'><a href="" title="Socket (class)">Socket</a></span></span><span class='period'>.</span><span class='id identifier rubyid_for_fd'><span class='object_link'><a href="BasicSocket.html#for_fd-class_method" title="BasicSocket.for_fd (method)">for_fd</a></span></span><span class='lparen'>(</span> <span class='id identifier rubyid_client_fd'>client_fd</span> <span class='rparen'>)</span>
+<span class='id identifier rubyid_puts'>puts</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>The client said, &#39;</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_client_socket'>client_socket</span><span class='period'>.</span><span class='id identifier rubyid_readline'>readline</span><span class='period'>.</span><span class='id identifier rubyid_chomp'>chomp</span><span class='embexpr_end'>}</span><span class='tstring_content'>&#39;</span><span class='tstring_end'>&quot;</span></span>
+<span class='id identifier rubyid_client_socket'>client_socket</span><span class='period'>.</span><span class='id identifier rubyid_puts'>puts</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Hello from script one!</span><span class='tstring_end'>&quot;</span></span>
+<span class='id identifier rubyid_socket'>socket</span><span class='period'>.</span><span class='id identifier rubyid_close'>close</span>
+
+<span class='comment'># In another script, start this second
+</span><span class='id identifier rubyid_require'>require</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>socket</span><span class='tstring_end'>&#39;</span></span>
+<span class='id identifier rubyid_include'>include</span> <span class='const'><span class='object_link'><a href="" title="Socket (class)">Socket</a></span></span><span class='op'>::</span><span class='const'>Constants</span>
+<span class='id identifier rubyid_socket'>socket</span> <span class='op'>=</span> <span class='const'><span class='object_link'><a href="" title="Socket (class)">Socket</a></span></span><span class='period'>.</span><span class='id identifier rubyid_new'><span class='object_link'><a href="#initialize-instance_method" title="Socket#initialize (method)">new</a></span></span><span class='lparen'>(</span> <span class='const'>AF_INET</span><span class='comma'>,</span> <span class='const'>SOCK_STREAM</span><span class='comma'>,</span> <span class='int'>0</span> <span class='rparen'>)</span>
+<span class='id identifier rubyid_sockaddr'>sockaddr</span> <span class='op'>=</span> <span class='const'><span class='object_link'><a href="" title="Socket (class)">Socket</a></span></span><span class='period'>.</span><span class='id identifier rubyid_pack_sockaddr_in'><span class='object_link'><a href="#pack_sockaddr_in-class_method" title="Socket.pack_sockaddr_in (method)">pack_sockaddr_in</a></span></span><span class='lparen'>(</span> <span class='int'>2200</span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>localhost</span><span class='tstring_end'>&#39;</span></span> <span class='rparen'>)</span>
+<span class='id identifier rubyid_socket'>socket</span><span class='period'>.</span><span class='id identifier rubyid_connect'>connect</span><span class='lparen'>(</span> <span class='id identifier rubyid_sockaddr'>sockaddr</span> <span class='rparen'>)</span>
+<span class='id identifier rubyid_socket'>socket</span><span class='period'>.</span><span class='id identifier rubyid_puts'>puts</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Hello from script 2.</span><span class='tstring_end'>&quot;</span></span>
+<span class='id identifier rubyid_puts'>puts</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>The server said, &#39;</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_socket'>socket</span><span class='period'>.</span><span class='id identifier rubyid_readline'>readline</span><span class='period'>.</span><span class='id identifier rubyid_chomp'>chomp</span><span class='embexpr_end'>}</span><span class='tstring_content'>&#39;</span><span class='tstring_end'>&quot;</span></span>
+<span class='id identifier rubyid_socket'>socket</span><span class='period'>.</span><span class='id identifier rubyid_close'>close</span>
+</code></pre>
+
+<p>Refer to Socket#accept for the exceptions that may be thrown if the call to
+<em>sysaccept</em> fails.</p>
+
+<h3 id="label-See">See</h3>
+<ul><li>
+<p>Socket#accept</p>
+</li></ul>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+  <div class="docstring">
+  <div class="discussion">
+    
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="Array.html" title="Array (class)">Array</a></span></tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div>
+
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+859
+860
+861
+862
+863
+864
+865
+866
+867
+868
+869
+870
+871</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'ext/socket/socket.c', line 859</span>
+
+static VALUE
+sock_sysaccept(VALUE sock)
+{
+    rb_io_t *fptr;
+    VALUE sock2;
+    union_sockaddr buf;
+    socklen_t len = (socklen_t)sizeof buf;
+
+    GetOpenFile(sock, fptr);
+    sock2 = rsock_s_accept(0,fptr-&gt;fd,&amp;buf.addr,&amp;len);
+
+    return rb_assoc_new(sock2, rsock_io_socket_addrinfo(sock2, &amp;buf.addr, len));
+}</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+  </div>
+
+</div>
+
+      <div id="footer">
+  Generated on Mon Feb 26 22:17:49 2018 by
+  <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
+  0.9.12 (ruby-2.4.2).
+</div>
+
+    </div>
+  </body>
+</html>

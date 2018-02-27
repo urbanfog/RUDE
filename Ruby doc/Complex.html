@@ -1,0 +1,4544 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>
+  Class: Complex
+  
+    &mdash; Documentation by YARD 0.9.12
+  
+</title>
+
+  <link rel="stylesheet" href="css/style.css" type="text/css" charset="utf-8" />
+
+  <link rel="stylesheet" href="css/common.css" type="text/css" charset="utf-8" />
+
+<script type="text/javascript" charset="utf-8">
+  pathId = "Complex";
+  relpath = '';
+</script>
+
+
+  <script type="text/javascript" charset="utf-8" src="js/jquery.js"></script>
+
+  <script type="text/javascript" charset="utf-8" src="js/app.js"></script>
+
+
+  </head>
+  <body>
+    <div class="nav_wrap">
+      <iframe id="nav" src="class_list.html?1"></iframe>
+      <div id="resizer"></div>
+    </div>
+
+    <div id="main" tabindex="-1">
+      <div id="header">
+        <div id="menu">
+  
+    <a href="_index.html">Index (C)</a> &raquo;
+    
+    
+    <span class="title">Complex</span>
+  
+</div>
+
+        <div id="search">
+  
+    <a class="full_list_link" id="class_list_link"
+        href="class_list.html">
+
+        <svg width="24" height="24">
+          <rect x="0" y="4" width="24" height="4" rx="1" ry="1"></rect>
+          <rect x="0" y="12" width="24" height="4" rx="1" ry="1"></rect>
+          <rect x="0" y="20" width="24" height="4" rx="1" ry="1"></rect>
+        </svg>
+    </a>
+  
+</div>
+        <div class="clear"></div>
+      </div>
+
+      <div id="content"><h1>Class: Complex
+  
+  
+  
+</h1>
+<div class="box_info">
+  
+  <dl>
+    <dt>Inherits:</dt>
+    <dd>
+      <span class="inheritName"><span class='object_link'><a href="Numeric.html" title="Numeric (class)">Numeric</a></span></span>
+      
+        <ul class="fullTree">
+          <li><span class='object_link'><a href="Object.html" title="Object (class)">Object</a></span></li>
+          
+            <li class="next"><span class='object_link'><a href="Numeric.html" title="Numeric (class)">Numeric</a></span></li>
+          
+            <li class="next">Complex</li>
+          
+        </ul>
+        <a href="#" class="inheritanceTree">show all</a>
+      
+    </dd>
+  </dl>
+  
+
+  
+  
+  
+  
+  
+
+  
+
+  
+  <dl>
+    <dt>Defined in:</dt>
+    <dd>complex.c</dd>
+  </dl>
+  
+</div>
+
+<h2>Overview</h2><div class="docstring">
+  <div class="discussion">
+    
+<p>A complex number can be represented as a paired real number with imaginary
+unit; a+bi.  Where a is real part, b is imaginary part and i is imaginary
+unit.  Real a equals complex a+0i mathematically.</p>
+
+<p>Complex object can be created as literal, and also by using Kernel#Complex,
+Complex::rect, Complex::polar or to_c method.</p>
+
+<pre class="code ruby"><code class="ruby"><span class='int'>2</span><span class='op'>+</span><span class='imaginary'>1i</span>                 <span class='comment'>#=&gt; (2+1i)
+</span><span class='const'>Complex</span><span class='lparen'>(</span><span class='int'>1</span><span class='rparen'>)</span>           <span class='comment'>#=&gt; (1+0i)
+</span><span class='const'>Complex</span><span class='lparen'>(</span><span class='int'>2</span><span class='comma'>,</span> <span class='int'>3</span><span class='rparen'>)</span>        <span class='comment'>#=&gt; (2+3i)
+</span><span class='const'>Complex</span><span class='period'>.</span><span class='id identifier rubyid_polar'><span class='object_link'><a href="#polar-class_method" title="Complex.polar (method)">polar</a></span></span><span class='lparen'>(</span><span class='int'>2</span><span class='comma'>,</span> <span class='int'>3</span><span class='rparen'>)</span>  <span class='comment'>#=&gt; (-1.9799849932008908+0.2822400161197344i)
+</span><span class='int'>3</span><span class='period'>.</span><span class='id identifier rubyid_to_c'>to_c</span>               <span class='comment'>#=&gt; (3+0i)
+</span></code></pre>
+
+<p>You can also create complex object from floating-point numbers or strings.</p>
+
+<pre class="code ruby"><code class="ruby"><span class='const'>Complex</span><span class='lparen'>(</span><span class='float'>0.3</span><span class='rparen'>)</span>         <span class='comment'>#=&gt; (0.3+0i)
+</span><span class='const'>Complex</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>0.3-0.5i</span><span class='tstring_end'>&#39;</span></span><span class='rparen'>)</span>  <span class='comment'>#=&gt; (0.3-0.5i)
+</span><span class='const'>Complex</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>2/3+3/4i</span><span class='tstring_end'>&#39;</span></span><span class='rparen'>)</span>  <span class='comment'>#=&gt; ((2/3)+(3/4)*i)
+</span><span class='const'>Complex</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>1@2</span><span class='tstring_end'>&#39;</span></span><span class='rparen'>)</span>       <span class='comment'>#=&gt; (-0.4161468365471424+0.9092974268256817i)
+</span>
+<span class='float'>0.3</span><span class='period'>.</span><span class='id identifier rubyid_to_c'>to_c</span>             <span class='comment'>#=&gt; (0.3+0i)
+</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>0.3-0.5i</span><span class='tstring_end'>&#39;</span></span><span class='period'>.</span><span class='id identifier rubyid_to_c'>to_c</span>      <span class='comment'>#=&gt; (0.3-0.5i)
+</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>2/3+3/4i</span><span class='tstring_end'>&#39;</span></span><span class='period'>.</span><span class='id identifier rubyid_to_c'>to_c</span>      <span class='comment'>#=&gt; ((2/3)+(3/4)*i)
+</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>1@2</span><span class='tstring_end'>&#39;</span></span><span class='period'>.</span><span class='id identifier rubyid_to_c'>to_c</span>           <span class='comment'>#=&gt; (-0.4161468365471424+0.9092974268256817i)
+</span></code></pre>
+
+<p>A complex object is either an exact or an inexact number.</p>
+
+<pre class="code ruby"><code class="ruby"><span class='const'>Complex</span><span class='lparen'>(</span><span class='int'>1</span><span class='comma'>,</span> <span class='int'>1</span><span class='rparen'>)</span> <span class='op'>/</span> <span class='int'>2</span>    <span class='comment'>#=&gt; ((1/2)+(1/2)*i)
+</span><span class='const'>Complex</span><span class='lparen'>(</span><span class='int'>1</span><span class='comma'>,</span> <span class='int'>1</span><span class='rparen'>)</span> <span class='op'>/</span> <span class='float'>2.0</span>  <span class='comment'>#=&gt; (0.5+0.5i)
+</span></code></pre>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><h2>Defined Under Namespace</h2>
+<p class="children">
+  
+    
+  
+    
+      <strong class="classes">Classes:</strong> <span class='object_link'><a href="Complex/compatible.html" title="Complex::compatible (class)">compatible</a></span>
+    
+  
+</p>
+
+  <h2>Constant Summary</h2>
+  <dl class="constants">
+    
+      <dt id="I-constant" class="">I =
+        <div class="docstring">
+  <div class="discussion">
+    
+<p>The imaginary unit.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div>
+      </dt>
+      <dd><pre class="code"><span class='id identifier rubyid_f_complex_new_bang2'>f_complex_new_bang2</span><span class='lparen'>(</span><span class='id identifier rubyid_rb_cComplex'>rb_cComplex</span><span class='comma'>,</span> <span class='const'>ZERO</span><span class='comma'>,</span> <span class='const'>ONE</span><span class='rparen'>)</span></pre></dd>
+    
+  </dl>
+
+
+
+
+
+
+
+  
+    <h2>
+      Class Method Summary
+      <small><a href="#" class="summary_toggle">collapse</a></small>
+    </h2>
+
+    <ul class="summary">
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#polar-class_method" title="polar (class method)">.<strong>polar</strong>(abs[, arg])  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Returns a complex object which denotes the given polar form.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#rect-class_method" title="rect (class method)">.<strong>rect</strong>(*args)  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Returns a complex object which denotes the given rectangular form.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#rectangular-class_method" title="rectangular (class method)">.<strong>rectangular</strong>(*args)  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Returns a complex object which denotes the given rectangular form.</p>
+</div></span>
+  
+</li>
+
+      
+    </ul>
+  
+    <h2>
+      Instance Method Summary
+      <small><a href="#" class="summary_toggle">collapse</a></small>
+    </h2>
+
+    <ul class="summary">
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#*-instance_method" title="#* (instance method)">#<strong>*</strong>  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#**-instance_method" title="#** (instance method)">#<strong>**</strong>(numeric)  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Performs exponentiation.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#%2B-instance_method" title="#+ (instance method)">#<strong>+</strong>(numeric)  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Performs addition.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#--instance_method" title="#- (instance method)">#<strong>-</strong>(numeric)  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Performs subtraction.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#-@-instance_method" title="#- (instance method)">#<strong>-</strong>  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Returns negation of the value.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#%2F-instance_method" title="#/ (instance method)">#<strong>/</strong>(other)  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Performs division.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#==-instance_method" title="#== (instance method)">#<strong>==</strong>(object)  &#x21d2; Boolean </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Returns true if cmp equals object numerically.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#abs-instance_method" title="#abs (instance method)">#<strong>abs</strong>  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Returns the absolute part of its polar form.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#abs2-instance_method" title="#abs2 (instance method)">#<strong>abs2</strong>  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Returns square of the absolute value.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#angle-instance_method" title="#angle (instance method)">#<strong>angle</strong>  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Returns the angle part of its polar form.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#arg-instance_method" title="#arg (instance method)">#<strong>arg</strong>  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Returns the angle part of its polar form.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#coerce-instance_method" title="#coerce (instance method)">#<strong>coerce</strong>(other)  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>:nodoc:.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#conj-instance_method" title="#conj (instance method)">#<strong>conj</strong>  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Returns the complex conjugate.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#conjugate-instance_method" title="#conjugate (instance method)">#<strong>conjugate</strong>  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Returns the complex conjugate.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#denominator-instance_method" title="#denominator (instance method)">#<strong>denominator</strong>  &#x21d2; Integer </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Returns the denominator (lcm of both denominator - real and imag).</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#eql%3F-instance_method" title="#eql? (instance method)">#<strong>eql?</strong>(other)  &#x21d2; Boolean </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>:nodoc:.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#fdiv-instance_method" title="#fdiv (instance method)">#<strong>fdiv</strong>(numeric)  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Performs division as each part is a float, never returns a float.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#finite%3F-instance_method" title="#finite? (instance method)">#<strong>finite?</strong>  &#x21d2; Boolean </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Returns <code>true</code> if <code>cmp</code>&#39;s magnitude is a finite
+number, otherwise returns <code>false</code>.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#hash-instance_method" title="#hash (instance method)">#<strong>hash</strong>  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>:nodoc:.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#imag-instance_method" title="#imag (instance method)">#<strong>imag</strong>  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Returns the imaginary part.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#imaginary-instance_method" title="#imaginary (instance method)">#<strong>imaginary</strong>  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Returns the imaginary part.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#infinite%3F-instance_method" title="#infinite? (instance method)">#<strong>infinite?</strong>  &#x21d2; nil, 1 </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Returns values corresponding to the value of <code>cmp</code>&#39;s
+magnitude:.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#inspect-instance_method" title="#inspect (instance method)">#<strong>inspect</strong>  &#x21d2; String </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Returns the value as a string for inspection.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#magnitude-instance_method" title="#magnitude (instance method)">#<strong>magnitude</strong>  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Returns the absolute part of its polar form.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#numerator-instance_method" title="#numerator (instance method)">#<strong>numerator</strong>  &#x21d2; Numeric </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Returns the numerator.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#phase-instance_method" title="#phase (instance method)">#<strong>phase</strong>  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Returns the angle part of its polar form.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#polar-instance_method" title="#polar (instance method)">#<strong>polar</strong>  &#x21d2; Array </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Returns an array; [cmp.abs, cmp.arg].</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#quo-instance_method" title="#quo (instance method)">#<strong>quo</strong>  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#rationalize-instance_method" title="#rationalize (instance method)">#<strong>rationalize</strong>([eps])  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Returns the value as a rational if possible (the imaginary part should be
+exactly zero).</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#real-instance_method" title="#real (instance method)">#<strong>real</strong>  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Returns the real part.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#real%3F-instance_method" title="#real? (instance method)">#<strong>real?</strong>  &#x21d2; false </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Returns false.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#rect-instance_method" title="#rect (instance method)">#<strong>rect</strong>  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Returns an array; [cmp.real, cmp.imag].</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#rectangular-instance_method" title="#rectangular (instance method)">#<strong>rectangular</strong>  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Returns an array; [cmp.real, cmp.imag].</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#to_c-instance_method" title="#to_c (instance method)">#<strong>to_c</strong>  &#x21d2; self </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Returns self.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#to_f-instance_method" title="#to_f (instance method)">#<strong>to_f</strong>  &#x21d2; Float </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Returns the value as a float if possible (the imaginary part should be
+exactly zero).</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#to_i-instance_method" title="#to_i (instance method)">#<strong>to_i</strong>  &#x21d2; Integer </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Returns the value as an integer if possible (the imaginary part should be
+exactly zero).</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#to_r-instance_method" title="#to_r (instance method)">#<strong>to_r</strong>  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Returns the value as a rational if possible (the imaginary part should be
+exactly zero).</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#to_s-instance_method" title="#to_s (instance method)">#<strong>to_s</strong>  &#x21d2; String </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Returns the value as a string.</p>
+</div></span>
+  
+</li>
+
+      
+    </ul>
+  
+
+
+  
+  
+  
+  
+  
+  
+  
+  
+  <h3 class="inherited">Methods inherited from <span class='object_link'><a href="Numeric.html" title="Numeric (class)">Numeric</a></span></h3>
+  <p class="inherited"><span class='object_link'><a href="Numeric.html#%25-instance_method" title="Numeric#% (method)">#%</a></span>, <span class='object_link'><a href="Numeric.html#%2B@-instance_method" title="Numeric#+@ (method)">#+@</a></span>, <span class='object_link'><a href="Numeric.html#<=>-instance_method" title="Numeric#&lt;=&gt; (method)">#<=></a></span>, <span class='object_link'><a href="Numeric.html#ceil-instance_method" title="Numeric#ceil (method)">#ceil</a></span>, <span class='object_link'><a href="Numeric.html#clone-instance_method" title="Numeric#clone (method)">#clone</a></span>, <span class='object_link'><a href="Numeric.html#div-instance_method" title="Numeric#div (method)">#div</a></span>, <span class='object_link'><a href="Numeric.html#divmod-instance_method" title="Numeric#divmod (method)">#divmod</a></span>, <span class='object_link'><a href="Numeric.html#dup-instance_method" title="Numeric#dup (method)">#dup</a></span>, <span class='object_link'><a href="Numeric.html#floor-instance_method" title="Numeric#floor (method)">#floor</a></span>, <span class='object_link'><a href="Numeric.html#i-instance_method" title="Numeric#i (method)">#i</a></span>, <span class='object_link'><a href="Numeric.html#integer%3F-instance_method" title="Numeric#integer? (method)">#integer?</a></span>, <span class='object_link'><a href="Numeric.html#modulo-instance_method" title="Numeric#modulo (method)">#modulo</a></span>, <span class='object_link'><a href="Numeric.html#negative%3F-instance_method" title="Numeric#negative? (method)">#negative?</a></span>, <span class='object_link'><a href="Numeric.html#nonzero%3F-instance_method" title="Numeric#nonzero? (method)">#nonzero?</a></span>, <span class='object_link'><a href="Numeric.html#positive%3F-instance_method" title="Numeric#positive? (method)">#positive?</a></span>, <span class='object_link'><a href="Numeric.html#remainder-instance_method" title="Numeric#remainder (method)">#remainder</a></span>, <span class='object_link'><a href="Numeric.html#round-instance_method" title="Numeric#round (method)">#round</a></span>, <span class='object_link'><a href="Numeric.html#singleton_method_added-instance_method" title="Numeric#singleton_method_added (method)">#singleton_method_added</a></span>, <span class='object_link'><a href="Numeric.html#step-instance_method" title="Numeric#step (method)">#step</a></span>, <span class='object_link'><a href="Numeric.html#to_int-instance_method" title="Numeric#to_int (method)">#to_int</a></span>, <span class='object_link'><a href="Numeric.html#truncate-instance_method" title="Numeric#truncate (method)">#truncate</a></span>, <span class='object_link'><a href="Numeric.html#zero%3F-instance_method" title="Numeric#zero? (method)">#zero?</a></span></p>
+
+  
+  
+  
+  
+  
+  
+  
+  
+  <h3 class="inherited">Methods included from <span class='object_link'><a href="Comparable.html" title="Comparable (module)">Comparable</a></span></h3>
+  <p class="inherited"><span class='object_link'><a href="Comparable.html#<-instance_method" title="Comparable#&lt; (method)">#<</a></span>, <span class='object_link'><a href="Comparable.html#<=-instance_method" title="Comparable#&lt;= (method)">#<=</a></span>, <span class='object_link'><a href="Comparable.html#>-instance_method" title="Comparable#&gt; (method)">#></a></span>, <span class='object_link'><a href="Comparable.html#>=-instance_method" title="Comparable#&gt;= (method)">#>=</a></span>, <span class='object_link'><a href="Comparable.html#between%3F-instance_method" title="Comparable#between? (method)">#between?</a></span>, <span class='object_link'><a href="Comparable.html#clamp-instance_method" title="Comparable#clamp (method)">#clamp</a></span></p>
+
+
+  <div id="class_method_details" class="method_details_list">
+    <h2>Class Method Details</h2>
+
+    
+      <div class="method_details first">
+  <h3 class="signature first" id="polar-class_method">
+  
+    .<strong>polar</strong>(abs[, arg])  &#x21d2; <tt><span class='object_link'><a href="Object.html" title="Object (class)">Object</a></span></tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Returns a complex object which denotes the given polar form.</p>
+
+<pre class="code"><code class=""><span class='const'><span class='object_link'><a href="" title="Complex (class)">Complex</a></span></span><span class='period'>.</span><span class='id identifier rubyid_polar'>polar</span><span class='lparen'>(</span><span class='int'>3</span><span class='comma'>,</span> <span class='int'>0</span><span class='rparen'>)</span>            <span class='comment'>#=&gt; (3.0+0.0i)
+</span><span class='const'><span class='object_link'><a href="" title="Complex (class)">Complex</a></span></span><span class='period'>.</span><span class='id identifier rubyid_polar'>polar</span><span class='lparen'>(</span><span class='int'>3</span><span class='comma'>,</span> <span class='const'><span class='object_link'><a href="Math.html" title="Math (module)">Math</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="Math.html#PI-constant" title="Math::PI (constant)">PI</a></span></span><span class='op'>/</span><span class='int'>2</span><span class='rparen'>)</span>   <span class='comment'>#=&gt; (1.836909530733566e-16+3.0i)
+</span><span class='const'><span class='object_link'><a href="" title="Complex (class)">Complex</a></span></span><span class='period'>.</span><span class='id identifier rubyid_polar'>polar</span><span class='lparen'>(</span><span class='int'>3</span><span class='comma'>,</span> <span class='const'><span class='object_link'><a href="Math.html" title="Math (module)">Math</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="Math.html#PI-constant" title="Math::PI (constant)">PI</a></span></span><span class='rparen'>)</span>     <span class='comment'>#=&gt; (-3.0+3.673819061467132e-16i)
+</span><span class='const'><span class='object_link'><a href="" title="Complex (class)">Complex</a></span></span><span class='period'>.</span><span class='id identifier rubyid_polar'>polar</span><span class='lparen'>(</span><span class='int'>3</span><span class='comma'>,</span> <span class='op'>-</span><span class='const'><span class='object_link'><a href="Math.html" title="Math (module)">Math</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="Math.html#PI-constant" title="Math::PI (constant)">PI</a></span></span><span class='op'>/</span><span class='int'>2</span><span class='rparen'>)</span>  <span class='comment'>#=&gt; (1.836909530733566e-16-3.0i)
+</span></code></pre>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+  
+
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+575
+576
+577
+578
+579
+580
+581
+582
+583
+584
+585
+586
+587
+588
+589
+590
+591</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'complex.c', line 575</span>
+
+static VALUE
+nucomp_s_polar(int argc, VALUE *argv, VALUE klass)
+{
+    VALUE abs, arg;
+
+    switch (rb_scan_args(argc, argv, &quot;11&quot;, &amp;abs, &amp;arg)) {
+      case 1:
+	nucomp_real_check(abs);
+	if (canonicalization) return abs;
+	return nucomp_s_new_internal(klass, abs, ZERO);
+      default:
+	nucomp_real_check(abs);
+	nucomp_real_check(arg);
+	break;
+    }
+    return f_complex_polar(klass, abs, arg);
+}</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="rect-class_method">
+  
+    
+      <span class="overload">.<strong>rect</strong>(real[, imag])  &#x21d2; <tt><span class='object_link'><a href="Object.html" title="Object (class)">Object</a></span></tt> </span>
+    
+      <span class="overload">.<strong>rectangular</strong>(real[, imag])  &#x21d2; <tt><span class='object_link'><a href="Object.html" title="Object (class)">Object</a></span></tt> </span>
+    
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Returns a complex object which denotes the given rectangular form.</p>
+
+<pre class="code"><code class=""><span class='const'><span class='object_link'><a href="" title="Complex (class)">Complex</a></span></span><span class='period'>.</span><span class='id identifier rubyid_rectangular'><span class='object_link'><a href="#rectangular-class_method" title="Complex.rectangular (method)">rectangular</a></span></span><span class='lparen'>(</span><span class='int'>1</span><span class='comma'>,</span> <span class='int'>2</span><span class='rparen'>)</span>  <span class='comment'>#=&gt; (1+2i)
+</span></code></pre>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+404
+405
+406
+407
+408
+409
+410
+411
+412
+413
+414
+415
+416
+417
+418
+419
+420
+421</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'complex.c', line 404</span>
+
+static VALUE
+nucomp_s_new(int argc, VALUE *argv, VALUE klass)
+{
+    VALUE real, imag;
+
+    switch (rb_scan_args(argc, argv, &quot;11&quot;, &amp;real, &amp;imag)) {
+      case 1:
+	nucomp_real_check(real);
+	imag = ZERO;
+	break;
+      default:
+	nucomp_real_check(real);
+	nucomp_real_check(imag);
+	break;
+    }
+
+    return nucomp_s_canonicalize_internal(klass, real, imag);
+}</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="rectangular-class_method">
+  
+    
+      <span class="overload">.<strong>rect</strong>(real[, imag])  &#x21d2; <tt><span class='object_link'><a href="Object.html" title="Object (class)">Object</a></span></tt> </span>
+    
+      <span class="overload">.<strong>rectangular</strong>(real[, imag])  &#x21d2; <tt><span class='object_link'><a href="Object.html" title="Object (class)">Object</a></span></tt> </span>
+    
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Returns a complex object which denotes the given rectangular form.</p>
+
+<pre class="code"><code class=""><span class='const'><span class='object_link'><a href="" title="Complex (class)">Complex</a></span></span><span class='period'>.</span><span class='id identifier rubyid_rectangular'>rectangular</span><span class='lparen'>(</span><span class='int'>1</span><span class='comma'>,</span> <span class='int'>2</span><span class='rparen'>)</span>  <span class='comment'>#=&gt; (1+2i)
+</span></code></pre>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+404
+405
+406
+407
+408
+409
+410
+411
+412
+413
+414
+415
+416
+417
+418
+419
+420
+421</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'complex.c', line 404</span>
+
+static VALUE
+nucomp_s_new(int argc, VALUE *argv, VALUE klass)
+{
+    VALUE real, imag;
+
+    switch (rb_scan_args(argc, argv, &quot;11&quot;, &amp;real, &amp;imag)) {
+      case 1:
+	nucomp_real_check(real);
+	imag = ZERO;
+	break;
+      default:
+	nucomp_real_check(real);
+	nucomp_real_check(imag);
+	break;
+    }
+
+    return nucomp_s_canonicalize_internal(klass, real, imag);
+}</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+  </div>
+
+  <div id="instance_method_details" class="method_details_list">
+    <h2>Instance Method Details</h2>
+
+    
+      <div class="method_details first">
+  <h3 class="signature first" id="*-instance_method">
+  
+    #<strong>*</strong>  &#x21d2; <tt><span class='object_link'><a href="Object.html" title="Object (class)">Object</a></span></tt> 
+  
+
+  
+
+  
+</h3>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="**-instance_method">
+  
+    #<strong>**</strong>(numeric)  &#x21d2; <tt><span class='object_link'><a href="Object.html" title="Object (class)">Object</a></span></tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Performs exponentiation.</p>
+
+<pre class="code"><code class=""><span class='const'><span class='object_link'><a href="" title="Complex (class)">Complex</a></span></span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>i</span><span class='tstring_end'>&#39;</span></span><span class='rparen'>)</span> <span class='op'>**</span> <span class='int'>2</span>              <span class='comment'>#=&gt; (-1+0i)
+</span><span class='const'><span class='object_link'><a href="" title="Complex (class)">Complex</a></span></span><span class='lparen'>(</span><span class='op'>-</span><span class='int'>8</span><span class='rparen'>)</span> <span class='op'>**</span> <span class='const'><span class='object_link'><a href="Rational.html" title="Rational (class)">Rational</a></span></span><span class='lparen'>(</span><span class='int'>1</span><span class='comma'>,</span> <span class='int'>3</span><span class='rparen'>)</span>  <span class='comment'>#=&gt; (1.0000000000000002+1.7320508075688772i)
+</span></code></pre>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+  
+
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+871
+872
+873
+874
+875
+876
+877
+878
+879
+880
+881
+882
+883
+884
+885
+886
+887
+888
+889
+890
+891
+892
+893
+894
+895
+896
+897
+898
+899
+900
+901
+902
+903
+904
+905
+906
+907
+908
+909
+910
+911
+912
+913
+914
+915
+916
+917
+918
+919
+920
+921
+922
+923
+924
+925
+926
+927
+928
+929
+930
+931
+932
+933
+934
+935
+936
+937
+938
+939
+940
+941
+942
+943
+944
+945
+946
+947
+948</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'complex.c', line 871</span>
+
+static VALUE
+nucomp_expt(VALUE self, VALUE other)
+{
+    if (k_numeric_p(other) &amp;&amp; k_exact_zero_p(other))
+	return f_complex_new_bang1(CLASS_OF(self), ONE);
+
+    if (RB_TYPE_P(other, T_RATIONAL) &amp;&amp; RRATIONAL(other)-&gt;den == LONG2FIX(1))
+	other = RRATIONAL(other)-&gt;num; /* c14n */
+
+    if (RB_TYPE_P(other, T_COMPLEX)) {
+	get_dat1(other);
+
+	if (k_exact_zero_p(dat-&gt;imag))
+	    other = dat-&gt;real; /* c14n */
+    }
+
+    if (RB_TYPE_P(other, T_COMPLEX)) {
+	VALUE r, theta, nr, ntheta;
+
+	get_dat1(other);
+
+	r = f_abs(self);
+	theta = f_arg(self);
+
+	nr = m_exp_bang(f_sub(f_mul(dat-&gt;real, m_log_bang(r)),
+			      f_mul(dat-&gt;imag, theta)));
+	ntheta = f_add(f_mul(theta, dat-&gt;real),
+		       f_mul(dat-&gt;imag, m_log_bang(r)));
+	return f_complex_polar(CLASS_OF(self), nr, ntheta);
+    }
+    if (FIXNUM_P(other)) {
+	if (f_gt_p(other, ZERO)) {
+	    VALUE x, z;
+	    long n;
+
+	    x = self;
+	    z = x;
+	    n = FIX2LONG(other) - 1;
+
+	    while (n) {
+		long q, r;
+
+		while (1) {
+		    get_dat1(x);
+
+		    q = n / 2;
+		    r = n % 2;
+
+		    if (r)
+			break;
+
+		    x = nucomp_s_new_internal(CLASS_OF(self),
+				       f_sub(f_mul(dat-&gt;real, dat-&gt;real),
+					     f_mul(dat-&gt;imag, dat-&gt;imag)),
+				       f_mul(f_mul(TWO, dat-&gt;real), dat-&gt;imag));
+		    n = q;
+		}
+		z = f_mul(z, x);
+		n--;
+	    }
+	    return z;
+	}
+	return f_expt(f_reciprocal(self), rb_int_uminus(other));
+    }
+    if (k_numeric_p(other) &amp;&amp; f_real_p(other)) {
+	VALUE r, theta;
+
+	if (RB_TYPE_P(other, T_BIGNUM))
+	    rb_warn(&quot;in a**b, b may be too big&quot;);
+
+	r = f_abs(self);
+	theta = f_arg(self);
+
+	return f_complex_polar(CLASS_OF(self), f_expt(r, other),
+			       f_mul(theta, other));
+    }
+    return rb_num_coerce_bin(self, other, id_expt);
+}</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="+-instance_method">
+  
+    #<strong>+</strong>(numeric)  &#x21d2; <tt><span class='object_link'><a href="Object.html" title="Object (class)">Object</a></span></tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Performs addition.</p>
+
+<pre class="code"><code class=""><span class='const'><span class='object_link'><a href="" title="Complex (class)">Complex</a></span></span><span class='lparen'>(</span><span class='int'>2</span><span class='comma'>,</span> <span class='int'>3</span><span class='rparen'>)</span>  <span class='op'>+</span> <span class='const'><span class='object_link'><a href="" title="Complex (class)">Complex</a></span></span><span class='lparen'>(</span><span class='int'>2</span><span class='comma'>,</span> <span class='int'>3</span><span class='rparen'>)</span>   <span class='comment'>#=&gt; (4+6i)
+</span><span class='const'><span class='object_link'><a href="" title="Complex (class)">Complex</a></span></span><span class='lparen'>(</span><span class='int'>900</span><span class='rparen'>)</span>   <span class='op'>+</span> <span class='const'><span class='object_link'><a href="" title="Complex (class)">Complex</a></span></span><span class='lparen'>(</span><span class='int'>1</span><span class='rparen'>)</span>      <span class='comment'>#=&gt; (901+0i)
+</span><span class='const'><span class='object_link'><a href="" title="Complex (class)">Complex</a></span></span><span class='lparen'>(</span><span class='op'>-</span><span class='int'>2</span><span class='comma'>,</span> <span class='int'>9</span><span class='rparen'>)</span> <span class='op'>+</span> <span class='const'><span class='object_link'><a href="" title="Complex (class)">Complex</a></span></span><span class='lparen'>(</span><span class='op'>-</span><span class='int'>9</span><span class='comma'>,</span> <span class='int'>2</span><span class='rparen'>)</span>  <span class='comment'>#=&gt; (-11+11i)
+</span><span class='const'><span class='object_link'><a href="" title="Complex (class)">Complex</a></span></span><span class='lparen'>(</span><span class='int'>9</span><span class='comma'>,</span> <span class='int'>8</span><span class='rparen'>)</span>  <span class='op'>+</span> <span class='int'>4</span>               <span class='comment'>#=&gt; (13+8i)
+</span><span class='const'><span class='object_link'><a href="" title="Complex (class)">Complex</a></span></span><span class='lparen'>(</span><span class='int'>20</span><span class='comma'>,</span> <span class='int'>9</span><span class='rparen'>)</span> <span class='op'>+</span> <span class='float'>9.8</span>             <span class='comment'>#=&gt; (29.8+9i)
+</span></code></pre>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+  
+
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+654
+655
+656
+657
+658
+659
+660
+661
+662
+663
+664
+665
+666
+667
+668
+669
+670
+671
+672
+673
+674</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'complex.c', line 654</span>
+
+VALUE
+rb_complex_plus(VALUE self, VALUE other)
+{
+    if (RB_TYPE_P(other, T_COMPLEX)) {
+	VALUE real, imag;
+
+	get_dat2(self, other);
+
+	real = f_add(adat-&gt;real, bdat-&gt;real);
+	imag = f_add(adat-&gt;imag, bdat-&gt;imag);
+
+	return f_complex_new2(CLASS_OF(self), real, imag);
+    }
+    if (k_numeric_p(other) &amp;&amp; f_real_p(other)) {
+	get_dat1(self);
+
+	return f_complex_new2(CLASS_OF(self),
+			      f_add(dat-&gt;real, other), dat-&gt;imag);
+    }
+    return rb_num_coerce_bin(self, other, &#39;+&#39;);
+}</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="--instance_method">
+  
+    #<strong>-</strong>(numeric)  &#x21d2; <tt><span class='object_link'><a href="Object.html" title="Object (class)">Object</a></span></tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Performs subtraction.</p>
+
+<pre class="code"><code class=""><span class='const'><span class='object_link'><a href="" title="Complex (class)">Complex</a></span></span><span class='lparen'>(</span><span class='int'>2</span><span class='comma'>,</span> <span class='int'>3</span><span class='rparen'>)</span>  <span class='op'>-</span> <span class='const'><span class='object_link'><a href="" title="Complex (class)">Complex</a></span></span><span class='lparen'>(</span><span class='int'>2</span><span class='comma'>,</span> <span class='int'>3</span><span class='rparen'>)</span>   <span class='comment'>#=&gt; (0+0i)
+</span><span class='const'><span class='object_link'><a href="" title="Complex (class)">Complex</a></span></span><span class='lparen'>(</span><span class='int'>900</span><span class='rparen'>)</span>   <span class='op'>-</span> <span class='const'><span class='object_link'><a href="" title="Complex (class)">Complex</a></span></span><span class='lparen'>(</span><span class='int'>1</span><span class='rparen'>)</span>      <span class='comment'>#=&gt; (899+0i)
+</span><span class='const'><span class='object_link'><a href="" title="Complex (class)">Complex</a></span></span><span class='lparen'>(</span><span class='op'>-</span><span class='int'>2</span><span class='comma'>,</span> <span class='int'>9</span><span class='rparen'>)</span> <span class='op'>-</span> <span class='const'><span class='object_link'><a href="" title="Complex (class)">Complex</a></span></span><span class='lparen'>(</span><span class='op'>-</span><span class='int'>9</span><span class='comma'>,</span> <span class='int'>2</span><span class='rparen'>)</span>  <span class='comment'>#=&gt; (7+7i)
+</span><span class='const'><span class='object_link'><a href="" title="Complex (class)">Complex</a></span></span><span class='lparen'>(</span><span class='int'>9</span><span class='comma'>,</span> <span class='int'>8</span><span class='rparen'>)</span>  <span class='op'>-</span> <span class='int'>4</span>               <span class='comment'>#=&gt; (5+8i)
+</span><span class='const'><span class='object_link'><a href="" title="Complex (class)">Complex</a></span></span><span class='lparen'>(</span><span class='int'>20</span><span class='comma'>,</span> <span class='int'>9</span><span class='rparen'>)</span> <span class='op'>-</span> <span class='float'>9.8</span>             <span class='comment'>#=&gt; (10.2+9i)
+</span></code></pre>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+  
+
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+688
+689
+690
+691
+692
+693
+694
+695
+696
+697
+698
+699
+700
+701
+702
+703
+704
+705
+706
+707
+708</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'complex.c', line 688</span>
+
+static VALUE
+nucomp_sub(VALUE self, VALUE other)
+{
+    if (RB_TYPE_P(other, T_COMPLEX)) {
+	VALUE real, imag;
+
+	get_dat2(self, other);
+
+	real = f_sub(adat-&gt;real, bdat-&gt;real);
+	imag = f_sub(adat-&gt;imag, bdat-&gt;imag);
+
+	return f_complex_new2(CLASS_OF(self), real, imag);
+    }
+    if (k_numeric_p(other) &amp;&amp; f_real_p(other)) {
+	get_dat1(self);
+
+	return f_complex_new2(CLASS_OF(self),
+			      f_sub(dat-&gt;real, other), dat-&gt;imag);
+    }
+    return rb_num_coerce_bin(self, other, &#39;-&#39;);
+}</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="-@-instance_method">
+  
+    #<strong>-</strong>  &#x21d2; <tt><span class='object_link'><a href="Object.html" title="Object (class)">Object</a></span></tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Returns negation of the value.</p>
+
+<pre class="code"><code class=""><span class='op'>-</span><span class='const'><span class='object_link'><a href="" title="Complex (class)">Complex</a></span></span><span class='lparen'>(</span><span class='int'>1</span><span class='comma'>,</span> <span class='int'>2</span><span class='rparen'>)</span>  <span class='comment'>#=&gt; (-1-2i)
+</span></code></pre>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+  
+
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+634
+635
+636
+637
+638
+639
+640</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'complex.c', line 634</span>
+
+static VALUE
+nucomp_negate(VALUE self)
+{
+  get_dat1(self);
+  return f_complex_new2(CLASS_OF(self),
+			f_negate(dat-&gt;real), f_negate(dat-&gt;imag));
+}</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="/-instance_method">
+  
+    
+      <span class="overload">#<strong>/</strong>(numeric)  &#x21d2; <tt><span class='object_link'><a href="Object.html" title="Object (class)">Object</a></span></tt> </span>
+    
+      <span class="overload">#<strong>quo</strong>(numeric)  &#x21d2; <tt><span class='object_link'><a href="Object.html" title="Object (class)">Object</a></span></tt> </span>
+    
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Performs division.</p>
+
+<pre class="code"><code class=""><span class='const'><span class='object_link'><a href="" title="Complex (class)">Complex</a></span></span><span class='lparen'>(</span><span class='int'>2</span><span class='comma'>,</span> <span class='int'>3</span><span class='rparen'>)</span>  <span class='op'>/</span> <span class='const'><span class='object_link'><a href="" title="Complex (class)">Complex</a></span></span><span class='lparen'>(</span><span class='int'>2</span><span class='comma'>,</span> <span class='int'>3</span><span class='rparen'>)</span>   <span class='comment'>#=&gt; ((1/1)+(0/1)*i)
+</span><span class='const'><span class='object_link'><a href="" title="Complex (class)">Complex</a></span></span><span class='lparen'>(</span><span class='int'>900</span><span class='rparen'>)</span>   <span class='op'>/</span> <span class='const'><span class='object_link'><a href="" title="Complex (class)">Complex</a></span></span><span class='lparen'>(</span><span class='int'>1</span><span class='rparen'>)</span>      <span class='comment'>#=&gt; ((900/1)+(0/1)*i)
+</span><span class='const'><span class='object_link'><a href="" title="Complex (class)">Complex</a></span></span><span class='lparen'>(</span><span class='op'>-</span><span class='int'>2</span><span class='comma'>,</span> <span class='int'>9</span><span class='rparen'>)</span> <span class='op'>/</span> <span class='const'><span class='object_link'><a href="" title="Complex (class)">Complex</a></span></span><span class='lparen'>(</span><span class='op'>-</span><span class='int'>9</span><span class='comma'>,</span> <span class='int'>2</span><span class='rparen'>)</span>  <span class='comment'>#=&gt; ((36/85)-(77/85)*i)
+</span><span class='const'><span class='object_link'><a href="" title="Complex (class)">Complex</a></span></span><span class='lparen'>(</span><span class='int'>9</span><span class='comma'>,</span> <span class='int'>8</span><span class='rparen'>)</span>  <span class='op'>/</span> <span class='int'>4</span>               <span class='comment'>#=&gt; ((9/4)+(2/1)*i)
+</span><span class='const'><span class='object_link'><a href="" title="Complex (class)">Complex</a></span></span><span class='lparen'>(</span><span class='int'>20</span><span class='comma'>,</span> <span class='int'>9</span><span class='rparen'>)</span> <span class='op'>/</span> <span class='float'>9.8</span>             <span class='comment'>#=&gt; (2.0408163265306123+0.9183673469387754i)
+</span></code></pre>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+834
+835
+836
+837
+838</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'complex.c', line 834</span>
+
+static VALUE
+nucomp_div(VALUE self, VALUE other)
+{
+    return f_divide(self, other, f_quo, id_quo);
+}</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="==-instance_method">
+  
+    #<strong>==</strong>(object)  &#x21d2; <tt>Boolean</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Returns true if cmp equals object numerically.</p>
+
+<pre class="code"><code class=""><span class='const'><span class='object_link'><a href="" title="Complex (class)">Complex</a></span></span><span class='lparen'>(</span><span class='int'>2</span><span class='comma'>,</span> <span class='int'>3</span><span class='rparen'>)</span>  <span class='op'>==</span> <span class='const'><span class='object_link'><a href="" title="Complex (class)">Complex</a></span></span><span class='lparen'>(</span><span class='int'>2</span><span class='comma'>,</span> <span class='int'>3</span><span class='rparen'>)</span>   <span class='comment'>#=&gt; true
+</span><span class='const'><span class='object_link'><a href="" title="Complex (class)">Complex</a></span></span><span class='lparen'>(</span><span class='int'>5</span><span class='rparen'>)</span>     <span class='op'>==</span> <span class='int'>5</span>               <span class='comment'>#=&gt; true
+</span><span class='const'><span class='object_link'><a href="" title="Complex (class)">Complex</a></span></span><span class='lparen'>(</span><span class='int'>0</span><span class='rparen'>)</span>     <span class='op'>==</span> <span class='float'>0.0</span>             <span class='comment'>#=&gt; true
+</span><span class='const'><span class='object_link'><a href="" title="Complex (class)">Complex</a></span></span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>1/3</span><span class='tstring_end'>&#39;</span></span><span class='rparen'>)</span> <span class='op'>==</span> <span class='float'>0.33</span>            <span class='comment'>#=&gt; false
+</span><span class='const'><span class='object_link'><a href="" title="Complex (class)">Complex</a></span></span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>1/2</span><span class='tstring_end'>&#39;</span></span><span class='rparen'>)</span> <span class='op'>==</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>1/2</span><span class='tstring_end'>&#39;</span></span>           <span class='comment'>#=&gt; false
+</span></code></pre>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+  <div class="docstring">
+  <div class="discussion">
+    
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Boolean</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div>
+
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+962
+963
+964
+965
+966
+967
+968
+969
+970
+971
+972
+973
+974
+975
+976
+977</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'complex.c', line 962</span>
+
+static VALUE
+nucomp_eqeq_p(VALUE self, VALUE other)
+{
+    if (RB_TYPE_P(other, T_COMPLEX)) {
+	get_dat2(self, other);
+
+	return f_boolcast(f_eqeq_p(adat-&gt;real, bdat-&gt;real) &amp;&amp;
+			  f_eqeq_p(adat-&gt;imag, bdat-&gt;imag));
+    }
+    if (k_numeric_p(other) &amp;&amp; f_real_p(other)) {
+	get_dat1(self);
+
+	return f_boolcast(f_eqeq_p(dat-&gt;real, other) &amp;&amp; f_zero_p(dat-&gt;imag));
+    }
+    return f_boolcast(f_eqeq_p(other, self));
+}</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="abs-instance_method">
+  
+    
+      <span class="overload">#<strong>abs</strong>  &#x21d2; <tt><span class='object_link'><a href="Object.html" title="Object (class)">Object</a></span></tt> </span>
+    
+      <span class="overload">#<strong>magnitude</strong>  &#x21d2; <tt><span class='object_link'><a href="Object.html" title="Object (class)">Object</a></span></tt> </span>
+    
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Returns the absolute part of its polar form.</p>
+
+<pre class="code"><code class=""><span class='const'><span class='object_link'><a href="" title="Complex (class)">Complex</a></span></span><span class='lparen'>(</span><span class='op'>-</span><span class='int'>1</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_abs'>abs</span>         <span class='comment'>#=&gt; 1
+</span><span class='const'><span class='object_link'><a href="" title="Complex (class)">Complex</a></span></span><span class='lparen'>(</span><span class='float'>3.0</span><span class='comma'>,</span> <span class='op'>-</span><span class='float'>4.0</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_abs'>abs</span>  <span class='comment'>#=&gt; 5.0
+</span></code></pre>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+1003
+1004
+1005
+1006
+1007
+1008
+1009
+1010
+1011
+1012
+1013
+1014
+1015
+1016
+1017
+1018
+1019
+1020
+1021</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'complex.c', line 1003</span>
+
+static VALUE
+nucomp_abs(VALUE self)
+{
+    get_dat1(self);
+
+    if (f_zero_p(dat-&gt;real)) {
+	VALUE a = f_abs(dat-&gt;imag);
+	if (RB_FLOAT_TYPE_P(dat-&gt;real) &amp;&amp; !RB_FLOAT_TYPE_P(dat-&gt;imag))
+	    a = f_to_f(a);
+	return a;
+    }
+    if (f_zero_p(dat-&gt;imag)) {
+	VALUE a = f_abs(dat-&gt;real);
+	if (!RB_FLOAT_TYPE_P(dat-&gt;real) &amp;&amp; RB_FLOAT_TYPE_P(dat-&gt;imag))
+	    a = f_to_f(a);
+	return a;
+    }
+    return rb_math_hypot(dat-&gt;real, dat-&gt;imag);
+}</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="abs2-instance_method">
+  
+    #<strong>abs2</strong>  &#x21d2; <tt><span class='object_link'><a href="Object.html" title="Object (class)">Object</a></span></tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Returns square of the absolute value.</p>
+
+<pre class="code"><code class=""><span class='const'><span class='object_link'><a href="" title="Complex (class)">Complex</a></span></span><span class='lparen'>(</span><span class='op'>-</span><span class='int'>1</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_abs2'>abs2</span>         <span class='comment'>#=&gt; 1
+</span><span class='const'><span class='object_link'><a href="" title="Complex (class)">Complex</a></span></span><span class='lparen'>(</span><span class='float'>3.0</span><span class='comma'>,</span> <span class='op'>-</span><span class='float'>4.0</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_abs2'>abs2</span>  <span class='comment'>#=&gt; 25.0
+</span></code></pre>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+  
+
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+1032
+1033
+1034
+1035
+1036
+1037
+1038</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'complex.c', line 1032</span>
+
+static VALUE
+nucomp_abs2(VALUE self)
+{
+    get_dat1(self);
+    return f_add(f_mul(dat-&gt;real, dat-&gt;real),
+		 f_mul(dat-&gt;imag, dat-&gt;imag));
+}</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="angle-instance_method">
+  
+    
+      <span class="overload">#<strong>arg</strong>  &#x21d2; <tt><span class='object_link'><a href="Float.html" title="Float (class)">Float</a></span></tt> </span>
+    
+      <span class="overload">#<strong>angle</strong>  &#x21d2; <tt><span class='object_link'><a href="Float.html" title="Float (class)">Float</a></span></tt> </span>
+    
+      <span class="overload">#<strong>phase</strong>  &#x21d2; <tt><span class='object_link'><a href="Float.html" title="Float (class)">Float</a></span></tt> </span>
+    
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Returns the angle part of its polar form.</p>
+
+<pre class="code"><code class=""><span class='const'><span class='object_link'><a href="" title="Complex (class)">Complex</a></span></span><span class='period'>.</span><span class='id identifier rubyid_polar'><span class='object_link'><a href="#polar-class_method" title="Complex.polar (method)">polar</a></span></span><span class='lparen'>(</span><span class='int'>3</span><span class='comma'>,</span> <span class='const'><span class='object_link'><a href="Math.html" title="Math (module)">Math</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="Math.html#PI-constant" title="Math::PI (constant)">PI</a></span></span><span class='op'>/</span><span class='int'>2</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_arg'>arg</span>  <span class='comment'>#=&gt; 1.5707963267948966
+</span></code></pre>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+  <p class="tag_title">Overloads:</p>
+  <ul class="overload">
+    
+      
+      <li class="overload_item">
+        <span class="signature">#<strong>arg</strong>  &#x21d2; <tt><span class='object_link'><a href="Float.html" title="Float (class)">Float</a></span></tt> </span>
+        <div class="docstring">
+  <div class="discussion">
+    
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="Float.html" title="Float (class)">Float</a></span></tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div>
+      </li>
+    
+      
+      <li class="overload_item">
+        <span class="signature">#<strong>angle</strong>  &#x21d2; <tt><span class='object_link'><a href="Float.html" title="Float (class)">Float</a></span></tt> </span>
+        <div class="docstring">
+  <div class="discussion">
+    
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="Float.html" title="Float (class)">Float</a></span></tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div>
+      </li>
+    
+      
+      <li class="overload_item">
+        <span class="signature">#<strong>phase</strong>  &#x21d2; <tt><span class='object_link'><a href="Float.html" title="Float (class)">Float</a></span></tt> </span>
+        <div class="docstring">
+  <div class="discussion">
+    
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="Float.html" title="Float (class)">Float</a></span></tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div>
+      </li>
+    
+  </ul>
+
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+1050
+1051
+1052
+1053
+1054
+1055</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'complex.c', line 1050</span>
+
+static VALUE
+nucomp_arg(VALUE self)
+{
+    get_dat1(self);
+    return rb_math_atan2(dat-&gt;imag, dat-&gt;real);
+}</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="arg-instance_method">
+  
+    
+      <span class="overload">#<strong>arg</strong>  &#x21d2; <tt><span class='object_link'><a href="Float.html" title="Float (class)">Float</a></span></tt> </span>
+    
+      <span class="overload">#<strong>angle</strong>  &#x21d2; <tt><span class='object_link'><a href="Float.html" title="Float (class)">Float</a></span></tt> </span>
+    
+      <span class="overload">#<strong>phase</strong>  &#x21d2; <tt><span class='object_link'><a href="Float.html" title="Float (class)">Float</a></span></tt> </span>
+    
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Returns the angle part of its polar form.</p>
+
+<pre class="code"><code class=""><span class='const'><span class='object_link'><a href="" title="Complex (class)">Complex</a></span></span><span class='period'>.</span><span class='id identifier rubyid_polar'><span class='object_link'><a href="#polar-class_method" title="Complex.polar (method)">polar</a></span></span><span class='lparen'>(</span><span class='int'>3</span><span class='comma'>,</span> <span class='const'><span class='object_link'><a href="Math.html" title="Math (module)">Math</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="Math.html#PI-constant" title="Math::PI (constant)">PI</a></span></span><span class='op'>/</span><span class='int'>2</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_arg'>arg</span>  <span class='comment'>#=&gt; 1.5707963267948966
+</span></code></pre>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+  <p class="tag_title">Overloads:</p>
+  <ul class="overload">
+    
+      
+      <li class="overload_item">
+        <span class="signature">#<strong>arg</strong>  &#x21d2; <tt><span class='object_link'><a href="Float.html" title="Float (class)">Float</a></span></tt> </span>
+        <div class="docstring">
+  <div class="discussion">
+    
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="Float.html" title="Float (class)">Float</a></span></tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div>
+      </li>
+    
+      
+      <li class="overload_item">
+        <span class="signature">#<strong>angle</strong>  &#x21d2; <tt><span class='object_link'><a href="Float.html" title="Float (class)">Float</a></span></tt> </span>
+        <div class="docstring">
+  <div class="discussion">
+    
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="Float.html" title="Float (class)">Float</a></span></tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div>
+      </li>
+    
+      
+      <li class="overload_item">
+        <span class="signature">#<strong>phase</strong>  &#x21d2; <tt><span class='object_link'><a href="Float.html" title="Float (class)">Float</a></span></tt> </span>
+        <div class="docstring">
+  <div class="discussion">
+    
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="Float.html" title="Float (class)">Float</a></span></tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div>
+      </li>
+    
+  </ul>
+
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+1050
+1051
+1052
+1053
+1054
+1055</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'complex.c', line 1050</span>
+
+static VALUE
+nucomp_arg(VALUE self)
+{
+    get_dat1(self);
+    return rb_math_atan2(dat-&gt;imag, dat-&gt;real);
+}</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="coerce-instance_method">
+  
+    #<strong>coerce</strong>(other)  &#x21d2; <tt><span class='object_link'><a href="Object.html" title="Object (class)">Object</a></span></tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>:nodoc:</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+980
+981
+982
+983
+984
+985
+986
+987
+988
+989
+990
+991</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'complex.c', line 980</span>
+
+static VALUE
+nucomp_coerce(VALUE self, VALUE other)
+{
+    if (k_numeric_p(other) &amp;&amp; f_real_p(other))
+	return rb_assoc_new(f_complex_new_bang1(CLASS_OF(self), other), self);
+    if (RB_TYPE_P(other, T_COMPLEX))
+	return rb_assoc_new(other, self);
+
+    rb_raise(rb_eTypeError, &quot;%&quot;PRIsVALUE&quot; can&#39;t be coerced into %&quot;PRIsVALUE,
+	     rb_obj_class(other), rb_obj_class(self));
+    return Qnil;
+}</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="conj-instance_method">
+  
+    
+      <span class="overload">#<strong>conj</strong>  &#x21d2; <tt><span class='object_link'><a href="Object.html" title="Object (class)">Object</a></span></tt> </span>
+    
+      <span class="overload">#<strong>conjugate</strong>  &#x21d2; <tt><span class='object_link'><a href="Object.html" title="Object (class)">Object</a></span></tt> </span>
+    
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Returns the complex conjugate.</p>
+
+<pre class="code"><code class=""><span class='const'><span class='object_link'><a href="" title="Complex (class)">Complex</a></span></span><span class='lparen'>(</span><span class='int'>1</span><span class='comma'>,</span> <span class='int'>2</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_conjugate'><span class='object_link'><a href="#conjugate-instance_method" title="Complex#conjugate (method)">conjugate</a></span></span>  <span class='comment'>#=&gt; (1-2i)
+</span></code></pre>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+1096
+1097
+1098
+1099
+1100
+1101</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'complex.c', line 1096</span>
+
+static VALUE
+nucomp_conj(VALUE self)
+{
+    get_dat1(self);
+    return f_complex_new2(CLASS_OF(self), dat-&gt;real, f_negate(dat-&gt;imag));
+}</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="conjugate-instance_method">
+  
+    
+      <span class="overload">#<strong>conj</strong>  &#x21d2; <tt><span class='object_link'><a href="Object.html" title="Object (class)">Object</a></span></tt> </span>
+    
+      <span class="overload">#<strong>conjugate</strong>  &#x21d2; <tt><span class='object_link'><a href="Object.html" title="Object (class)">Object</a></span></tt> </span>
+    
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Returns the complex conjugate.</p>
+
+<pre class="code"><code class=""><span class='const'><span class='object_link'><a href="" title="Complex (class)">Complex</a></span></span><span class='lparen'>(</span><span class='int'>1</span><span class='comma'>,</span> <span class='int'>2</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_conjugate'>conjugate</span>  <span class='comment'>#=&gt; (1-2i)
+</span></code></pre>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+1096
+1097
+1098
+1099
+1100
+1101</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'complex.c', line 1096</span>
+
+static VALUE
+nucomp_conj(VALUE self)
+{
+    get_dat1(self);
+    return f_complex_new2(CLASS_OF(self), dat-&gt;real, f_negate(dat-&gt;imag));
+}</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="denominator-instance_method">
+  
+    #<strong>denominator</strong>  &#x21d2; <tt><span class='object_link'><a href="Integer.html" title="Integer (class)">Integer</a></span></tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Returns the denominator (lcm of both denominator - real and imag).</p>
+
+<p>See numerator.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+  <div class="docstring">
+  <div class="discussion">
+    
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="Integer.html" title="Integer (class)">Integer</a></span></tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div>
+
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+1123
+1124
+1125
+1126
+1127
+1128</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'complex.c', line 1123</span>
+
+static VALUE
+nucomp_denominator(VALUE self)
+{
+    get_dat1(self);
+    return rb_lcm(f_denominator(dat-&gt;real), f_denominator(dat-&gt;imag));
+}</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="eql?-instance_method">
+  
+    #<strong>eql?</strong>(other)  &#x21d2; <tt>Boolean</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>:nodoc:</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Boolean</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+1180
+1181
+1182
+1183
+1184
+1185
+1186
+1187
+1188
+1189
+1190
+1191
+1192</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'complex.c', line 1180</span>
+
+static VALUE
+nucomp_eql_p(VALUE self, VALUE other)
+{
+    if (RB_TYPE_P(other, T_COMPLEX)) {
+	get_dat2(self, other);
+
+	return f_boolcast((CLASS_OF(adat-&gt;real) == CLASS_OF(bdat-&gt;real)) &amp;&amp;
+			  (CLASS_OF(adat-&gt;imag) == CLASS_OF(bdat-&gt;imag)) &amp;&amp;
+			  f_eqeq_p(self, other));
+
+    }
+    return Qfalse;
+}</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="fdiv-instance_method">
+  
+    #<strong>fdiv</strong>(numeric)  &#x21d2; <tt><span class='object_link'><a href="Object.html" title="Object (class)">Object</a></span></tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Performs division as each part is a float, never returns a float.</p>
+
+<pre class="code"><code class=""><span class='const'><span class='object_link'><a href="" title="Complex (class)">Complex</a></span></span><span class='lparen'>(</span><span class='int'>11</span><span class='comma'>,</span> <span class='int'>22</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_fdiv'>fdiv</span><span class='lparen'>(</span><span class='int'>3</span><span class='rparen'>)</span>  <span class='comment'>#=&gt; (3.6666666666666665+7.333333333333333i)
+</span></code></pre>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+  
+
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+850
+851
+852
+853
+854</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'complex.c', line 850</span>
+
+static VALUE
+nucomp_fdiv(VALUE self, VALUE other)
+{
+    return f_divide(self, other, f_fdiv, id_fdiv);
+}</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="finite?-instance_method">
+  
+    #<strong>finite?</strong>  &#x21d2; <tt>Boolean</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Returns <code>true</code> if <code>cmp</code>&#39;s magnitude is a finite
+number, otherwise returns <code>false</code>.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+  <div class="docstring">
+  <div class="discussion">
+    
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Boolean</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div>
+
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Boolean</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+1282
+1283
+1284
+1285
+1286
+1287
+1288
+1289
+1290
+1291</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'complex.c', line 1282</span>
+
+static VALUE
+rb_complex_finite_p(VALUE self)
+{
+    get_dat1(self);
+
+    if (f_finite_p(dat-&gt;real) &amp;&amp; f_finite_p(dat-&gt;imag)) {
+	return Qtrue;
+    }
+    return Qfalse;
+}</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="hash-instance_method">
+  
+    #<strong>hash</strong>  &#x21d2; <tt><span class='object_link'><a href="Object.html" title="Object (class)">Object</a></span></tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>:nodoc:</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+1164
+1165
+1166
+1167
+1168
+1169
+1170
+1171
+1172
+1173
+1174
+1175
+1176
+1177</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'complex.c', line 1164</span>
+
+static VALUE
+nucomp_hash(VALUE self)
+{
+    st_index_t v, h[2];
+    VALUE n;
+
+    get_dat1(self);
+    n = rb_hash(dat-&gt;real);
+    h[0] = NUM2LONG(n);
+    n = rb_hash(dat-&gt;imag);
+    h[1] = NUM2LONG(n);
+    v = rb_memhash(h, sizeof(h));
+    return ST2FIX(v);
+}</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="imag-instance_method">
+  
+    
+      <span class="overload">#<strong>imag</strong>  &#x21d2; <tt><span class='object_link'><a href="Object.html" title="Object (class)">Object</a></span></tt> </span>
+    
+      <span class="overload">#<strong>imaginary</strong>  &#x21d2; <tt><span class='object_link'><a href="Object.html" title="Object (class)">Object</a></span></tt> </span>
+    
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Returns the imaginary part.</p>
+
+<pre class="code"><code class=""><span class='const'><span class='object_link'><a href="" title="Complex (class)">Complex</a></span></span><span class='lparen'>(</span><span class='int'>7</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_imaginary'><span class='object_link'><a href="#imaginary-instance_method" title="Complex#imaginary (method)">imaginary</a></span></span>      <span class='comment'>#=&gt; 0
+</span><span class='const'><span class='object_link'><a href="" title="Complex (class)">Complex</a></span></span><span class='lparen'>(</span><span class='int'>9</span><span class='comma'>,</span> <span class='op'>-</span><span class='int'>4</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_imaginary'><span class='object_link'><a href="#imaginary-instance_method" title="Complex#imaginary (method)">imaginary</a></span></span>  <span class='comment'>#=&gt; -4
+</span></code></pre>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+619
+620
+621
+622
+623
+624</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'complex.c', line 619</span>
+
+static VALUE
+nucomp_imag(VALUE self)
+{
+    get_dat1(self);
+    return dat-&gt;imag;
+}</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="imaginary-instance_method">
+  
+    
+      <span class="overload">#<strong>imag</strong>  &#x21d2; <tt><span class='object_link'><a href="Object.html" title="Object (class)">Object</a></span></tt> </span>
+    
+      <span class="overload">#<strong>imaginary</strong>  &#x21d2; <tt><span class='object_link'><a href="Object.html" title="Object (class)">Object</a></span></tt> </span>
+    
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Returns the imaginary part.</p>
+
+<pre class="code"><code class=""><span class='const'><span class='object_link'><a href="" title="Complex (class)">Complex</a></span></span><span class='lparen'>(</span><span class='int'>7</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_imaginary'>imaginary</span>      <span class='comment'>#=&gt; 0
+</span><span class='const'><span class='object_link'><a href="" title="Complex (class)">Complex</a></span></span><span class='lparen'>(</span><span class='int'>9</span><span class='comma'>,</span> <span class='op'>-</span><span class='int'>4</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_imaginary'>imaginary</span>  <span class='comment'>#=&gt; -4
+</span></code></pre>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+619
+620
+621
+622
+623
+624</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'complex.c', line 619</span>
+
+static VALUE
+nucomp_imag(VALUE self)
+{
+    get_dat1(self);
+    return dat-&gt;imag;
+}</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="infinite?-instance_method">
+  
+    #<strong>infinite?</strong>  &#x21d2; <tt>nil</tt>, <tt>1</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Returns values corresponding to the value of <code>cmp</code>&#39;s
+magnitude:</p>
+<dl class="rdoc-list note-list"><dt><code>finite</code>
+<dd>
+<p><code>nil</code></p>
+</dd><dt>+<code>Infinity</code>
+<dd>
+<p>+<code>1</code></p>
+</dd></dl>
+
+<pre class="code"><code class=""><span class='const'>For</span> <span class='label'>example:</span>
+
+   <span class='lparen'>(</span><span class='int'>1</span><span class='op'>+</span><span class='imaginary'>1i</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_infinite?'>infinite?</span>                   <span class='comment'>#=&gt; nil
+</span>   <span class='lparen'>(</span><span class='const'><span class='object_link'><a href="Float.html" title="Float (class)">Float</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="Float.html#INFINITY-constant" title="Float::INFINITY (constant)">INFINITY</a></span></span> <span class='op'>+</span> <span class='imaginary'>1i</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_infinite?'>infinite?</span>   <span class='comment'>#=&gt; 1
+</span></code></pre>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+  <div class="docstring">
+  <div class="discussion">
+    
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>nil</tt>, <tt>1</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div>
+
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Boolean</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+1307
+1308
+1309
+1310
+1311
+1312
+1313
+1314
+1315
+1316</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'complex.c', line 1307</span>
+
+static VALUE
+rb_complex_infinite_p(VALUE self)
+{
+    get_dat1(self);
+
+    if (NIL_P(f_infinite_p(dat-&gt;real)) &amp;&amp; NIL_P(f_infinite_p(dat-&gt;imag))) {
+	return Qnil;
+    }
+    return ONE;
+}</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="inspect-instance_method">
+  
+    #<strong>inspect</strong>  &#x21d2; <tt><span class='object_link'><a href="String.html" title="String (class)">String</a></span></tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Returns the value as a string for inspection.</p>
+
+<pre class="code"><code class=""><span class='const'><span class='object_link'><a href="" title="Complex (class)">Complex</a></span></span><span class='lparen'>(</span><span class='int'>2</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_inspect'>inspect</span>                       <span class='comment'>#=&gt; &quot;(2+0i)&quot;
+</span><span class='const'><span class='object_link'><a href="" title="Complex (class)">Complex</a></span></span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>-8/6</span><span class='tstring_end'>&#39;</span></span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_inspect'>inspect</span>                  <span class='comment'>#=&gt; &quot;((-4/3)+0i)&quot;
+</span><span class='const'><span class='object_link'><a href="" title="Complex (class)">Complex</a></span></span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>1/2i</span><span class='tstring_end'>&#39;</span></span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_inspect'>inspect</span>                  <span class='comment'>#=&gt; &quot;(0+(1/2)*i)&quot;
+</span><span class='const'><span class='object_link'><a href="" title="Complex (class)">Complex</a></span></span><span class='lparen'>(</span><span class='int'>0</span><span class='comma'>,</span> <span class='const'><span class='object_link'><a href="Float.html" title="Float (class)">Float</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="Float.html#INFINITY-constant" title="Float::INFINITY (constant)">INFINITY</a></span></span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_inspect'>inspect</span>      <span class='comment'>#=&gt; &quot;(0+Infinity*i)&quot;
+</span><span class='const'><span class='object_link'><a href="" title="Complex (class)">Complex</a></span></span><span class='lparen'>(</span><span class='const'><span class='object_link'><a href="Float.html" title="Float (class)">Float</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="Float.html#NAN-constant" title="Float::NAN (constant)">NAN</a></span></span><span class='comma'>,</span> <span class='const'><span class='object_link'><a href="Float.html" title="Float (class)">Float</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="Float.html#NAN-constant" title="Float::NAN (constant)">NAN</a></span></span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_inspect'>inspect</span>  <span class='comment'>#=&gt; &quot;(NaN+NaN*i)&quot;
+</span></code></pre>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+  <div class="docstring">
+  <div class="discussion">
+    
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="String.html" title="String (class)">String</a></span></tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div>
+
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+1261
+1262
+1263
+1264
+1265
+1266
+1267
+1268
+1269
+1270
+1271</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'complex.c', line 1261</span>
+
+static VALUE
+nucomp_inspect(VALUE self)
+{
+    VALUE s;
+
+    s = rb_usascii_str_new2(&quot;(&quot;);
+    rb_str_concat(s, f_format(self, rb_inspect));
+    rb_str_cat2(s, &quot;)&quot;);
+
+    return s;
+}</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="magnitude-instance_method">
+  
+    
+      <span class="overload">#<strong>abs</strong>  &#x21d2; <tt><span class='object_link'><a href="Object.html" title="Object (class)">Object</a></span></tt> </span>
+    
+      <span class="overload">#<strong>magnitude</strong>  &#x21d2; <tt><span class='object_link'><a href="Object.html" title="Object (class)">Object</a></span></tt> </span>
+    
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Returns the absolute part of its polar form.</p>
+
+<pre class="code"><code class=""><span class='const'><span class='object_link'><a href="" title="Complex (class)">Complex</a></span></span><span class='lparen'>(</span><span class='op'>-</span><span class='int'>1</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_abs'><span class='object_link'><a href="#abs-instance_method" title="Complex#abs (method)">abs</a></span></span>         <span class='comment'>#=&gt; 1
+</span><span class='const'><span class='object_link'><a href="" title="Complex (class)">Complex</a></span></span><span class='lparen'>(</span><span class='float'>3.0</span><span class='comma'>,</span> <span class='op'>-</span><span class='float'>4.0</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_abs'><span class='object_link'><a href="#abs-instance_method" title="Complex#abs (method)">abs</a></span></span>  <span class='comment'>#=&gt; 5.0
+</span></code></pre>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+1003
+1004
+1005
+1006
+1007
+1008
+1009
+1010
+1011
+1012
+1013
+1014
+1015
+1016
+1017
+1018
+1019
+1020
+1021</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'complex.c', line 1003</span>
+
+static VALUE
+nucomp_abs(VALUE self)
+{
+    get_dat1(self);
+
+    if (f_zero_p(dat-&gt;real)) {
+	VALUE a = f_abs(dat-&gt;imag);
+	if (RB_FLOAT_TYPE_P(dat-&gt;real) &amp;&amp; !RB_FLOAT_TYPE_P(dat-&gt;imag))
+	    a = f_to_f(a);
+	return a;
+    }
+    if (f_zero_p(dat-&gt;imag)) {
+	VALUE a = f_abs(dat-&gt;real);
+	if (!RB_FLOAT_TYPE_P(dat-&gt;real) &amp;&amp; RB_FLOAT_TYPE_P(dat-&gt;imag))
+	    a = f_to_f(a);
+	return a;
+    }
+    return rb_math_hypot(dat-&gt;real, dat-&gt;imag);
+}</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="numerator-instance_method">
+  
+    #<strong>numerator</strong>  &#x21d2; <tt><span class='object_link'><a href="Numeric.html" title="Numeric (class)">Numeric</a></span></tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Returns the numerator.</p>
+
+<pre class="code"><code class="">    1   2       3+4i  &lt;-  numerator
+    - + -i  -&gt;  ----
+    2   3        6    &lt;-  denominator
+
+c = Complex(&#39;1/2+2/3i&#39;)  #=&gt; ((1/2)+(2/3)*i)
+n = c.numerator          #=&gt; (3+4i)
+d = c.denominator        #=&gt; 6
+n / d                    #=&gt; ((1/2)+(2/3)*i)
+Complex(Rational(n.real, d), Rational(n.imag, d))
+                         #=&gt; ((1/2)+(2/3)*i)</code></pre>
+
+<p>See denominator.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+  <div class="docstring">
+  <div class="discussion">
+    
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="Numeric.html" title="Numeric (class)">Numeric</a></span></tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div>
+
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+1148
+1149
+1150
+1151
+1152
+1153
+1154
+1155
+1156
+1157
+1158
+1159
+1160
+1161</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'complex.c', line 1148</span>
+
+static VALUE
+nucomp_numerator(VALUE self)
+{
+    VALUE cd;
+
+    get_dat1(self);
+
+    cd = f_denominator(self);
+    return f_complex_new2(CLASS_OF(self),
+			  f_mul(f_numerator(dat-&gt;real),
+				f_div(cd, f_denominator(dat-&gt;real))),
+			  f_mul(f_numerator(dat-&gt;imag),
+				f_div(cd, f_denominator(dat-&gt;imag))));
+}</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="phase-instance_method">
+  
+    
+      <span class="overload">#<strong>arg</strong>  &#x21d2; <tt><span class='object_link'><a href="Float.html" title="Float (class)">Float</a></span></tt> </span>
+    
+      <span class="overload">#<strong>angle</strong>  &#x21d2; <tt><span class='object_link'><a href="Float.html" title="Float (class)">Float</a></span></tt> </span>
+    
+      <span class="overload">#<strong>phase</strong>  &#x21d2; <tt><span class='object_link'><a href="Float.html" title="Float (class)">Float</a></span></tt> </span>
+    
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Returns the angle part of its polar form.</p>
+
+<pre class="code"><code class=""><span class='const'><span class='object_link'><a href="" title="Complex (class)">Complex</a></span></span><span class='period'>.</span><span class='id identifier rubyid_polar'><span class='object_link'><a href="#polar-class_method" title="Complex.polar (method)">polar</a></span></span><span class='lparen'>(</span><span class='int'>3</span><span class='comma'>,</span> <span class='const'><span class='object_link'><a href="Math.html" title="Math (module)">Math</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="Math.html#PI-constant" title="Math::PI (constant)">PI</a></span></span><span class='op'>/</span><span class='int'>2</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_arg'>arg</span>  <span class='comment'>#=&gt; 1.5707963267948966
+</span></code></pre>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+  <p class="tag_title">Overloads:</p>
+  <ul class="overload">
+    
+      
+      <li class="overload_item">
+        <span class="signature">#<strong>arg</strong>  &#x21d2; <tt><span class='object_link'><a href="Float.html" title="Float (class)">Float</a></span></tt> </span>
+        <div class="docstring">
+  <div class="discussion">
+    
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="Float.html" title="Float (class)">Float</a></span></tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div>
+      </li>
+    
+      
+      <li class="overload_item">
+        <span class="signature">#<strong>angle</strong>  &#x21d2; <tt><span class='object_link'><a href="Float.html" title="Float (class)">Float</a></span></tt> </span>
+        <div class="docstring">
+  <div class="discussion">
+    
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="Float.html" title="Float (class)">Float</a></span></tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div>
+      </li>
+    
+      
+      <li class="overload_item">
+        <span class="signature">#<strong>phase</strong>  &#x21d2; <tt><span class='object_link'><a href="Float.html" title="Float (class)">Float</a></span></tt> </span>
+        <div class="docstring">
+  <div class="discussion">
+    
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="Float.html" title="Float (class)">Float</a></span></tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div>
+      </li>
+    
+  </ul>
+
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+1050
+1051
+1052
+1053
+1054
+1055</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'complex.c', line 1050</span>
+
+static VALUE
+nucomp_arg(VALUE self)
+{
+    get_dat1(self);
+    return rb_math_atan2(dat-&gt;imag, dat-&gt;real);
+}</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="polar-instance_method">
+  
+    #<strong>polar</strong>  &#x21d2; <tt><span class='object_link'><a href="Array.html" title="Array (class)">Array</a></span></tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Returns an array; [cmp.abs, cmp.arg].</p>
+
+<pre class="code"><code class=""><span class='const'><span class='object_link'><a href="" title="Complex (class)">Complex</a></span></span><span class='lparen'>(</span><span class='int'>1</span><span class='comma'>,</span> <span class='int'>2</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_polar'><span class='object_link'><a href="#polar-class_method" title="Complex.polar (method)">polar</a></span></span>  <span class='comment'>#=&gt; [2.23606797749979, 1.1071487177940904]
+</span></code></pre>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+  <div class="docstring">
+  <div class="discussion">
+    
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="Array.html" title="Array (class)">Array</a></span></tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div>
+
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+1081
+1082
+1083
+1084
+1085</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'complex.c', line 1081</span>
+
+static VALUE
+nucomp_polar(VALUE self)
+{
+    return rb_assoc_new(f_abs(self), f_arg(self));
+}</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="quo-instance_method">
+  
+    #<strong>quo</strong>  &#x21d2; <tt><span class='object_link'><a href="Object.html" title="Object (class)">Object</a></span></tt> 
+  
+
+  
+
+  
+</h3>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="rationalize-instance_method">
+  
+    #<strong>rationalize</strong>([eps])  &#x21d2; <tt><span class='object_link'><a href="Object.html" title="Object (class)">Object</a></span></tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Returns the value as a rational if possible (the imaginary part should be
+exactly zero).</p>
+
+<pre class="code"><code class=""><span class='const'><span class='object_link'><a href="" title="Complex (class)">Complex</a></span></span><span class='lparen'>(</span><span class='float'>1.0</span><span class='op'>/</span><span class='int'>3</span><span class='comma'>,</span> <span class='int'>0</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_rationalize'>rationalize</span>  <span class='comment'>#=&gt; (1/3)
+</span><span class='const'><span class='object_link'><a href="" title="Complex (class)">Complex</a></span></span><span class='lparen'>(</span><span class='int'>1</span><span class='comma'>,</span> <span class='float'>0.0</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_rationalize'>rationalize</span>    <span class='comment'># RangeError
+</span><span class='const'><span class='object_link'><a href="" title="Complex (class)">Complex</a></span></span><span class='lparen'>(</span><span class='int'>1</span><span class='comma'>,</span> <span class='int'>2</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_rationalize'>rationalize</span>      <span class='comment'># RangeError
+</span></code></pre>
+
+<p>See to_r.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+  
+
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+1481
+1482
+1483
+1484
+1485
+1486
+1487
+1488
+1489
+1490
+1491
+1492
+1493</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'complex.c', line 1481</span>
+
+static VALUE
+nucomp_rationalize(int argc, VALUE *argv, VALUE self)
+{
+    get_dat1(self);
+
+    rb_scan_args(argc, argv, &quot;01&quot;, NULL);
+
+    if (!k_exact_zero_p(dat-&gt;imag)) {
+       rb_raise(rb_eRangeError, &quot;can&#39;t convert %&quot;PRIsVALUE&quot; into Rational&quot;,
+                self);
+    }
+    return rb_funcallv(dat-&gt;real, id_rationalize, argc, argv);
+}</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="real-instance_method">
+  
+    #<strong>real</strong>  &#x21d2; <tt><span class='object_link'><a href="Object.html" title="Object (class)">Object</a></span></tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Returns the real part.</p>
+
+<pre class="code"><code class=""><span class='const'><span class='object_link'><a href="" title="Complex (class)">Complex</a></span></span><span class='lparen'>(</span><span class='int'>7</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_real'>real</span>      <span class='comment'>#=&gt; 7
+</span><span class='const'><span class='object_link'><a href="" title="Complex (class)">Complex</a></span></span><span class='lparen'>(</span><span class='int'>9</span><span class='comma'>,</span> <span class='op'>-</span><span class='int'>4</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_real'>real</span>  <span class='comment'>#=&gt; 9
+</span></code></pre>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+  
+
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+602
+603
+604
+605
+606
+607</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'complex.c', line 602</span>
+
+static VALUE
+nucomp_real(VALUE self)
+{
+    get_dat1(self);
+    return dat-&gt;real;
+}</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="real?-instance_method">
+  
+    #<strong>real?</strong>  &#x21d2; <tt>false</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Returns false.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+  <div class="docstring">
+  <div class="discussion">
+    
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>false</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div>
+
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Boolean</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+1109
+1110
+1111
+1112
+1113</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'complex.c', line 1109</span>
+
+static VALUE
+nucomp_false(VALUE self)
+{
+    return Qfalse;
+}</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="rect-instance_method">
+  
+    
+      <span class="overload">#<strong>rect</strong>  &#x21d2; <tt><span class='object_link'><a href="Array.html" title="Array (class)">Array</a></span></tt> </span>
+    
+      <span class="overload">#<strong>rectangular</strong>  &#x21d2; <tt><span class='object_link'><a href="Array.html" title="Array (class)">Array</a></span></tt> </span>
+    
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Returns an array; [cmp.real, cmp.imag].</p>
+
+<pre class="code"><code class=""><span class='const'><span class='object_link'><a href="" title="Complex (class)">Complex</a></span></span><span class='lparen'>(</span><span class='int'>1</span><span class='comma'>,</span> <span class='int'>2</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_rectangular'><span class='object_link'><a href="#rectangular-class_method" title="Complex.rectangular (method)">rectangular</a></span></span>  <span class='comment'>#=&gt; [1, 2]
+</span></code></pre>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+  <p class="tag_title">Overloads:</p>
+  <ul class="overload">
+    
+      
+      <li class="overload_item">
+        <span class="signature">#<strong>rect</strong>  &#x21d2; <tt><span class='object_link'><a href="Array.html" title="Array (class)">Array</a></span></tt> </span>
+        <div class="docstring">
+  <div class="discussion">
+    
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="Array.html" title="Array (class)">Array</a></span></tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div>
+      </li>
+    
+      
+      <li class="overload_item">
+        <span class="signature">#<strong>rectangular</strong>  &#x21d2; <tt><span class='object_link'><a href="Array.html" title="Array (class)">Array</a></span></tt> </span>
+        <div class="docstring">
+  <div class="discussion">
+    
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="Array.html" title="Array (class)">Array</a></span></tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div>
+      </li>
+    
+  </ul>
+
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+1066
+1067
+1068
+1069
+1070
+1071</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'complex.c', line 1066</span>
+
+static VALUE
+nucomp_rect(VALUE self)
+{
+    get_dat1(self);
+    return rb_assoc_new(dat-&gt;real, dat-&gt;imag);
+}</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="rectangular-instance_method">
+  
+    
+      <span class="overload">#<strong>rect</strong>  &#x21d2; <tt><span class='object_link'><a href="Array.html" title="Array (class)">Array</a></span></tt> </span>
+    
+      <span class="overload">#<strong>rectangular</strong>  &#x21d2; <tt><span class='object_link'><a href="Array.html" title="Array (class)">Array</a></span></tt> </span>
+    
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Returns an array; [cmp.real, cmp.imag].</p>
+
+<pre class="code"><code class=""><span class='const'><span class='object_link'><a href="" title="Complex (class)">Complex</a></span></span><span class='lparen'>(</span><span class='int'>1</span><span class='comma'>,</span> <span class='int'>2</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_rectangular'><span class='object_link'><a href="#rectangular-class_method" title="Complex.rectangular (method)">rectangular</a></span></span>  <span class='comment'>#=&gt; [1, 2]
+</span></code></pre>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+  <p class="tag_title">Overloads:</p>
+  <ul class="overload">
+    
+      
+      <li class="overload_item">
+        <span class="signature">#<strong>rect</strong>  &#x21d2; <tt><span class='object_link'><a href="Array.html" title="Array (class)">Array</a></span></tt> </span>
+        <div class="docstring">
+  <div class="discussion">
+    
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="Array.html" title="Array (class)">Array</a></span></tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div>
+      </li>
+    
+      
+      <li class="overload_item">
+        <span class="signature">#<strong>rectangular</strong>  &#x21d2; <tt><span class='object_link'><a href="Array.html" title="Array (class)">Array</a></span></tt> </span>
+        <div class="docstring">
+  <div class="discussion">
+    
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="Array.html" title="Array (class)">Array</a></span></tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div>
+      </li>
+    
+  </ul>
+
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+1066
+1067
+1068
+1069
+1070
+1071</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'complex.c', line 1066</span>
+
+static VALUE
+nucomp_rect(VALUE self)
+{
+    get_dat1(self);
+    return rb_assoc_new(dat-&gt;real, dat-&gt;imag);
+}</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="to_c-instance_method">
+  
+    #<strong>to_c</strong>  &#x21d2; <tt>self</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Returns self.</p>
+
+<pre class="code"><code class=""><span class='const'><span class='object_link'><a href="" title="Complex (class)">Complex</a></span></span><span class='lparen'>(</span><span class='int'>2</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_to_c'>to_c</span>      <span class='comment'>#=&gt; (2+0i)
+</span><span class='const'><span class='object_link'><a href="" title="Complex (class)">Complex</a></span></span><span class='lparen'>(</span><span class='op'>-</span><span class='int'>8</span><span class='comma'>,</span> <span class='int'>6</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_to_c'>to_c</span>  <span class='comment'>#=&gt; (-8+6i)
+</span></code></pre>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+  <div class="docstring">
+  <div class="discussion">
+    
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>self</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div>
+
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+1504
+1505
+1506
+1507
+1508</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'complex.c', line 1504</span>
+
+static VALUE
+nucomp_to_c(VALUE self)
+{
+    return self;
+}</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="to_f-instance_method">
+  
+    #<strong>to_f</strong>  &#x21d2; <tt><span class='object_link'><a href="Float.html" title="Float (class)">Float</a></span></tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Returns the value as a float if possible (the imaginary part should be
+exactly zero).</p>
+
+<pre class="code"><code class=""><span class='const'><span class='object_link'><a href="" title="Complex (class)">Complex</a></span></span><span class='lparen'>(</span><span class='int'>1</span><span class='comma'>,</span> <span class='int'>0</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_to_f'>to_f</span>    <span class='comment'>#=&gt; 1.0
+</span><span class='const'><span class='object_link'><a href="" title="Complex (class)">Complex</a></span></span><span class='lparen'>(</span><span class='int'>1</span><span class='comma'>,</span> <span class='float'>0.0</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_to_f'>to_f</span>  <span class='comment'># RangeError
+</span><span class='const'><span class='object_link'><a href="" title="Complex (class)">Complex</a></span></span><span class='lparen'>(</span><span class='int'>1</span><span class='comma'>,</span> <span class='int'>2</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_to_f'>to_f</span>    <span class='comment'># RangeError
+</span></code></pre>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+  <div class="docstring">
+  <div class="discussion">
+    
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="Float.html" title="Float (class)">Float</a></span></tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div>
+
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+1431
+1432
+1433
+1434
+1435
+1436
+1437
+1438
+1439
+1440
+1441</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'complex.c', line 1431</span>
+
+static VALUE
+nucomp_to_f(VALUE self)
+{
+    get_dat1(self);
+
+    if (!k_exact_zero_p(dat-&gt;imag)) {
+	rb_raise(rb_eRangeError, &quot;can&#39;t convert %&quot;PRIsVALUE&quot; into Float&quot;,
+		 self);
+    }
+    return f_to_f(dat-&gt;real);
+}</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="to_i-instance_method">
+  
+    #<strong>to_i</strong>  &#x21d2; <tt><span class='object_link'><a href="Integer.html" title="Integer (class)">Integer</a></span></tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Returns the value as an integer if possible (the imaginary part should be
+exactly zero).</p>
+
+<pre class="code"><code class=""><span class='const'><span class='object_link'><a href="" title="Complex (class)">Complex</a></span></span><span class='lparen'>(</span><span class='int'>1</span><span class='comma'>,</span> <span class='int'>0</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_to_i'>to_i</span>    <span class='comment'>#=&gt; 1
+</span><span class='const'><span class='object_link'><a href="" title="Complex (class)">Complex</a></span></span><span class='lparen'>(</span><span class='int'>1</span><span class='comma'>,</span> <span class='float'>0.0</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_to_i'>to_i</span>  <span class='comment'># RangeError
+</span><span class='const'><span class='object_link'><a href="" title="Complex (class)">Complex</a></span></span><span class='lparen'>(</span><span class='int'>1</span><span class='comma'>,</span> <span class='int'>2</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_to_i'>to_i</span>    <span class='comment'># RangeError
+</span></code></pre>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+  <div class="docstring">
+  <div class="discussion">
+    
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="Integer.html" title="Integer (class)">Integer</a></span></tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div>
+
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+1408
+1409
+1410
+1411
+1412
+1413
+1414
+1415
+1416
+1417
+1418</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'complex.c', line 1408</span>
+
+static VALUE
+nucomp_to_i(VALUE self)
+{
+    get_dat1(self);
+
+    if (!k_exact_zero_p(dat-&gt;imag)) {
+	rb_raise(rb_eRangeError, &quot;can&#39;t convert %&quot;PRIsVALUE&quot; into Integer&quot;,
+		 self);
+    }
+    return f_to_i(dat-&gt;real);
+}</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="to_r-instance_method">
+  
+    #<strong>to_r</strong>  &#x21d2; <tt><span class='object_link'><a href="Object.html" title="Object (class)">Object</a></span></tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Returns the value as a rational if possible (the imaginary part should be
+exactly zero).</p>
+
+<pre class="code"><code class=""><span class='const'><span class='object_link'><a href="" title="Complex (class)">Complex</a></span></span><span class='lparen'>(</span><span class='int'>1</span><span class='comma'>,</span> <span class='int'>0</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_to_r'>to_r</span>    <span class='comment'>#=&gt; (1/1)
+</span><span class='const'><span class='object_link'><a href="" title="Complex (class)">Complex</a></span></span><span class='lparen'>(</span><span class='int'>1</span><span class='comma'>,</span> <span class='float'>0.0</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_to_r'>to_r</span>  <span class='comment'># RangeError
+</span><span class='const'><span class='object_link'><a href="" title="Complex (class)">Complex</a></span></span><span class='lparen'>(</span><span class='int'>1</span><span class='comma'>,</span> <span class='int'>2</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_to_r'>to_r</span>    <span class='comment'># RangeError
+</span></code></pre>
+
+<p>See rationalize.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+  
+
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+1456
+1457
+1458
+1459
+1460
+1461
+1462
+1463
+1464
+1465
+1466</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'complex.c', line 1456</span>
+
+static VALUE
+nucomp_to_r(VALUE self)
+{
+    get_dat1(self);
+
+    if (!k_exact_zero_p(dat-&gt;imag)) {
+	rb_raise(rb_eRangeError, &quot;can&#39;t convert %&quot;PRIsVALUE&quot; into Rational&quot;,
+		 self);
+    }
+    return f_to_r(dat-&gt;real);
+}</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="to_s-instance_method">
+  
+    #<strong>to_s</strong>  &#x21d2; <tt><span class='object_link'><a href="String.html" title="String (class)">String</a></span></tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Returns the value as a string.</p>
+
+<pre class="code"><code class=""><span class='const'><span class='object_link'><a href="" title="Complex (class)">Complex</a></span></span><span class='lparen'>(</span><span class='int'>2</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_to_s'>to_s</span>                       <span class='comment'>#=&gt; &quot;2+0i&quot;
+</span><span class='const'><span class='object_link'><a href="" title="Complex (class)">Complex</a></span></span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>-8/6</span><span class='tstring_end'>&#39;</span></span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_to_s'>to_s</span>                  <span class='comment'>#=&gt; &quot;-4/3+0i&quot;
+</span><span class='const'><span class='object_link'><a href="" title="Complex (class)">Complex</a></span></span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>1/2i</span><span class='tstring_end'>&#39;</span></span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_to_s'>to_s</span>                  <span class='comment'>#=&gt; &quot;0+1/2i&quot;
+</span><span class='const'><span class='object_link'><a href="" title="Complex (class)">Complex</a></span></span><span class='lparen'>(</span><span class='int'>0</span><span class='comma'>,</span> <span class='const'><span class='object_link'><a href="Float.html" title="Float (class)">Float</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="Float.html#INFINITY-constant" title="Float::INFINITY (constant)">INFINITY</a></span></span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_to_s'>to_s</span>      <span class='comment'>#=&gt; &quot;0+Infinity*i&quot;
+</span><span class='const'><span class='object_link'><a href="" title="Complex (class)">Complex</a></span></span><span class='lparen'>(</span><span class='const'><span class='object_link'><a href="Float.html" title="Float (class)">Float</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="Float.html#NAN-constant" title="Float::NAN (constant)">NAN</a></span></span><span class='comma'>,</span> <span class='const'><span class='object_link'><a href="Float.html" title="Float (class)">Float</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="Float.html#NAN-constant" title="Float::NAN (constant)">NAN</a></span></span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_to_s'>to_s</span>  <span class='comment'>#=&gt; &quot;NaN+NaN*i&quot;
+</span></code></pre>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+  <div class="docstring">
+  <div class="discussion">
+    
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="String.html" title="String (class)">String</a></span></tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div>
+
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+1243
+1244
+1245
+1246
+1247</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'complex.c', line 1243</span>
+
+static VALUE
+nucomp_to_s(VALUE self)
+{
+    return f_format(self, rb_String);
+}</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+  </div>
+
+</div>
+
+      <div id="footer">
+  Generated on Mon Feb 26 22:23:17 2018 by
+  <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
+  0.9.12 (ruby-2.4.2).
+</div>
+
+    </div>
+  </body>
+</html>

@@ -1,0 +1,7436 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>
+  Class: Integer
+  
+    &mdash; Documentation by YARD 0.9.12
+  
+</title>
+
+  <link rel="stylesheet" href="css/style.css" type="text/css" charset="utf-8" />
+
+  <link rel="stylesheet" href="css/common.css" type="text/css" charset="utf-8" />
+
+<script type="text/javascript" charset="utf-8">
+  pathId = "Integer";
+  relpath = '';
+</script>
+
+
+  <script type="text/javascript" charset="utf-8" src="js/jquery.js"></script>
+
+  <script type="text/javascript" charset="utf-8" src="js/app.js"></script>
+
+
+  </head>
+  <body>
+    <div class="nav_wrap">
+      <iframe id="nav" src="class_list.html?1"></iframe>
+      <div id="resizer"></div>
+    </div>
+
+    <div id="main" tabindex="-1">
+      <div id="header">
+        <div id="menu">
+  
+    <a href="_index.html">Index (I)</a> &raquo;
+    
+    
+    <span class="title">Integer</span>
+  
+</div>
+
+        <div id="search">
+  
+    <a class="full_list_link" id="class_list_link"
+        href="class_list.html">
+
+        <svg width="24" height="24">
+          <rect x="0" y="4" width="24" height="4" rx="1" ry="1"></rect>
+          <rect x="0" y="12" width="24" height="4" rx="1" ry="1"></rect>
+          <rect x="0" y="20" width="24" height="4" rx="1" ry="1"></rect>
+        </svg>
+    </a>
+  
+</div>
+        <div class="clear"></div>
+      </div>
+
+      <div id="content"><h1>Class: Integer
+  
+  
+  
+</h1>
+<div class="box_info">
+  
+  <dl>
+    <dt>Inherits:</dt>
+    <dd>
+      <span class="inheritName"><span class='object_link'><a href="Numeric.html" title="Numeric (class)">Numeric</a></span></span>
+      
+        <ul class="fullTree">
+          <li><span class='object_link'><a href="Object.html" title="Object (class)">Object</a></span></li>
+          
+            <li class="next"><span class='object_link'><a href="Numeric.html" title="Numeric (class)">Numeric</a></span></li>
+          
+            <li class="next">Integer</li>
+          
+        </ul>
+        <a href="#" class="inheritanceTree">show all</a>
+      
+    </dd>
+  </dl>
+  
+
+  
+  
+  
+  
+  
+
+  
+
+  
+  <dl>
+    <dt>Defined in:</dt>
+    <dd>numeric.c<span class="defines">,<br />
+  numeric.c</span>
+</dd>
+  </dl>
+  
+</div>
+
+<h2>Overview</h2><div class="docstring">
+  <div class="discussion">
+    
+<p>******************************************************************</p>
+
+<pre class="code ruby"><code class="ruby">Holds Integer values.  You cannot add a singleton method to an
+Integer object, any attempt to do so will raise a TypeError.</code></pre>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div>
+  <h2>Constant Summary</h2>
+  <dl class="constants">
+    
+      <dt id="GMP_VERSION-constant" class="">GMP_VERSION =
+        <div class="docstring">
+  <div class="discussion">
+    
+<p>The version of loaded GMP.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div>
+      </dt>
+      <dd><pre class="code"><span class='id identifier rubyid_rb_sprintf'>rb_sprintf</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>GMP %s</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='id identifier rubyid_gmp_version'>gmp_version</span><span class='rparen'>)</span></pre></dd>
+    
+  </dl>
+
+
+
+
+
+
+
+  
+    <h2>
+      Class Method Summary
+      <small><a href="#" class="summary_toggle">collapse</a></small>
+    </h2>
+
+    <ul class="summary">
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#sqrt-class_method" title="sqrt (class method)">.<strong>sqrt</strong>(n)  &#x21d2; Integer </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Returns the integer square root of the non-negative integer <code>n</code>,
+i.e.</p>
+</div></span>
+  
+</li>
+
+      
+    </ul>
+  
+    <h2>
+      Instance Method Summary
+      <small><a href="#" class="summary_toggle">collapse</a></small>
+    </h2>
+
+    <ul class="summary">
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#%25-instance_method" title="#% (instance method)">#<strong>%</strong>(y)  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Returns <code>int</code> modulo <code>other</code>.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#&-instance_method" title="#&amp; (instance method)">#<strong>&amp;</strong>(other_int)  &#x21d2; Integer </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Bitwise AND.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#*-instance_method" title="#* (instance method)">#<strong>*</strong>(numeric)  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Performs multiplication: the class of the resulting object depends on the
+class of <code>numeric</code>.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#**-instance_method" title="#** (instance method)">#<strong>**</strong>(numeric)  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Raises <code>int</code> to the power of <code>numeric</code>, which may be
+negative or fractional.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#%2B-instance_method" title="#+ (instance method)">#<strong>+</strong>(numeric)  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Performs addition: the class of the resulting object depends on the class
+of <code>numeric</code>.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#--instance_method" title="#- (instance method)">#<strong>-</strong>(numeric)  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Performs subtraction: the class of the resulting object depends on the
+class of <code>numeric</code>.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#-@-instance_method" title="#- (instance method)">#<strong>-</strong>  &#x21d2; Integer </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Returns <code>int</code>, negated.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#%2F-instance_method" title="#/ (instance method)">#<strong>/</strong>(numeric)  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Performs division: the class of the resulting object depends on the class
+of <code>numeric</code>.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#<-instance_method" title="#&lt; (instance method)">#<strong>&lt;</strong>(real)  &#x21d2; Boolean </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Returns <code>true</code> if the value of <code>int</code> is less than
+that of <code>real</code>.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#<<-instance_method" title="#&lt;&lt; (instance method)">#<strong>&lt;&lt;</strong>(count)  &#x21d2; Integer </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Returns <code>int</code> shifted left <code>count</code> positions, or
+right if <code>count</code> is negative.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#<=-instance_method" title="#&lt;= (instance method)">#<strong>&lt;=</strong>(real)  &#x21d2; Boolean </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Returns <code>true</code> if the value of <code>int</code> is less than or
+equal to that of <code>real</code>.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#<=>-instance_method" title="#&lt;=&gt; (instance method)">#<strong>&lt;=&gt;</strong>(numeric)  &#x21d2; -1, ... </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Comparison—Returns -1, 0, or +1 depending on whether <code>int</code> is
+less than, equal to, or greater than <code>numeric</code>.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#==-instance_method" title="#== (instance method)">#<strong>==</strong>(other)  &#x21d2; Boolean </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Returns <code>true</code> if <code>int</code> equals <code>other</code>
+numerically.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#===-instance_method" title="#== (instance method)">#<strong>==</strong>(other)  &#x21d2; Boolean </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Returns <code>true</code> if <code>int</code> equals <code>other</code>
+numerically.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#>-instance_method" title="#&gt; (instance method)">#<strong>&gt;</strong>(real)  &#x21d2; Boolean </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Returns <code>true</code> if the value of <code>int</code> is greater than
+that of <code>real</code>.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#>=-instance_method" title="#&gt;= (instance method)">#<strong>&gt;=</strong>(real)  &#x21d2; Boolean </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Returns <code>true</code> if the value of <code>int</code> is greater than
+or equal to that of <code>real</code>.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#>>-instance_method" title="#&gt;&gt; (instance method)">#<strong>&gt;&gt;</strong>(count)  &#x21d2; Integer </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Returns <code>int</code> shifted right <code>count</code> positions, or
+left if <code>count</code> is negative.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#[]-instance_method" title="#[] (instance method)">#<strong>[]</strong>(n)  &#x21d2; 0, 1 </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Bit Reference—Returns the <code>n</code>th bit in the binary representation
+of <code>int</code>, where <code>int[0]</code> is the least significant
+bit.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#%5E-instance_method" title="#^ (instance method)">#<strong>^</strong>(other_int)  &#x21d2; Integer </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Bitwise EXCLUSIVE OR.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#abs-instance_method" title="#abs (instance method)">#<strong>abs</strong>  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#allbits%3F-instance_method" title="#allbits? (instance method)">#<strong>allbits?</strong>(mask)  &#x21d2; Boolean </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Returns <code>true</code> if all bits of <code>int &amp; mask</code> are 1.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#anybits%3F-instance_method" title="#anybits? (instance method)">#<strong>anybits?</strong>(mask)  &#x21d2; Boolean </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Returns <code>true</code> if any bits of <code>int &amp; mask</code> are 1.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#bit_length-instance_method" title="#bit_length (instance method)">#<strong>bit_length</strong>  &#x21d2; Integer </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Returns the number of bits of the value of <code>int</code>.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#ceil-instance_method" title="#ceil (instance method)">#<strong>ceil</strong>([ndigits])  &#x21d2; Integer, Float </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Returns the smallest number greater than or equal to <code>int</code> with
+a precision of <code>ndigits</code> decimal digits (default: 0).</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#chr-instance_method" title="#chr (instance method)">#<strong>chr</strong>([encoding])  &#x21d2; String </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Returns a string containing the character represented by the
+<code>int</code>&#39;s value according to <code>encoding</code>.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#coerce-instance_method" title="#coerce (instance method)">#<strong>coerce</strong>(numeric)  &#x21d2; Array </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Returns an array with both a <code>numeric</code> and a <code>big</code>
+represented as Bignum objects.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#denominator-instance_method" title="#denominator (instance method)">#<strong>denominator</strong>  &#x21d2; 1 </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Returns 1.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#digits-instance_method" title="#digits (instance method)">#<strong>digits</strong>(*args)  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Returns the digits of <code>int</code>&#39;s place-value representation
+with radix <code>base</code> (default: 10).</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#div-instance_method" title="#div (instance method)">#<strong>div</strong>(numeric)  &#x21d2; Integer </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Performs integer division: returns the integer result of dividing
+<code>int</code> by <code>numeric</code>.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#divmod-instance_method" title="#divmod (instance method)">#<strong>divmod</strong>(numeric)  &#x21d2; Array </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>See Numeric#divmod.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#downto-instance_method" title="#downto (instance method)">#<strong>downto</strong>(to)  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Iterates the given block, passing in decreasing values from
+<code>int</code> down to and including <code>limit</code>.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#even%3F-instance_method" title="#even? (instance method)">#<strong>even?</strong>  &#x21d2; Boolean </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Returns <code>true</code> if <code>int</code> is an even number.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#fdiv-instance_method" title="#fdiv (instance method)">#<strong>fdiv</strong>(numeric)  &#x21d2; Float </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Returns the floating point result of dividing <code>int</code> by
+<code>numeric</code>.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#floor-instance_method" title="#floor (instance method)">#<strong>floor</strong>([ndigits])  &#x21d2; Integer, Float </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Returns the largest number less than or equal to <code>int</code> with a
+precision of <code>ndigits</code> decimal digits (default: 0).</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#gcd-instance_method" title="#gcd (instance method)">#<strong>gcd</strong>(other_int)  &#x21d2; Integer </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Returns the greatest common divisor of the two integers.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#gcdlcm-instance_method" title="#gcdlcm (instance method)">#<strong>gcdlcm</strong>(other_int)  &#x21d2; Array </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Returns an array with the greatest common divisor and the least common
+multiple of the two integers, [gcd, lcm].</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#integer%3F-instance_method" title="#integer? (instance method)">#<strong>integer?</strong>  &#x21d2; true </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Since <code>int</code> is already an Integer, this always returns
+<code>true</code>.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#lcm-instance_method" title="#lcm (instance method)">#<strong>lcm</strong>(other_int)  &#x21d2; Integer </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Returns the least common multiple of the two integers.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#magnitude-instance_method" title="#magnitude (instance method)">#<strong>magnitude</strong>  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Returns the absolute value of <code>int</code>.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#modulo-instance_method" title="#modulo (instance method)">#<strong>modulo</strong>(y)  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Returns <code>int</code> modulo <code>other</code>.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#next-instance_method" title="#next (instance method)">#<strong>next</strong>  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Returns the successor of <code>int</code>, i.e.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#nobits%3F-instance_method" title="#nobits? (instance method)">#<strong>nobits?</strong>(mask)  &#x21d2; Boolean </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Returns <code>true</code> if no bits of <code>int &amp; mask</code> are 1.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#numerator-instance_method" title="#numerator (instance method)">#<strong>numerator</strong>  &#x21d2; self </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Returns self.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#odd%3F-instance_method" title="#odd? (instance method)">#<strong>odd?</strong>  &#x21d2; Boolean </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Returns <code>true</code> if <code>int</code> is an odd number.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#ord-instance_method" title="#ord (instance method)">#<strong>ord</strong>  &#x21d2; self </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Returns the <code>int</code> itself.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#pow-instance_method" title="#pow (instance method)">#<strong>pow</strong>(*, const)  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Returns (modular) exponentiation as:.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#pred-instance_method" title="#pred (instance method)">#<strong>pred</strong>  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#rationalize-instance_method" title="#rationalize (instance method)">#<strong>rationalize</strong>([eps])  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Returns the value as a rational.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#remainder-instance_method" title="#remainder (instance method)">#<strong>remainder</strong>(numeric)  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Returns the remainder after dividing <code>int</code> by
+<code>numeric</code>.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#round-instance_method" title="#round (instance method)">#<strong>round</strong>([ndigits][, half: mode])  &#x21d2; Integer, Float </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Returns <code>int</code> rounded to the nearest value with a precision of
+<code>ndigits</code> decimal digits (default: 0).</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#size-instance_method" title="#size (instance method)">#<strong>size</strong>  &#x21d2; Integer </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Returns the number of bytes in the machine representation of
+<code>int</code> (machine dependent).</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#succ-instance_method" title="#succ (instance method)">#<strong>succ</strong>  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Returns the successor of <code>int</code>, i.e.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#times-instance_method" title="#times (instance method)">#<strong>times</strong>  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Iterates the given block <code>int</code> times, passing in values from
+zero to <code>int - 1</code>.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#to_f-instance_method" title="#to_f (instance method)">#<strong>to_f</strong>  &#x21d2; Float </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Converts <code>int</code> to a Float.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#to_i-instance_method" title="#to_i (instance method)">#<strong>to_i</strong>  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Since <code>int</code> is already an Integer, returns <code>self</code>.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#to_int-instance_method" title="#to_int (instance method)">#<strong>to_int</strong>  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Since <code>int</code> is already an Integer, returns <code>self</code>.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#to_r-instance_method" title="#to_r (instance method)">#<strong>to_r</strong>  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Returns the value as a rational.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#to_s-instance_method" title="#to_s (instance method)">#<strong>to_s</strong>(base = 10)  &#x21d2; String </a>
+    
+
+    
+      (also: #inspect)
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Returns a string containing the place-value representation of
+<code>int</code> with radix <code>base</code> (between 2 and 36).</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#truncate-instance_method" title="#truncate (instance method)">#<strong>truncate</strong>([ndigits])  &#x21d2; Integer, Float </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Returns <code>int</code> truncated (toward zero) to a precision of
+<code>ndigits</code> decimal digits (default: 0).</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#upto-instance_method" title="#upto (instance method)">#<strong>upto</strong>(to)  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Iterates the given block, passing in integer values from <code>int</code>
+up to and including <code>limit</code>.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#%7C-instance_method" title="#| (instance method)">#<strong>|</strong>(other_int)  &#x21d2; Integer </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Bitwise OR.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#~-instance_method" title="#~ (instance method)">#<strong>~</strong>  &#x21d2; Integer </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>One&#39;s complement: returns a number where each bit is flipped.</p>
+</div></span>
+  
+</li>
+
+      
+    </ul>
+  
+
+
+  
+  
+  
+  
+  
+  
+  
+  
+  <h3 class="inherited">Methods inherited from <span class='object_link'><a href="Numeric.html" title="Numeric (class)">Numeric</a></span></h3>
+  <p class="inherited"><span class='object_link'><a href="Numeric.html#%2B@-instance_method" title="Numeric#+@ (method)">#+@</a></span>, <span class='object_link'><a href="Numeric.html#abs2-instance_method" title="Numeric#abs2 (method)">#abs2</a></span>, <span class='object_link'><a href="Numeric.html#angle-instance_method" title="Numeric#angle (method)">#angle</a></span>, <span class='object_link'><a href="Numeric.html#arg-instance_method" title="Numeric#arg (method)">#arg</a></span>, <span class='object_link'><a href="Numeric.html#clone-instance_method" title="Numeric#clone (method)">#clone</a></span>, <span class='object_link'><a href="Numeric.html#conj-instance_method" title="Numeric#conj (method)">#conj</a></span>, <span class='object_link'><a href="Numeric.html#conjugate-instance_method" title="Numeric#conjugate (method)">#conjugate</a></span>, <span class='object_link'><a href="Numeric.html#dup-instance_method" title="Numeric#dup (method)">#dup</a></span>, <span class='object_link'><a href="Numeric.html#eql%3F-instance_method" title="Numeric#eql? (method)">#eql?</a></span>, <span class='object_link'><a href="Numeric.html#finite%3F-instance_method" title="Numeric#finite? (method)">#finite?</a></span>, <span class='object_link'><a href="Numeric.html#i-instance_method" title="Numeric#i (method)">#i</a></span>, <span class='object_link'><a href="Numeric.html#imag-instance_method" title="Numeric#imag (method)">#imag</a></span>, <span class='object_link'><a href="Numeric.html#imaginary-instance_method" title="Numeric#imaginary (method)">#imaginary</a></span>, <span class='object_link'><a href="Numeric.html#infinite%3F-instance_method" title="Numeric#infinite? (method)">#infinite?</a></span>, <span class='object_link'><a href="Numeric.html#negative%3F-instance_method" title="Numeric#negative? (method)">#negative?</a></span>, <span class='object_link'><a href="Numeric.html#nonzero%3F-instance_method" title="Numeric#nonzero? (method)">#nonzero?</a></span>, <span class='object_link'><a href="Numeric.html#phase-instance_method" title="Numeric#phase (method)">#phase</a></span>, <span class='object_link'><a href="Numeric.html#polar-instance_method" title="Numeric#polar (method)">#polar</a></span>, <span class='object_link'><a href="Numeric.html#positive%3F-instance_method" title="Numeric#positive? (method)">#positive?</a></span>, <span class='object_link'><a href="Numeric.html#quo-instance_method" title="Numeric#quo (method)">#quo</a></span>, <span class='object_link'><a href="Numeric.html#real-instance_method" title="Numeric#real (method)">#real</a></span>, <span class='object_link'><a href="Numeric.html#real%3F-instance_method" title="Numeric#real? (method)">#real?</a></span>, <span class='object_link'><a href="Numeric.html#rect-instance_method" title="Numeric#rect (method)">#rect</a></span>, <span class='object_link'><a href="Numeric.html#rectangular-instance_method" title="Numeric#rectangular (method)">#rectangular</a></span>, <span class='object_link'><a href="Numeric.html#singleton_method_added-instance_method" title="Numeric#singleton_method_added (method)">#singleton_method_added</a></span>, <span class='object_link'><a href="Numeric.html#step-instance_method" title="Numeric#step (method)">#step</a></span>, <span class='object_link'><a href="Numeric.html#to_c-instance_method" title="Numeric#to_c (method)">#to_c</a></span>, <span class='object_link'><a href="Numeric.html#zero%3F-instance_method" title="Numeric#zero? (method)">#zero?</a></span></p>
+
+  
+  
+  
+  
+  
+  
+  
+  
+  <h3 class="inherited">Methods included from <span class='object_link'><a href="Comparable.html" title="Comparable (module)">Comparable</a></span></h3>
+  <p class="inherited"><span class='object_link'><a href="Comparable.html#between%3F-instance_method" title="Comparable#between? (method)">#between?</a></span>, <span class='object_link'><a href="Comparable.html#clamp-instance_method" title="Comparable#clamp (method)">#clamp</a></span></p>
+
+
+  <div id="class_method_details" class="method_details_list">
+    <h2>Class Method Details</h2>
+
+    
+      <div class="method_details first">
+  <h3 class="signature first" id="sqrt-class_method">
+  
+    .<strong>sqrt</strong>(n)  &#x21d2; <tt><span class='object_link'><a href="" title="Integer (class)">Integer</a></span></tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Returns the integer square root of the non-negative integer <code>n</code>,
+i.e. the largest non-negative integer less than or equal to the square root
+of <code>n</code>.</p>
+
+<pre class="code"><code class=""><span class='const'><span class='object_link'><a href="" title="Integer (class)">Integer</a></span></span><span class='period'>.</span><span class='id identifier rubyid_sqrt'>sqrt</span><span class='lparen'>(</span><span class='int'>0</span><span class='rparen'>)</span>        <span class='comment'>#=&gt; 0
+</span><span class='const'><span class='object_link'><a href="" title="Integer (class)">Integer</a></span></span><span class='period'>.</span><span class='id identifier rubyid_sqrt'>sqrt</span><span class='lparen'>(</span><span class='int'>1</span><span class='rparen'>)</span>        <span class='comment'>#=&gt; 1
+</span><span class='const'><span class='object_link'><a href="" title="Integer (class)">Integer</a></span></span><span class='period'>.</span><span class='id identifier rubyid_sqrt'>sqrt</span><span class='lparen'>(</span><span class='int'>24</span><span class='rparen'>)</span>       <span class='comment'>#=&gt; 4
+</span><span class='const'><span class='object_link'><a href="" title="Integer (class)">Integer</a></span></span><span class='period'>.</span><span class='id identifier rubyid_sqrt'>sqrt</span><span class='lparen'>(</span><span class='int'>25</span><span class='rparen'>)</span>       <span class='comment'>#=&gt; 5
+</span><span class='const'><span class='object_link'><a href="" title="Integer (class)">Integer</a></span></span><span class='period'>.</span><span class='id identifier rubyid_sqrt'>sqrt</span><span class='lparen'>(</span><span class='int'>10</span><span class='op'>**</span><span class='int'>400</span><span class='rparen'>)</span>  <span class='comment'>#=&gt; 10**200
+</span></code></pre>
+
+<p>Equivalent to <code>Math.sqrt(n).floor</code>, except that the result of
+the latter code may differ from the true value due to the limited precision
+of floating point arithmetic.</p>
+
+<pre class="code"><code class=""><span class='const'><span class='object_link'><a href="" title="Integer (class)">Integer</a></span></span><span class='period'>.</span><span class='id identifier rubyid_sqrt'>sqrt</span><span class='lparen'>(</span><span class='int'>10</span><span class='op'>**</span><span class='int'>46</span><span class='rparen'>)</span>     <span class='comment'>#=&gt; 100000000000000000000000
+</span><span class='const'><span class='object_link'><a href="Math.html" title="Math (module)">Math</a></span></span><span class='period'>.</span><span class='id identifier rubyid_sqrt'><span class='object_link'><a href="Math.html#sqrt-class_method" title="Math.sqrt (method)">sqrt</a></span></span><span class='lparen'>(</span><span class='int'>10</span><span class='op'>**</span><span class='int'>46</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_floor'><span class='object_link'><a href="Float.html#floor-instance_method" title="Float#floor (method)">floor</a></span></span>  <span class='comment'>#=&gt;  99999999999999991611392 (!)
+</span></code></pre>
+
+<p>If <code>n</code> is not an Integer, it is converted to an Integer first.
+If <code>n</code> is negative, a Math::DomainError is raised.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+  <div class="docstring">
+  <div class="discussion">
+    
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="" title="Integer (class)">Integer</a></span></tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div>
+
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+5212
+5213
+5214
+5215
+5216
+5217
+5218
+5219
+5220
+5221
+5222
+5223
+5224
+5225
+5226
+5227
+5228
+5229
+5230
+5231
+5232
+5233
+5234
+5235
+5236
+5237
+5238
+5239
+5240
+5241
+5242</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'numeric.c', line 5212</span>
+
+static VALUE
+rb_int_s_isqrt(VALUE self, VALUE num)
+{
+    unsigned long n, sq;
+    num = rb_to_int(num);
+    if (FIXNUM_P(num)) {
+	if (FIXNUM_NEGATIVE_P(num)) {
+	    domain_error(&quot;isqrt&quot;);
+	}
+	n = FIX2ULONG(num);
+	sq = rb_ulong_isqrt(n);
+	return LONG2FIX(sq);
+    }
+    else {
+	size_t biglen;
+	if (RBIGNUM_NEGATIVE_P(num)) {
+	    domain_error(&quot;isqrt&quot;);
+	}
+	biglen = BIGNUM_LEN(num);
+	if (biglen == 0) return INT2FIX(0);
+#if SIZEOF_BDIGIT &lt;= SIZEOF_LONG
+	/* short-circuit */
+	if (biglen == 1) {
+	    n = BIGNUM_DIGITS(num)[0];
+	    sq = rb_ulong_isqrt(n);
+	    return ULONG2NUM(sq);
+	}
+#endif
+	return rb_big_isqrt(num);
+    }
+}</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+  </div>
+
+  <div id="instance_method_details" class="method_details_list">
+    <h2>Instance Method Details</h2>
+
+    
+      <div class="method_details first">
+  <h3 class="signature first" id="%-instance_method">
+  
+    
+      <span class="overload">#<strong>%</strong>(other)  &#x21d2; <tt><span class='object_link'><a href="Object.html" title="Object (class)">Object</a></span></tt> </span>
+    
+      <span class="overload">#<strong>modulo</strong>(other)  &#x21d2; <tt><span class='object_link'><a href="Object.html" title="Object (class)">Object</a></span></tt> </span>
+    
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Returns <code>int</code> modulo <code>other</code>.</p>
+
+<p>See Numeric#divmod for more information.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+3798
+3799
+3800
+3801
+3802
+3803
+3804
+3805
+3806
+3807
+3808</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'numeric.c', line 3798</span>
+
+VALUE
+rb_int_modulo(VALUE x, VALUE y)
+{
+    if (FIXNUM_P(x)) {
+	return fix_mod(x, y);
+    }
+    else if (RB_TYPE_P(x, T_BIGNUM)) {
+	return rb_big_modulo(x, y);
+    }
+    return num_modulo(x, y);
+}</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="&-instance_method">
+  
+    #<strong>&amp;</strong>(other_int)  &#x21d2; <tt><span class='object_link'><a href="" title="Integer (class)">Integer</a></span></tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Bitwise AND.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+  <div class="docstring">
+  <div class="discussion">
+    
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="" title="Integer (class)">Integer</a></span></tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div>
+
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+4352
+4353
+4354
+4355
+4356
+4357
+4358
+4359
+4360
+4361
+4362</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'numeric.c', line 4352</span>
+
+VALUE
+rb_int_and(VALUE x, VALUE y)
+{
+    if (FIXNUM_P(x)) {
+	return fix_and(x, y);
+    }
+    else if (RB_TYPE_P(x, T_BIGNUM)) {
+	return rb_big_and(x, y);
+    }
+    return Qnil;
+}</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="*-instance_method">
+  
+    #<strong>*</strong>(numeric)  &#x21d2; <tt><span class='object_link'><a href="Object.html" title="Object (class)">Object</a></span></tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Performs multiplication: the class of the resulting object depends on the
+class of <code>numeric</code>.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+  
+
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+3608
+3609
+3610
+3611
+3612
+3613
+3614
+3615
+3616
+3617
+3618</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'numeric.c', line 3608</span>
+
+VALUE
+rb_int_mul(VALUE x, VALUE y)
+{
+    if (FIXNUM_P(x)) {
+	return fix_mul(x, y);
+    }
+    else if (RB_TYPE_P(x, T_BIGNUM)) {
+	return rb_big_mul(x, y);
+    }
+    return rb_num_coerce_bin(x, y, &#39;*&#39;);
+}</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="**-instance_method">
+  
+    #<strong>**</strong>(numeric)  &#x21d2; <tt><span class='object_link'><a href="Object.html" title="Object (class)">Object</a></span></tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Raises <code>int</code> to the power of <code>numeric</code>, which may be
+negative or fractional. The result may be an Integer, a Float, a Rational,
+or a complex number.</p>
+
+<pre class="code"><code class=""><span class='int'>2</span> <span class='op'>**</span> <span class='int'>3</span>        <span class='comment'>#=&gt; 8
+</span><span class='int'>2</span> <span class='op'>**</span> <span class='op'>-</span><span class='int'>1</span>       <span class='comment'>#=&gt; (1/2)
+</span><span class='int'>2</span> <span class='op'>**</span> <span class='float'>0.5</span>      <span class='comment'>#=&gt; 1.4142135623730951
+</span><span class='lparen'>(</span><span class='op'>-</span><span class='int'>1</span><span class='rparen'>)</span> <span class='op'>**</span> <span class='float'>0.5</span>   <span class='comment'>#=&gt; (0.0+1.0i)
+</span>
+<span class='int'>123456789</span> <span class='op'>**</span> <span class='int'>2</span>     <span class='comment'>#=&gt; 15241578750190521
+</span><span class='int'>123456789</span> <span class='op'>**</span> <span class='float'>1.2</span>   <span class='comment'>#=&gt; 5126464716.0993185
+</span><span class='int'>123456789</span> <span class='op'>**</span> <span class='op'>-</span><span class='int'>2</span>    <span class='comment'>#=&gt; (1/15241578750190521)
+</span></code></pre>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+  
+
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+4006
+4007
+4008
+4009
+4010
+4011
+4012
+4013
+4014
+4015
+4016</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'numeric.c', line 4006</span>
+
+VALUE
+rb_int_pow(VALUE x, VALUE y)
+{
+    if (FIXNUM_P(x)) {
+	return fix_pow(x, y);
+    }
+    else if (RB_TYPE_P(x, T_BIGNUM)) {
+	return rb_big_pow(x, y);
+    }
+    return Qnil;
+}</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="+-instance_method">
+  
+    #<strong>+</strong>(numeric)  &#x21d2; <tt><span class='object_link'><a href="Object.html" title="Object (class)">Object</a></span></tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Performs addition: the class of the resulting object depends on the class
+of <code>numeric</code>.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+  
+
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+3519
+3520
+3521
+3522
+3523
+3524
+3525
+3526
+3527
+3528
+3529</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'numeric.c', line 3519</span>
+
+VALUE
+rb_int_plus(VALUE x, VALUE y)
+{
+    if (FIXNUM_P(x)) {
+	return fix_plus(x, y);
+    }
+    else if (RB_TYPE_P(x, T_BIGNUM)) {
+	return rb_big_plus(x, y);
+    }
+    return rb_num_coerce_bin(x, y, &#39;+&#39;);
+}</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="--instance_method">
+  
+    #<strong>-</strong>(numeric)  &#x21d2; <tt><span class='object_link'><a href="Object.html" title="Object (class)">Object</a></span></tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Performs subtraction: the class of the resulting object depends on the
+class of <code>numeric</code>.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+  
+
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+3558
+3559
+3560
+3561
+3562
+3563
+3564
+3565
+3566
+3567
+3568</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'numeric.c', line 3558</span>
+
+VALUE
+rb_int_minus(VALUE x, VALUE y)
+{
+    if (FIXNUM_P(x)) {
+	return fix_minus(x, y);
+    }
+    else if (RB_TYPE_P(x, T_BIGNUM)) {
+	return rb_big_minus(x, y);
+    }
+    return rb_num_coerce_bin(x, y, &#39;-&#39;);
+}</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="-@-instance_method">
+  
+    #<strong>-</strong>  &#x21d2; <tt><span class='object_link'><a href="" title="Integer (class)">Integer</a></span></tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Returns <code>int</code>, negated.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+  <div class="docstring">
+  <div class="discussion">
+    
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="" title="Integer (class)">Integer</a></span></tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div>
+
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+3388
+3389
+3390
+3391
+3392
+3393
+3394
+3395
+3396
+3397
+3398</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'numeric.c', line 3388</span>
+
+VALUE
+rb_int_uminus(VALUE num)
+{
+    if (FIXNUM_P(num)) {
+	return fix_uminus(num);
+    }
+    else if (RB_TYPE_P(num, T_BIGNUM)) {
+	return rb_big_uminus(num);
+    }
+    return num_funcall0(num, idUMinus);
+}</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="/-instance_method">
+  
+    #<strong>/</strong>(numeric)  &#x21d2; <tt><span class='object_link'><a href="Object.html" title="Object (class)">Object</a></span></tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Performs division: the class of the resulting object depends on the class
+of <code>numeric</code>.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+  
+
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+3728
+3729
+3730
+3731
+3732
+3733
+3734
+3735
+3736
+3737
+3738</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'numeric.c', line 3728</span>
+
+VALUE
+rb_int_div(VALUE x, VALUE y)
+{
+    if (FIXNUM_P(x)) {
+	return fix_div(x, y);
+    }
+    else if (RB_TYPE_P(x, T_BIGNUM)) {
+	return rb_big_div(x, y);
+    }
+    return Qnil;
+}</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="<-instance_method">
+  
+    #<strong>&lt;</strong>(real)  &#x21d2; <tt>Boolean</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Returns <code>true</code> if the value of <code>int</code> is less than
+that of <code>real</code>.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+  <div class="docstring">
+  <div class="discussion">
+    
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Boolean</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div>
+
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+4215
+4216
+4217
+4218
+4219
+4220
+4221
+4222
+4223
+4224
+4225</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'numeric.c', line 4215</span>
+
+static VALUE
+int_lt(VALUE x, VALUE y)
+{
+    if (FIXNUM_P(x)) {
+	return fix_lt(x, y);
+    }
+    else if (RB_TYPE_P(x, T_BIGNUM)) {
+	return rb_big_lt(x, y);
+    }
+    return Qnil;
+}</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="<<-instance_method">
+  
+    #<strong>&lt;&lt;</strong>(count)  &#x21d2; <tt><span class='object_link'><a href="" title="Integer (class)">Integer</a></span></tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Returns <code>int</code> shifted left <code>count</code> positions, or
+right if <code>count</code> is negative.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+  <div class="docstring">
+  <div class="discussion">
+    
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="" title="Integer (class)">Integer</a></span></tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div>
+
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+4468
+4469
+4470
+4471
+4472
+4473
+4474
+4475
+4476
+4477
+4478</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'numeric.c', line 4468</span>
+
+VALUE
+rb_int_lshift(VALUE x, VALUE y)
+{
+    if (FIXNUM_P(x)) {
+	return rb_fix_lshift(x, y);
+    }
+    else if (RB_TYPE_P(x, T_BIGNUM)) {
+	return rb_big_lshift(x, y);
+    }
+    return Qnil;
+}</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="<=-instance_method">
+  
+    #<strong>&lt;=</strong>(real)  &#x21d2; <tt>Boolean</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Returns <code>true</code> if the value of <code>int</code> is less than or
+equal to that of <code>real</code>.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+  <div class="docstring">
+  <div class="discussion">
+    
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Boolean</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div>
+
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+4255
+4256
+4257
+4258
+4259
+4260
+4261
+4262
+4263
+4264
+4265</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'numeric.c', line 4255</span>
+
+static VALUE
+int_le(VALUE x, VALUE y)
+{
+    if (FIXNUM_P(x)) {
+	return fix_le(x, y);
+    }
+    else if (RB_TYPE_P(x, T_BIGNUM)) {
+	return rb_big_le(x, y);
+    }
+    return Qnil;
+}</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="<=>-instance_method">
+  
+    #<strong>&lt;=&gt;</strong>(numeric)  &#x21d2; <tt>-1</tt>, ... 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Comparison—Returns -1, 0, or +1 depending on whether <code>int</code> is
+less than, equal to, or greater than <code>numeric</code>.</p>
+
+<p>This is the basis for the tests in the Comparable module.</p>
+
+<p><code>nil</code> is returned if the two values are incomparable.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+  <div class="docstring">
+  <div class="discussion">
+    
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>-1</tt>, <tt>0</tt>, <tt>+1</tt>, <tt>nil</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div>
+
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+4097
+4098
+4099
+4100
+4101
+4102
+4103
+4104
+4105
+4106
+4107
+4108
+4109</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'numeric.c', line 4097</span>
+
+VALUE
+rb_int_cmp(VALUE x, VALUE y)
+{
+    if (FIXNUM_P(x)) {
+	return fix_cmp(x, y);
+    }
+    else if (RB_TYPE_P(x, T_BIGNUM)) {
+	return rb_big_cmp(x, y);
+    }
+    else {
+	rb_raise(rb_eNotImpError, &quot;need to define `&lt;=&gt;&#39; in %s&quot;, rb_obj_classname(x));
+    }
+}</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="==-instance_method">
+  
+    #<strong>==</strong>(other)  &#x21d2; <tt>Boolean</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Returns <code>true</code> if <code>int</code> equals <code>other</code>
+numerically. Contrast this with Integer#eql?, which requires
+<code>other</code> to be an Integer.</p>
+
+<pre class="code"><code class=""><span class='int'>1</span> <span class='op'>==</span> <span class='int'>2</span>     <span class='comment'>#=&gt; false
+</span><span class='int'>1</span> <span class='op'>==</span> <span class='float'>1.0</span>   <span class='comment'>#=&gt; true
+</span></code></pre>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+  <div class="docstring">
+  <div class="discussion">
+    
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Boolean</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div>
+
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+4047
+4048
+4049
+4050
+4051
+4052
+4053
+4054
+4055
+4056
+4057</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'numeric.c', line 4047</span>
+
+VALUE
+rb_int_equal(VALUE x, VALUE y)
+{
+    if (FIXNUM_P(x)) {
+	return fix_equal(x, y);
+    }
+    else if (RB_TYPE_P(x, T_BIGNUM)) {
+	return rb_big_eq(x, y);
+    }
+    return Qnil;
+}</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="===-instance_method">
+  
+    #<strong>==</strong>(other)  &#x21d2; <tt>Boolean</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Returns <code>true</code> if <code>int</code> equals <code>other</code>
+numerically. Contrast this with Integer#eql?, which requires
+<code>other</code> to be an Integer.</p>
+
+<pre class="code"><code class=""><span class='int'>1</span> <span class='op'>==</span> <span class='int'>2</span>     <span class='comment'>#=&gt; false
+</span><span class='int'>1</span> <span class='op'>==</span> <span class='float'>1.0</span>   <span class='comment'>#=&gt; true
+</span></code></pre>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+  <div class="docstring">
+  <div class="discussion">
+    
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Boolean</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div>
+
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+4047
+4048
+4049
+4050
+4051
+4052
+4053
+4054
+4055
+4056
+4057</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'numeric.c', line 4047</span>
+
+VALUE
+rb_int_equal(VALUE x, VALUE y)
+{
+    if (FIXNUM_P(x)) {
+	return fix_equal(x, y);
+    }
+    else if (RB_TYPE_P(x, T_BIGNUM)) {
+	return rb_big_eq(x, y);
+    }
+    return Qnil;
+}</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id=">-instance_method">
+  
+    #<strong>&gt;</strong>(real)  &#x21d2; <tt>Boolean</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Returns <code>true</code> if the value of <code>int</code> is greater than
+that of <code>real</code>.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+  <div class="docstring">
+  <div class="discussion">
+    
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Boolean</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div>
+
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+4137
+4138
+4139
+4140
+4141
+4142
+4143
+4144
+4145
+4146
+4147</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'numeric.c', line 4137</span>
+
+VALUE
+rb_int_gt(VALUE x, VALUE y)
+{
+    if (FIXNUM_P(x)) {
+	return fix_gt(x, y);
+    }
+    else if (RB_TYPE_P(x, T_BIGNUM)) {
+	return rb_big_gt(x, y);
+    }
+    return Qnil;
+}</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id=">=-instance_method">
+  
+    #<strong>&gt;=</strong>(real)  &#x21d2; <tt>Boolean</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Returns <code>true</code> if the value of <code>int</code> is greater than
+or equal to that of <code>real</code>.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+  <div class="docstring">
+  <div class="discussion">
+    
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Boolean</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div>
+
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+4177
+4178
+4179
+4180
+4181
+4182
+4183
+4184
+4185
+4186
+4187</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'numeric.c', line 4177</span>
+
+VALUE
+rb_int_ge(VALUE x, VALUE y)
+{
+    if (FIXNUM_P(x)) {
+	return fix_ge(x, y);
+    }
+    else if (RB_TYPE_P(x, T_BIGNUM)) {
+	return rb_big_ge(x, y);
+    }
+    return Qnil;
+}</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id=">>-instance_method">
+  
+    #<strong>&gt;&gt;</strong>(count)  &#x21d2; <tt><span class='object_link'><a href="" title="Integer (class)">Integer</a></span></tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Returns <code>int</code> shifted right <code>count</code> positions, or
+left if <code>count</code> is negative.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+  <div class="docstring">
+  <div class="discussion">
+    
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="" title="Integer (class)">Integer</a></span></tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div>
+
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+4515
+4516
+4517
+4518
+4519
+4520
+4521
+4522
+4523
+4524
+4525</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'numeric.c', line 4515</span>
+
+static VALUE
+rb_int_rshift(VALUE x, VALUE y)
+{
+    if (FIXNUM_P(x)) {
+	return rb_fix_rshift(x, y);
+    }
+    else if (RB_TYPE_P(x, T_BIGNUM)) {
+	return rb_big_rshift(x, y);
+    }
+    return Qnil;
+}</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="[]-instance_method">
+  
+    #<strong>[]</strong>(n)  &#x21d2; <tt>0</tt>, <tt>1</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Bit Reference—Returns the <code>n</code>th bit in the binary representation
+of <code>int</code>, where <code>int[0]</code> is the least significant
+bit.</p>
+
+<pre class="code"><code class=""><span class='id identifier rubyid_a'>a</span> <span class='op'>=</span> <span class='int'>0b11001100101010</span>
+<span class='int'>30</span><span class='period'>.</span><span class='id identifier rubyid_downto'>downto</span><span class='lparen'>(</span><span class='int'>0</span><span class='rparen'>)</span> <span class='lbrace'>{</span><span class='op'>|</span><span class='id identifier rubyid_n'>n</span><span class='op'>|</span> <span class='id identifier rubyid_print'>print</span> <span class='id identifier rubyid_a'>a</span><span class='lbracket'>[</span><span class='id identifier rubyid_n'>n</span><span class='rbracket'>]</span> <span class='rbrace'>}</span>
+<span class='comment'>#=&gt; 0000000000000000011001100101010
+</span>
+<span class='id identifier rubyid_a'>a</span> <span class='op'>=</span> <span class='int'>9</span><span class='op'>**</span><span class='int'>15</span>
+<span class='int'>50</span><span class='period'>.</span><span class='id identifier rubyid_downto'>downto</span><span class='lparen'>(</span><span class='int'>0</span><span class='rparen'>)</span> <span class='lbrace'>{</span><span class='op'>|</span><span class='id identifier rubyid_n'>n</span><span class='op'>|</span> <span class='id identifier rubyid_print'>print</span> <span class='id identifier rubyid_a'>a</span><span class='lbracket'>[</span><span class='id identifier rubyid_n'>n</span><span class='rbracket'>]</span> <span class='rbrace'>}</span>
+<span class='comment'>#=&gt; 000101110110100000111000011110010100111100010111001
+</span></code></pre>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+  <div class="docstring">
+  <div class="discussion">
+    
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>0</tt>, <tt>1</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div>
+
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+4572
+4573
+4574
+4575
+4576
+4577
+4578
+4579
+4580
+4581
+4582</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'numeric.c', line 4572</span>
+
+static VALUE
+int_aref(VALUE num, VALUE idx)
+{
+    if (FIXNUM_P(num)) {
+	return fix_aref(num, idx);
+    }
+    else if (RB_TYPE_P(num, T_BIGNUM)) {
+	return rb_big_aref(num, idx);
+    }
+    return Qnil;
+}</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="^-instance_method">
+  
+    #<strong>^</strong>(other_int)  &#x21d2; <tt><span class='object_link'><a href="" title="Integer (class)">Integer</a></span></tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Bitwise EXCLUSIVE OR.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+  <div class="docstring">
+  <div class="discussion">
+    
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="" title="Integer (class)">Integer</a></span></tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div>
+
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+4422
+4423
+4424
+4425
+4426
+4427
+4428
+4429
+4430
+4431
+4432</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'numeric.c', line 4422</span>
+
+static VALUE
+int_xor(VALUE x, VALUE y)
+{
+    if (FIXNUM_P(x)) {
+	return fix_xor(x, y);
+    }
+    else if (RB_TYPE_P(x, T_BIGNUM)) {
+	return rb_big_xor(x, y);
+    }
+    return Qnil;
+}</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="abs-instance_method">
+  
+    #<strong>abs</strong>  &#x21d2; <tt><span class='object_link'><a href="Object.html" title="Object (class)">Object</a></span></tt> 
+  
+
+  
+
+  
+</h3><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+4637
+4638
+4639
+4640
+4641
+4642
+4643
+4644
+4645
+4646
+4647</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'numeric.c', line 4637</span>
+
+VALUE
+rb_int_abs(VALUE num)
+{
+    if (FIXNUM_P(num)) {
+	return fix_abs(num);
+    }
+    else if (RB_TYPE_P(num, T_BIGNUM)) {
+	return rb_big_abs(num);
+    }
+    return Qnil;
+}</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="allbits?-instance_method">
+  
+    #<strong>allbits?</strong>(mask)  &#x21d2; <tt>Boolean</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Returns <code>true</code> if all bits of <code>int &amp; mask</code> are 1.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+  <div class="docstring">
+  <div class="discussion">
+    
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Boolean</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div>
+
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Boolean</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+3178
+3179
+3180
+3181
+3182
+3183</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'numeric.c', line 3178</span>
+
+static VALUE
+int_allbits_p(VALUE num, VALUE mask)
+{
+    mask = rb_to_int(mask);
+    return rb_int_equal(rb_int_and(num, mask), mask);
+}</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="anybits?-instance_method">
+  
+    #<strong>anybits?</strong>(mask)  &#x21d2; <tt>Boolean</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Returns <code>true</code> if any bits of <code>int &amp; mask</code> are 1.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+  <div class="docstring">
+  <div class="discussion">
+    
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Boolean</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div>
+
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Boolean</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+3192
+3193
+3194
+3195
+3196
+3197</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'numeric.c', line 3192</span>
+
+static VALUE
+int_anybits_p(VALUE num, VALUE mask)
+{
+    mask = rb_to_int(mask);
+    return num_zero_p(rb_int_and(num, mask)) ? Qfalse : Qtrue;
+}</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="bit_length-instance_method">
+  
+    #<strong>bit_length</strong>  &#x21d2; <tt><span class='object_link'><a href="" title="Integer (class)">Integer</a></span></tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Returns the number of bits of the value of <code>int</code>.</p>
+
+<p>“Number of bits” means the bit position of the highest bit which is
+different from the sign bit (where the least significant bit has bit
+position 1). If there is no such bit (zero or minus one), zero is returned.</p>
+
+<p>I.e. this method returns <em>ceil(log2(int &lt; 0 ? -int : int+1))</em>.</p>
+
+<pre class="code"><code class=""><span class='lparen'>(</span><span class='op'>-</span><span class='int'>2</span><span class='op'>**</span><span class='int'>1000</span><span class='op'>-</span><span class='int'>1</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_bit_length'>bit_length</span>   <span class='comment'>#=&gt; 1001
+</span><span class='lparen'>(</span><span class='op'>-</span><span class='int'>2</span><span class='op'>**</span><span class='int'>1000</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_bit_length'>bit_length</span>     <span class='comment'>#=&gt; 1000
+</span><span class='lparen'>(</span><span class='op'>-</span><span class='int'>2</span><span class='op'>**</span><span class='int'>1000</span><span class='op'>+</span><span class='int'>1</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_bit_length'>bit_length</span>   <span class='comment'>#=&gt; 1000
+</span><span class='lparen'>(</span><span class='op'>-</span><span class='int'>2</span><span class='op'>**</span><span class='int'>12</span><span class='op'>-</span><span class='int'>1</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_bit_length'>bit_length</span>     <span class='comment'>#=&gt; 13
+</span><span class='lparen'>(</span><span class='op'>-</span><span class='int'>2</span><span class='op'>**</span><span class='int'>12</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_bit_length'>bit_length</span>       <span class='comment'>#=&gt; 12
+</span><span class='lparen'>(</span><span class='op'>-</span><span class='int'>2</span><span class='op'>**</span><span class='int'>12</span><span class='op'>+</span><span class='int'>1</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_bit_length'>bit_length</span>     <span class='comment'>#=&gt; 12
+</span><span class='op'>-</span><span class='int'>0x101</span><span class='period'>.</span><span class='id identifier rubyid_bit_length'>bit_length</span>         <span class='comment'>#=&gt; 9
+</span><span class='op'>-</span><span class='int'>0x100</span><span class='period'>.</span><span class='id identifier rubyid_bit_length'>bit_length</span>         <span class='comment'>#=&gt; 8
+</span><span class='op'>-</span><span class='int'>0xff</span><span class='period'>.</span><span class='id identifier rubyid_bit_length'>bit_length</span>          <span class='comment'>#=&gt; 8
+</span><span class='op'>-</span><span class='int'>2</span><span class='period'>.</span><span class='id identifier rubyid_bit_length'>bit_length</span>             <span class='comment'>#=&gt; 1
+</span><span class='op'>-</span><span class='int'>1</span><span class='period'>.</span><span class='id identifier rubyid_bit_length'>bit_length</span>             <span class='comment'>#=&gt; 0
+</span><span class='int'>0</span><span class='period'>.</span><span class='id identifier rubyid_bit_length'>bit_length</span>              <span class='comment'>#=&gt; 0
+</span><span class='int'>1</span><span class='period'>.</span><span class='id identifier rubyid_bit_length'>bit_length</span>              <span class='comment'>#=&gt; 1
+</span><span class='int'>0xff</span><span class='period'>.</span><span class='id identifier rubyid_bit_length'>bit_length</span>           <span class='comment'>#=&gt; 8
+</span><span class='int'>0x100</span><span class='period'>.</span><span class='id identifier rubyid_bit_length'>bit_length</span>          <span class='comment'>#=&gt; 9
+</span><span class='lparen'>(</span><span class='int'>2</span><span class='op'>**</span><span class='int'>12</span><span class='op'>-</span><span class='int'>1</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_bit_length'>bit_length</span>      <span class='comment'>#=&gt; 12
+</span><span class='lparen'>(</span><span class='int'>2</span><span class='op'>**</span><span class='int'>12</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_bit_length'>bit_length</span>        <span class='comment'>#=&gt; 13
+</span><span class='lparen'>(</span><span class='int'>2</span><span class='op'>**</span><span class='int'>12</span><span class='op'>+</span><span class='int'>1</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_bit_length'>bit_length</span>      <span class='comment'>#=&gt; 13
+</span><span class='lparen'>(</span><span class='int'>2</span><span class='op'>**</span><span class='int'>1000</span><span class='op'>-</span><span class='int'>1</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_bit_length'>bit_length</span>    <span class='comment'>#=&gt; 1000
+</span><span class='lparen'>(</span><span class='int'>2</span><span class='op'>**</span><span class='int'>1000</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_bit_length'>bit_length</span>      <span class='comment'>#=&gt; 1001
+</span><span class='lparen'>(</span><span class='int'>2</span><span class='op'>**</span><span class='int'>1000</span><span class='op'>+</span><span class='int'>1</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_bit_length'>bit_length</span>    <span class='comment'>#=&gt; 1001
+</span></code></pre>
+
+<p>This method can be used to detect overflow in Array#pack as follows:</p>
+
+<pre class="code"><code class=""><span class='kw'>if</span> <span class='id identifier rubyid_n'>n</span><span class='period'>.</span><span class='id identifier rubyid_bit_length'>bit_length</span> <span class='op'>&lt;</span> <span class='int'>32</span>
+  <span class='lbracket'>[</span><span class='id identifier rubyid_n'>n</span><span class='rbracket'>]</span><span class='period'>.</span><span class='id identifier rubyid_pack'>pack</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>l</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span> <span class='comment'># no overflow
+</span><span class='kw'>else</span>
+  <span class='id identifier rubyid_raise'>raise</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>overflow</span><span class='tstring_end'>&quot;</span></span>
+<span class='kw'>end</span>
+</code></pre>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+  <div class="docstring">
+  <div class="discussion">
+    
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="" title="Integer (class)">Integer</a></span></tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div>
+
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+4737
+4738
+4739
+4740
+4741
+4742
+4743
+4744
+4745
+4746
+4747</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'numeric.c', line 4737</span>
+
+static VALUE
+rb_int_bit_length(VALUE num)
+{
+    if (FIXNUM_P(num)) {
+	return rb_fix_bit_length(num);
+    }
+    else if (RB_TYPE_P(num, T_BIGNUM)) {
+	return rb_big_bit_length(num);
+    }
+    return Qnil;
+}</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="ceil-instance_method">
+  
+    #<strong>ceil</strong>([ndigits])  &#x21d2; <tt><span class='object_link'><a href="" title="Integer (class)">Integer</a></span></tt>, <tt><span class='object_link'><a href="Float.html" title="Float (class)">Float</a></span></tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Returns the smallest number greater than or equal to <code>int</code> with
+a precision of <code>ndigits</code> decimal digits (default: 0).</p>
+
+<p>When the precision is negative, the returned value is an integer with at
+least <code>ndigits.abs</code> trailing zeros.</p>
+
+<p>Returns <code>self</code> when <code>ndigits</code> is zero or positive.</p>
+
+<pre class="code"><code class=""><span class='int'>1</span><span class='period'>.</span><span class='id identifier rubyid_ceil'>ceil</span>           <span class='comment'>#=&gt; 1
+</span><span class='int'>1</span><span class='period'>.</span><span class='id identifier rubyid_ceil'>ceil</span><span class='lparen'>(</span><span class='int'>2</span><span class='rparen'>)</span>        <span class='comment'>#=&gt; 1
+</span><span class='int'>18</span><span class='period'>.</span><span class='id identifier rubyid_ceil'>ceil</span><span class='lparen'>(</span><span class='op'>-</span><span class='int'>1</span><span class='rparen'>)</span>      <span class='comment'>#=&gt; 20
+</span><span class='lparen'>(</span><span class='op'>-</span><span class='int'>18</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_ceil'>ceil</span><span class='lparen'>(</span><span class='op'>-</span><span class='int'>1</span><span class='rparen'>)</span>   <span class='comment'>#=&gt; -10
+</span></code></pre>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+  <div class="docstring">
+  <div class="discussion">
+    
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="" title="Integer (class)">Integer</a></span></tt>, <tt><span class='object_link'><a href="Float.html" title="Float (class)">Float</a></span></tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div>
+
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+5098
+5099
+5100
+5101
+5102
+5103
+5104
+5105
+5106
+5107
+5108
+5109</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'numeric.c', line 5098</span>
+
+static VALUE
+int_ceil(int argc, VALUE* argv, VALUE num)
+{
+    int ndigits;
+
+    if (!rb_check_arity(argc, 0, 1)) return num;
+    ndigits = NUM2INT(argv[0]);
+    if (ndigits &gt;= 0) {
+	return num;
+    }
+    return rb_int_ceil(num, ndigits);
+}</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="chr-instance_method">
+  
+    #<strong>chr</strong>([encoding])  &#x21d2; <tt><span class='object_link'><a href="String.html" title="String (class)">String</a></span></tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Returns a string containing the character represented by the
+<code>int</code>&#39;s value according to <code>encoding</code>.</p>
+
+<pre class="code"><code class=""><span class='int'>65</span><span class='period'>.</span><span class='id identifier rubyid_chr'>chr</span>    <span class='comment'>#=&gt; &quot;A&quot;
+</span><span class='int'>230</span><span class='period'>.</span><span class='id identifier rubyid_chr'>chr</span>   <span class='comment'>#=&gt; &quot;\xE6&quot;
+</span><span class='int'>255</span><span class='period'>.</span><span class='id identifier rubyid_chr'>chr</span><span class='lparen'>(</span><span class='const'><span class='object_link'><a href="Encoding.html" title="Encoding (class)">Encoding</a></span></span><span class='op'>::</span><span class='const'>UTF_8</span><span class='rparen'>)</span>   <span class='comment'>#=&gt; &quot;\u00FF&quot;
+</span></code></pre>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+  <div class="docstring">
+  <div class="discussion">
+    
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="String.html" title="String (class)">String</a></span></tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div>
+
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+3305
+3306
+3307
+3308
+3309
+3310
+3311
+3312
+3313
+3314
+3315
+3316
+3317
+3318
+3319
+3320
+3321
+3322
+3323
+3324
+3325
+3326
+3327
+3328
+3329
+3330
+3331
+3332
+3333
+3334
+3335
+3336
+3337
+3338
+3339
+3340
+3341
+3342
+3343
+3344
+3345
+3346
+3347</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'numeric.c', line 3305</span>
+
+static VALUE
+int_chr(int argc, VALUE *argv, VALUE num)
+{
+    char c;
+    unsigned int i;
+    rb_encoding *enc;
+
+    if (rb_num_to_uint(num, &amp;i) == 0) {
+    }
+    else if (FIXNUM_P(num)) {
+	rb_raise(rb_eRangeError, &quot;%ld out of char range&quot;, FIX2LONG(num));
+    }
+    else {
+	rb_raise(rb_eRangeError, &quot;bignum out of char range&quot;);
+    }
+
+    switch (argc) {
+      case 0:
+	if (0xff &lt; i) {
+	    enc = rb_default_internal_encoding();
+	    if (!enc) {
+		rb_raise(rb_eRangeError, &quot;%d out of char range&quot;, i);
+	    }
+	    goto decode;
+	}
+	c = (char)i;
+	if (i &lt; 0x80) {
+	    return rb_usascii_str_new(&amp;c, 1);
+	}
+	else {
+	    return rb_str_new(&amp;c, 1);
+	}
+      case 1:
+	break;
+      default:
+	rb_check_arity(argc, 0, 1);
+	break;
+    }
+    enc = rb_to_encoding(argv[0]);
+    if (!enc) enc = rb_ascii8bit_encoding();
+  decode:
+    return rb_enc_uint_chr(i, enc);
+}</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="coerce-instance_method">
+  
+    #<strong>coerce</strong>(numeric)  &#x21d2; <tt><span class='object_link'><a href="Array.html" title="Array (class)">Array</a></span></tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Returns an array with both a <code>numeric</code> and a <code>big</code>
+represented as Bignum objects.</p>
+
+<p>This is achieved by converting <code>numeric</code> to a Bignum.</p>
+
+<p>A TypeError is raised if the <code>numeric</code> is not a Fixnum or Bignum
+type.</p>
+
+<pre class="code"><code class=""><span class='lparen'>(</span><span class='int'>0x3FFFFFFFFFFFFFFF</span><span class='op'>+</span><span class='int'>1</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_coerce'>coerce</span><span class='lparen'>(</span><span class='int'>42</span><span class='rparen'>)</span>   <span class='comment'>#=&gt; [42, 4611686018427387904]
+</span></code></pre>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+  <div class="docstring">
+  <div class="discussion">
+    
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="Array.html" title="Array (class)">Array</a></span></tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div>
+
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+6693
+6694
+6695
+6696
+6697
+6698
+6699
+6700
+6701
+6702
+6703
+6704</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'bignum.c', line 6693</span>
+
+static VALUE
+rb_int_coerce(VALUE x, VALUE y)
+{
+    if (RB_INTEGER_TYPE_P(y)) {
+        return rb_assoc_new(y, x);
+    }
+    else {
+        x = rb_Float(x);
+        y = rb_Float(y);
+        return rb_assoc_new(y, x);
+    }
+}</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="denominator-instance_method">
+  
+    #<strong>denominator</strong>  &#x21d2; <tt>1</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Returns 1.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+  <div class="docstring">
+  <div class="discussion">
+    
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>1</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div>
+
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+2013
+2014
+2015
+2016
+2017</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'rational.c', line 2013</span>
+
+static VALUE
+integer_denominator(VALUE self)
+{
+    return INT2FIX(1);
+}</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="digits-instance_method">
+  
+    
+      <span class="overload">#<strong>digits</strong>  &#x21d2; <tt><span class='object_link'><a href="Array.html" title="Array (class)">Array</a></span></tt> </span>
+    
+      <span class="overload">#<strong>digits</strong>(base)  &#x21d2; <tt><span class='object_link'><a href="Array.html" title="Array (class)">Array</a></span></tt> </span>
+    
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Returns the digits of <code>int</code>&#39;s place-value representation
+with radix <code>base</code> (default: 10). The digits are returned as an
+array with the least significant digit as the first array element.</p>
+
+<p><code>base</code> must be greater than or equal to 2.</p>
+
+<pre class="code"><code class=""><span class='int'>12345</span><span class='period'>.</span><span class='id identifier rubyid_digits'>digits</span>      <span class='comment'>#=&gt; [5, 4, 3, 2, 1]
+</span><span class='int'>12345</span><span class='period'>.</span><span class='id identifier rubyid_digits'>digits</span><span class='lparen'>(</span><span class='int'>7</span><span class='rparen'>)</span>   <span class='comment'>#=&gt; [4, 6, 6, 0, 5]
+</span><span class='int'>12345</span><span class='period'>.</span><span class='id identifier rubyid_digits'>digits</span><span class='lparen'>(</span><span class='int'>100</span><span class='rparen'>)</span> <span class='comment'>#=&gt; [45, 23, 1]
+</span>
+<span class='op'>-</span><span class='int'>12345</span><span class='period'>.</span><span class='id identifier rubyid_digits'>digits</span><span class='lparen'>(</span><span class='int'>7</span><span class='rparen'>)</span>  <span class='comment'>#=&gt; Math::DomainError
+</span></code></pre>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+  <p class="tag_title">Overloads:</p>
+  <ul class="overload">
+    
+      
+      <li class="overload_item">
+        <span class="signature">#<strong>digits</strong>  &#x21d2; <tt><span class='object_link'><a href="Array.html" title="Array (class)">Array</a></span></tt> </span>
+        <div class="docstring">
+  <div class="discussion">
+    
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="Array.html" title="Array (class)">Array</a></span></tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div>
+      </li>
+    
+      
+      <li class="overload_item">
+        <span class="signature">#<strong>digits</strong>(base)  &#x21d2; <tt><span class='object_link'><a href="Array.html" title="Array (class)">Array</a></span></tt> </span>
+        <div class="docstring">
+  <div class="discussion">
+    
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="Array.html" title="Array (class)">Array</a></span></tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div>
+      </li>
+    
+  </ul>
+
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+4824
+4825
+4826
+4827
+4828
+4829
+4830
+4831
+4832
+4833
+4834
+4835
+4836
+4837
+4838
+4839
+4840
+4841
+4842
+4843
+4844
+4845
+4846
+4847
+4848
+4849
+4850
+4851
+4852
+4853
+4854
+4855
+4856</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'numeric.c', line 4824</span>
+
+static VALUE
+rb_int_digits(int argc, VALUE *argv, VALUE num)
+{
+    VALUE base_value;
+    long base;
+
+    if (rb_num_negative_p(num))
+        rb_raise(rb_eMathDomainError, &quot;out of domain&quot;);
+
+    if (rb_check_arity(argc, 0, 1)) {
+        base_value = rb_to_int(argv[0]);
+        if (!RB_INTEGER_TYPE_P(base_value))
+            rb_raise(rb_eTypeError, &quot;wrong argument type %s (expected Integer)&quot;,
+                     rb_obj_classname(argv[0]));
+        if (RB_TYPE_P(base_value, T_BIGNUM))
+            return rb_int_digits_bigbase(num, base_value);
+
+        base = FIX2LONG(base_value);
+        if (base &lt; 0)
+            rb_raise(rb_eArgError, &quot;negative radix&quot;);
+        else if (base &lt; 2)
+            rb_raise(rb_eArgError, &quot;invalid radix %ld&quot;, base);
+    }
+    else
+        base = 10;
+
+    if (FIXNUM_P(num))
+        return rb_fix_digits(num, base);
+    else if (RB_TYPE_P(num, T_BIGNUM))
+        return rb_int_digits_bigbase(num, LONG2FIX(base));
+
+    return Qnil;
+}</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="div-instance_method">
+  
+    #<strong>div</strong>(numeric)  &#x21d2; <tt><span class='object_link'><a href="" title="Integer (class)">Integer</a></span></tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Performs integer division: returns the integer result of dividing
+<code>int</code> by <code>numeric</code>.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+  <div class="docstring">
+  <div class="discussion">
+    
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="" title="Integer (class)">Integer</a></span></tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div>
+
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+3755
+3756
+3757
+3758
+3759
+3760
+3761
+3762
+3763
+3764
+3765</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'numeric.c', line 3755</span>
+
+VALUE
+rb_int_idiv(VALUE x, VALUE y)
+{
+    if (FIXNUM_P(x)) {
+	return fix_idiv(x, y);
+    }
+    else if (RB_TYPE_P(x, T_BIGNUM)) {
+	return rb_big_idiv(x, y);
+    }
+    return num_div(x, y);
+}</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="divmod-instance_method">
+  
+    #<strong>divmod</strong>(numeric)  &#x21d2; <tt><span class='object_link'><a href="Array.html" title="Array (class)">Array</a></span></tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>See Numeric#divmod.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+  <div class="docstring">
+  <div class="discussion">
+    
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="Array.html" title="Array (class)">Array</a></span></tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div>
+
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+3875
+3876
+3877
+3878
+3879
+3880
+3881
+3882
+3883
+3884
+3885</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'numeric.c', line 3875</span>
+
+VALUE
+rb_int_divmod(VALUE x, VALUE y)
+{
+    if (FIXNUM_P(x)) {
+	return fix_divmod(x, y);
+    }
+    else if (RB_TYPE_P(x, T_BIGNUM)) {
+	return rb_big_divmod(x, y);
+    }
+    return Qnil;
+}</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="downto-instance_method">
+  
+    
+      <span class="overload">#<strong>downto</strong>(limit) {|i| ... } &#x21d2; <tt>self</tt> </span>
+    
+      <span class="overload">#<strong>downto</strong>(limit)  &#x21d2; <tt><span class='object_link'><a href="Object.html" title="Object (class)">Object</a></span></tt> </span>
+    
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Iterates the given block, passing in decreasing values from
+<code>int</code> down to and including <code>limit</code>.</p>
+
+<p>If no block is given, an Enumerator is returned instead.</p>
+
+<pre class="code"><code class=""><span class='int'>5</span><span class='period'>.</span><span class='id identifier rubyid_downto'>downto</span><span class='lparen'>(</span><span class='int'>1</span><span class='rparen'>)</span> <span class='lbrace'>{</span> <span class='op'>|</span><span class='id identifier rubyid_n'>n</span><span class='op'>|</span> <span class='id identifier rubyid_print'>print</span> <span class='id identifier rubyid_n'>n</span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>.. </span><span class='tstring_end'>&quot;</span></span> <span class='rbrace'>}</span>
+<span class='id identifier rubyid_puts'>puts</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Liftoff!</span><span class='tstring_end'>&quot;</span></span>
+<span class='comment'>#=&gt; &quot;5.. 4.. 3.. 2.. 1.. Liftoff!&quot;
+</span></code></pre>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+  <p class="tag_title">Overloads:</p>
+  <ul class="overload">
+    
+      
+      <li class="overload_item">
+        <span class="signature">#<strong>downto</strong>(limit) {|i| ... } &#x21d2; <tt>self</tt> </span>
+        <div class="docstring">
+  <div class="discussion">
+    
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Yields:</p>
+<ul class="yield">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="Numeric.html#i-instance_method" title="Numeric#i (method)">i</a></span></tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>self</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div>
+      </li>
+    
+      
+  </ul>
+
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+4924
+4925
+4926
+4927
+4928
+4929
+4930
+4931
+4932
+4933
+4934
+4935
+4936
+4937
+4938
+4939
+4940
+4941
+4942
+4943
+4944
+4945
+4946</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'numeric.c', line 4924</span>
+
+static VALUE
+int_downto(VALUE from, VALUE to)
+{
+    RETURN_SIZED_ENUMERATOR(from, 1, &amp;to, int_downto_size);
+    if (FIXNUM_P(from) &amp;&amp; FIXNUM_P(to)) {
+	long i, end;
+
+	end = FIX2LONG(to);
+	for (i=FIX2LONG(from); i &gt;= end; i--) {
+	    rb_yield(LONG2FIX(i));
+	}
+    }
+    else {
+	VALUE i = from, c;
+
+	while (!(c = rb_funcall(i, &#39;&lt;&#39;, 1, to))) {
+	    rb_yield(i);
+	    i = rb_funcall(i, &#39;-&#39;, 1, INT2FIX(1));
+	}
+	if (NIL_P(c)) rb_cmperr(i, to);
+    }
+    return from;
+}</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="even?-instance_method">
+  
+    #<strong>even?</strong>  &#x21d2; <tt>Boolean</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Returns <code>true</code> if <code>int</code> is an even number.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+  <div class="docstring">
+  <div class="discussion">
+    
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Boolean</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div>
+
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Boolean</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+3154
+3155
+3156
+3157
+3158
+3159
+3160
+3161
+3162
+3163
+3164
+3165
+3166
+3167
+3168
+3169</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'numeric.c', line 3154</span>
+
+static VALUE
+int_even_p(VALUE num)
+{
+    if (FIXNUM_P(num)) {
+	if ((num &amp; 2) == 0) {
+	    return Qtrue;
+	}
+    }
+    else if (RB_TYPE_P(num, T_BIGNUM)) {
+	return rb_big_even_p(num);
+    }
+    else if (rb_funcall(num, &#39;%&#39;, 1, INT2FIX(2)) == INT2FIX(0)) {
+	return Qtrue;
+    }
+    return Qfalse;
+}</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="fdiv-instance_method">
+  
+    #<strong>fdiv</strong>(numeric)  &#x21d2; <tt><span class='object_link'><a href="Float.html" title="Float (class)">Float</a></span></tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Returns the floating point result of dividing <code>int</code> by
+<code>numeric</code>.</p>
+
+<pre class="code"><code class=""><span class='int'>654321</span><span class='period'>.</span><span class='id identifier rubyid_fdiv'>fdiv</span><span class='lparen'>(</span><span class='int'>13731</span><span class='rparen'>)</span>      <span class='comment'>#=&gt; 47.652829364212366
+</span><span class='int'>654321</span><span class='period'>.</span><span class='id identifier rubyid_fdiv'>fdiv</span><span class='lparen'>(</span><span class='float'>13731.24</span><span class='rparen'>)</span>   <span class='comment'>#=&gt; 47.65199646936475
+</span><span class='op'>-</span><span class='int'>654321</span><span class='period'>.</span><span class='id identifier rubyid_fdiv'>fdiv</span><span class='lparen'>(</span><span class='int'>13731</span><span class='rparen'>)</span>     <span class='comment'>#=&gt; -47.652829364212366
+</span></code></pre>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+  <div class="docstring">
+  <div class="discussion">
+    
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="Float.html" title="Float (class)">Float</a></span></tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div>
+
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+3670
+3671
+3672
+3673
+3674
+3675
+3676
+3677</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'numeric.c', line 3670</span>
+
+VALUE
+rb_int_fdiv(VALUE x, VALUE y)
+{
+    if (RB_INTEGER_TYPE_P(x)) {
+        return DBL2NUM(rb_int_fdiv_double(x, y));
+    }
+    return Qnil;
+}</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="floor-instance_method">
+  
+    #<strong>floor</strong>([ndigits])  &#x21d2; <tt><span class='object_link'><a href="" title="Integer (class)">Integer</a></span></tt>, <tt><span class='object_link'><a href="Float.html" title="Float (class)">Float</a></span></tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Returns the largest number less than or equal to <code>int</code> with a
+precision of <code>ndigits</code> decimal digits (default: 0).</p>
+
+<p>When the precision is negative, the returned value is an integer with at
+least <code>ndigits.abs</code> trailing zeros.</p>
+
+<p>Returns <code>self</code> when <code>ndigits</code> is zero or positive.</p>
+
+<pre class="code"><code class=""><span class='int'>1</span><span class='period'>.</span><span class='id identifier rubyid_floor'>floor</span>           <span class='comment'>#=&gt; 1
+</span><span class='int'>1</span><span class='period'>.</span><span class='id identifier rubyid_floor'>floor</span><span class='lparen'>(</span><span class='int'>2</span><span class='rparen'>)</span>        <span class='comment'>#=&gt; 1
+</span><span class='int'>18</span><span class='period'>.</span><span class='id identifier rubyid_floor'>floor</span><span class='lparen'>(</span><span class='op'>-</span><span class='int'>1</span><span class='rparen'>)</span>      <span class='comment'>#=&gt; 10
+</span><span class='lparen'>(</span><span class='op'>-</span><span class='int'>18</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_floor'>floor</span><span class='lparen'>(</span><span class='op'>-</span><span class='int'>1</span><span class='rparen'>)</span>   <span class='comment'>#=&gt; -20
+</span></code></pre>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+  <div class="docstring">
+  <div class="discussion">
+    
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="" title="Integer (class)">Integer</a></span></tt>, <tt><span class='object_link'><a href="Float.html" title="Float (class)">Float</a></span></tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div>
+
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+5066
+5067
+5068
+5069
+5070
+5071
+5072
+5073
+5074
+5075
+5076
+5077</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'numeric.c', line 5066</span>
+
+static VALUE
+int_floor(int argc, VALUE* argv, VALUE num)
+{
+    int ndigits;
+
+    if (!rb_check_arity(argc, 0, 1)) return num;
+    ndigits = NUM2INT(argv[0]);
+    if (ndigits &gt;= 0) {
+	return num;
+    }
+    return rb_int_floor(num, ndigits);
+}</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="gcd-instance_method">
+  
+    #<strong>gcd</strong>(other_int)  &#x21d2; <tt><span class='object_link'><a href="" title="Integer (class)">Integer</a></span></tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Returns the greatest common divisor of the two integers. The result is
+always positive. 0.gcd(x) and x.gcd(0) return x.abs.</p>
+
+<pre class="code"><code class=""><span class='int'>36</span><span class='period'>.</span><span class='id identifier rubyid_gcd'>gcd</span><span class='lparen'>(</span><span class='int'>60</span><span class='rparen'>)</span>                  <span class='comment'>#=&gt; 12
+</span><span class='int'>2</span><span class='period'>.</span><span class='id identifier rubyid_gcd'>gcd</span><span class='lparen'>(</span><span class='int'>2</span><span class='rparen'>)</span>                    <span class='comment'>#=&gt; 2
+</span><span class='int'>3</span><span class='period'>.</span><span class='id identifier rubyid_gcd'>gcd</span><span class='lparen'>(</span><span class='op'>-</span><span class='int'>7</span><span class='rparen'>)</span>                   <span class='comment'>#=&gt; 1
+</span><span class='lparen'>(</span><span class='lparen'>(</span><span class='int'>1</span><span class='op'>&lt;&lt;</span><span class='int'>31</span><span class='rparen'>)</span><span class='op'>-</span><span class='int'>1</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_gcd'>gcd</span><span class='lparen'>(</span><span class='lparen'>(</span><span class='int'>1</span><span class='op'>&lt;&lt;</span><span class='int'>61</span><span class='rparen'>)</span><span class='op'>-</span><span class='int'>1</span><span class='rparen'>)</span>  <span class='comment'>#=&gt; 1
+</span></code></pre>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+  <div class="docstring">
+  <div class="discussion">
+    
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="" title="Integer (class)">Integer</a></span></tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div>
+
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+1858
+1859
+1860
+1861
+1862
+1863</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'rational.c', line 1858</span>
+
+VALUE
+rb_gcd(VALUE self, VALUE other)
+{
+    other = nurat_int_value(other);
+    return f_gcd(self, other);
+}</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="gcdlcm-instance_method">
+  
+    #<strong>gcdlcm</strong>(other_int)  &#x21d2; <tt><span class='object_link'><a href="Array.html" title="Array (class)">Array</a></span></tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Returns an array with the greatest common divisor and the least common
+multiple of the two integers, [gcd, lcm].</p>
+
+<pre class="code"><code class=""><span class='int'>36</span><span class='period'>.</span><span class='id identifier rubyid_gcdlcm'>gcdlcm</span><span class='lparen'>(</span><span class='int'>60</span><span class='rparen'>)</span>                  <span class='comment'>#=&gt; [12, 180]
+</span><span class='int'>2</span><span class='period'>.</span><span class='id identifier rubyid_gcdlcm'>gcdlcm</span><span class='lparen'>(</span><span class='int'>2</span><span class='rparen'>)</span>                    <span class='comment'>#=&gt; [2, 2]
+</span><span class='int'>3</span><span class='period'>.</span><span class='id identifier rubyid_gcdlcm'>gcdlcm</span><span class='lparen'>(</span><span class='op'>-</span><span class='int'>7</span><span class='rparen'>)</span>                   <span class='comment'>#=&gt; [1, 21]
+</span><span class='lparen'>(</span><span class='lparen'>(</span><span class='int'>1</span><span class='op'>&lt;&lt;</span><span class='int'>31</span><span class='rparen'>)</span><span class='op'>-</span><span class='int'>1</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_gcdlcm'>gcdlcm</span><span class='lparen'>(</span><span class='lparen'>(</span><span class='int'>1</span><span class='op'>&lt;&lt;</span><span class='int'>61</span><span class='rparen'>)</span><span class='op'>-</span><span class='int'>1</span><span class='rparen'>)</span>  <span class='comment'>#=&gt; [1, 4951760154835678088235319297]
+</span></code></pre>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+  <div class="docstring">
+  <div class="discussion">
+    
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="Array.html" title="Array (class)">Array</a></span></tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div>
+
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+1896
+1897
+1898
+1899
+1900
+1901</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'rational.c', line 1896</span>
+
+VALUE
+rb_gcdlcm(VALUE self, VALUE other)
+{
+    other = nurat_int_value(other);
+    return rb_assoc_new(f_gcd(self, other), f_lcm(self, other));
+}</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="integer?-instance_method">
+  
+    #<strong>integer?</strong>  &#x21d2; <tt>true</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Since <code>int</code> is already an Integer, this always returns
+<code>true</code>.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+  <div class="docstring">
+  <div class="discussion">
+    
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>true</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div>
+
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Boolean</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+3117
+3118
+3119
+3120
+3121</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'numeric.c', line 3117</span>
+
+static VALUE
+int_int_p(VALUE num)
+{
+    return Qtrue;
+}</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="lcm-instance_method">
+  
+    #<strong>lcm</strong>(other_int)  &#x21d2; <tt><span class='object_link'><a href="" title="Integer (class)">Integer</a></span></tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Returns the least common multiple of the two integers. The result is always
+positive. 0.lcm(x) and x.lcm(0) return zero.</p>
+
+<pre class="code"><code class=""><span class='int'>36</span><span class='period'>.</span><span class='id identifier rubyid_lcm'>lcm</span><span class='lparen'>(</span><span class='int'>60</span><span class='rparen'>)</span>                  <span class='comment'>#=&gt; 180
+</span><span class='int'>2</span><span class='period'>.</span><span class='id identifier rubyid_lcm'>lcm</span><span class='lparen'>(</span><span class='int'>2</span><span class='rparen'>)</span>                    <span class='comment'>#=&gt; 2
+</span><span class='int'>3</span><span class='period'>.</span><span class='id identifier rubyid_lcm'>lcm</span><span class='lparen'>(</span><span class='op'>-</span><span class='int'>7</span><span class='rparen'>)</span>                   <span class='comment'>#=&gt; 21
+</span><span class='lparen'>(</span><span class='lparen'>(</span><span class='int'>1</span><span class='op'>&lt;&lt;</span><span class='int'>31</span><span class='rparen'>)</span><span class='op'>-</span><span class='int'>1</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_lcm'>lcm</span><span class='lparen'>(</span><span class='lparen'>(</span><span class='int'>1</span><span class='op'>&lt;&lt;</span><span class='int'>61</span><span class='rparen'>)</span><span class='op'>-</span><span class='int'>1</span><span class='rparen'>)</span>  <span class='comment'>#=&gt; 4951760154835678088235319297
+</span></code></pre>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+  <div class="docstring">
+  <div class="discussion">
+    
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="" title="Integer (class)">Integer</a></span></tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div>
+
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+1877
+1878
+1879
+1880
+1881
+1882</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'rational.c', line 1877</span>
+
+VALUE
+rb_lcm(VALUE self, VALUE other)
+{
+    other = nurat_int_value(other);
+    return f_lcm(self, other);
+}</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="magnitude-instance_method">
+  
+    
+      <span class="overload">#<strong>abs</strong>  &#x21d2; <tt><span class='object_link'><a href="" title="Integer (class)">Integer</a></span></tt> </span>
+    
+      <span class="overload">#<strong>magnitude</strong>  &#x21d2; <tt><span class='object_link'><a href="" title="Integer (class)">Integer</a></span></tt> </span>
+    
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Returns the absolute value of <code>int</code>.</p>
+
+<pre class="code"><code class=""><span class='lparen'>(</span><span class='op'>-</span><span class='int'>12345</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_abs'>abs</span>   <span class='comment'>#=&gt; 12345
+</span><span class='op'>-</span><span class='int'>12345</span><span class='period'>.</span><span class='id identifier rubyid_abs'>abs</span>     <span class='comment'>#=&gt; 12345
+</span><span class='int'>12345</span><span class='period'>.</span><span class='id identifier rubyid_abs'>abs</span>      <span class='comment'>#=&gt; 12345
+</span></code></pre>
+
+<p>Integer#magnitude is an alias for Integer#abs.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+  <p class="tag_title">Overloads:</p>
+  <ul class="overload">
+    
+      
+      <li class="overload_item">
+        <span class="signature">#<strong>abs</strong>  &#x21d2; <tt><span class='object_link'><a href="" title="Integer (class)">Integer</a></span></tt> </span>
+        <div class="docstring">
+  <div class="discussion">
+    
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="" title="Integer (class)">Integer</a></span></tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div>
+      </li>
+    
+      
+      <li class="overload_item">
+        <span class="signature">#<strong>magnitude</strong>  &#x21d2; <tt><span class='object_link'><a href="" title="Integer (class)">Integer</a></span></tt> </span>
+        <div class="docstring">
+  <div class="discussion">
+    
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="" title="Integer (class)">Integer</a></span></tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div>
+      </li>
+    
+  </ul>
+
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+4637
+4638
+4639
+4640
+4641
+4642
+4643
+4644
+4645
+4646
+4647</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'numeric.c', line 4637</span>
+
+VALUE
+rb_int_abs(VALUE num)
+{
+    if (FIXNUM_P(num)) {
+	return fix_abs(num);
+    }
+    else if (RB_TYPE_P(num, T_BIGNUM)) {
+	return rb_big_abs(num);
+    }
+    return Qnil;
+}</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="modulo-instance_method">
+  
+    
+      <span class="overload">#<strong>%</strong>(other)  &#x21d2; <tt><span class='object_link'><a href="Object.html" title="Object (class)">Object</a></span></tt> </span>
+    
+      <span class="overload">#<strong>modulo</strong>(other)  &#x21d2; <tt><span class='object_link'><a href="Object.html" title="Object (class)">Object</a></span></tt> </span>
+    
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Returns <code>int</code> modulo <code>other</code>.</p>
+
+<p>See Numeric#divmod for more information.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+3798
+3799
+3800
+3801
+3802
+3803
+3804
+3805
+3806
+3807
+3808</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'numeric.c', line 3798</span>
+
+VALUE
+rb_int_modulo(VALUE x, VALUE y)
+{
+    if (FIXNUM_P(x)) {
+	return fix_mod(x, y);
+    }
+    else if (RB_TYPE_P(x, T_BIGNUM)) {
+	return rb_big_modulo(x, y);
+    }
+    return num_modulo(x, y);
+}</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="next-instance_method">
+  
+    
+      <span class="overload">#<strong>next</strong>  &#x21d2; <tt><span class='object_link'><a href="" title="Integer (class)">Integer</a></span></tt> </span>
+    
+      <span class="overload">#<strong>succ</strong>  &#x21d2; <tt><span class='object_link'><a href="" title="Integer (class)">Integer</a></span></tt> </span>
+    
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Returns the successor of <code>int</code>, i.e. the Integer equal to
+<code>int+1</code>.</p>
+
+<pre class="code ruby"><code class="ruby"><span class='int'>1</span><span class='period'>.</span><span class='id identifier rubyid_next'>next</span>      <span class='comment'>#=&gt; 2
+</span><span class='lparen'>(</span><span class='op'>-</span><span class='int'>1</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_next'>next</span>   <span class='comment'>#=&gt; 0
+</span><span class='int'>1</span><span class='period'>.</span><span class='id identifier rubyid_succ'>succ</span>      <span class='comment'>#=&gt; 2
+</span><span class='lparen'>(</span><span class='op'>-</span><span class='int'>1</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_succ'>succ</span>   <span class='comment'>#=&gt; 0
+</span></code></pre>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+  <p class="tag_title">Overloads:</p>
+  <ul class="overload">
+    
+      
+      <li class="overload_item">
+        <span class="signature">#<strong>next</strong>  &#x21d2; <tt><span class='object_link'><a href="" title="Integer (class)">Integer</a></span></tt> </span>
+        <div class="docstring">
+  <div class="discussion">
+    
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="" title="Integer (class)">Integer</a></span></tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div>
+      </li>
+    
+      
+      <li class="overload_item">
+        <span class="signature">#<strong>succ</strong>  &#x21d2; <tt><span class='object_link'><a href="" title="Integer (class)">Integer</a></span></tt> </span>
+        <div class="docstring">
+  <div class="discussion">
+    
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="" title="Integer (class)">Integer</a></span></tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div>
+      </li>
+    
+  </ul>
+
+
+</div>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="nobits?-instance_method">
+  
+    #<strong>nobits?</strong>(mask)  &#x21d2; <tt>Boolean</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Returns <code>true</code> if no bits of <code>int &amp; mask</code> are 1.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+  <div class="docstring">
+  <div class="discussion">
+    
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Boolean</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div>
+
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Boolean</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+3206
+3207
+3208
+3209
+3210
+3211</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'numeric.c', line 3206</span>
+
+static VALUE
+int_nobits_p(VALUE num, VALUE mask)
+{
+    mask = rb_to_int(mask);
+    return num_zero_p(rb_int_and(num, mask));
+}</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="numerator-instance_method">
+  
+    #<strong>numerator</strong>  &#x21d2; <tt>self</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Returns self.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+  <div class="docstring">
+  <div class="discussion">
+    
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>self</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div>
+
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+2001
+2002
+2003
+2004
+2005</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'rational.c', line 2001</span>
+
+static VALUE
+integer_numerator(VALUE self)
+{
+    return self;
+}</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="odd?-instance_method">
+  
+    #<strong>odd?</strong>  &#x21d2; <tt>Boolean</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Returns <code>true</code> if <code>int</code> is an odd number.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+  <div class="docstring">
+  <div class="discussion">
+    
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Boolean</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div>
+
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Boolean</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+3130
+3131
+3132
+3133
+3134
+3135
+3136
+3137
+3138
+3139
+3140
+3141
+3142
+3143
+3144
+3145</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'numeric.c', line 3130</span>
+
+VALUE
+rb_int_odd_p(VALUE num)
+{
+    if (FIXNUM_P(num)) {
+	if (num &amp; 2) {
+	    return Qtrue;
+	}
+    }
+    else if (RB_TYPE_P(num, T_BIGNUM)) {
+	return rb_big_odd_p(num);
+    }
+    else if (rb_funcall(num, &#39;%&#39;, 1, INT2FIX(2)) != INT2FIX(0)) {
+	return Qtrue;
+    }
+    return Qfalse;
+}</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="ord-instance_method">
+  
+    #<strong>ord</strong>  &#x21d2; <tt>self</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Returns the <code>int</code> itself.</p>
+
+<pre class="code"><code class=""><span class='int'>97</span><span class='period'>.</span><span class='id identifier rubyid_ord'>ord</span>   <span class='comment'>#=&gt; 97
+</span></code></pre>
+
+<p>This method is intended for compatibility to character literals in Ruby
+1.9.</p>
+
+<p>For example, <code>?a.ord</code> returns 97 both in 1.8 and 1.9.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+  <div class="docstring">
+  <div class="discussion">
+    
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>self</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div>
+
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+3363
+3364
+3365
+3366
+3367</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'numeric.c', line 3363</span>
+
+static VALUE
+int_ord(VALUE num)
+{
+    return num;
+}</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="pow-instance_method">
+  
+    
+      <span class="overload">#<strong>pow</strong>(numeric)  &#x21d2; <tt><span class='object_link'><a href="Numeric.html" title="Numeric (class)">Numeric</a></span></tt> </span>
+    
+      <span class="overload">#<strong>pow</strong>(integer, integer)  &#x21d2; <tt><span class='object_link'><a href="" title="Integer (class)">Integer</a></span></tt> </span>
+    
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Returns (modular) exponentiation as:</p>
+
+<pre class="code"><code class=""><span class='id identifier rubyid_a'>a</span><span class='period'>.</span><span class='id identifier rubyid_pow'>pow</span><span class='lparen'>(</span><span class='id identifier rubyid_b'>b</span><span class='rparen'>)</span>     <span class='comment'>#=&gt; same as a**b
+</span><span class='id identifier rubyid_a'>a</span><span class='period'>.</span><span class='id identifier rubyid_pow'>pow</span><span class='lparen'>(</span><span class='id identifier rubyid_b'>b</span><span class='comma'>,</span> <span class='id identifier rubyid_m'>m</span><span class='rparen'>)</span>  <span class='comment'>#=&gt; same as (a**b) % m, but avoids huge temporary values
+</span></code></pre>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+  <p class="tag_title">Overloads:</p>
+  <ul class="overload">
+    
+      
+      <li class="overload_item">
+        <span class="signature">#<strong>pow</strong>(numeric)  &#x21d2; <tt><span class='object_link'><a href="Numeric.html" title="Numeric (class)">Numeric</a></span></tt> </span>
+        <div class="docstring">
+  <div class="discussion">
+    
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="Numeric.html" title="Numeric (class)">Numeric</a></span></tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div>
+      </li>
+    
+      
+      <li class="overload_item">
+        <span class="signature">#<strong>pow</strong>(integer, integer)  &#x21d2; <tt><span class='object_link'><a href="" title="Integer (class)">Integer</a></span></tt> </span>
+        <div class="docstring">
+  <div class="discussion">
+    
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="" title="Integer (class)">Integer</a></span></tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div>
+      </li>
+    
+  </ul>
+
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+7048
+7049
+7050
+7051
+7052
+7053
+7054
+7055
+7056
+7057
+7058
+7059
+7060
+7061
+7062
+7063
+7064
+7065
+7066
+7067
+7068
+7069
+7070
+7071
+7072
+7073
+7074
+7075
+7076
+7077
+7078
+7079
+7080
+7081
+7082
+7083
+7084
+7085
+7086
+7087
+7088
+7089
+7090
+7091
+7092</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'bignum.c', line 7048</span>
+
+VALUE
+rb_int_powm(int const argc, VALUE * const argv, VALUE const num)
+{
+    rb_check_arity(argc, 1, 2);
+
+    if (argc == 1) {
+        return rb_int_pow(num, argv[0]);
+    }
+    else {
+        VALUE const a = num;
+        VALUE const b = argv[0];
+        VALUE m = argv[1];
+        int nega_flg = 0;
+        if ( ! RB_INTEGER_TYPE_P(b)) {
+            rb_raise(rb_eTypeError, &quot;Integer#pow() 2nd argument not allowed unless a 1st argument is integer&quot;);
+        }
+        if (rb_num_negative_int_p(b)) {
+            rb_raise(rb_eRangeError, &quot;Integer#pow() 1st argument cannot be negative when 2nd argument specified&quot;);
+        }
+        if (!RB_INTEGER_TYPE_P(m)) {
+            rb_raise(rb_eTypeError, &quot;Integer#pow() 2nd argument not allowed unless all arguments are integers&quot;);
+        }
+
+        if (rb_num_negative_int_p(m)) {
+            m = rb_funcall(m, idUMinus, 0);
+            nega_flg = 1;
+        }
+
+        if (!rb_num_positive_int_p(m)) {
+            rb_num_zerodiv();
+        }
+        if (FIXNUM_P(m)) {
+            long const half_val = (long)HALF_LONG_MSB;
+            long const mm = FIX2LONG(m);
+            if (mm &lt;= half_val) {
+                return int_pow_tmp1(rb_int_modulo(a, m), b, mm, nega_flg);
+            } else {
+                return int_pow_tmp2(rb_int_modulo(a, m), b, mm, nega_flg);
+            }
+        } else if (RB_TYPE_P(m, T_BIGNUM)) {
+            return int_pow_tmp3(rb_int_modulo(a, m), b, m, nega_flg);
+        }
+    }
+    UNREACHABLE;
+}</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="pred-instance_method">
+  
+    #<strong>pred</strong>  &#x21d2; <tt><span class='object_link'><a href="Object.html" title="Object (class)">Object</a></span></tt> 
+  
+
+  
+
+  
+</h3>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="rationalize-instance_method">
+  
+    #<strong>rationalize</strong>([eps])  &#x21d2; <tt><span class='object_link'><a href="Object.html" title="Object (class)">Object</a></span></tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Returns the value as a rational.  The optional argument <code>eps</code> is
+always ignored.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+  
+
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+2117
+2118
+2119
+2120
+2121
+2122</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'rational.c', line 2117</span>
+
+static VALUE
+integer_rationalize(int argc, VALUE *argv, VALUE self)
+{
+    rb_scan_args(argc, argv, &quot;01&quot;, NULL);
+    return integer_to_r(self);
+}</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="remainder-instance_method">
+  
+    #<strong>remainder</strong>(numeric)  &#x21d2; <tt><span class='object_link'><a href="Object.html" title="Object (class)">Object</a></span></tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Returns the remainder after dividing <code>int</code> by
+<code>numeric</code>.</p>
+
+<p><code>x.remainder(y)</code> means <code>x-y*(x/y).truncate</code>.</p>
+
+<pre class="code"><code class=""><span class='int'>5</span><span class='period'>.</span><span class='id identifier rubyid_remainder'>remainder</span><span class='lparen'>(</span><span class='int'>3</span><span class='rparen'>)</span>     <span class='comment'>#=&gt; 2
+</span><span class='op'>-</span><span class='int'>5</span><span class='period'>.</span><span class='id identifier rubyid_remainder'>remainder</span><span class='lparen'>(</span><span class='int'>3</span><span class='rparen'>)</span>    <span class='comment'>#=&gt; -2
+</span><span class='int'>5</span><span class='period'>.</span><span class='id identifier rubyid_remainder'>remainder</span><span class='lparen'>(</span><span class='op'>-</span><span class='int'>3</span><span class='rparen'>)</span>    <span class='comment'>#=&gt; 2
+</span><span class='op'>-</span><span class='int'>5</span><span class='period'>.</span><span class='id identifier rubyid_remainder'>remainder</span><span class='lparen'>(</span><span class='op'>-</span><span class='int'>3</span><span class='rparen'>)</span>   <span class='comment'>#=&gt; -2
+</span><span class='int'>5</span><span class='period'>.</span><span class='id identifier rubyid_remainder'>remainder</span><span class='lparen'>(</span><span class='float'>1.5</span><span class='rparen'>)</span>   <span class='comment'>#=&gt; 0.5
+</span></code></pre>
+
+<p>See Numeric#divmod.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+  
+
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+3827
+3828
+3829
+3830
+3831
+3832
+3833
+3834
+3835
+3836
+3837</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'numeric.c', line 3827</span>
+
+VALUE
+int_remainder(VALUE x, VALUE y)
+{
+    if (FIXNUM_P(x)) {
+	return num_remainder(x, y);
+    }
+    else if (RB_TYPE_P(x, T_BIGNUM)) {
+	return rb_big_remainder(x, y);
+    }
+    return Qnil;
+}</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="round-instance_method">
+  
+    #<strong>round</strong>([ndigits][, half: mode])  &#x21d2; <tt><span class='object_link'><a href="" title="Integer (class)">Integer</a></span></tt>, <tt><span class='object_link'><a href="Float.html" title="Float (class)">Float</a></span></tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Returns <code>int</code> rounded to the nearest value with a precision of
+<code>ndigits</code> decimal digits (default: 0).</p>
+
+<p>When the precision is negative, the returned value is an integer with at
+least <code>ndigits.abs</code> trailing zeros.</p>
+
+<p>Returns <code>self</code> when <code>ndigits</code> is zero or positive.</p>
+
+<pre class="code"><code class=""><span class='int'>1</span><span class='period'>.</span><span class='id identifier rubyid_round'>round</span>           <span class='comment'>#=&gt; 1
+</span><span class='int'>1</span><span class='period'>.</span><span class='id identifier rubyid_round'>round</span><span class='lparen'>(</span><span class='int'>2</span><span class='rparen'>)</span>        <span class='comment'>#=&gt; 1
+</span><span class='int'>15</span><span class='period'>.</span><span class='id identifier rubyid_round'>round</span><span class='lparen'>(</span><span class='op'>-</span><span class='int'>1</span><span class='rparen'>)</span>      <span class='comment'>#=&gt; 20
+</span><span class='lparen'>(</span><span class='op'>-</span><span class='int'>15</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_round'>round</span><span class='lparen'>(</span><span class='op'>-</span><span class='int'>1</span><span class='rparen'>)</span>   <span class='comment'>#=&gt; -20
+</span></code></pre>
+
+<p>The optional <code>half</code> keyword argument is available similar to
+Float#round.</p>
+
+<pre class="code"><code class=""><span class='int'>25</span><span class='period'>.</span><span class='id identifier rubyid_round'>round</span><span class='lparen'>(</span><span class='op'>-</span><span class='int'>1</span><span class='comma'>,</span> <span class='label'>half:</span> <span class='symbol'>:up</span><span class='rparen'>)</span>      <span class='comment'>#=&gt; 30
+</span><span class='int'>25</span><span class='period'>.</span><span class='id identifier rubyid_round'>round</span><span class='lparen'>(</span><span class='op'>-</span><span class='int'>1</span><span class='comma'>,</span> <span class='label'>half:</span> <span class='symbol'>:down</span><span class='rparen'>)</span>    <span class='comment'>#=&gt; 20
+</span><span class='int'>25</span><span class='period'>.</span><span class='id identifier rubyid_round'>round</span><span class='lparen'>(</span><span class='op'>-</span><span class='int'>1</span><span class='comma'>,</span> <span class='label'>half:</span> <span class='symbol'>:even</span><span class='rparen'>)</span>    <span class='comment'>#=&gt; 20
+</span><span class='int'>35</span><span class='period'>.</span><span class='id identifier rubyid_round'>round</span><span class='lparen'>(</span><span class='op'>-</span><span class='int'>1</span><span class='comma'>,</span> <span class='label'>half:</span> <span class='symbol'>:up</span><span class='rparen'>)</span>      <span class='comment'>#=&gt; 40
+</span><span class='int'>35</span><span class='period'>.</span><span class='id identifier rubyid_round'>round</span><span class='lparen'>(</span><span class='op'>-</span><span class='int'>1</span><span class='comma'>,</span> <span class='label'>half:</span> <span class='symbol'>:down</span><span class='rparen'>)</span>    <span class='comment'>#=&gt; 30
+</span><span class='int'>35</span><span class='period'>.</span><span class='id identifier rubyid_round'>round</span><span class='lparen'>(</span><span class='op'>-</span><span class='int'>1</span><span class='comma'>,</span> <span class='label'>half:</span> <span class='symbol'>:even</span><span class='rparen'>)</span>    <span class='comment'>#=&gt; 40
+</span><span class='lparen'>(</span><span class='op'>-</span><span class='int'>25</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_round'>round</span><span class='lparen'>(</span><span class='op'>-</span><span class='int'>1</span><span class='comma'>,</span> <span class='label'>half:</span> <span class='symbol'>:up</span><span class='rparen'>)</span>   <span class='comment'>#=&gt; -30
+</span><span class='lparen'>(</span><span class='op'>-</span><span class='int'>25</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_round'>round</span><span class='lparen'>(</span><span class='op'>-</span><span class='int'>1</span><span class='comma'>,</span> <span class='label'>half:</span> <span class='symbol'>:down</span><span class='rparen'>)</span> <span class='comment'>#=&gt; -20
+</span><span class='lparen'>(</span><span class='op'>-</span><span class='int'>25</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_round'>round</span><span class='lparen'>(</span><span class='op'>-</span><span class='int'>1</span><span class='comma'>,</span> <span class='label'>half:</span> <span class='symbol'>:even</span><span class='rparen'>)</span> <span class='comment'>#=&gt; -20
+</span></code></pre>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+  <div class="docstring">
+  <div class="discussion">
+    
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="" title="Integer (class)">Integer</a></span></tt>, <tt><span class='object_link'><a href="Float.html" title="Float (class)">Float</a></span></tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div>
+
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+5031
+5032
+5033
+5034
+5035
+5036
+5037
+5038
+5039
+5040
+5041
+5042
+5043
+5044
+5045</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'numeric.c', line 5031</span>
+
+static VALUE
+int_round(int argc, VALUE* argv, VALUE num)
+{
+    int ndigits;
+    int mode;
+    VALUE nd, opt;
+
+    if (!rb_scan_args(argc, argv, &quot;01:&quot;, &amp;nd, &amp;opt)) return num;
+    ndigits = NUM2INT(nd);
+    mode = rb_num_get_rounding_option(opt);
+    if (ndigits &gt;= 0) {
+	return num;
+    }
+    return rb_int_round(num, ndigits, mode);
+}</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="size-instance_method">
+  
+    #<strong>size</strong>  &#x21d2; <tt><span class='object_link'><a href="" title="Integer (class)">Integer</a></span></tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Returns the number of bytes in the machine representation of
+<code>int</code> (machine dependent).</p>
+
+<pre class="code"><code class=""><span class='int'>1</span><span class='period'>.</span><span class='id identifier rubyid_size'>size</span>               <span class='comment'>#=&gt; 8
+</span><span class='op'>-</span><span class='int'>1</span><span class='period'>.</span><span class='id identifier rubyid_size'>size</span>              <span class='comment'>#=&gt; 8
+</span><span class='int'>2147483647</span><span class='period'>.</span><span class='id identifier rubyid_size'>size</span>      <span class='comment'>#=&gt; 8
+</span><span class='lparen'>(</span><span class='int'>256</span><span class='op'>**</span><span class='int'>10</span> <span class='op'>-</span> <span class='int'>1</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_size'>size</span>   <span class='comment'>#=&gt; 10
+</span><span class='lparen'>(</span><span class='int'>256</span><span class='op'>**</span><span class='int'>20</span> <span class='op'>-</span> <span class='int'>1</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_size'>size</span>   <span class='comment'>#=&gt; 20
+</span><span class='lparen'>(</span><span class='int'>256</span><span class='op'>**</span><span class='int'>40</span> <span class='op'>-</span> <span class='int'>1</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_size'>size</span>   <span class='comment'>#=&gt; 40
+</span></code></pre>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+  <div class="docstring">
+  <div class="discussion">
+    
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="" title="Integer (class)">Integer</a></span></tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div>
+
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+4671
+4672
+4673
+4674
+4675
+4676
+4677
+4678
+4679
+4680
+4681</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'numeric.c', line 4671</span>
+
+static VALUE
+int_size(VALUE num)
+{
+    if (FIXNUM_P(num)) {
+	return fix_size(num);
+    }
+    else if (RB_TYPE_P(num, T_BIGNUM)) {
+	return rb_big_size_m(num);
+    }
+    return Qnil;
+}</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="succ-instance_method">
+  
+    
+      <span class="overload">#<strong>next</strong>  &#x21d2; <tt><span class='object_link'><a href="" title="Integer (class)">Integer</a></span></tt> </span>
+    
+      <span class="overload">#<strong>succ</strong>  &#x21d2; <tt><span class='object_link'><a href="" title="Integer (class)">Integer</a></span></tt> </span>
+    
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Returns the successor of <code>int</code>, i.e. the Integer equal to
+<code>int+1</code>.</p>
+
+<pre class="code ruby"><code class="ruby"><span class='int'>1</span><span class='period'>.</span><span class='id identifier rubyid_next'>next</span>      <span class='comment'>#=&gt; 2
+</span><span class='lparen'>(</span><span class='op'>-</span><span class='int'>1</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_next'>next</span>   <span class='comment'>#=&gt; 0
+</span><span class='int'>1</span><span class='period'>.</span><span class='id identifier rubyid_succ'>succ</span>      <span class='comment'>#=&gt; 2
+</span><span class='lparen'>(</span><span class='op'>-</span><span class='int'>1</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_succ'>succ</span>   <span class='comment'>#=&gt; 0
+</span></code></pre>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+  <p class="tag_title">Overloads:</p>
+  <ul class="overload">
+    
+      
+      <li class="overload_item">
+        <span class="signature">#<strong>next</strong>  &#x21d2; <tt><span class='object_link'><a href="" title="Integer (class)">Integer</a></span></tt> </span>
+        <div class="docstring">
+  <div class="discussion">
+    
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="" title="Integer (class)">Integer</a></span></tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div>
+      </li>
+    
+      
+      <li class="overload_item">
+        <span class="signature">#<strong>succ</strong>  &#x21d2; <tt><span class='object_link'><a href="" title="Integer (class)">Integer</a></span></tt> </span>
+        <div class="docstring">
+  <div class="discussion">
+    
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="" title="Integer (class)">Integer</a></span></tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div>
+      </li>
+    
+  </ul>
+
+
+</div>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="times-instance_method">
+  
+    
+      <span class="overload">#<strong>times</strong> {|i| ... } &#x21d2; <tt>self</tt> </span>
+    
+      <span class="overload">#<strong>times</strong>  &#x21d2; <tt><span class='object_link'><a href="Object.html" title="Object (class)">Object</a></span></tt> </span>
+    
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Iterates the given block <code>int</code> times, passing in values from
+zero to <code>int - 1</code>.</p>
+
+<p>If no block is given, an Enumerator is returned instead.</p>
+
+<pre class="code"><code class=""><span class='int'>5</span><span class='period'>.</span><span class='id identifier rubyid_times'>times</span> <span class='lbrace'>{</span><span class='op'>|</span><span class='id identifier rubyid_i'>i</span><span class='op'>|</span> <span class='id identifier rubyid_print'>print</span> <span class='id identifier rubyid_i'>i</span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'> </span><span class='tstring_end'>&quot;</span></span> <span class='rbrace'>}</span>   <span class='comment'>#=&gt; 0 1 2 3 4
+</span></code></pre>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+  <p class="tag_title">Overloads:</p>
+  <ul class="overload">
+    
+      
+      <li class="overload_item">
+        <span class="signature">#<strong>times</strong> {|i| ... } &#x21d2; <tt>self</tt> </span>
+        <div class="docstring">
+  <div class="discussion">
+    
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Yields:</p>
+<ul class="yield">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="Numeric.html#i-instance_method" title="Numeric#i (method)">i</a></span></tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>self</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div>
+      </li>
+    
+      
+  </ul>
+
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+4974
+4975
+4976
+4977
+4978
+4979
+4980
+4981
+4982
+4983
+4984
+4985
+4986
+4987
+4988
+4989
+4990
+4991
+4992
+4993
+4994
+4995
+4996
+4997</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'numeric.c', line 4974</span>
+
+static VALUE
+int_dotimes(VALUE num)
+{
+    RETURN_SIZED_ENUMERATOR(num, 0, 0, int_dotimes_size);
+
+    if (FIXNUM_P(num)) {
+	long i, end;
+
+	end = FIX2LONG(num);
+	for (i=0; i&lt;end; i++) {
+	    rb_yield_1(LONG2FIX(i));
+	}
+    }
+    else {
+	VALUE i = INT2FIX(0);
+
+	for (;;) {
+	    if (!RTEST(rb_funcall(i, &#39;&lt;&#39;, 1, num))) break;
+	    rb_yield(i);
+	    i = rb_funcall(i, &#39;+&#39;, 1, INT2FIX(1));
+	}
+    }
+    return num;
+}</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="to_f-instance_method">
+  
+    #<strong>to_f</strong>  &#x21d2; <tt><span class='object_link'><a href="Float.html" title="Float (class)">Float</a></span></tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Converts <code>int</code> to a Float.  If <code>int</code> doesn&#39;t fit
+in a Float, the result is infinity.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+  <div class="docstring">
+  <div class="discussion">
+    
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="Float.html" title="Float (class)">Float</a></span></tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div>
+
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+4593
+4594
+4595
+4596
+4597
+4598
+4599
+4600
+4601
+4602
+4603
+4604
+4605
+4606
+4607
+4608
+4609</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'numeric.c', line 4593</span>
+
+static VALUE
+int_to_f(VALUE num)
+{
+    double val;
+
+    if (FIXNUM_P(num)) {
+	val = (double)FIX2LONG(num);
+    }
+    else if (RB_TYPE_P(num, T_BIGNUM)) {
+	val = rb_big2dbl(num);
+    }
+    else {
+	rb_raise(rb_eNotImpError, &quot;Unknown subclass for to_f: %s&quot;, rb_obj_classname(num));
+    }
+
+    return DBL2NUM(val);
+}</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="to_i-instance_method">
+  
+    
+      <span class="overload">#<strong>to_i</strong>  &#x21d2; <tt><span class='object_link'><a href="" title="Integer (class)">Integer</a></span></tt> </span>
+    
+      <span class="overload">#<strong>to_int</strong>  &#x21d2; <tt><span class='object_link'><a href="" title="Integer (class)">Integer</a></span></tt> </span>
+    
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Since <code>int</code> is already an Integer, returns <code>self</code>.</p>
+
+<p>#to_int is an alias for #to_i.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+  <p class="tag_title">Overloads:</p>
+  <ul class="overload">
+    
+      
+      <li class="overload_item">
+        <span class="signature">#<strong>to_i</strong>  &#x21d2; <tt><span class='object_link'><a href="" title="Integer (class)">Integer</a></span></tt> </span>
+        <div class="docstring">
+  <div class="discussion">
+    
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="" title="Integer (class)">Integer</a></span></tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div>
+      </li>
+    
+      
+      <li class="overload_item">
+        <span class="signature">#<strong>to_int</strong>  &#x21d2; <tt><span class='object_link'><a href="" title="Integer (class)">Integer</a></span></tt> </span>
+        <div class="docstring">
+  <div class="discussion">
+    
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="" title="Integer (class)">Integer</a></span></tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div>
+      </li>
+    
+  </ul>
+
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+3104
+3105
+3106
+3107
+3108</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'numeric.c', line 3104</span>
+
+static VALUE
+int_to_i(VALUE num)
+{
+    return num;
+}</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="to_int-instance_method">
+  
+    
+      <span class="overload">#<strong>to_i</strong>  &#x21d2; <tt><span class='object_link'><a href="" title="Integer (class)">Integer</a></span></tt> </span>
+    
+      <span class="overload">#<strong>to_int</strong>  &#x21d2; <tt><span class='object_link'><a href="" title="Integer (class)">Integer</a></span></tt> </span>
+    
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Since <code>int</code> is already an Integer, returns <code>self</code>.</p>
+
+<p>#to_int is an alias for #to_i.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+  <p class="tag_title">Overloads:</p>
+  <ul class="overload">
+    
+      
+      <li class="overload_item">
+        <span class="signature">#<strong>to_i</strong>  &#x21d2; <tt><span class='object_link'><a href="" title="Integer (class)">Integer</a></span></tt> </span>
+        <div class="docstring">
+  <div class="discussion">
+    
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="" title="Integer (class)">Integer</a></span></tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div>
+      </li>
+    
+      
+      <li class="overload_item">
+        <span class="signature">#<strong>to_int</strong>  &#x21d2; <tt><span class='object_link'><a href="" title="Integer (class)">Integer</a></span></tt> </span>
+        <div class="docstring">
+  <div class="discussion">
+    
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="" title="Integer (class)">Integer</a></span></tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div>
+      </li>
+    
+  </ul>
+
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+3104
+3105
+3106
+3107
+3108</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'numeric.c', line 3104</span>
+
+static VALUE
+int_to_i(VALUE num)
+{
+    return num;
+}</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="to_r-instance_method">
+  
+    #<strong>to_r</strong>  &#x21d2; <tt><span class='object_link'><a href="Object.html" title="Object (class)">Object</a></span></tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Returns the value as a rational.</p>
+
+<pre class="code"><code class=""><span class='int'>1</span><span class='period'>.</span><span class='id identifier rubyid_to_r'>to_r</span>        <span class='comment'>#=&gt; (1/1)
+</span><span class='lparen'>(</span><span class='int'>1</span><span class='op'>&lt;&lt;</span><span class='int'>64</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_to_r'>to_r</span>  <span class='comment'>#=&gt; (18446744073709551616/1)
+</span></code></pre>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+  
+
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+2104
+2105
+2106
+2107
+2108</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'rational.c', line 2104</span>
+
+static VALUE
+integer_to_r(VALUE self)
+{
+    return rb_rational_new1(self);
+}</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="to_s-instance_method">
+  
+    #<strong>to_s</strong>(base = 10)  &#x21d2; <tt><span class='object_link'><a href="String.html" title="String (class)">String</a></span></tt> 
+  
+
+  
+    <span class="aliases">Also known as:
+    <span class="names"><span id='inspect-instance_method'>inspect</span></span>
+    </span>
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Returns a string containing the place-value representation of
+<code>int</code> with radix <code>base</code> (between 2 and 36).</p>
+
+<pre class="code"><code class=""><span class='int'>12345</span><span class='period'>.</span><span class='id identifier rubyid_to_s'>to_s</span>       <span class='comment'>#=&gt; &quot;12345&quot;
+</span><span class='int'>12345</span><span class='period'>.</span><span class='id identifier rubyid_to_s'>to_s</span><span class='lparen'>(</span><span class='int'>2</span><span class='rparen'>)</span>    <span class='comment'>#=&gt; &quot;11000000111001&quot;
+</span><span class='int'>12345</span><span class='period'>.</span><span class='id identifier rubyid_to_s'>to_s</span><span class='lparen'>(</span><span class='int'>8</span><span class='rparen'>)</span>    <span class='comment'>#=&gt; &quot;30071&quot;
+</span><span class='int'>12345</span><span class='period'>.</span><span class='id identifier rubyid_to_s'>to_s</span><span class='lparen'>(</span><span class='int'>10</span><span class='rparen'>)</span>   <span class='comment'>#=&gt; &quot;12345&quot;
+</span><span class='int'>12345</span><span class='period'>.</span><span class='id identifier rubyid_to_s'>to_s</span><span class='lparen'>(</span><span class='int'>16</span><span class='rparen'>)</span>   <span class='comment'>#=&gt; &quot;3039&quot;
+</span><span class='int'>12345</span><span class='period'>.</span><span class='id identifier rubyid_to_s'>to_s</span><span class='lparen'>(</span><span class='int'>36</span><span class='rparen'>)</span>   <span class='comment'>#=&gt; &quot;9ix&quot;
+</span><span class='int'>78546939656932</span><span class='period'>.</span><span class='id identifier rubyid_to_s'>to_s</span><span class='lparen'>(</span><span class='int'>36</span><span class='rparen'>)</span>  <span class='comment'>#=&gt; &quot;rubyrules&quot;
+</span></code></pre>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+  <div class="docstring">
+  <div class="discussion">
+    
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="String.html" title="String (class)">String</a></span></tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div>
+
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+3459
+3460
+3461
+3462
+3463
+3464
+3465
+3466
+3467
+3468
+3469</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'numeric.c', line 3459</span>
+
+static VALUE
+int_to_s(int argc, VALUE *argv, VALUE x)
+{
+    int base;
+
+    if (rb_check_arity(argc, 0, 1))
+	base = NUM2INT(argv[0]);
+    else
+	base = 10;
+    return rb_int2str(x, base);
+}</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="truncate-instance_method">
+  
+    #<strong>truncate</strong>([ndigits])  &#x21d2; <tt><span class='object_link'><a href="" title="Integer (class)">Integer</a></span></tt>, <tt><span class='object_link'><a href="Float.html" title="Float (class)">Float</a></span></tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Returns <code>int</code> truncated (toward zero) to a precision of
+<code>ndigits</code> decimal digits (default: 0).</p>
+
+<p>When the precision is negative, the returned value is an integer with at
+least <code>ndigits.abs</code> trailing zeros.</p>
+
+<p>Returns <code>self</code> when <code>ndigits</code> is zero or positive.</p>
+
+<pre class="code"><code class=""><span class='int'>1</span><span class='period'>.</span><span class='id identifier rubyid_truncate'>truncate</span>           <span class='comment'>#=&gt; 1
+</span><span class='int'>1</span><span class='period'>.</span><span class='id identifier rubyid_truncate'>truncate</span><span class='lparen'>(</span><span class='int'>2</span><span class='rparen'>)</span>        <span class='comment'>#=&gt; 1
+</span><span class='int'>18</span><span class='period'>.</span><span class='id identifier rubyid_truncate'>truncate</span><span class='lparen'>(</span><span class='op'>-</span><span class='int'>1</span><span class='rparen'>)</span>      <span class='comment'>#=&gt; 10
+</span><span class='lparen'>(</span><span class='op'>-</span><span class='int'>18</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_truncate'>truncate</span><span class='lparen'>(</span><span class='op'>-</span><span class='int'>1</span><span class='rparen'>)</span>   <span class='comment'>#=&gt; -10
+</span></code></pre>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+  <div class="docstring">
+  <div class="discussion">
+    
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="" title="Integer (class)">Integer</a></span></tt>, <tt><span class='object_link'><a href="Float.html" title="Float (class)">Float</a></span></tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div>
+
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+5130
+5131
+5132
+5133
+5134
+5135
+5136
+5137
+5138
+5139
+5140
+5141</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'numeric.c', line 5130</span>
+
+static VALUE
+int_truncate(int argc, VALUE* argv, VALUE num)
+{
+    int ndigits;
+
+    if (!rb_check_arity(argc, 0, 1)) return num;
+    ndigits = NUM2INT(argv[0]);
+    if (ndigits &gt;= 0) {
+	return num;
+    }
+    return rb_int_truncate(num, ndigits);
+}</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="upto-instance_method">
+  
+    
+      <span class="overload">#<strong>upto</strong>(limit) {|i| ... } &#x21d2; <tt>self</tt> </span>
+    
+      <span class="overload">#<strong>upto</strong>(limit)  &#x21d2; <tt><span class='object_link'><a href="Object.html" title="Object (class)">Object</a></span></tt> </span>
+    
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Iterates the given block, passing in integer values from <code>int</code>
+up to and including <code>limit</code>.</p>
+
+<p>If no block is given, an Enumerator is returned instead.</p>
+
+<pre class="code"><code class=""><span class='int'>5</span><span class='period'>.</span><span class='id identifier rubyid_upto'>upto</span><span class='lparen'>(</span><span class='int'>10</span><span class='rparen'>)</span> <span class='lbrace'>{</span><span class='op'>|</span><span class='id identifier rubyid_i'>i</span><span class='op'>|</span> <span class='id identifier rubyid_print'>print</span> <span class='id identifier rubyid_i'>i</span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'> </span><span class='tstring_end'>&quot;</span></span> <span class='rbrace'>}</span>   <span class='comment'>#=&gt; 5 6 7 8 9 10
+</span></code></pre>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+  <p class="tag_title">Overloads:</p>
+  <ul class="overload">
+    
+      
+      <li class="overload_item">
+        <span class="signature">#<strong>upto</strong>(limit) {|i| ... } &#x21d2; <tt>self</tt> </span>
+        <div class="docstring">
+  <div class="discussion">
+    
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Yields:</p>
+<ul class="yield">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="Numeric.html#i-instance_method" title="Numeric#i (method)">i</a></span></tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>self</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div>
+      </li>
+    
+      
+  </ul>
+
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+4878
+4879
+4880
+4881
+4882
+4883
+4884
+4885
+4886
+4887
+4888
+4889
+4890
+4891
+4892
+4893
+4894
+4895
+4896
+4897
+4898
+4899
+4900</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'numeric.c', line 4878</span>
+
+static VALUE
+int_upto(VALUE from, VALUE to)
+{
+    RETURN_SIZED_ENUMERATOR(from, 1, &amp;to, int_upto_size);
+    if (FIXNUM_P(from) &amp;&amp; FIXNUM_P(to)) {
+	long i, end;
+
+	end = FIX2LONG(to);
+	for (i = FIX2LONG(from); i &lt;= end; i++) {
+	    rb_yield(LONG2FIX(i));
+	}
+    }
+    else {
+	VALUE i = from, c;
+
+	while (!(c = rb_funcall(i, &#39;&gt;&#39;, 1, to))) {
+	    rb_yield(i);
+	    i = rb_funcall(i, &#39;+&#39;, 1, INT2FIX(1));
+	}
+	if (NIL_P(c)) rb_cmperr(i, to);
+    }
+    return from;
+}</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="|-instance_method">
+  
+    #<strong>|</strong>(other_int)  &#x21d2; <tt><span class='object_link'><a href="" title="Integer (class)">Integer</a></span></tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Bitwise OR.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+  <div class="docstring">
+  <div class="discussion">
+    
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="" title="Integer (class)">Integer</a></span></tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div>
+
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+4387
+4388
+4389
+4390
+4391
+4392
+4393
+4394
+4395
+4396
+4397</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'numeric.c', line 4387</span>
+
+static VALUE
+int_or(VALUE x, VALUE y)
+{
+    if (FIXNUM_P(x)) {
+	return fix_or(x, y);
+    }
+    else if (RB_TYPE_P(x, T_BIGNUM)) {
+	return rb_big_or(x, y);
+    }
+    return Qnil;
+}</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="~-instance_method">
+  
+    #<strong>~</strong>  &#x21d2; <tt><span class='object_link'><a href="" title="Integer (class)">Integer</a></span></tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>One&#39;s complement: returns a number where each bit is flipped.</p>
+
+<p>Inverts the bits in an Integer. As integers are conceptually of infinite
+length, the result acts as if it had an infinite number of one bits to the
+left. In hex representations, this is displayed as two periods to the left
+of the digits.</p>
+
+<pre class="code"><code class=""><span class='id identifier rubyid_sprintf'>sprintf</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>%X</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='op'>~</span><span class='int'>0x1122334455</span><span class='rparen'>)</span>    <span class='comment'>#=&gt; &quot;..FEEDDCCBBAA&quot;
+</span></code></pre>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+  <div class="docstring">
+  <div class="discussion">
+    
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="" title="Integer (class)">Integer</a></span></tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div>
+
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+4288
+4289
+4290
+4291
+4292
+4293
+4294
+4295
+4296
+4297
+4298</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'numeric.c', line 4288</span>
+
+static VALUE
+int_comp(VALUE num)
+{
+    if (FIXNUM_P(num)) {
+	return fix_comp(num);
+    }
+    else if (RB_TYPE_P(num, T_BIGNUM)) {
+	return rb_big_comp(num);
+    }
+    return Qnil;
+}</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+  </div>
+
+</div>
+
+      <div id="footer">
+  Generated on Mon Feb 26 22:23:24 2018 by
+  <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
+  0.9.12 (ruby-2.4.2).
+</div>
+
+    </div>
+  </body>
+</html>

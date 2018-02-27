@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>
+  Module: English
+  
+    &mdash; Documentation by YARD 0.9.12
+  
+</title>
+
+  <link rel="stylesheet" href="css/style.css" type="text/css" charset="utf-8" />
+
+  <link rel="stylesheet" href="css/common.css" type="text/css" charset="utf-8" />
+
+<script type="text/javascript" charset="utf-8">
+  pathId = "English";
+  relpath = '';
+</script>
+
+
+  <script type="text/javascript" charset="utf-8" src="js/jquery.js"></script>
+
+  <script type="text/javascript" charset="utf-8" src="js/app.js"></script>
+
+
+  </head>
+  <body>
+    <div class="nav_wrap">
+      <iframe id="nav" src="class_list.html?1"></iframe>
+      <div id="resizer"></div>
+    </div>
+
+    <div id="main" tabindex="-1">
+      <div id="header">
+        <div id="menu">
+  
+    <a href="_index.html">Index (E)</a> &raquo;
+    
+    
+    <span class="title">English</span>
+  
+</div>
+
+        <div id="search">
+  
+    <a class="full_list_link" id="class_list_link"
+        href="class_list.html">
+
+        <svg width="24" height="24">
+          <rect x="0" y="4" width="24" height="4" rx="1" ry="1"></rect>
+          <rect x="0" y="12" width="24" height="4" rx="1" ry="1"></rect>
+          <rect x="0" y="20" width="24" height="4" rx="1" ry="1"></rect>
+        </svg>
+    </a>
+  
+</div>
+        <div class="clear"></div>
+      </div>
+
+      <div id="content"><h1>Module: English
+  
+  
+  
+</h1>
+<div class="box_info">
+  
+
+  
+  
+  
+  
+  
+
+  
+
+  
+  <dl>
+    <dt>Defined in:</dt>
+    <dd>lib/English.rb</dd>
+  </dl>
+  
+</div>
+
+<h2>Overview</h2><div class="docstring">
+  <div class="discussion">
+    
+<p>Include the English library file in a Ruby script, and you can</p>
+
+<pre class="code ruby"><code class="ruby">reference the global variables such as \VAR{\$\_} using less
+cryptic names, listed in the following table.% \vref{tab:english}.
+
+Without &#39;English&#39;:
+
+    $\ = &#39; -- &#39;
+    &quot;waterbuffalo&quot; =~ /buff/
+    print $&#39;, $$, &quot;\n&quot;
+
+With English:
+
+    require &quot;English&quot;
+
+    $OUTPUT_FIELD_SEPARATOR = &#39; -- &#39;
+    &quot;waterbuffalo&quot; =~ /buff/
+    print $POSTMATCH, $PID, &quot;\n&quot;
+
+Below is a full list of descriptive aliases and their associated global
+variable:
+
+$ERROR_INFO::              $!
+$ERROR_POSITION::          $@
+$FS::                      $;
+$FIELD_SEPARATOR::         $;
+$OFS::                     $,
+$OUTPUT_FIELD_SEPARATOR::  $,
+$RS::                      $/
+$INPUT_RECORD_SEPARATOR::  $/
+$ORS::                     $\
+$OUTPUT_RECORD_SEPARATOR:: $\
+$INPUT_LINE_NUMBER::       $.
+$NR::                      $.
+$LAST_READ_LINE::          $_
+$DEFAULT_OUTPUT::          $&gt;
+$DEFAULT_INPUT::           $&lt;
+$PID::                     $$
+$PROCESS_ID::              $$
+$CHILD_STATUS::            $?
+$LAST_MATCH_INFO::         $~
+$IGNORECASE::              $=
+$ARGV::                    $*
+$MATCH::                   $&amp;
+$PREMATCH::                $`
+$POSTMATCH::               $&#39;
+$LAST_PAREN_MATCH::        $+</code></pre>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div>
+
+
+
+
+
+
+
+
+</div>
+
+      <div id="footer">
+  Generated on Mon Feb 26 22:17:32 2018 by
+  <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
+  0.9.12 (ruby-2.4.2).
+</div>
+
+    </div>
+  </body>
+</html>
